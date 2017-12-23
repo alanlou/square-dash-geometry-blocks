@@ -7,83 +7,87 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 class GameScene: SKScene {
+    // super node containing the gamelayer and pauselayer
+    let gameLayer = SKNode()
+    let tileLayer = SKNode()
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    // number
+    let NumColumns = 9
+    let NumRows = 9
+    
+    let boardSpacing = CGFloat(20.0)
+    let sectionSpacing = CGFloat(5.0)
+    let cellSpacing = CGFloat(3.0)
+    
+    let boardRect: CGRect
+    let tileWidth: CGFloat
+    
+    //MARK:- Initialization
+    override init(size: CGSize) {
+        boardRect = CGRect(x:0, y:size.height/2-size.width/2, width:size.width, height:size.width)
+        tileWidth = (boardRect.size.width - boardSpacing*2.0 - sectionSpacing*2.0 - cellSpacing*6.0)/9.0
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder) is not used in this app")
+    }
     
     override func didMove(to view: SKView) {
+        self.backgroundColor = ColorCategory.BackgroundColor
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
+        /*** set up game layer ***/
+        self.addChild(gameLayer)
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        /*** set up tile layer ***/
+        let layerPosition = CGPoint(x: 0, y: size.height/2-size.width/2)
+        tileLayer.position = layerPosition
+        gameLayer.addChild(tileLayer)
+        addTiles()
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
+        
+        
+    }
+    
+    //MARK:- Set Up Board
+    func addTiles() {
+        for row in 0..<NumRows {
+            for col in 0..<NumColumns {
+                let tileNode = TileNode(color: ColorCategory.TileColor)
+                tileNode.size = CGSize(width: tileWidth, height: tileWidth)
+                tileNode.position = pointInTileLayerFor(column: col, row: row)
+                tileLayer.addChild(tileNode)
+            }
         }
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+    //MARK:- Helper Functions
+    func pointInTileLayerFor(column: Int, row: Int) -> CGPoint {
+        var xCoord = CGFloat(0.0)
+        var yCoord = CGFloat(0.0)
+        
+        switch column {
+        case (0...2):
+            xCoord = CGFloat(column)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing
+        case (3...5):
+            xCoord = CGFloat(column)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing + sectionSpacing
+        case (6...8):
+            xCoord = CGFloat(column)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing + sectionSpacing*CGFloat(2.0)
+        default: break
         }
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        switch row {
+        case (0...2):
+            yCoord = CGFloat(row)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing
+        case (3...5):
+            yCoord = CGFloat(row)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing + sectionSpacing
+        case (6...8):
+            yCoord = CGFloat(row)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing + sectionSpacing*CGFloat(2.0)
+        default: break
+        }
+        
+        return CGPoint(x: xCoord, y: yCoord)
     }
 }
