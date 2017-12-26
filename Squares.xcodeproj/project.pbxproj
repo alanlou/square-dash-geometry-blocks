@@ -14,11 +14,10 @@
 		4E3F6D4A1FEB9C9E00C9DA84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F6D491FEB9C9E00C9DA84 /* Assets.xcassets */; };
 		4E3F6D4D1FEB9C9E00C9DA84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F6D4B1FEB9C9E00C9DA84 /* LaunchScreen.storyboard */; };
 		4E3F6D551FEB9DEE00C9DA84 /* DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */; };
-		4E3F6D571FEDB12800C9DA84 /* BlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D561FEDB12800C9DA84 /* BlockCell.swift */; };
+		4E3F6D571FEDB12800C9DA84 /* BlockCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D561FEDB12800C9DA84 /* BlockCellNode.swift */; };
 		4E3F6D591FEDB2B200C9DA84 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */; };
-		4E3F6D5B1FEE405300C9DA84 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D5A1FEE405300C9DA84 /* Level.swift */; };
 		4E3F6D621FEF165800C9DA84 /* TileNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D611FEF165800C9DA84 /* TileNode.swift */; };
-		4E3F6D631FEF1E9100C9DA84 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F6D4E1FEB9C9E00C9DA84 /* Info.plist */; };
+		4E3F6D651FEF32BE00C9DA84 /* OneBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D641FEF32BE00C9DA84 /* OneBlockNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,10 +30,10 @@
 		4E3F6D4C1FEB9C9E00C9DA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E3F6D4E1FEB9C9E00C9DA84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValues.swift; sourceTree = "<group>"; };
-		4E3F6D561FEDB12800C9DA84 /* BlockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCell.swift; sourceTree = "<group>"; };
+		4E3F6D561FEDB12800C9DA84 /* BlockCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCellNode.swift; sourceTree = "<group>"; };
 		4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
-		4E3F6D5A1FEE405300C9DA84 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		4E3F6D611FEF165800C9DA84 /* TileNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileNode.swift; sourceTree = "<group>"; };
+		4E3F6D641FEF32BE00C9DA84 /* OneBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneBlockNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +79,9 @@
 		4E3F6D5C1FEE532F00C9DA84 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4E3F6D5A1FEE405300C9DA84 /* Level.swift */,
-				4E3F6D561FEDB12800C9DA84 /* BlockCell.swift */,
 				4E3F6D611FEF165800C9DA84 /* TileNode.swift */,
+				4E3F6D561FEDB12800C9DA84 /* BlockCellNode.swift */,
+				4E3F6D641FEF32BE00C9DA84 /* OneBlockNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,7 +165,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E3F6D631FEF1E9100C9DA84 /* Info.plist in Resources */,
 				4E3F6D481FEB9C9E00C9DA84 /* Main.storyboard in Resources */,
 				4E3F6D4A1FEB9C9E00C9DA84 /* Assets.xcassets in Resources */,
 				4E3F6D4D1FEB9C9E00C9DA84 /* LaunchScreen.storyboard in Resources */,
@@ -181,13 +179,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E3F6D431FEB9C9E00C9DA84 /* GameScene.swift in Sources */,
-				4E3F6D5B1FEE405300C9DA84 /* Level.swift in Sources */,
 				4E3F6D591FEDB2B200C9DA84 /* Array2D.swift in Sources */,
 				4E3F6D451FEB9C9E00C9DA84 /* GameViewController.swift in Sources */,
 				4E3F6D3D1FEB9C9E00C9DA84 /* AppDelegate.swift in Sources */,
 				4E3F6D621FEF165800C9DA84 /* TileNode.swift in Sources */,
+				4E3F6D651FEF32BE00C9DA84 /* OneBlockNode.swift in Sources */,
 				4E3F6D551FEB9DEE00C9DA84 /* DefaultValues.swift in Sources */,
-				4E3F6D571FEDB12800C9DA84 /* BlockCell.swift in Sources */,
+				4E3F6D571FEDB12800C9DA84 /* BlockCellNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
