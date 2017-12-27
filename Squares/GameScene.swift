@@ -13,9 +13,13 @@ class GameScene: SKScene, OneBlockNodeDelegate {
     let gameLayer = SKNode()
     let boardLayer = SKNode()
     
+    // board 2D array
+    var boardArray = Array2D<SKColor>(columns: 9, rows: 9)
+    
     // numbers
     let NumColumns: Int = 9
     let NumRows: Int = 9
+    var bottomBlockNum: Int = 3
     
     let boardSpacing: CGFloat = 30.0
     let sectionSpacing: CGFloat = 17.0
@@ -38,13 +42,13 @@ class GameScene: SKScene, OneBlockNodeDelegate {
     
     override func didMove(to view: SKView) {
         self.backgroundColor = ColorCategory.BackgroundColor
+        self.view?.isMultipleTouchEnabled = false
         
         /*** set up game layer ***/
         self.addChild(gameLayer)
         
         /*** set up board layer ***/
-        let layerPosition = CGPoint(x: boardRect.minX, y: boardRect.minY)
-        boardLayer.position = layerPosition
+        boardLayer.position = CGPoint(x: boardRect.minX, y: boardRect.minY)
         gameLayer.addChild(boardLayer)
         
         /*** add tiles and bottom blocks ***/
@@ -58,7 +62,8 @@ class GameScene: SKScene, OneBlockNodeDelegate {
             for col in 0..<NumColumns {
                 let tileNode = TileNode(color: ColorCategory.TileColor)
                 tileNode.size = CGSize(width: tileWidth, height: tileWidth)
-                tileNode.position = pointInTileLayerFor(column: col, row: row)
+                tileNode.position = pointInBoardLayerFor(column: col, row: row)
+                tileNode.name = "tile\(col)\(row)"
                 boardLayer.addChild(tileNode)
             }
         }
@@ -81,26 +86,85 @@ class GameScene: SKScene, OneBlockNodeDelegate {
         bottomBlock2.position = bottomBlock2.getBlockPosition()
         bottomBlock3.position = bottomBlock3.getBlockPosition()
         
+        // set delegate
+        bottomBlock1.blockDelegate = self
+        bottomBlock2.blockDelegate = self
+        bottomBlock3.blockDelegate = self
+        
+        // add blocks with animation
+        bottomBlock1.setScale(0.0)
+        bottomBlock2.setScale(0.0)
+        bottomBlock3.setScale(0.0)
+        
         gameLayer.addChild(bottomBlock1)
         gameLayer.addChild(bottomBlock2)
         gameLayer.addChild(bottomBlock3)
+        
+        let scaleUp = SKAction.scale(to: 0.6, duration: 0.15)
+        bottomBlock1.run(scaleUp)
+        bottomBlock2.run(scaleUp)
+        bottomBlock3.run(scaleUp)
+        
     }
     
     //MARK:- BlockNodeDelegate
     func oneBlockWasReleased(sender: OneBlockNode) {
-        let releasePosition = sender.getReleasePosition()
-        guard let releasePosition = releasePosition else {
+        guard let releasePosition = sender.getReleasePosition() else {
             return
         }
         
-        let (rowNum, colNum) = rowAndColFor(touchPosition: releasePosition)
+        let posInBoardLayer = convert(releasePosition, to: boardLayer)
+        let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+        
         print(releasePosition)
+        print(posInBoardLayer)
+        // 124.0
+        
         print(rowNum)
         print(colNum)
+        
+        /*** put the block in board ***/
+        if let colNum = colNum, let rowNum = rowNum {
+            // already a block in place
+            if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                sender.setNodeAt(positionInScreen: nil)
+                return
+            }
+            
+            let positionInBoard = pointInBoardLayerFor(column: colNum, row: rowNum)
+            let positionInScreen = CGPoint(x: positionInBoard.x + boardLayer.position.x - gameLayer.position.x,
+                                           y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y)
+            sender.setNodeAt(positionInScreen: positionInScreen)
+            bottomBlockNum = bottomBlockNum-1
+            
+            // put new blocks
+            if bottomBlockNum == 0 {
+                addBottomBlocks()
+                bottomBlockNum = 3
+            }
+        } else {
+            /*** put the block back to bottom ***/
+            sender.setNodeAt(positionInScreen: nil)
+        }
+    }
+    
+    func oneBlockWasSet(sender: OneBlockNode) {
+        guard let releasePosition = sender.getReleasePosition() else {
+            return
+        }
+        let posInBoardLayer = convert(releasePosition, to: boardLayer)
+        let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+        
+        /*** Update the tile color ***/
+        if let colNum = colNum, let rowNum = rowNum {
+            boardArray[colNum, rowNum] = sender.getBlockColor()
+            updateBlockCellColorAt(column: colNum, row: rowNum)
+        }
+        sender.removeFromParent()
     }
     
     //MARK:- Helper Functions
-    func pointInTileLayerFor(column: Int, row: Int) -> CGPoint {
+    func pointInBoardLayerFor(column: Int, row: Int) -> CGPoint {
         var xCoord = CGFloat(0.0)
         var yCoord = CGFloat(0.0)
         
@@ -118,16 +182,16 @@ class GameScene: SKScene, OneBlockNodeDelegate {
         case (0...2):
             yCoord = CGFloat(row)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing
         case (3...5):
-            yCoord = CGFloat(row)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing + sectionSpacing
+            yCoord = CGFloat(row)*(tileWidth+cellSpacing) - cellSpacing + tileWidth/2 + boardSpacing + sectionSpacing
         case (6...8):
-            yCoord = CGFloat(row)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing + sectionSpacing*CGFloat(2.0)
+            yCoord = CGFloat(row)*(tileWidth+cellSpacing) - cellSpacing*CGFloat(2.0) + tileWidth/2 + boardSpacing + sectionSpacing*CGFloat(2.0)
         default: break
         }
         
         return CGPoint(x: xCoord, y: yCoord)
     }
     
-    func rowAndColFor(touchPosition position: CGPoint) -> (Int, Int) {
+    func rowAndColFor(position: CGPoint) -> (Int?, Int?) {
         let xPos = position.x
         let yPos = position.y
         
@@ -153,7 +217,7 @@ class GameScene: SKScene, OneBlockNodeDelegate {
         } else if xPos >= boardSpacing+sectionSpacing*CGFloat(2.0)+(tileWidth+cellSpacing)*CGFloat(6.0)+tileWidth*CGFloat(2.0), xPos <= boardSpacing+sectionSpacing*CGFloat(2.0)+(tileWidth+cellSpacing)*CGFloat(6.0)+tileWidth*CGFloat(3.0) {
             colNum = 8
         } else {
-            colNum = -1
+            return (nil, nil)
         }
         
         
@@ -165,10 +229,8 @@ class GameScene: SKScene, OneBlockNodeDelegate {
             rowNum = 2
         } else if yPos >= boardSpacing+sectionSpacing+(tileWidth+cellSpacing)*CGFloat(2.0)+tileWidth, yPos <= boardSpacing+sectionSpacing+(tileWidth+cellSpacing)*CGFloat(2.0)+tileWidth*CGFloat(2.0) {
             rowNum = 3
-            
         } else if yPos >= boardSpacing+sectionSpacing+(tileWidth+cellSpacing)*CGFloat(3.0)+tileWidth, yPos <= boardSpacing+sectionSpacing+(tileWidth+cellSpacing)*CGFloat(3.0)+tileWidth*CGFloat(2.0) {
             rowNum = 4
-            
         } else if yPos >= boardSpacing+sectionSpacing+(tileWidth+cellSpacing)*CGFloat(4.0)+tileWidth, yPos <= boardSpacing+sectionSpacing+(tileWidth+cellSpacing)*CGFloat(4.0)+tileWidth*CGFloat(2.0) {
             rowNum = 5
         } else if yPos >= boardSpacing+sectionSpacing*CGFloat(2.0)+(tileWidth+cellSpacing)*CGFloat(4.0)+tileWidth*CGFloat(2.0), yPos <= boardSpacing+sectionSpacing*CGFloat(2.0)+(tileWidth+cellSpacing)*CGFloat(4.0)+tileWidth*CGFloat(3.0) {
@@ -178,10 +240,31 @@ class GameScene: SKScene, OneBlockNodeDelegate {
         } else if yPos >= boardSpacing+sectionSpacing*CGFloat(2.0)+(tileWidth+cellSpacing)*CGFloat(6.0)+tileWidth*CGFloat(2.0), yPos <= boardSpacing+sectionSpacing*CGFloat(2.0)+(tileWidth+cellSpacing)*CGFloat(6.0)+tileWidth*CGFloat(3.0) {
             rowNum = 8
         } else {
-            rowNum = -1
+            return (nil, nil)
         }
         
-        // if not in a cell, return (-1,-1)
         return (rowNum, colNum)
+    }
+    
+    func blockCellColorAt(column: Int, row: Int) -> SKColor? {
+        assert(column >= 0 && column < NumColumns)
+        assert(row >= 0 && row < NumRows)
+        return boardArray[column, row]
+    }
+    
+    func updateBlockCellColorAt(column: Int, row: Int) {
+        assert(column >= 0 && column < NumColumns)
+        assert(row >= 0 && row < NumRows)
+        
+        let blockColor:SKColor? = blockCellColorAt(column: column, row: row)
+        let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+        
+        // update block cell color
+        if let blockColor = blockColor {
+            targetTileNode.changeColor(to: blockColor)
+        } else {
+            // reset block cell color
+            targetTileNode.changeColor(to: ColorCategory.TileColor)
+        }
     }
 }

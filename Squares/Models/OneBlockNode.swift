@@ -10,6 +10,7 @@ import SpriteKit
 
 protocol OneBlockNodeDelegate: NSObjectProtocol {
     func oneBlockWasReleased(sender: OneBlockNode)
+    func oneBlockWasSet(sender: OneBlockNode)
 }
 
 class OneBlockNode: SKSpriteNode {
@@ -17,15 +18,16 @@ class OneBlockNode: SKSpriteNode {
     let numOfCell:Int = 1
     
     let lowScaleNum:CGFloat = 0.6
-    let midScaleNum:CGFloat = 0.85
+    let midScaleNum:CGFloat = 0.83
     let moveDuration:TimeInterval = 0.05
     
     let tileWidth: CGFloat
     let blockColor: SKColor
     let initialPosition: CGPoint
-    let releasePosition: CGPoint?
+    let blockOffset: CGFloat
     let touchYOffset: CGFloat
     
+    var releasePosition: CGPoint?
     var placedIntoBoard:Bool = false
     var isMoving:Bool = false
     
@@ -39,8 +41,10 @@ class OneBlockNode: SKSpriteNode {
         blockColor = color
         initialPosition = position
         
-        touchYOffset = tileWidth/2 + 40
-        super.init(texture: nil, color: SKColor.red.withAlphaComponent(0.0), size: CGSize(width:width*3, height:width*3))
+        blockOffset = width
+        touchYOffset = tileWidth/2 + 20
+        super.init(texture: nil, color: .clear, size: CGSize(width:width*3, height:width*3))
+        self.name = "oneblock"
         
         // set up options
         isUserInteractionEnabled = true
@@ -48,7 +52,7 @@ class OneBlockNode: SKSpriteNode {
         // add block cell nodes
         let block1 = BlockCellNode(color: color)
         block1.size = CGSize(width: tileWidth, height: tileWidth)
-        block1.position = CGPoint(x:0.0, y:width)
+        block1.position = CGPoint(x:0.0, y:blockOffset)
         self.addChild(block1)
         
         // scale underlying node
@@ -70,6 +74,28 @@ class OneBlockNode: SKSpriteNode {
     
     func getReleasePosition() -> CGPoint? {
         return releasePosition
+    }
+    
+    func setNodeAt(positionInScreen: CGPoint?) {
+        // block not set at a valid position. move back to original position
+        if positionInScreen == nil{
+            let scaleDown = SKAction.scale(to: lowScaleNum, duration: moveDuration*2.0)
+            let moveBack = SKAction.move(to: initialPosition, duration: moveDuration*2.0)
+            self.run(SKAction.group([scaleDown, moveBack]))
+            return
+        }
+        
+        self.placedIntoBoard = true
+        let blockPosition = CGPoint(x: positionInScreen!.x,
+                                    y: positionInScreen!.y-blockOffset)
+        let scaleUp = SKAction.scale(to: 1.0, duration: moveDuration)
+        let moveToTarget = SKAction.move(to: blockPosition, duration: moveDuration)
+        self.run(SKAction.group([scaleUp, moveToTarget]))
+        
+        isUserInteractionEnabled = false
+        
+        // post to delegate
+        self.blockDelegate.oneBlockWasSet(sender: self)
     }
     
     // MARK:- Touch Events
@@ -103,19 +129,23 @@ class OneBlockNode: SKSpriteNode {
         
         isMoving = false
         
-        let touch = touches.first
-        let touchLocation = touch!.location(in: self.parent!)
-        releasePosition = touchLocation
+        //let touch = touches.first
+        //let touchLocation = touch!.location(in: self.parent!)
         
-        self.blockDelegate.blockWasReleased(sender: self)
-        
-        
-        // back to original position
-        if !placedIntoBoard {
-            let scaleDown = SKAction.scale(to: lowScaleNum, duration: moveDuration)
-            let moveBack = SKAction.move(to: initialPosition, duration: moveDuration)
-            self.run(SKAction.group([scaleDown, moveBack]))
+        // set release position of the block nodes
+        for child in self.children {
+            if let blockCellNode = child as? BlockCellNode {
+                print("HEY")
+                print(blockCellNode.position.x)
+                print(blockCellNode.position.y)
+                let blockCellPosition = CGPoint(x: blockCellNode.position.x*midScaleNum+self.position.x,
+                                               y: blockCellNode.position.y*midScaleNum+self.position.y)
+                self.releasePosition = blockCellPosition
+            }
         }
+        
+        self.blockDelegate.oneBlockWasReleased(sender: self)
+        
     }
     
 }
