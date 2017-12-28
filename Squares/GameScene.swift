@@ -304,6 +304,9 @@ class GameScene: SKScene, OneBlockNodeDelegate {
                 
                 // find a matching row
                 if matchCount == 3 {
+                    // highlight the matching row
+                    highlightSecRow(secRow: secRow, color: blockColor)
+                    
                     for column in 0..<NumColumns {
                         for row in secRow*3..<secRow*3+3 {
                             let matchingColor = blockCellColorAt(column: column, row: row)
@@ -330,6 +333,9 @@ class GameScene: SKScene, OneBlockNodeDelegate {
                 
                 // find a matching column
                 if matchCount == 3 {
+                    // highlight the matching row
+                    highlightSecCol(secCol: secCol, color: blockColor)
+                    
                     for row in 0..<NumRows {
                         for column in secCol*3..<secCol*3+3 {
                             let matchingColor = blockCellColorAt(column: column, row: row)
@@ -343,10 +349,10 @@ class GameScene: SKScene, OneBlockNodeDelegate {
                 }
             }
             
-            // Case 3. Diagonal Matching (/ Direction)
+            // Case 3. Diagonal Matching (\ Direction)
             var matchCount = 0
             for secCol in 0..<3 {
-                let secRow = secCol
+                let secRow = 2-secCol
                 
                 let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
                 if let isColorMatching = isColorMatching, isColorMatching {
@@ -354,8 +360,11 @@ class GameScene: SKScene, OneBlockNodeDelegate {
                 }
             }
             if matchCount == 3 {
+                // highlight the matching diagonal
+                highlightDiag1(color: blockColor)
+                
                 for row in 0..<NumRows{
-                    for column in Int(row/3)*3..<Int(row/3)*3+3 {
+                    for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
                         let matchingColor = blockCellColorAt(column: column, row: row)
                         if matchingColor == blockColor {
                             let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
@@ -366,10 +375,10 @@ class GameScene: SKScene, OneBlockNodeDelegate {
                 }
             }
             
-            // Case 4. Diagonal Matching (\ Direction)
+            // Case 4. Diagonal Matching (/ Direction)
             matchCount = 0
             for secCol in 0..<3 {
-                let secRow = 2-secCol
+                let secRow = secCol
                 
                 let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
                 if let isColorMatching = isColorMatching, isColorMatching {
@@ -377,8 +386,11 @@ class GameScene: SKScene, OneBlockNodeDelegate {
                 }
             }
             if matchCount == 3 {
+                // highlight the matching diagonal
+                highlightDiag2(color: blockColor)
+                
                 for row in 0..<NumRows{
-                    for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
+                    for column in Int(row/3)*3..<Int(row/3)*3+3 {
                         let matchingColor = blockCellColorAt(column: column, row: row)
                         if matchingColor == blockColor {
                             let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
@@ -406,6 +418,9 @@ class GameScene: SKScene, OneBlockNodeDelegate {
                     }
                     
                     if matchCount == 9 {
+                        // highlight the matching diagonal
+                        highlightSection(secCol: secCol, secRow: secRow, color: blockColor)
+                        
                         for column in secCol*3..<secCol*3+3 {
                             for row in secRow*3..<secRow*3+3 {
                                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
@@ -456,4 +471,72 @@ class GameScene: SKScene, OneBlockNodeDelegate {
         tileNode.changeColor(to: ColorCategory.TileColor)
     }
     
+    func highlightSecRow(secRow: Int, color: SKColor) {
+        assert(secRow >= 0 && secRow < 3)
+        for column in 0..<NumColumns {
+            for row in secRow*3..<secRow*3+3 {
+                let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                if boardArray[column,row] == nil || boardArray[column,row] == color{
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                }
+            }
+        }
+    }
+    
+    func highlightSecCol(secCol: Int, color: SKColor) {
+        assert(secCol >= 0 && secCol < 3)
+        for row in 0..<NumRows {
+            for column in secCol*3..<secCol*3+3 {
+                let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                if boardArray[column,row] == nil || boardArray[column,row] == color {
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                }
+            }
+        }
+    }
+    
+    func highlightDiag1(color: SKColor) {
+        for row in 0..<NumRows{
+            for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
+                let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                if boardArray[column,row] == nil || boardArray[column,row] == color {
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                }
+            }
+        }
+    }
+    
+    
+    func highlightDiag2(color: SKColor) {
+        for row in 0..<NumRows{
+            for column in Int(row/3)*3..<Int(row/3)*3+3 {
+                let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                if boardArray[column,row] == nil || boardArray[column,row] == color {
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                }
+            }
+        }
+    }
+    
+    
+    func highlightSection(secCol:Int, secRow:Int, color: SKColor) {
+        for column in secCol*3..<secCol*3+3 {
+            for row in secRow*3..<secRow*3+3 {
+                let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                if boardArray[column,row] == nil || boardArray[column,row] == color {
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                }
+            }
+        }
+    }
 }
