@@ -32,6 +32,10 @@ class TileNode: SKSpriteNode {
         self.color = color
         self.colorBlendFactor = 1.0
     }
+    
+    func getColor() -> SKColor {
+        return self.color
+    }
 }
 
 

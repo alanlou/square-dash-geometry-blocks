@@ -116,13 +116,6 @@ class GameScene: SKScene, OneBlockNodeDelegate {
         let posInBoardLayer = convert(releasePosition, to: boardLayer)
         let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
         
-        print(releasePosition)
-        print(posInBoardLayer)
-        // 124.0
-        
-        print(rowNum)
-        print(colNum)
-        
         /*** put the block in board ***/
         if let colNum = colNum, let rowNum = rowNum {
             // already a block in place
@@ -161,9 +154,11 @@ class GameScene: SKScene, OneBlockNodeDelegate {
             updateBlockCellColorAt(column: colNum, row: rowNum)
         }
         sender.removeFromParent()
+        
+        checkBoardAndUpdate()
     }
     
-    //MARK:- Helper Functions
+    //MARK:- Game Logic Handling
     func pointInBoardLayerFor(column: Int, row: Int) -> CGPoint {
         var xCoord = CGFloat(0.0)
         var yCoord = CGFloat(0.0)
@@ -252,6 +247,10 @@ class GameScene: SKScene, OneBlockNodeDelegate {
         return boardArray[column, row]
     }
     
+    func sectionColAndRowFor(column: Int, row: Int) -> (Int, Int) {
+        return (Int(column/3), Int(row/3))
+    }
+    
     func updateBlockCellColorAt(column: Int, row: Int) {
         assert(column >= 0 && column < NumColumns)
         assert(row >= 0 && row < NumRows)
@@ -267,4 +266,194 @@ class GameScene: SKScene, OneBlockNodeDelegate {
             targetTileNode.changeColor(to: ColorCategory.TileColor)
         }
     }
+    
+    func checkBoardAndUpdate() {
+        
+        // initiate section color array
+        var sectionArray = Array2D<Set<SKColor>>(columns: 3, rows: 3)
+        for secRow in 0..<3 {
+            for secCol in 0..<3 {
+                sectionArray[secCol,secRow] = Set<SKColor>()
+            }
+        }
+        
+        // fill the section array with colors in each section
+        for row in 0..<NumRows {
+            for col in 0..<NumColumns {
+                let tempColor = blockCellColorAt(column: col, row: row)
+                let (secCol, secRow) = sectionColAndRowFor(column: col, row: row)
+                // if there's a cell (color)
+                if let tempColor = tempColor {
+                    sectionArray[secCol, secRow]?.insert(tempColor)
+                }
+            }
+        }
+        
+        // iterate through each color
+        for blockColor in ColorCategory.BlockColorArray {
+            // Case 1. Row Matching
+            for secRow in 0..<3 {
+                var matchCount = 0
+                
+                for secCol in 0..<3 {
+                    let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
+                    if let isColorMatching = isColorMatching, isColorMatching {
+                        matchCount = matchCount + 1
+                    }
+                }
+                
+                // find a matching row
+                if matchCount == 3 {
+                    for column in 0..<NumColumns {
+                        for row in secRow*3..<secRow*3+3 {
+                            let matchingColor = blockCellColorAt(column: column, row: row)
+                            if matchingColor == blockColor {
+                                let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                                boardArray[column, row] = nil
+                                removeTileNode(tileNode: targetTileNode)
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Case 2. Column Matching
+            for secCol in 0..<3 {
+                var matchCount = 0
+                
+                for secRow in 0..<3 {
+                    let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
+                    if let isColorMatching = isColorMatching, isColorMatching {
+                        matchCount = matchCount + 1
+                    }
+                }
+                
+                // find a matching column
+                if matchCount == 3 {
+                    for row in 0..<NumRows {
+                        for column in secCol*3..<secCol*3+3 {
+                            let matchingColor = blockCellColorAt(column: column, row: row)
+                            if matchingColor == blockColor {
+                                let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                                boardArray[column, row] = nil
+                                removeTileNode(tileNode: targetTileNode)
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Case 3. Diagonal Matching (/ Direction)
+            var matchCount = 0
+            for secCol in 0..<3 {
+                let secRow = secCol
+                
+                let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
+                if let isColorMatching = isColorMatching, isColorMatching {
+                    matchCount = matchCount + 1
+                }
+            }
+            if matchCount == 3 {
+                for row in 0..<NumRows{
+                    for column in Int(row/3)*3..<Int(row/3)*3+3 {
+                        let matchingColor = blockCellColorAt(column: column, row: row)
+                        if matchingColor == blockColor {
+                            let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                            boardArray[column, row] = nil
+                            removeTileNode(tileNode: targetTileNode)
+                        }
+                    }
+                }
+            }
+            
+            // Case 4. Diagonal Matching (\ Direction)
+            matchCount = 0
+            for secCol in 0..<3 {
+                let secRow = 2-secCol
+                
+                let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
+                if let isColorMatching = isColorMatching, isColorMatching {
+                    matchCount = matchCount + 1
+                }
+            }
+            if matchCount == 3 {
+                for row in 0..<NumRows{
+                    for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
+                        let matchingColor = blockCellColorAt(column: column, row: row)
+                        if matchingColor == blockColor {
+                            let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                            boardArray[column, row] = nil
+                            removeTileNode(tileNode: targetTileNode)
+                        }
+                    }
+                }
+            }
+            
+            
+            // Case 5. Section
+            for secCol in 0..<3 {
+                for secRow in 0..<3 {
+                    matchCount = 0
+                    
+                    for column in secCol*3..<secCol*3+3 {
+                        for row in secRow*3..<secRow*3+3 {
+                            let matchingColor = blockCellColorAt(column: column, row: row)
+                            
+                            if matchingColor == blockColor {
+                                matchCount = matchCount+1
+                            }
+                        }
+                    }
+                    
+                    if matchCount == 9 {
+                        for column in secCol*3..<secCol*3+3 {
+                            for row in secRow*3..<secRow*3+3 {
+                                let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                                boardArray[column, row] = nil
+                                removeTileNode(tileNode: targetTileNode)
+                            }
+                        }
+                    }
+
+                }
+            }
+            
+        }
+    }
+    
+    // remove tile node with animation
+    func removeTileNode(tileNode: TileNode) {
+        
+        let emitter = SKEmitterNode()
+        let particleTexture = SKTexture(imageNamed: "Ball")
+        emitter.particleTexture = particleTexture
+        emitter.particleBirthRate = 150
+        emitter.numParticlesToEmit = 15
+        emitter.particleLifetime = 0.5
+        emitter.emissionAngle = 0.0
+        emitter.emissionAngleRange = CGFloat.pi*2
+        emitter.particleSpeed = 300
+        emitter.particleSpeedRange = 10
+        emitter.particleAlpha = 1.0
+        emitter.particleAlphaSpeed = -2.0
+        emitter.particleAlphaRange = 0.0
+        //emitter.particleRotation = 0.0
+        //emitter.particleRotationRange = CGFloat.pi*2
+        emitter.particleScale = 1.5
+        emitter.particleScaleRange = 1.0
+        emitter.particleScaleSpeed = -2.5
+        emitter.particleColorBlendFactor = 1.0
+        emitter.particleColor = tileNode.color
+        emitter.particleColorBlendFactorSequence = nil
+        emitter.particleBlendMode = SKBlendMode.alpha
+        emitter.position = tileNode.position
+        emitter.zPosition = 100
+        boardLayer.addChild(emitter)
+        emitter.run(SKAction.sequence([SKAction.wait(forDuration: 1.0),
+                                       SKAction.removeFromParent()]))
+        
+        // reset the tile color
+        tileNode.changeColor(to: ColorCategory.TileColor)
+    }
+    
 }

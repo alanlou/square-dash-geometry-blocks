@@ -77,6 +77,7 @@ class OneBlockNode: SKSpriteNode {
     }
     
     func setNodeAt(positionInScreen: CGPoint?) {
+        
         // block not set at a valid position. move back to original position
         if positionInScreen == nil{
             let scaleDown = SKAction.scale(to: lowScaleNum, duration: moveDuration*2.0)
@@ -86,16 +87,16 @@ class OneBlockNode: SKSpriteNode {
         }
         
         self.placedIntoBoard = true
+        isUserInteractionEnabled = false
         let blockPosition = CGPoint(x: positionInScreen!.x,
                                     y: positionInScreen!.y-blockOffset)
         let scaleUp = SKAction.scale(to: 1.0, duration: moveDuration)
         let moveToTarget = SKAction.move(to: blockPosition, duration: moveDuration)
-        self.run(SKAction.group([scaleUp, moveToTarget]))
-        
-        isUserInteractionEnabled = false
-        
-        // post to delegate
-        self.blockDelegate.oneBlockWasSet(sender: self)
+        let wait = SKAction.wait(forDuration: 0.2)
+        self.run(SKAction.group([scaleUp, moveToTarget, wait]), completion: {
+            // post to delegate
+            self.blockDelegate.oneBlockWasSet(sender: self)
+        })
     }
     
     // MARK:- Touch Events
@@ -135,9 +136,6 @@ class OneBlockNode: SKSpriteNode {
         // set release position of the block nodes
         for child in self.children {
             if let blockCellNode = child as? BlockCellNode {
-                print("HEY")
-                print(blockCellNode.position.x)
-                print(blockCellNode.position.y)
                 let blockCellPosition = CGPoint(x: blockCellNode.position.x*midScaleNum+self.position.x,
                                                y: blockCellNode.position.y*midScaleNum+self.position.y)
                 self.releasePosition = blockCellPosition
@@ -145,7 +143,6 @@ class OneBlockNode: SKSpriteNode {
         }
         
         self.blockDelegate.oneBlockWasReleased(sender: self)
-        
     }
     
 }

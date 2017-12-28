@@ -30,6 +30,8 @@ struct ColorCategory {
     static let BlockColor5 = SKColor(red: 175/255, green:145/255, blue: 119/255, alpha: 1.0)
     static let BlockColor6 = SKColor(red: 169/255, green:103/255, blue: 165/255, alpha: 1.0)
     
+    static let BlockColorArray = [BlockColor1, BlockColor2, BlockColor3, BlockColor4, BlockColor5, BlockColor6]
+    
     static func randomBlockColor() -> SKColor {
         let randomIndex = Int(arc4random_uniform(6)) + 1
         
