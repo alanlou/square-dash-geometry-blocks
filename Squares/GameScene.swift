@@ -366,8 +366,13 @@ class GameScene: SKScene, OneBlockNodeDelegate {
                 for row in 0..<NumRows{
                     for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
                         let matchingColor = blockCellColorAt(column: column, row: row)
+                        
                         if matchingColor == blockColor {
                             let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
+                            
+                            print("(\(row),\(column))")
+                            print(matchingColor)
+                            
                             boardArray[column, row] = nil
                             removeTileNode(tileNode: targetTileNode)
                         }
@@ -471,70 +476,80 @@ class GameScene: SKScene, OneBlockNodeDelegate {
         tileNode.changeColor(to: ColorCategory.TileColor)
     }
     
-    func highlightSecRow(secRow: Int, color: SKColor) {
+    func highlightSecRow(secRow: Int, color: SKColor?) {
         assert(secRow >= 0 && secRow < 3)
         for column in 0..<NumColumns {
             for row in secRow*3..<secRow*3+3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == color{
+                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
-                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    if !targetTileNode.hasActions(){
+                        targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    }
                 }
             }
         }
     }
     
-    func highlightSecCol(secCol: Int, color: SKColor) {
+    func highlightSecCol(secCol: Int, color: SKColor?) {
         assert(secCol >= 0 && secCol < 3)
         for row in 0..<NumRows {
             for column in secCol*3..<secCol*3+3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == color {
+                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
-                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    if !targetTileNode.hasActions(){
+                        targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    }
                 }
             }
         }
     }
     
-    func highlightDiag1(color: SKColor) {
+    func highlightDiag1(color: SKColor?) {
         for row in 0..<NumRows{
             for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == color {
+                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
-                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    if !targetTileNode.hasActions(){
+                        targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    }
                 }
             }
         }
     }
     
     
-    func highlightDiag2(color: SKColor) {
+    func highlightDiag2(color: SKColor?) {
         for row in 0..<NumRows{
             for column in Int(row/3)*3..<Int(row/3)*3+3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == color {
+                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
-                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    if !targetTileNode.hasActions(){
+                        targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    }
                 }
             }
         }
     }
     
     
-    func highlightSection(secCol:Int, secRow:Int, color: SKColor) {
+    func highlightSection(secCol:Int, secRow:Int, color: SKColor?) {
         for column in secCol*3..<secCol*3+3 {
             for row in secRow*3..<secRow*3+3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == color {
+                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.3), colorBlendFactor: 1.0, duration: 0.25)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
-                    targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    if !targetTileNode.hasActions(){
+                        targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
+                    }
                 }
             }
         }
