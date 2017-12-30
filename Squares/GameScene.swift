@@ -85,9 +85,9 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         let bottomBlockXRight = size.width - bottomBlockXLeft
         
         // initialize block nodes
-        let bottomBlock1 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
-        let bottomBlock2 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
-        let bottomBlock3 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+        let bottomBlock1 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+        let bottomBlock2 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+        let bottomBlock3 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
         
         // add block nodes
         bottomBlock1.position = bottomBlock1.getBlockPosition()
@@ -697,14 +697,18 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         
         numMatchingThisRound = 0
         
+        var isPossibleMatch = false
         // check if game over
         for secCol in 0..<3 {
             for secRow in 0..<3 {
-                //checkPossibleBlockInSection(secCol: secCol, secRow: secRow)
+                if checkPossibleBlockInSection(secCol: secCol, secRow: secRow) {
+                    isPossibleMatch = true
+                }
             }
         }
-        if checkPossibleBlockInSection(secCol: 0, secRow: 0) {
-            print("GAME OVER")
+        if isPossibleMatch {
+            print("Game Over")
+            gameOver()
         }
         
     }

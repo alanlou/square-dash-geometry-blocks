@@ -138,7 +138,7 @@ class FourBlockNode: SKSpriteNode {
         initialPosition = position
         
         blockOffset = width
-        touchYOffset = tileWidth/2 + 20
+        touchYOffset = tileWidth/2 + 25
         
         block1 = BlockCellNode(color: color)
         block2 = BlockCellNode(color: color)
