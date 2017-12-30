@@ -6,14 +6,6 @@
 //  Copyright © 2017 Rawwr Studios. All rights reserved.
 //
 
-//
-//  FourBlockNode.swift
-//  Squares
-//
-//  Created by Alan Lou on 12/29/17.
-//  Copyright © 2017 Rawwr Studios. All rights reserved.
-//
-
 import SpriteKit
 
 protocol FourBlockNodeDelegate: NSObjectProtocol {
@@ -154,7 +146,7 @@ class FourBlockNode: SKSpriteNode {
         block4 = BlockCellNode(color: color)
         
         super.init(texture: nil, color: .clear, size: CGSize(width:width*4, height:width*4))
-        self.name = "FourBlock"
+        self.name = "fourblock"
         self.zPosition = 100
         self.anchorPoint = CGPoint(x:0.5, y:0.5+blockOffset/self.size.height)
         
@@ -171,10 +163,10 @@ class FourBlockNode: SKSpriteNode {
         // x x
         // x x
         case .Type1:
-            block1.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth/2+cellSpacing/2)
             block2.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth/2+cellSpacing/2)
             block3.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
-            block4.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block4.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
         // x
         // x x x
         case .Type2:
@@ -289,6 +281,10 @@ class FourBlockNode: SKSpriteNode {
     
     func getBlockPosition() -> CGPoint {
         return initialPosition
+    }
+    
+    func getBlockType() -> FourBlockTypes {
+        return blockType
     }
     
     func getNodeReleasePositions() -> Array<CGPoint> {

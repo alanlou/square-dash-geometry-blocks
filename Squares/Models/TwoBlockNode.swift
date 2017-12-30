@@ -117,6 +117,10 @@ class TwoBlockNode: SKSpriteNode {
         return initialPosition
     }
     
+    func getBlockType() -> TwoBlockTypes {
+        return blockType
+    }
+    
     func getNodeReleasePositions() -> Array<CGPoint> {
         return releasePosition
     }

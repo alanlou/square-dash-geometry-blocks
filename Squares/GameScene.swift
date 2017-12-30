@@ -31,6 +31,7 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
     let tileWidth: CGFloat
     var combo: Int = 0
     var numMatchingThisRound: Int = 0
+    var isGameOver: Bool = false
     
     // create sharing actions
     let findMatchingSound: SKAction = SKAction.playSoundFileNamed(
@@ -84,9 +85,9 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         let bottomBlockXRight = size.width - bottomBlockXLeft
         
         // initialize block nodes
-        let bottomBlock1 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
-        let bottomBlock2 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
-        let bottomBlock3 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+        let bottomBlock1 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+        let bottomBlock2 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+        let bottomBlock3 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
         
         // add block nodes
         bottomBlock1.position = bottomBlock1.getBlockPosition()
@@ -559,7 +560,7 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
                             if matchingColor == blockColor {
                                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                                 boardArray[column, row] = nil
-                                removeTileNode(tileNode: targetTileNode)
+                                 removeTileNode(tileNode: targetTileNode)
                             }
                         }
                     }
@@ -695,6 +696,17 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         }
         
         numMatchingThisRound = 0
+        
+        // check if game over
+        for secCol in 0..<3 {
+            for secRow in 0..<3 {
+                //checkPossibleBlockInSection(secCol: secCol, secRow: secRow)
+            }
+        }
+        if checkPossibleBlockInSection(secCol: 0, secRow: 0) {
+            print("GAME OVER")
+        }
+        
     }
     
     // remove tile node with animation
@@ -818,6 +830,244 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             }
         }
     }
+    
+    func checkPossibleBlockInSection(secCol: Int, secRow: Int) -> Bool {
+        var cellArray = Array2D<Int>(columns: 3, rows: 3)
+        
+        for column in secCol*3..<secCol*3+3 {
+            for row in secRow*3..<secRow*3+3 {
+                if boardArray[column, row] != nil {
+                    cellArray[Int(column)%3, Int(row)%3] = 1
+                } else {
+                    cellArray[Int(column)%3, Int(row)%3] = 0
+                }
+            }
+        }
+        
+        // check if there's any available slot
+        for child in gameLayer.children {
+            // Case 1. One Block Node
+            if child is OneBlockNode {
+                for column in 0..<3 {
+                    for row in 0..<3 {
+                        if cellArray[column, row] == 0{
+                            return false
+                            
+                        }
+                    }
+                }
+            }
+            
+            
+            // Case 2. Two Block Node
+            if child is TwoBlockNode {
+                let bottomBlock = child as! TwoBlockNode
+                let blockType = bottomBlock.getBlockType()
+                
+                switch blockType {
+                case TwoBlockTypes.Type1:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case TwoBlockTypes.Type2:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Case 3. Three Block Node
+            if child is ThreeBlockNode {
+                let bottomBlock = child as! ThreeBlockNode
+                let blockType = bottomBlock.getBlockType()
+                
+                switch blockType {
+                case ThreeBlockTypes.Type1:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column+2, row] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case ThreeBlockTypes.Type2:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column, row+1] == 0, cellArray[column, row+2] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case ThreeBlockTypes.Type3:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case ThreeBlockTypes.Type4:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column, row+1] == 0, cellArray[column+1, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case ThreeBlockTypes.Type5:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column+1, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case ThreeBlockTypes.Type6:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column-1, row+1] == 0, cellArray[column, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Case 4. Four Block Node
+            if child is FourBlockNode {
+                let bottomBlock = child as! FourBlockNode
+                let blockType = bottomBlock.getBlockType()
+                
+                switch blockType {
+                case FourBlockTypes.Type1:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column, row+1] == 0, cellArray[column+1, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type2:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column+2, row] == 0, cellArray[column, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type3:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column, row+1] == 0, cellArray[column, row+2] == 0, cellArray[column+1, row+2] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type4:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column-2, row+1] == 0, cellArray[column-1, row+1] == 0, cellArray[column, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type5:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column+1, row+1] == 0, cellArray[column+1, row+2] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type6:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column+2, row] == 0, cellArray[column+2, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type7:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column, row+1] == 0, cellArray[column, row+2] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type8:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column, row+1] == 0, cellArray[column+1, row+1] == 0, cellArray[column+2, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type9:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column, row+1] == 0, cellArray[column, row+2] == 0, cellArray[column-1, row+2] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type10:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column+1, row] == 0, cellArray[column+1, row+1] == 0, cellArray[column+2, row] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type11:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column, row+1] == 0, cellArray[column+1, row+1] == 0, cellArray[column, row+2] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type12:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column-1, row+1] == 0, cellArray[column, row+1] == 0, cellArray[column+1, row+1] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                case FourBlockTypes.Type13:
+                    for column in 0..<3 {
+                        for row in 0..<3 {
+                            if cellArray[column, row] == 0, cellArray[column-1, row+1] == 0, cellArray[column, row+1] == 0, cellArray[column, row+2] == 0 {
+                                return false
+                            }
+                        }
+                    }
+                }
+            }
+        }
+            
+        isGameOver = true
+        return true
+    }
+    
+    func gameOver() {
+        let myScene = GameScene(size: self.size)
+        myScene.scaleMode = self.scaleMode
+        let reveal = SKTransition.fade(withDuration: 0.5)
+        
+        self.view?.presentScene(myScene, transition: reveal)
+        return
+    }
+    
     
     func shakeCamera(layer:SKNode, duration:Float, magnitude: CGFloat) {
         let amplitudeX:CGFloat = 10.0 * magnitude;

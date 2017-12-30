@@ -102,7 +102,7 @@ class ThreeBlockNode: SKSpriteNode {
         block3 = BlockCellNode(color: color)
         
         super.init(texture: nil, color: .clear, size: CGSize(width:width*4, height:width*4))
-        self.name = "ThreeBlock"
+        self.name = "threeblock"
         self.zPosition = 100
         self.anchorPoint = CGPoint(x:0.5, y:0.5+blockOffset/self.size.height)
         
@@ -160,6 +160,10 @@ class ThreeBlockNode: SKSpriteNode {
     
     func getBlockPosition() -> CGPoint {
         return initialPosition
+    }
+    
+    func getBlockType() -> ThreeBlockTypes {
+        return blockType
     }
     
     func getNodeReleasePositions() -> Array<CGPoint> {

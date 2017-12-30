@@ -11,6 +11,7 @@
 		4E1EE25E1FF6BF610091F7ED /* findMatching.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E1EE25D1FF6BF610091F7ED /* findMatching.wav */; };
 		4E1EE2611FF6F9AA0091F7ED /* ThreeBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EE2601FF6F9AA0091F7ED /* ThreeBlockNode.swift */; };
 		4E1EE2631FF7109A0091F7ED /* FourBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EE2621FF7109A0091F7ED /* FourBlockNode.swift */; };
+		4E1EE2651FF7628D0091F7ED /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EE2641FF7628D0091F7ED /* MyUtils.swift */; };
 		4E3F6D3D1FEB9C9E00C9DA84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D3C1FEB9C9E00C9DA84 /* AppDelegate.swift */; };
 		4E3F6D431FEB9C9E00C9DA84 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */; };
 		4E3F6D451FEB9C9E00C9DA84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D441FEB9C9E00C9DA84 /* GameViewController.swift */; };
@@ -29,6 +30,7 @@
 		4E1EE25D1FF6BF610091F7ED /* findMatching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching.wav; sourceTree = "<group>"; };
 		4E1EE2601FF6F9AA0091F7ED /* ThreeBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeBlockNode.swift; sourceTree = "<group>"; };
 		4E1EE2621FF7109A0091F7ED /* FourBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourBlockNode.swift; sourceTree = "<group>"; };
+		4E1EE2641FF7628D0091F7ED /* MyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
 		4E3F6D391FEB9C9E00C9DA84 /* Squares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3F6D3C1FEB9C9E00C9DA84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				4E1EE25F1FF6BF650091F7ED /* Sounds */,
 				4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */,
 				4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */,
+				4E1EE2641FF7628D0091F7ED /* MyUtils.swift */,
 				4E3F6D491FEB9C9E00C9DA84 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -206,6 +209,7 @@
 				4E3F6D3D1FEB9C9E00C9DA84 /* AppDelegate.swift in Sources */,
 				4E1EE2631FF7109A0091F7ED /* FourBlockNode.swift in Sources */,
 				4E3F6D621FEF165800C9DA84 /* TileNode.swift in Sources */,
+				4E1EE2651FF7628D0091F7ED /* MyUtils.swift in Sources */,
 				4E3F6D651FEF32BE00C9DA84 /* OneBlockNode.swift in Sources */,
 				4E3F6D551FEB9DEE00C9DA84 /* DefaultValues.swift in Sources */,
 				4E1EE2611FF6F9AA0091F7ED /* ThreeBlockNode.swift in Sources */,
