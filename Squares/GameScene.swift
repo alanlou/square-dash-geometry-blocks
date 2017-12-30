@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
+class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlockNodeDelegate, FourBlockNodeDelegate {
     
     // super node containing the gamelayer and pauselayer
     let gameLayer = SKNode()
@@ -29,6 +29,12 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
     // variables
     let boardRect: CGRect
     let tileWidth: CGFloat
+    var combo: Int = 0
+    var numMatchingThisRound: Int = 0
+    
+    // create sharing actions
+    let findMatchingSound: SKAction = SKAction.playSoundFileNamed(
+        "findMatching.wav", waitForCompletion: false)
     
     //MARK:- Initialization
     override init(size: CGSize) {
@@ -72,15 +78,15 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
     
     func addBottomBlocks() {
         // set position
-        let bottomBlockY = size.height/4-boardRect.height/4
+        let bottomBlockY = size.height/4-boardRect.height/4 + boardSpacing/2
         let bottomBlockXLeft = (tileWidth+cellSpacing) + tileWidth/2 + boardSpacing
         let bottomBlockXMid = size.width/2
-        let bottomBlockXRight = 7*(tileWidth+cellSpacing) - cellSpacing*CGFloat(2.0) + tileWidth/2 + boardSpacing + sectionSpacing*CGFloat(2.0)
+        let bottomBlockXRight = size.width - bottomBlockXLeft
         
         // initialize block nodes
-        let bottomBlock1 = TwoBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
-        let bottomBlock2 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
-        let bottomBlock3 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+        let bottomBlock1 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+        let bottomBlock2 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+        let bottomBlock3 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
         
         // add block nodes
         bottomBlock1.position = bottomBlock1.getBlockPosition()
@@ -101,10 +107,11 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
         gameLayer.addChild(bottomBlock2)
         gameLayer.addChild(bottomBlock3)
         
-        let scaleUp = SKAction.scale(to: 0.6, duration: 0.15) //lowScaleNum
-        bottomBlock1.run(scaleUp)
-        bottomBlock2.run(scaleUp)
-        bottomBlock3.run(scaleUp)
+        let scaleUp = SKAction.scale(to: 0.7, duration: 0.17) // lowScaleNum
+        let scaleDown = SKAction.scale(to: 0.6, duration: 0.1) // lowScaleNum
+        bottomBlock1.run(SKAction.sequence([scaleUp, scaleDown]))
+        bottomBlock2.run(SKAction.sequence([scaleUp, scaleDown]))
+        bottomBlock3.run(SKAction.sequence([scaleUp, scaleDown]))
         
     }
     
@@ -235,9 +242,167 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
         
         sender.removeFromParent()
         
+        checkBoardAndUpdate()
+    }
+    
+    func ThreeBlockWasReleased(sender: ThreeBlockNode) {
+        let nodeReleasePositions = sender.getNodeReleasePositions()
+        
+        var matchCount = 0
+        var releasePositionsInScreen = [CGPoint]()
+        
+        var secRow: Int = -1
+        var secCol: Int = -1
+        for releasePosition in nodeReleasePositions {
+            let posInBoardLayer = convert(releasePosition, to: boardLayer)
+            let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+            
+            /*** if node in position ***/
+            if let colNum = colNum, let rowNum = rowNum {
+                // already a block in place. put back
+                if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                    sender.setNodeAt(positionsInScreen: nil)
+                    return
+                }
+                
+                // not in same section
+                if secRow == -1 {
+                    secRow = Int(rowNum/3)
+                } else if secRow != Int(rowNum/3) {
+                    sender.setNodeAt(positionsInScreen: nil)
+                    return
+                }
+                if secCol == -1 {
+                    secCol = Int(colNum/3)
+                } else if secCol != Int(colNum/3) {
+                    sender.setNodeAt(positionsInScreen: nil)
+                    return
+                }
+                
+                let positionInBoard = pointInBoardLayerFor(column: colNum, row: rowNum)
+                let positionInScreen = CGPoint(x: positionInBoard.x + boardLayer.position.x - gameLayer.position.x,
+                                               y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y)
+                releasePositionsInScreen.append(positionInScreen)
+                
+                matchCount = matchCount+1
+            } else {
+                // not in right position. put back
+                sender.setNodeAt(positionsInScreen: nil)
+            }
+        }
+        
+        // put into board!
+        if matchCount == 3 {
+            sender.setNodeAt(positionsInScreen: releasePositionsInScreen)
+            bottomBlockNum = bottomBlockNum-1
+            
+            // put new blocks
+            if bottomBlockNum == 0 {
+                addBottomBlocks()
+                bottomBlockNum = 3
+            }
+        }
+    }
+    
+    func ThreeBlockWasSet(sender: ThreeBlockNode) {
+        
+        let nodeReleasePositions = sender.getNodeReleasePositions()
+        
+        for releasePosition in nodeReleasePositions {
+            let posInBoardLayer = convert(releasePosition, to: boardLayer)
+            let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+            
+            /*** Update the tile color ***/
+            if let colNum = colNum, let rowNum = rowNum {
+                boardArray[colNum, rowNum] = sender.getBlockColor()
+                updateBlockCellColorAt(column: colNum, row: rowNum)
+            }
+        }
+        
+        sender.removeFromParent()
         
         checkBoardAndUpdate()
     }
+    
+    func FourBlockWasReleased(sender: FourBlockNode) {
+        let nodeReleasePositions = sender.getNodeReleasePositions()
+        
+        var matchCount = 0
+        var releasePositionsInScreen = [CGPoint]()
+        
+        var secRow: Int = -1
+        var secCol: Int = -1
+        for releasePosition in nodeReleasePositions {
+            let posInBoardLayer = convert(releasePosition, to: boardLayer)
+            let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+            
+            /*** if node in position ***/
+            if let colNum = colNum, let rowNum = rowNum {
+                // already a block in place. put back
+                if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                    sender.setNodeAt(positionsInScreen: nil)
+                    return
+                }
+                
+                // not in same section
+                if secRow == -1 {
+                    secRow = Int(rowNum/3)
+                } else if secRow != Int(rowNum/3) {
+                    sender.setNodeAt(positionsInScreen: nil)
+                    return
+                }
+                if secCol == -1 {
+                    secCol = Int(colNum/3)
+                } else if secCol != Int(colNum/3) {
+                    sender.setNodeAt(positionsInScreen: nil)
+                    return
+                }
+                
+                let positionInBoard = pointInBoardLayerFor(column: colNum, row: rowNum)
+                let positionInScreen = CGPoint(x: positionInBoard.x + boardLayer.position.x - gameLayer.position.x,
+                                               y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y)
+                releasePositionsInScreen.append(positionInScreen)
+                
+                matchCount = matchCount+1
+            } else {
+                // not in right position. put back
+                sender.setNodeAt(positionsInScreen: nil)
+            }
+        }
+        
+        // put into board!
+        if matchCount == 4 {
+            sender.setNodeAt(positionsInScreen: releasePositionsInScreen)
+            bottomBlockNum = bottomBlockNum-1
+            
+            // put new blocks
+            if bottomBlockNum == 0 {
+                addBottomBlocks()
+                bottomBlockNum = 3
+            }
+        }
+    }
+    
+    func FourBlockWasSet(sender: FourBlockNode) {
+        
+        let nodeReleasePositions = sender.getNodeReleasePositions()
+        
+        for releasePosition in nodeReleasePositions {
+            let posInBoardLayer = convert(releasePosition, to: boardLayer)
+            let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+            
+            /*** Update the tile color ***/
+            if let colNum = colNum, let rowNum = rowNum {
+                boardArray[colNum, rowNum] = sender.getBlockColor()
+                updateBlockCellColorAt(column: colNum, row: rowNum)
+            }
+        }
+        
+        sender.removeFromParent()
+        
+        checkBoardAndUpdate()
+    }
+    
     
     //MARK:- Game Logic Handling
     func pointInBoardLayerFor(column: Int, row: Int) -> CGPoint {
@@ -514,8 +679,22 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
 
                 }
             }
-            
         }
+        
+        
+        // reset combo
+        if numMatchingThisRound > 0 {
+            self.run(findMatchingSound)
+            combo = combo+numMatchingThisRound
+        } else {
+            combo = 0
+        }
+        
+        if combo > 1 {
+            shakeCamera(layer: boardLayer, duration: 0.16, magnitude: CGFloat(combo))
+        }
+        
+        numMatchingThisRound = 0
     }
     
     // remove tile node with animation
@@ -525,20 +704,18 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
         let particleTexture = SKTexture(imageNamed: "Ball")
         emitter.particleTexture = particleTexture
         emitter.particleBirthRate = 150
-        emitter.numParticlesToEmit = 15
-        emitter.particleLifetime = 0.5
+        emitter.numParticlesToEmit = 8
+        emitter.particleLifetime = 0.6
         emitter.emissionAngle = 0.0
         emitter.emissionAngleRange = CGFloat.pi*2
-        emitter.particleSpeed = 300
-        emitter.particleSpeedRange = 10
+        emitter.particleSpeed = 350
+        emitter.particleSpeedRange = 150
         emitter.particleAlpha = 1.0
-        emitter.particleAlphaSpeed = -2.0
+        emitter.particleAlphaSpeed = -1.6
         emitter.particleAlphaRange = 0.0
-        //emitter.particleRotation = 0.0
-        //emitter.particleRotationRange = CGFloat.pi*2
-        emitter.particleScale = 1.5
-        emitter.particleScaleRange = 1.0
-        emitter.particleScaleSpeed = -2.5
+        emitter.particleScale = 2.0
+        emitter.particleScaleRange = 1.6
+        emitter.particleScaleSpeed = -2.0
         emitter.particleColorBlendFactor = 1.0
         emitter.particleColor = tileNode.color
         emitter.particleColorBlendFactorSequence = nil
@@ -554,13 +731,15 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
     }
     
     func highlightSecRow(secRow: Int, color: SKColor?) {
+        numMatchingThisRound = numMatchingThisRound + 1
+        
         assert(secRow >= 0 && secRow < 3)
         for column in 0..<NumColumns {
             for row in secRow*3..<secRow*3+3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.35), colorBlendFactor: 1.0, duration: 0.25)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -570,13 +749,15 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
     }
     
     func highlightSecCol(secCol: Int, color: SKColor?) {
+        numMatchingThisRound = numMatchingThisRound + 1
+        
         assert(secCol >= 0 && secCol < 3)
         for row in 0..<NumRows {
             for column in secCol*3..<secCol*3+3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.35), colorBlendFactor: 1.0, duration: 0.25)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -586,12 +767,14 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
     }
     
     func highlightDiag1(color: SKColor?) {
+        numMatchingThisRound = numMatchingThisRound + 1
+        
         for row in 0..<NumRows{
             for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.35), colorBlendFactor: 1.0, duration: 0.25)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -602,12 +785,14 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
     
     
     func highlightDiag2(color: SKColor?) {
+        numMatchingThisRound = numMatchingThisRound + 1
+        
         for row in 0..<NumRows{
             for column in Int(row/3)*3..<Int(row/3)*3+3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.35), colorBlendFactor: 1.0, duration: 0.25)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -618,17 +803,37 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate {
     
     
     func highlightSection(secCol:Int, secRow:Int, color: SKColor?) {
+        numMatchingThisRound = numMatchingThisRound + 1
+        
         for column in secCol*3..<secCol*3+3 {
             for row in secRow*3..<secRow*3+3 {
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.35), colorBlendFactor: 1.0, duration: 0.25)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.2)
+                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
                 }
             }
         }
+    }
+    
+    func shakeCamera(layer:SKNode, duration:Float, magnitude: CGFloat) {
+        let amplitudeX:CGFloat = 10.0 * magnitude;
+        let amplitudeY:CGFloat = 6.0 * magnitude;
+        let numberOfShakes = duration / 0.04;
+        var actionsArray:[SKAction] = [];
+        for _ in 1...Int(numberOfShakes) {
+            let moveX = CGFloat(arc4random_uniform(UInt32(amplitudeX))) - amplitudeX/2.0
+            let moveY = CGFloat(arc4random_uniform(UInt32(amplitudeY))) - amplitudeY/2.0
+            let shakeAction = SKAction.moveBy(x: CGFloat(moveX), y: CGFloat(moveY), duration: 0.02)
+            shakeAction.timingMode = SKActionTimingMode.easeOut
+            actionsArray.append(shakeAction)
+            actionsArray.append(shakeAction.reversed())
+        }
+        
+        let actionSeq = SKAction.sequence(actionsArray);
+        layer.run(actionSeq);
     }
 }

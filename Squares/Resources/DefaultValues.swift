@@ -8,12 +8,7 @@
 
 import SpriteKit
 
-struct TileCoord {
-    let rowNum: Int
-    let colNum: Int
-}
-
-struct ColorCategory {
+enum ColorCategory {
     static let BackgroundColor = SKColor(red: 255/255, green: 252/255, blue: 244/255, alpha: 1.0)
     static let TileColor = SKColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.2)
     
