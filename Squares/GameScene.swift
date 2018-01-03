@@ -337,6 +337,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         bottomBlockJustPut = sender
         recallButtonNode.isRecallPossible = true
+        recallButtonNode.isAdsRecallPossible = true
         sender.removeFromParent()
         
         checkBoardAndUpdate()
@@ -432,6 +433,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         bottomBlockJustPut = sender
         recallButtonNode.isRecallPossible = true
+        recallButtonNode.isAdsRecallPossible = true
         sender.removeFromParent()
         
         checkBoardAndUpdate()
@@ -527,6 +529,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         bottomBlockJustPut = sender
         recallButtonNode.isRecallPossible = true
+        recallButtonNode.isAdsRecallPossible = true
         sender.removeFromParent()
         
         // run after the block is removed
@@ -623,6 +626,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         bottomBlockJustPut = sender
         recallButtonNode.isRecallPossible = true
+        recallButtonNode.isAdsRecallPossible = true
         sender.removeFromParent()
         
         checkBoardAndUpdate()
@@ -645,7 +649,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         }
         
         if iconType == IconType.ResumeButton  {
-            print("HEYYY")
             if isGamePaused {
                 unpauseGame()
                 isGamePaused = false
@@ -687,6 +690,52 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         // run sound
         self.run(addBottomBlocksSound)
         
+        // remove the block back
+        if let bottomBlockJustPut = bottomBlockJustPut as? OneBlockNode {
+            gameLayer.addChild(bottomBlockJustPut)
+            
+            let targetPosition = bottomBlockJustPut.getBlockPosition()
+            bottomBlockJustPut.blockDelegate = self
+            
+            // animation
+            let moveBack = SKAction.move(to: targetPosition, duration: 0.1)
+            let scaleDown = SKAction.scale(to: 0.6, duration: 0.1) // lowScaleNum
+            
+            bottomBlockJustPut.run(SKAction.group([moveBack, scaleDown]), completion: {[weak self] in
+                bottomBlockJustPut.isUserInteractionEnabled = true
+                self?.bottomBlockNum = (self?.bottomBlockNum)!+1
+            })
+        }
+        if let bottomBlockJustPut = bottomBlockJustPut as? TwoBlockNode {
+            gameLayer.addChild(bottomBlockJustPut)
+            
+            let targetPosition = bottomBlockJustPut.getBlockPosition()
+            bottomBlockJustPut.blockDelegate = self
+            
+            // animation
+            let moveBack = SKAction.move(to: targetPosition, duration: 0.1)
+            let scaleDown = SKAction.scale(to: 0.6, duration: 0.1) // lowScaleNum
+            
+            bottomBlockJustPut.run(SKAction.group([moveBack, scaleDown]), completion: {[weak self] in
+                bottomBlockJustPut.isUserInteractionEnabled = true
+                self?.bottomBlockNum = (self?.bottomBlockNum)!+1
+            })
+        }
+        if let bottomBlockJustPut = bottomBlockJustPut as? ThreeBlockNode {
+            gameLayer.addChild(bottomBlockJustPut)
+            
+            let targetPosition = bottomBlockJustPut.getBlockPosition()
+            bottomBlockJustPut.blockDelegate = self
+            
+            // animation
+            let moveBack = SKAction.move(to: targetPosition, duration: 0.1)
+            let scaleDown = SKAction.scale(to: 0.6, duration: 0.1) // lowScaleNum
+            
+            bottomBlockJustPut.run(SKAction.group([moveBack, scaleDown]), completion: {[weak self] in
+                bottomBlockJustPut.isUserInteractionEnabled = true
+                self?.bottomBlockNum = (self?.bottomBlockNum)!+1
+            })
+        }
         if let bottomBlockJustPut = bottomBlockJustPut as? FourBlockNode {
             gameLayer.addChild(bottomBlockJustPut)
             
@@ -706,6 +755,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         // we can make a recall
         if sender.isRecallPossible {
+            
             for previousReleasePosition in previousReleasePositions {
                 let (rowNum, colNum) = rowAndColFor(position: previousReleasePosition)
                 
@@ -841,9 +891,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             let bottomBlock = gameLayer.childNode(withName: "bottomBlock\(index)")
             bottomBlockArray[index] = bottomBlock as? SKSpriteNode
         }
-        
-        print("==========")
-        print(bottomBlockArray)
         
         // initiate section color array
         var sectionArray = Array2D<Set<SKColor>>(columns: 3, rows: 3)
@@ -1447,7 +1494,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     
     func unpauseGame()
     {
-        gameLayer.isPaused = fa
+        gameLayer.isPaused = false
         pauseLayer.removeFromParent()
     }
     

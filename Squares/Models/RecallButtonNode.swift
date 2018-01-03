@@ -22,10 +22,11 @@ class RecallButtonNode: SKSpriteNode {
     var numRecallMessageNode: MessageNode!
     
     // numbers
-    var numRecall: Int = 33
+    var numRecall: Int = 3
     
     // variables
     private var _isRecallPossible: Bool = false
+    var isAdsRecallPossible: Bool = false
     var isRecallPossible: Bool {
         get {
             return _isRecallPossible
@@ -105,12 +106,37 @@ class RecallButtonNode: SKSpriteNode {
         let touchLocation = touch!.location(in: self.parent!)
         
         if self.contains(touchLocation) {
+            
+            
             if numRecall > 0 {
                 numRecall = numRecall - 1
                 self.numRecallMessageNode.setNumRecall(to: numRecall)
                 self.buttonDelegate.recallButtonWasPressed(sender: self)
-            } else {
-                print("Cannot Recall")
+                
+                // Used all recall chances. Add AdsRecall Node
+                if numRecall == 0 {
+                    isAdsRecallPossible = true
+                    
+                    let texture = SKTexture(imageNamed: "AdsVideo")
+                    let adsVideoNode = SKSpriteNode(texture: texture, color: .clear, size: texture.size())
+                    adsVideoNode.color = ColorCategory.RecallButtonColor
+                    adsVideoNode.colorBlendFactor = 1.0
+                    adsVideoNode.position = numRecallMessageNode.position
+                    adsVideoNode.setScale(0.0)
+                    self.addChild(adsVideoNode)
+                    adsVideoNode.run(SKAction.scale(to: 1.0, duration: 0.1))
+                    
+                    numRecallMessageNode.removeFromParent()
+                    
+                }
+                return
+            }
+            
+            if isAdsRecallPossible {
+                // RUN ADS HERE!
+                
+                isAdsRecallPossible = false
+                self.buttonDelegate.recallButtonWasPressed(sender: self)
             }
         }
     }
