@@ -8,14 +8,20 @@
 
 import SpriteKit
 
-class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlockNodeDelegate, FourBlockNodeDelegate {
+class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonDelegate, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlockNodeDelegate, FourBlockNodeDelegate {
     
-    // super node containing the gamelayer and pauselayer
+    // super node containing the layers
     let gameLayer = SKNode()
     let boardLayer = SKNode()
+    let pauseLayer = SKNode()
     
     // board 2D array
     var boardArray = Array2D<SKColor>(columns: 9, rows: 9)
+    
+    // nodes
+    let pauseButtonNode = PauseButtonNode(color: ColorCategory.PauseButtonColor)
+    let recallButtonNode = RecallButtonNode(color: ColorCategory.RecallButtonColor)
+    let bestScoreNode = BestScoreNode()
     
     // numbers
     let NumColumns: Int = 9
@@ -23,7 +29,7 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
     var bottomBlockNum: Int = 3
     
     let boardSpacing: CGFloat = 30.0
-    let sectionSpacing: CGFloat = 17.0
+    let sectionSpacing: CGFloat = 23.0
     let cellSpacing: CGFloat = 3.0
     
     // variables
@@ -31,11 +37,37 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
     let tileWidth: CGFloat
     var combo: Int = 0
     var numMatchingThisRound: Int = 0
-    var isGameOver: Bool = false
+    var bottomBlockArray = [SKSpriteNode?](repeating: nil, count: 3)
+    var bottomBlockJustPut: SKSpriteNode?
+    var previousReleasePositions = Array<CGPoint>()
     
-    // create sharing actions
+    // booleans
+    var isGameOver: Bool = false
+    var isGamePaused: Bool = false
+    
+    var gameSoundOn: Bool? {
+        get {
+            if  UserDefaults.standard.object(forKey: "gameSoundOn") == nil {
+                UserDefaults.standard.set(true, forKey: "gameSoundOn")
+            }
+            return UserDefaults.standard.bool(forKey: "gameSoundOn")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "gameSoundOn")
+        }
+    }
+    
+    // sharing actions
     let findMatchingSound: SKAction = SKAction.playSoundFileNamed(
         "findMatching.wav", waitForCompletion: false)
+    let addBottomBlocksSound: SKAction = SKAction.playSoundFileNamed(
+        "addBottomBlocks.wav", waitForCompletion: false)
+    let blockIsSetSound: SKAction = SKAction.playSoundFileNamed(
+        "blockIsSet.wav", waitForCompletion: false)
+    let blockIsNotSetSound: SKAction = SKAction.playSoundFileNamed(
+        "blockIsNotSet.wav", waitForCompletion: false)
+    let buttonPressedSound: SKAction = SKAction.playSoundFileNamed(
+        "buttonPressed.wav", waitForCompletion: false)
     
     //MARK:- Initialization
     override init(size: CGSize) {
@@ -62,6 +94,73 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         /*** add tiles and bottom blocks ***/
         addTiles()
         addBottomBlocks()
+        
+        /*** set up best score node ***/
+        let bestScoreNodeWidth = size.width/5
+        let bestScoreNodeHeight = CGFloat(30.0)
+        let bestScoreNodeFrame = CGRect(x: size.width-bestScoreNodeWidth-10, y: size.height-40, width: bestScoreNodeWidth, height: bestScoreNodeHeight)
+        bestScoreNode.adjustLabelFontSizeToFitRect(rect: bestScoreNodeFrame)
+        //debugDrawArea(rect: bestScoreNodeFrame)
+        gameLayer.addChild(bestScoreNode)
+        
+        /*** set up pause button and pause area ***/
+        // set up pause button node
+        pauseButtonNode.buttonDelegate = self
+        pauseButtonNode.anchorPoint = CGPoint(x:0.0, y:1.0)
+        pauseButtonNode.position = CGPoint(x:0, y:size.height)
+        gameLayer.addChild(pauseButtonNode)
+        
+        /*** set up recall button ***/
+        recallButtonNode.buttonDelegate = self
+        recallButtonNode.anchorPoint = CGPoint(x:0.0, y:1.0)
+        recallButtonNode.position = CGPoint(x:pauseButtonNode.size.width, y:size.height)
+        gameLayer.addChild(recallButtonNode)
+        
+        /*** set up pause layer ***/
+        // add white mask to background
+        let blurBackgroundNode = SKSpriteNode(color: SKColor.white.withAlphaComponent(0.80), size: CGSize(width: size.width, height: size.height))
+        blurBackgroundNode.zPosition = 5000
+        blurBackgroundNode.position = CGPoint(x:size.width/2 ,y: size.height/2)
+        pauseLayer.addChild(blurBackgroundNode)
+        
+        // add continue button
+        let resumeButton = MenuButtonNode(color: ColorCategory.ContinueButtonColor,
+                                          buttonType: ButtonType.LongButton,
+                                          iconType: IconType.ResumeButton)
+        resumeButton.zPosition = 10000
+        resumeButton.position = CGPoint(x: size.width/2,
+                                        y: size.height/2 + 40)
+        resumeButton.name = "resumebutton"
+        resumeButton.buttonDelegate = self
+        pauseLayer.addChild(resumeButton)
+        
+        // add home button
+        let homeButton = MenuButtonNode(color: ColorCategory.HomeButtonColor,
+                                        buttonType: ButtonType.ShortButton,
+                                        iconType: IconType.HomeButton)
+        homeButton.zPosition = 10000
+        homeButton.position = CGPoint(x: size.width/2-resumeButton.size.width/2+homeButton.size.width/2,
+                                      y: size.height/2 - 40)
+        homeButton.name = "homebutton"
+        homeButton.buttonDelegate = self
+        pauseLayer.addChild(homeButton)
+        
+        // add sound button
+        var iconTypeHere = IconType.SoundOnButton
+        if let gameSoundOn = gameSoundOn {
+            iconTypeHere = gameSoundOn ? IconType.SoundOnButton : IconType.SoundOffButton
+        }
+        let soundButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
+                                         buttonType: ButtonType.ShortButton,
+                                         iconType: iconTypeHere)
+        soundButton.zPosition = 10000
+        soundButton.position = CGPoint(x: size.width/2+resumeButton.size.width/2-homeButton.size.width/2,
+                                       y: size.height/2 - 40)
+        soundButton.name = "soundbutton"
+        soundButton.buttonDelegate = self
+        pauseLayer.addChild(soundButton)
+        
+        
     }
     
     //MARK:- Set Up Board
@@ -78,42 +177,107 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
     }
     
     func addBottomBlocks() {
+        // run sound
+        self.run(addBottomBlocksSound)
+        
         // set position
         let bottomBlockY = size.height/4-boardRect.height/4 + boardSpacing/2
         let bottomBlockXLeft = (tileWidth+cellSpacing) + tileWidth/2 + boardSpacing
         let bottomBlockXMid = size.width/2
         let bottomBlockXRight = size.width - bottomBlockXLeft
         
+        // create random index
+        let randomIndex1 = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        let randomIndex2 = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        let randomIndex3 = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        
+        let maxIndex: UInt32 = 9
+        
         // initialize block nodes
-        let bottomBlock1 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
-        let bottomBlock2 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
-        let bottomBlock3 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+        if randomIndex1 <= 0.2 {
+            let bottomBlock1 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock1)
+            bottomBlockArray[0] = bottomBlock1
+        } else if randomIndex1 <= 0.45 {
+            let bottomBlock1 = TwoBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock1)
+            bottomBlockArray[0] = bottomBlock1
+        } else if randomIndex1 <= 0.75 {
+            let bottomBlock1 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock1)
+            bottomBlockArray[0] = bottomBlock1
+        } else {
+            let bottomBlock1 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock1)
+            bottomBlockArray[0] = bottomBlock1
+        }
         
-        // add block nodes
-        bottomBlock1.position = bottomBlock1.getBlockPosition()
-        bottomBlock2.position = bottomBlock2.getBlockPosition()
-        bottomBlock3.position = bottomBlock3.getBlockPosition()
+        if randomIndex2 <= 0.2 {
+            let bottomBlock2 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock2)
+            bottomBlockArray[1] = bottomBlock2
+        } else if randomIndex2 <= 0.45 {
+            let bottomBlock2 = TwoBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock2)
+            bottomBlockArray[1] = bottomBlock2
+        } else if randomIndex2 <= 0.75 {
+            let bottomBlock2 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock2)
+            bottomBlockArray[1] = bottomBlock2
+        } else {
+            let bottomBlock2 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock2)
+            bottomBlockArray[1] = bottomBlock2
+        }
         
-        // set delegate
-        bottomBlock1.blockDelegate = self
-        bottomBlock2.blockDelegate = self
-        bottomBlock3.blockDelegate = self
+        if randomIndex3 <= 0.2 {
+            let bottomBlock3 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock3)
+            bottomBlockArray[2] = bottomBlock3
+        } else if randomIndex3 <= 0.45 {
+            let bottomBlock3 = TwoBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock3)
+            bottomBlockArray[2] = bottomBlock3
+        } else if randomIndex3 <= 0.75 {
+            let bottomBlock3 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock3)
+            bottomBlockArray[2] = bottomBlock3
+        } else {
+            let bottomBlock3 = FourBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            addSingleBottomBlock(bottomBlock: bottomBlock3)
+            bottomBlockArray[2] = bottomBlock3
+        }
         
-        // add blocks with animation
-        bottomBlock1.setScale(0.0)
-        bottomBlock2.setScale(0.0)
-        bottomBlock3.setScale(0.0)
+        for index in 0..<3 {
+            bottomBlockArray[index]?.name = "bottomBlock\(index)"
+        }
+    }
+    
+    func addSingleBottomBlock(bottomBlock: SKSpriteNode) {
+        if let bottomBlock = bottomBlock as? OneBlockNode {
+            bottomBlock.position = bottomBlock.getBlockPosition()
+            bottomBlock.blockDelegate = self
+        }
+        if let bottomBlock = bottomBlock as? TwoBlockNode {
+            bottomBlock.position = bottomBlock.getBlockPosition()
+            bottomBlock.blockDelegate = self
+        }
+        if let bottomBlock = bottomBlock as? ThreeBlockNode {
+            bottomBlock.position = bottomBlock.getBlockPosition()
+            bottomBlock.blockDelegate = self
+        }
+        if let bottomBlock = bottomBlock as? FourBlockNode {
+            bottomBlock.position = bottomBlock.getBlockPosition()
+            bottomBlock.blockDelegate = self
+        }
         
-        gameLayer.addChild(bottomBlock1)
-        gameLayer.addChild(bottomBlock2)
-        gameLayer.addChild(bottomBlock3)
+        bottomBlock.setScale(0.0)
+        gameLayer.addChild(bottomBlock)
         
+        // animation
         let scaleUp = SKAction.scale(to: 0.7, duration: 0.17) // lowScaleNum
         let scaleDown = SKAction.scale(to: 0.6, duration: 0.1) // lowScaleNum
-        bottomBlock1.run(SKAction.sequence([scaleUp, scaleDown]))
-        bottomBlock2.run(SKAction.sequence([scaleUp, scaleDown]))
-        bottomBlock3.run(SKAction.sequence([scaleUp, scaleDown]))
-        
+        bottomBlock.run(SKAction.sequence([scaleUp, scaleDown]))
     }
     
     //MARK:- BlockNodeDelegate
@@ -130,6 +294,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             // already a block in place
             if blockCellColorAt(column: colNum, row: rowNum) != nil {
                 sender.setNodeAt(positionInScreen: nil)
+                // run sound
+                self.run(blockIsNotSetSound)
                 return
             }
             
@@ -146,6 +312,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             }
         } else {
             /*** put the block back to bottom ***/
+            // run sound
+            self.run(blockIsNotSetSound)
             sender.setNodeAt(positionInScreen: nil)
         }
     }
@@ -157,11 +325,18 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         let posInBoardLayer = convert(releasePosition, to: boardLayer)
         let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
         
+        // for recalling
+        previousReleasePositions.removeAll()
+        previousReleasePositions.append(posInBoardLayer)
+        
         /*** Update the tile color ***/
         if let colNum = colNum, let rowNum = rowNum {
             boardArray[colNum, rowNum] = sender.getBlockColor()
             updateBlockCellColorAt(column: colNum, row: rowNum)
         }
+        
+        bottomBlockJustPut = sender
+        recallButtonNode.isRecallPossible = true
         sender.removeFromParent()
         
         checkBoardAndUpdate()
@@ -183,6 +358,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             if let colNum = colNum, let rowNum = rowNum {
                 // already a block in place. put back
                 if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -191,12 +368,16 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
                 if secRow == -1 {
                     secRow = Int(rowNum/3)
                 } else if secRow != Int(rowNum/3) {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
                 if secCol == -1 {
                     secCol = Int(colNum/3)
                 } else if secCol != Int(colNum/3) {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -209,6 +390,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
                 matchCount = matchCount+1
             } else {
                 // not in right position. put back
+                // run sound
+                self.run(blockIsNotSetSound)
                 sender.setNodeAt(positionsInScreen: nil)
             }
         }
@@ -230,9 +413,15 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
     func TwoBlockWasSet(sender: TwoBlockNode) {
         let nodeReleasePositions = sender.getNodeReleasePositions()
         
+        // for recalling
+        previousReleasePositions.removeAll()
+        
         for releasePosition in nodeReleasePositions {
             let posInBoardLayer = convert(releasePosition, to: boardLayer)
             let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+            
+            // for recalling
+            previousReleasePositions.append(posInBoardLayer)
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
@@ -241,6 +430,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             }
         }
         
+        bottomBlockJustPut = sender
+        recallButtonNode.isRecallPossible = true
         sender.removeFromParent()
         
         checkBoardAndUpdate()
@@ -262,6 +453,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             if let colNum = colNum, let rowNum = rowNum {
                 // already a block in place. put back
                 if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -270,12 +463,16 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
                 if secRow == -1 {
                     secRow = Int(rowNum/3)
                 } else if secRow != Int(rowNum/3) {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
                 if secCol == -1 {
                     secCol = Int(colNum/3)
                 } else if secCol != Int(colNum/3) {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -288,6 +485,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
                 matchCount = matchCount+1
             } else {
                 // not in right position. put back
+                // run sound
+                self.run(blockIsNotSetSound)
                 sender.setNodeAt(positionsInScreen: nil)
             }
         }
@@ -309,9 +508,15 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         
         let nodeReleasePositions = sender.getNodeReleasePositions()
         
+        // for recalling
+        previousReleasePositions.removeAll()
+        
         for releasePosition in nodeReleasePositions {
             let posInBoardLayer = convert(releasePosition, to: boardLayer)
             let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+            
+            // for recalling
+            previousReleasePositions.append(posInBoardLayer)
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
@@ -320,8 +525,11 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             }
         }
         
+        bottomBlockJustPut = sender
+        recallButtonNode.isRecallPossible = true
         sender.removeFromParent()
         
+        // run after the block is removed
         checkBoardAndUpdate()
     }
     
@@ -341,6 +549,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             if let colNum = colNum, let rowNum = rowNum {
                 // already a block in place. put back
                 if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -349,12 +559,16 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
                 if secRow == -1 {
                     secRow = Int(rowNum/3)
                 } else if secRow != Int(rowNum/3) {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
                 if secCol == -1 {
                     secCol = Int(colNum/3)
                 } else if secCol != Int(colNum/3) {
+                    // run sound
+                    self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -367,6 +581,8 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
                 matchCount = matchCount+1
             } else {
                 // not in right position. put back
+                // run sound
+                self.run(blockIsNotSetSound)
                 sender.setNodeAt(positionsInScreen: nil)
             }
         }
@@ -388,9 +604,15 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         
         let nodeReleasePositions = sender.getNodeReleasePositions()
         
+        // for recalling
+        previousReleasePositions.removeAll()
+        
         for releasePosition in nodeReleasePositions {
             let posInBoardLayer = convert(releasePosition, to: boardLayer)
             let (rowNum, colNum) = rowAndColFor(position: posInBoardLayer)
+            
+            // for recalling
+            previousReleasePositions.append(posInBoardLayer)
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
@@ -399,11 +621,106 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             }
         }
         
+        bottomBlockJustPut = sender
+        recallButtonNode.isRecallPossible = true
         sender.removeFromParent()
         
         checkBoardAndUpdate()
     }
     
+    //MARK:- MenuButtonDelegate Func
+    func buttonWasPressed(sender: MenuButtonNode) {
+        let iconType = sender.getIconType()
+        
+        // play sound
+        if let gameSoundOn = gameSoundOn,
+            gameSoundOn,
+            iconType != IconType.SoundOffButton {
+            self.run(buttonPressedSound)
+        }
+        if let gameSoundOn = gameSoundOn,
+            !gameSoundOn,
+            iconType == IconType.SoundOnButton {
+            self.run(buttonPressedSound)
+        }
+        
+        if iconType == IconType.ResumeButton  {
+            print("HEYYY")
+            if isGamePaused {
+                unpauseGame()
+                isGamePaused = false
+            }
+            return
+        }
+        if iconType == IconType.HomeButton  {
+            print("Go Back to Home")
+        }
+        if iconType == IconType.SoundOnButton  {
+            //print("Sound On")
+            gameSoundOn = true
+            return
+        }
+        if iconType == IconType.SoundOffButton  {
+            //print("Sound Off")
+            gameSoundOn = false
+            return
+        }
+        if iconType == IconType.RestartButton  {
+            let myScene = GameScene(size: self.size)
+            myScene.scaleMode = self.scaleMode
+            let reveal = SKTransition.fade(withDuration: 0.5)
+            self.view?.presentScene(myScene, transition: reveal)
+            return
+        }
+        
+    }
+    
+    //MARK:- PauseButtonDelegate Func
+    func pauseButtonWasPressed(sender: PauseButtonNode) {
+        isGamePaused = true
+        pauseGame()
+    }
+
+    //MARK:- RecallButtonDelegate Func
+    func recallButtonWasPressed(sender: RecallButtonNode) {
+        
+        // run sound
+        self.run(addBottomBlocksSound)
+        
+        if let bottomBlockJustPut = bottomBlockJustPut as? FourBlockNode {
+            gameLayer.addChild(bottomBlockJustPut)
+            
+            let targetPosition = bottomBlockJustPut.getBlockPosition()
+            bottomBlockJustPut.blockDelegate = self
+            
+            // animation
+            let moveBack = SKAction.move(to: targetPosition, duration: 0.1)
+            let scaleDown = SKAction.scale(to: 0.6, duration: 0.1) // lowScaleNum
+
+            bottomBlockJustPut.run(SKAction.group([moveBack, scaleDown]), completion: {[weak self] in
+                bottomBlockJustPut.isUserInteractionEnabled = true
+                self?.bottomBlockNum = (self?.bottomBlockNum)!+1
+            })
+        }
+        
+        
+        // we can make a recall
+        if sender.isRecallPossible {
+            for previousReleasePosition in previousReleasePositions {
+                let (rowNum, colNum) = rowAndColFor(position: previousReleasePosition)
+                
+                /*** Update the tile color back to gray ***/
+                if let colNum = colNum, let rowNum = rowNum {
+                    boardArray[colNum, rowNum] = nil
+                    updateBlockCellColorAt(column: colNum, row: rowNum)
+                }
+            }
+            
+            // make the recall not possible (can only recall one step)
+            sender.isRecallPossible = false
+        }
+        
+    }
     
     //MARK:- Game Logic Handling
     func pointInBoardLayerFor(column: Int, row: Int) -> CGPoint {
@@ -514,7 +831,19 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         }
     }
     
+    /* this is called only when a block is set successfully in board */
     func checkBoardAndUpdate() {
+        
+        // play sound
+        self.run(blockIsSetSound)
+        
+        for index in 0..<3 {
+            let bottomBlock = gameLayer.childNode(withName: "bottomBlock\(index)")
+            bottomBlockArray[index] = bottomBlock as? SKSpriteNode
+        }
+        
+        print("==========")
+        print(bottomBlockArray)
         
         // initiate section color array
         var sectionArray = Array2D<Set<SKColor>>(columns: 3, rows: 3)
@@ -697,20 +1026,7 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         
         numMatchingThisRound = 0
         
-        var isPossibleMatch = false
-        // check if game over
-        for secCol in 0..<3 {
-            for secRow in 0..<3 {
-                if checkPossibleBlockInSection(secCol: secCol, secRow: secRow) {
-                    isPossibleMatch = true
-                }
-            }
-        }
-        if isPossibleMatch {
-            print("Game Over")
-            gameOver()
-        }
-        
+        checkGameOver()
     }
     
     // remove tile node with animation
@@ -752,6 +1068,9 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         assert(secRow >= 0 && secRow < 3)
         for column in 0..<NumColumns {
             for row in secRow*3..<secRow*3+3 {
+                if boardLayer.childNode(withName: "tile\(column)\(row)") == nil {
+                    continue
+                }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
@@ -770,6 +1089,9 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         assert(secCol >= 0 && secCol < 3)
         for row in 0..<NumRows {
             for column in secCol*3..<secCol*3+3 {
+                if boardLayer.childNode(withName: "tile\(column)\(row)") == nil {
+                    continue
+                }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
@@ -787,6 +1109,9 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         
         for row in 0..<NumRows{
             for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
+                if boardLayer.childNode(withName: "tile\(column)\(row)") == nil {
+                    continue
+                }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
@@ -798,13 +1123,15 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             }
         }
     }
-    
     
     func highlightDiag2(color: SKColor?) {
         numMatchingThisRound = numMatchingThisRound + 1
         
         for row in 0..<NumRows{
             for column in Int(row/3)*3..<Int(row/3)*3+3 {
+                if boardLayer.childNode(withName: "tile\(column)\(row)") == nil {
+                    continue
+                }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
@@ -816,13 +1143,15 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
             }
         }
     }
-    
-    
+
     func highlightSection(secCol:Int, secRow:Int, color: SKColor?) {
         numMatchingThisRound = numMatchingThisRound + 1
         
         for column in secCol*3..<secCol*3+3 {
             for row in secRow*3..<secRow*3+3 {
+                if boardLayer.childNode(withName: "tile\(column)\(row)") == nil {
+                    continue
+                }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                 if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
                     let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
@@ -835,7 +1164,7 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         }
     }
     
-    func checkPossibleBlockInSection(secCol: Int, secRow: Int) -> Bool {
+    func checkGameOverInSection(secCol: Int, secRow: Int) -> Bool {
         var cellArray = Array2D<Int>(columns: 3, rows: 3)
         
         for column in secCol*3..<secCol*3+3 {
@@ -856,7 +1185,6 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
                     for row in 0..<3 {
                         if cellArray[column, row] == 0{
                             return false
-                            
                         }
                     }
                 }
@@ -1063,6 +1391,25 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         return true
     }
     
+    func checkGameOver() {
+        
+        var noPossibleMatch = true
+        // check if game over
+        for secCol in 0..<3 {
+            for secRow in 0..<3 {
+                if !checkGameOverInSection(secCol: secCol, secRow: secRow) {
+                    noPossibleMatch = false
+                }
+            }
+        }
+        
+        if noPossibleMatch {
+            print("Game Over")
+            gameOver()
+        }
+        
+    }
+    
     func gameOver() {
         let myScene = GameScene(size: self.size)
         myScene.scaleMode = self.scaleMode
@@ -1071,7 +1418,6 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         self.view?.presentScene(myScene, transition: reveal)
         return
     }
-    
     
     func shakeCamera(layer:SKNode, duration:Float, magnitude: CGFloat) {
         let amplitudeX:CGFloat = 10.0 * magnitude;
@@ -1089,5 +1435,27 @@ class GameScene: SKScene, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlock
         
         let actionSeq = SKAction.sequence(actionsArray);
         layer.run(actionSeq);
+    }
+    
+    //MARK:- Pause Menu Handling
+    func pauseGame()
+    {
+        gameLayer.isPaused = true
+        self.addChild(pauseLayer)
+        pauseLayer.name = "pauselayer"
+    }
+    
+    func unpauseGame()
+    {
+        gameLayer.isPaused = fa
+        pauseLayer.removeFromParent()
+    }
+    
+    //MARK:- Helper Functions
+    func debugDrawArea(rect drawRect: CGRect) {
+        let shape = SKShapeNode(rect: drawRect)
+        shape.strokeColor = SKColor.red
+        shape.lineWidth = 2.0
+        gameLayer.addChild(shape)
     }
 }

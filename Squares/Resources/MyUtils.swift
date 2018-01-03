@@ -8,10 +8,19 @@
 
 import Foundation
 
-extension Collection {
-    
-    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
+public extension Int {
+    /// returns number of digits in Int number
+    public var digitCount: Int {
+        get {
+            return numberOfDigits(in: self)
+        }
+    }
+    // private recursive method for counting digits
+    private func numberOfDigits(in number: Int) -> Int {
+        if abs(number) < 10 {
+            return 1
+        } else {
+            return 1 + numberOfDigits(in: number/10)
+        }
     }
 }

@@ -23,6 +23,15 @@
 		4E3F6D591FEDB2B200C9DA84 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */; };
 		4E3F6D621FEF165800C9DA84 /* TileNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D611FEF165800C9DA84 /* TileNode.swift */; };
 		4E3F6D651FEF32BE00C9DA84 /* OneBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D641FEF32BE00C9DA84 /* OneBlockNode.swift */; };
+		4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */; };
+		4EC2C5221FFABCBD007E44FD /* blockIsSet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5211FFABCBD007E44FD /* blockIsSet.wav */; };
+		4EC2C5241FFABDCE007E44FD /* blockIsNotSet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */; };
+		4EC2C5261FFAFA78007E44FD /* PauseButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */; };
+		4EC2C5281FFAFA9B007E44FD /* MenuButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C5271FFAFA9B007E44FD /* MenuButtonNode.swift */; };
+		4EC2C52A1FFAFBCB007E44FD /* BestScoreNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C5291FFAFBCB007E44FD /* BestScoreNode.swift */; };
+		4EC2C52C1FFAFDFB007E44FD /* buttonPressed.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C52B1FFAFDFA007E44FD /* buttonPressed.wav */; };
+		4EC2C52E1FFB0C1B007E44FD /* RecallButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C52D1FFB0C1B007E44FD /* RecallButtonNode.swift */; };
+		4EC2C5301FFB0F27007E44FD /* MessageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C52F1FFB0F27007E44FD /* MessageNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +53,15 @@
 		4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		4E3F6D611FEF165800C9DA84 /* TileNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileNode.swift; sourceTree = "<group>"; };
 		4E3F6D641FEF32BE00C9DA84 /* OneBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneBlockNode.swift; sourceTree = "<group>"; };
+		4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = addBottomBlocks.wav; sourceTree = "<group>"; };
+		4EC2C5211FFABCBD007E44FD /* blockIsSet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blockIsSet.wav; sourceTree = "<group>"; };
+		4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blockIsNotSet.wav; sourceTree = "<group>"; };
+		4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonNode.swift; sourceTree = "<group>"; };
+		4EC2C5271FFAFA9B007E44FD /* MenuButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonNode.swift; sourceTree = "<group>"; };
+		4EC2C5291FFAFBCB007E44FD /* BestScoreNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreNode.swift; sourceTree = "<group>"; };
+		4EC2C52B1FFAFDFA007E44FD /* buttonPressed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonPressed.wav; sourceTree = "<group>"; };
+		4EC2C52D1FFB0C1B007E44FD /* RecallButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallButtonNode.swift; sourceTree = "<group>"; };
+		4EC2C52F1FFB0F27007E44FD /* MessageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +78,10 @@
 		4E1EE25F1FF6BF650091F7ED /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				4EC2C52B1FFAFDFA007E44FD /* buttonPressed.wav */,
+				4EC2C5211FFABCBD007E44FD /* blockIsSet.wav */,
+				4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */,
+				4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */,
 				4E1EE25D1FF6BF610091F7ED /* findMatching.wav */,
 			);
 			path = Sounds;
@@ -103,6 +125,11 @@
 				4E1EE25B1FF5A5380091F7ED /* TwoBlockNode.swift */,
 				4E1EE2601FF6F9AA0091F7ED /* ThreeBlockNode.swift */,
 				4E1EE2621FF7109A0091F7ED /* FourBlockNode.swift */,
+				4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */,
+				4EC2C52D1FFB0C1B007E44FD /* RecallButtonNode.swift */,
+				4EC2C5271FFAFA9B007E44FD /* MenuButtonNode.swift */,
+				4EC2C52F1FFB0F27007E44FD /* MessageNode.swift */,
+				4EC2C5291FFAFBCB007E44FD /* BestScoreNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,9 +216,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E1EE25E1FF6BF610091F7ED /* findMatching.wav in Resources */,
+				4EC2C5221FFABCBD007E44FD /* blockIsSet.wav in Resources */,
 				4E3F6D481FEB9C9E00C9DA84 /* Main.storyboard in Resources */,
 				4E3F6D4A1FEB9C9E00C9DA84 /* Assets.xcassets in Resources */,
+				4EC2C5241FFABDCE007E44FD /* blockIsNotSet.wav in Resources */,
 				4E3F6D4D1FEB9C9E00C9DA84 /* LaunchScreen.storyboard in Resources */,
+				4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */,
+				4EC2C52C1FFAFDFB007E44FD /* buttonPressed.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,15 +235,20 @@
 			files = (
 				4E3F6D431FEB9C9E00C9DA84 /* GameScene.swift in Sources */,
 				4E1EE25C1FF5A5380091F7ED /* TwoBlockNode.swift in Sources */,
+				4EC2C5301FFB0F27007E44FD /* MessageNode.swift in Sources */,
 				4E3F6D591FEDB2B200C9DA84 /* Array2D.swift in Sources */,
+				4EC2C5261FFAFA78007E44FD /* PauseButtonNode.swift in Sources */,
 				4E3F6D451FEB9C9E00C9DA84 /* GameViewController.swift in Sources */,
 				4E3F6D3D1FEB9C9E00C9DA84 /* AppDelegate.swift in Sources */,
+				4EC2C52E1FFB0C1B007E44FD /* RecallButtonNode.swift in Sources */,
 				4E1EE2631FF7109A0091F7ED /* FourBlockNode.swift in Sources */,
 				4E3F6D621FEF165800C9DA84 /* TileNode.swift in Sources */,
 				4E1EE2651FF7628D0091F7ED /* MyUtils.swift in Sources */,
+				4EC2C52A1FFAFBCB007E44FD /* BestScoreNode.swift in Sources */,
 				4E3F6D651FEF32BE00C9DA84 /* OneBlockNode.swift in Sources */,
 				4E3F6D551FEB9DEE00C9DA84 /* DefaultValues.swift in Sources */,
 				4E1EE2611FF6F9AA0091F7ED /* ThreeBlockNode.swift in Sources */,
+				4EC2C5281FFAFA9B007E44FD /* MenuButtonNode.swift in Sources */,
 				4E3F6D571FEDB12800C9DA84 /* BlockCellNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
