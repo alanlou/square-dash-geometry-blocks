@@ -34,11 +34,13 @@ class RecallButtonNode: SKSpriteNode {
         set {
             self._isRecallPossible = newValue
             if newValue {
-                self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.1))
-                self.isUserInteractionEnabled = true
+                self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.5), completion: { [weak self] in
+                    self?.isUserInteractionEnabled = true
+                })
             } else {
-                self.run(SKAction.fadeAlpha(to: 0.2, duration: 0.1))
-                self.isUserInteractionEnabled = false
+                self.run(SKAction.fadeAlpha(to: 0.2, duration: 0.1), completion: { [weak self] in
+                    self?.isUserInteractionEnabled = false
+                })
             }
         }
     }
@@ -134,6 +136,7 @@ class RecallButtonNode: SKSpriteNode {
             
             if isAdsRecallPossible {
                 // RUN ADS HERE!
+                print("Run Ads")
                 
                 isAdsRecallPossible = false
                 self.buttonDelegate.recallButtonWasPressed(sender: self)

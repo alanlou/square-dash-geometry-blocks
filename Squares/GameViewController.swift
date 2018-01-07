@@ -15,6 +15,12 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         setUpFirstLaunch()
         
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
         /*** initialize Main ***/
         let scene = GameScene(size: self.view.bounds.size) // match the device's size
         // Set the scale mode to scale to fit the window
@@ -39,8 +45,6 @@ class GameViewController: UIViewController {
             //return
         }
         UserDefaults.standard.set(true, forKey: "launchedBefore")
-        
-        
     }
 }
 
