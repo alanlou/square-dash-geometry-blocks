@@ -15,14 +15,16 @@
 		4E3F6D431FEB9C9E00C9DA84 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */; };
 		4E3F6D451FEB9C9E00C9DA84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D441FEB9C9E00C9DA84 /* GameViewController.swift */; };
 		4E3F6D481FEB9C9E00C9DA84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F6D461FEB9C9E00C9DA84 /* Main.storyboard */; };
-		4E3F6D4A1FEB9C9E00C9DA84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F6D491FEB9C9E00C9DA84 /* Assets.xcassets */; };
 		4E3F6D4D1FEB9C9E00C9DA84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F6D4B1FEB9C9E00C9DA84 /* LaunchScreen.storyboard */; };
 		4E3F6D551FEB9DEE00C9DA84 /* DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */; };
 		4E3F6D571FEDB12800C9DA84 /* BlockCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D561FEDB12800C9DA84 /* BlockCellNode.swift */; };
 		4E3F6D591FEDB2B200C9DA84 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */; };
 		4E3F6D621FEF165800C9DA84 /* TileNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D611FEF165800C9DA84 /* TileNode.swift */; };
 		4E3F6D651FEF32BE00C9DA84 /* OneBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D641FEF32BE00C9DA84 /* OneBlockNode.swift */; };
+		4E8EA9422017147B00AC2955 /* PlayButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */; };
+		4E8EA94420171E1300AC2955 /* BestScoreBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */; };
 		4E92D6212002019800C7B6BA /* blockIsSet.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E92D6202002019800C7B6BA /* blockIsSet.m4a */; };
+		4EBB9009201DC47600A19EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EBB9008201DC47600A19EF2 /* Assets.xcassets */; };
 		4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */; };
 		4EC2C5241FFABDCE007E44FD /* blockIsNotSet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */; };
 		4EC2C5261FFAFA78007E44FD /* PauseButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */; };
@@ -38,14 +40,14 @@
 		4EC2C53C1FFF7A5D007E44FD /* QuarterCircleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */; };
 		4EC2C5422001BB05007E44FD /* startGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5412001BB05007E44FD /* startGame.wav */; };
 		4EC2C54E2001D224007E44FD /* gameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C54D2001D224007E44FD /* gameOver.wav */; };
-		4EC2C5592001FDA7007E44FD /* findMatching8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5512001FDA7007E44FD /* findMatching8.wav */; };
 		4EC2C55A2001FDA7007E44FD /* findMatching1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5522001FDA7007E44FD /* findMatching1.wav */; };
-		4EC2C55B2001FDA7007E44FD /* findMatching4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5532001FDA7007E44FD /* findMatching4.wav */; };
-		4EC2C55C2001FDA7007E44FD /* findMatching7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5542001FDA7007E44FD /* findMatching7.wav */; };
-		4EC2C55D2001FDA7007E44FD /* findMatching3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5552001FDA7007E44FD /* findMatching3.wav */; };
-		4EC2C55E2001FDA7007E44FD /* findMatching6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5562001FDA7007E44FD /* findMatching6.wav */; };
-		4EC2C55F2001FDA7007E44FD /* findMatching2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5572001FDA7007E44FD /* findMatching2.wav */; };
-		4EC2C5602001FDA7007E44FD /* findMatching5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5582001FDA7007E44FD /* findMatching5.wav */; };
+		4ECE1654200DE258009D25C4 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE1653200DE258009D25C4 /* MenuScene.swift */; };
+		4ECE165920108796009D25C4 /* findMatching5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165520108795009D25C4 /* findMatching5.mp3 */; };
+		4ECE165A20108796009D25C4 /* findMatching3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165620108796009D25C4 /* findMatching3.mp3 */; };
+		4ECE165B20108796009D25C4 /* findMatching2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165720108796009D25C4 /* findMatching2.mp3 */; };
+		4ECE165C20108796009D25C4 /* findMatching4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165820108796009D25C4 /* findMatching4.mp3 */; };
+		4ECE165E2015C603009D25C4 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE165D2015C603009D25C4 /* LaunchScreenViewController.swift */; };
+		4EF57B582019706A0073E3F6 /* TrophyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF57B572019706A0073E3F6 /* TrophyNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +60,6 @@
 		4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4E3F6D441FEB9C9E00C9DA84 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4E3F6D471FEB9C9E00C9DA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4E3F6D491FEB9C9E00C9DA84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E3F6D4C1FEB9C9E00C9DA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E3F6D4E1FEB9C9E00C9DA84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValues.swift; sourceTree = "<group>"; };
@@ -66,7 +67,10 @@
 		4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		4E3F6D611FEF165800C9DA84 /* TileNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileNode.swift; sourceTree = "<group>"; };
 		4E3F6D641FEF32BE00C9DA84 /* OneBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneBlockNode.swift; sourceTree = "<group>"; };
+		4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonNode.swift; sourceTree = "<group>"; };
+		4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreBarNode.swift; sourceTree = "<group>"; };
 		4E92D6202002019800C7B6BA /* blockIsSet.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = blockIsSet.m4a; sourceTree = "<group>"; };
+		4EBB9008201DC47600A19EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Squares/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = addBottomBlocks.wav; sourceTree = "<group>"; };
 		4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blockIsNotSet.wav; sourceTree = "<group>"; };
 		4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonNode.swift; sourceTree = "<group>"; };
@@ -82,14 +86,14 @@
 		4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarterCircleNode.swift; sourceTree = "<group>"; };
 		4EC2C5412001BB05007E44FD /* startGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startGame.wav; sourceTree = "<group>"; };
 		4EC2C54D2001D224007E44FD /* gameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameOver.wav; sourceTree = "<group>"; };
-		4EC2C5512001FDA7007E44FD /* findMatching8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching8.wav; sourceTree = "<group>"; };
 		4EC2C5522001FDA7007E44FD /* findMatching1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching1.wav; sourceTree = "<group>"; };
-		4EC2C5532001FDA7007E44FD /* findMatching4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching4.wav; sourceTree = "<group>"; };
-		4EC2C5542001FDA7007E44FD /* findMatching7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching7.wav; sourceTree = "<group>"; };
-		4EC2C5552001FDA7007E44FD /* findMatching3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching3.wav; sourceTree = "<group>"; };
-		4EC2C5562001FDA7007E44FD /* findMatching6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching6.wav; sourceTree = "<group>"; };
-		4EC2C5572001FDA7007E44FD /* findMatching2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching2.wav; sourceTree = "<group>"; };
-		4EC2C5582001FDA7007E44FD /* findMatching5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching5.wav; sourceTree = "<group>"; };
+		4ECE1653200DE258009D25C4 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		4ECE165520108795009D25C4 /* findMatching5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching5.mp3; sourceTree = "<group>"; };
+		4ECE165620108796009D25C4 /* findMatching3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching3.mp3; sourceTree = "<group>"; };
+		4ECE165720108796009D25C4 /* findMatching2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching2.mp3; sourceTree = "<group>"; };
+		4ECE165820108796009D25C4 /* findMatching4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching4.mp3; sourceTree = "<group>"; };
+		4ECE165D2015C603009D25C4 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		4EF57B572019706A0073E3F6 /* TrophyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,14 +113,11 @@
 				4EC2C5371FFF60B5007E44FD /* newBestScore.wav */,
 				4EC2C52B1FFAFDFA007E44FD /* buttonPressed.wav */,
 				4EC2C5522001FDA7007E44FD /* findMatching1.wav */,
-				4EC2C5572001FDA7007E44FD /* findMatching2.wav */,
-				4EC2C5552001FDA7007E44FD /* findMatching3.wav */,
-				4EC2C5532001FDA7007E44FD /* findMatching4.wav */,
-				4EC2C5582001FDA7007E44FD /* findMatching5.wav */,
-				4EC2C5562001FDA7007E44FD /* findMatching6.wav */,
+				4ECE165720108796009D25C4 /* findMatching2.mp3 */,
+				4ECE165620108796009D25C4 /* findMatching3.mp3 */,
+				4ECE165820108796009D25C4 /* findMatching4.mp3 */,
+				4ECE165520108795009D25C4 /* findMatching5.mp3 */,
 				4E92D6202002019800C7B6BA /* blockIsSet.m4a */,
-				4EC2C5542001FDA7007E44FD /* findMatching7.wav */,
-				4EC2C5512001FDA7007E44FD /* findMatching8.wav */,
 				4EC2C54D2001D224007E44FD /* gameOver.wav */,
 				4EC2C5412001BB05007E44FD /* startGame.wav */,
 				4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */,
@@ -144,8 +145,10 @@
 		4E3F6D3B1FEB9C9E00C9DA84 /* Squares */ = {
 			isa = PBXGroup;
 			children = (
+				4ECE165D2015C603009D25C4 /* LaunchScreenViewController.swift */,
 				4E3F6D441FEB9C9E00C9DA84 /* GameViewController.swift */,
 				4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */,
+				4ECE1653200DE258009D25C4 /* MenuScene.swift */,
 				4E3F6D4E1FEB9C9E00C9DA84 /* Info.plist */,
 				4E3F6D5C1FEE532F00C9DA84 /* Models */,
 				4E3F6D5F1FEE537200C9DA84 /* Misc */,
@@ -164,10 +167,13 @@
 				4E1EE2601FF6F9AA0091F7ED /* ThreeBlockNode.swift */,
 				4E1EE2621FF7109A0091F7ED /* FourBlockNode.swift */,
 				4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */,
+				4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */,
 				4EC2C52D1FFB0C1B007E44FD /* RecallButtonNode.swift */,
 				4EC2C5271FFAFA9B007E44FD /* MenuButtonNode.swift */,
 				4EC2C5351FFF5EC7007E44FD /* NewBestRibbonNode.swift */,
 				4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */,
+				4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */,
+				4EF57B572019706A0073E3F6 /* TrophyNode.swift */,
 				4EC2C52F1FFB0F27007E44FD /* MessageNode.swift */,
 				4EC2C5291FFAFBCB007E44FD /* BestScoreNode.swift */,
 				4EC2C5311FFDD521007E44FD /* GameScoreNode.swift */,
@@ -179,11 +185,11 @@
 		4E3F6D5E1FEE534F00C9DA84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EBB9008201DC47600A19EF2 /* Assets.xcassets */,
 				4E1EE25F1FF6BF650091F7ED /* Sounds */,
 				4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */,
 				4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */,
 				4E1EE2641FF7628D0091F7ED /* MyUtils.swift */,
-				4E3F6D491FEB9C9E00C9DA84 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -257,22 +263,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECE165920108796009D25C4 /* findMatching5.mp3 in Resources */,
 				4EC2C5381FFF60B5007E44FD /* newBestScore.wav in Resources */,
 				4E3F6D481FEB9C9E00C9DA84 /* Main.storyboard in Resources */,
-				4E3F6D4A1FEB9C9E00C9DA84 /* Assets.xcassets in Resources */,
+				4ECE165A20108796009D25C4 /* findMatching3.mp3 in Resources */,
+				4EBB9009201DC47600A19EF2 /* Assets.xcassets in Resources */,
 				4EC2C5241FFABDCE007E44FD /* blockIsNotSet.wav in Resources */,
 				4EC2C54E2001D224007E44FD /* gameOver.wav in Resources */,
 				4E3F6D4D1FEB9C9E00C9DA84 /* LaunchScreen.storyboard in Resources */,
 				4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */,
-				4EC2C55F2001FDA7007E44FD /* findMatching2.wav in Resources */,
 				4E92D6212002019800C7B6BA /* blockIsSet.m4a in Resources */,
-				4EC2C55B2001FDA7007E44FD /* findMatching4.wav in Resources */,
-				4EC2C5592001FDA7007E44FD /* findMatching8.wav in Resources */,
 				4EC2C55A2001FDA7007E44FD /* findMatching1.wav in Resources */,
-				4EC2C55D2001FDA7007E44FD /* findMatching3.wav in Resources */,
-				4EC2C5602001FDA7007E44FD /* findMatching5.wav in Resources */,
-				4EC2C55C2001FDA7007E44FD /* findMatching7.wav in Resources */,
-				4EC2C55E2001FDA7007E44FD /* findMatching6.wav in Resources */,
+				4ECE165B20108796009D25C4 /* findMatching2.mp3 in Resources */,
+				4ECE165C20108796009D25C4 /* findMatching4.mp3 in Resources */,
 				4EC2C52C1FFAFDFB007E44FD /* buttonPressed.wav in Resources */,
 				4EC2C5422001BB05007E44FD /* startGame.wav in Resources */,
 			);
@@ -286,11 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E3F6D431FEB9C9E00C9DA84 /* GameScene.swift in Sources */,
+				4ECE165E2015C603009D25C4 /* LaunchScreenViewController.swift in Sources */,
 				4E1EE25C1FF5A5380091F7ED /* TwoBlockNode.swift in Sources */,
 				4EC2C5301FFB0F27007E44FD /* MessageNode.swift in Sources */,
 				4EC2C53C1FFF7A5D007E44FD /* QuarterCircleNode.swift in Sources */,
 				4E3F6D591FEDB2B200C9DA84 /* Array2D.swift in Sources */,
 				4EC2C5261FFAFA78007E44FD /* PauseButtonNode.swift in Sources */,
+				4E8EA9422017147B00AC2955 /* PlayButtonNode.swift in Sources */,
 				4E3F6D451FEB9C9E00C9DA84 /* GameViewController.swift in Sources */,
 				4E3F6D3D1FEB9C9E00C9DA84 /* AppDelegate.swift in Sources */,
 				4EC2C52E1FFB0C1B007E44FD /* RecallButtonNode.swift in Sources */,
@@ -298,14 +303,17 @@
 				4E1EE2631FF7109A0091F7ED /* FourBlockNode.swift in Sources */,
 				4EC2C5341FFDDAFD007E44FD /* ComboNode.swift in Sources */,
 				4E3F6D621FEF165800C9DA84 /* TileNode.swift in Sources */,
+				4ECE1654200DE258009D25C4 /* MenuScene.swift in Sources */,
 				4EC2C5321FFDD521007E44FD /* GameScoreNode.swift in Sources */,
 				4E1EE2651FF7628D0091F7ED /* MyUtils.swift in Sources */,
 				4EC2C52A1FFAFBCB007E44FD /* BestScoreNode.swift in Sources */,
 				4E3F6D651FEF32BE00C9DA84 /* OneBlockNode.swift in Sources */,
 				4E3F6D551FEB9DEE00C9DA84 /* DefaultValues.swift in Sources */,
 				4E1EE2611FF6F9AA0091F7ED /* ThreeBlockNode.swift in Sources */,
+				4E8EA94420171E1300AC2955 /* BestScoreBarNode.swift in Sources */,
 				4EC2C5281FFAFA9B007E44FD /* MenuButtonNode.swift in Sources */,
 				4E3F6D571FEDB12800C9DA84 /* BlockCellNode.swift in Sources */,
+				4EF57B582019706A0073E3F6 /* TrophyNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -47,18 +47,23 @@ class MenuButtonNode: SKSpriteNode {
     weak var buttonDelegate: MenuButtonDelegate!
     
     //MARK:- Initialization
-    init(buttonType: String, iconType: String) {
+    init(color: SKColor, buttonType: String, iconType: String, width: CGFloat) {
         self.iconNode = SKSpriteNode()
         self.buttonType = buttonType
         self.iconType = iconType
         let buttonTexture = SKTexture(imageNamed: buttonType)
-        super.init(texture: buttonTexture, color: .clear, size: buttonTexture.size())
+        let buttonTextureSize = CGSize(width: width, height: width*buttonTexture.size().height/buttonTexture.size().width)
+        super.init(texture: buttonTexture, color: .clear, size: buttonTextureSize)
         self.name = "menubutton"
         isUserInteractionEnabled = true
         
+        self.color = color
+        self.colorBlendFactor = 1.0
+        
         // texture
         let iconTexture = SKTexture(imageNamed: iconType)
-        iconNode = SKSpriteNode(texture: iconTexture, color: .white, size: iconTexture.size())
+        let iconTextureSize = CGSize(width: width*iconTexture.size().width/buttonTexture.size().width, height: width*iconTexture.size().height/buttonTexture.size().width)
+        iconNode = SKSpriteNode(texture: iconTexture, color: .white, size: iconTextureSize)
         iconNode.position = CGPoint(x:0, y:0)
         iconNode.zPosition = 2000
         self.addChild(iconNode)
@@ -68,10 +73,12 @@ class MenuButtonNode: SKSpriteNode {
         }
     }
     
-    convenience init(color: SKColor, buttonType: String, iconType: String) {
-        self.init(buttonType: buttonType, iconType: iconType)
-        self.color = color
-        self.colorBlendFactor = 1.0
+    convenience init(color: SKColor, buttonType: String, iconType: String, height: CGFloat) {
+        
+        let buttonTexture = SKTexture(imageNamed: buttonType)
+        let width = height*buttonTexture.size().width/buttonTexture.size().height
+        
+        self.init(color: color, buttonType: buttonType, iconType: iconType, width: width)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -112,8 +119,8 @@ class MenuButtonNode: SKSpriteNode {
         let touchLocation = touch!.location(in: self.parent!)
         
         if self.contains(touchLocation) {
-            let scaleUp = SKAction.scale(to: 1.1, duration: 0.15)
-            self.run(scaleUp)
+            let scaleUp = SKAction.scale(to: 1.15, duration: 0.12)
+            self.run(scaleUp, withKey: "scaleup")
         }
     }
     
@@ -122,8 +129,11 @@ class MenuButtonNode: SKSpriteNode {
         let touchLocation = touch!.location(in: self.parent!)
         
         if self.contains(touchLocation) {
-            let scaleUp = SKAction.scale(to: 1.1, duration: 0.10)
-            self.run(scaleUp)
+            if let _ = self.action(forKey: "scaleup") {
+            } else {
+                let scaleUp = SKAction.scale(to: 1.15, duration: 0.12)
+                self.run(scaleUp, withKey: "scaleup")
+            }
         } else {
             let scaleDown = SKAction.scale(to: 1.0, duration: 0.08)
             self.run(scaleDown)
@@ -135,9 +145,8 @@ class MenuButtonNode: SKSpriteNode {
         let touch = touches.first
         let touchLocation = touch!.location(in: self.parent!)
         
-        self.zRotation = 0.0
-        self.removeAllActions()
         let scaleDown = SKAction.scale(to: 1.0, duration: 0.08)
+        self.removeAction(forKey: "scaleup")
         self.run(scaleDown)
         
         if self.contains(touchLocation) {
@@ -154,6 +163,8 @@ class MenuButtonNode: SKSpriteNode {
         let wobbleAction = SKAction.repeatForever(SKAction.sequence([wobbleLeftSmall,wobbleRight,wobbleLeftSmall,wait]))
         self.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),wobbleAction]))
     }
+    
+
     
 }
 

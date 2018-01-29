@@ -17,6 +17,7 @@ enum ColorCategory {
     static let RecallButtonColor = BestScoreFontColor
     static let ScoreFontColor = BestScoreFontColor
     static let GameOverNodeColor = SKColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1.0)
+    static let TrophyColor = SKColor(red: 250/255, green:198/255, blue: 86/255, alpha: 1.0)
     
     // Pause Menu Colors
     static let PauseButtonColor = BestScoreFontColor

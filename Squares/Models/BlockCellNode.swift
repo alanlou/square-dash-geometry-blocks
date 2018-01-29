@@ -14,15 +14,11 @@ class BlockCellNode: SKSpriteNode {
     var row: Int?
     let blockColor: SKColor
     
-    init() {
+    init(color: SKColor) {
         blockColor = SKColor.clear
         let texture = SKTexture(imageNamed: "Tile")
         super.init(texture: texture, color: .clear, size: texture.size())
         self.name = "blockcell"
-    }
-    
-    convenience init(color: SKColor) {
-        self.init()
         self.color = color
         self.colorBlendFactor = 1.0
     }

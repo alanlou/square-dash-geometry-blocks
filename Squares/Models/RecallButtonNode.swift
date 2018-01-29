@@ -46,7 +46,7 @@ class RecallButtonNode: SKSpriteNode {
     }
     
     //MARK:- Initialization
-    init() {
+    init(color: SKColor) {
         super.init(texture: nil, color: .clear, size: CGSize(width: 50, height: 50))
         
         self.name = "Recallbutton"
@@ -74,10 +74,8 @@ class RecallButtonNode: SKSpriteNode {
         // add children
         self.addChild(recallButtonNode)
         self.addChild(numRecallMessageNode)
-    }
-    
-    convenience init(color: SKColor) {
-        self.init()
+        
+        // change color
         recallButtonNode.color = color
         recallButtonNode.colorBlendFactor = 1.0
         numRecallMessageNode.setFontColor(color: color)

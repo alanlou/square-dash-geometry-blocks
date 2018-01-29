@@ -1,20 +1,20 @@
 //
-//  TileNode.swift
+//  TrophyNode.swift
 //  Squares
 //
-//  Created by Alan Lou on 12/23/17.
-//  Copyright © 2017 Rawwr Studios. All rights reserved.
+//  Created by Alan Lou on 1/24/18.
+//  Copyright © 2018 Rawwr Studios. All rights reserved.
 //
 
 import SpriteKit
 
-class TileNode: SKSpriteNode {
+class TrophyNode: SKSpriteNode {
     
     //MARK:- Initialization
-    init(color: SKColor) {
-        let texture = SKTexture(imageNamed: "Tile")
-        super.init(texture: texture, color: .clear, size: texture.size())
-        self.name = "tile"
+    init(color: SKColor, height: CGFloat) {
+        let texture = SKTexture(imageNamed: "Trophy")
+        let textureSize = CGSize(width: height*texture.size().width/texture.size().height, height: height)
+        super.init(texture: texture, color: .clear, size: textureSize)
         self.color = color
         self.colorBlendFactor = 1.0
     }
@@ -33,5 +33,3 @@ class TileNode: SKSpriteNode {
         return self.color
     }
 }
-
-

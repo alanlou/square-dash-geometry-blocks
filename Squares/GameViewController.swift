@@ -14,15 +14,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpFirstLaunch()
-        
-        
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
         /*** initialize Main ***/
-        let scene = GameScene(size: self.view.bounds.size) // match the device's size
+        let scene = MenuScene(size: self.view.bounds.size) // match the device's size
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .aspectFill
         
@@ -32,7 +30,9 @@ class GameViewController: UIViewController {
         skView.showsNodeCount = true
         //skView.showsPhysics = true
         skView.ignoresSiblingOrder = true
-        skView.presentScene(scene)
+        
+        let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
+        skView.presentScene(scene, transition: transition)
     }
     
     override var prefersStatusBarHidden: Bool {
