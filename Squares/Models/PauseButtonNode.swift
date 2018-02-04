@@ -19,28 +19,26 @@ class PauseButtonNode: SKSpriteNode {
     var pauseButtonNode: SKSpriteNode!
     
     //MARK:- Initialization
-    init() {
-        super.init(texture: nil, color: .clear, size: CGSize(width: 50, height: 50))
+    init(color: SKColor, width: CGFloat) {
+        let texture = SKTexture(imageNamed: "PauseButton")
+        let textureSize = CGSize(width: width, height: width*texture.size().height/texture.size().width)
+        
+        // underlying larger area
+        super.init(texture: nil, color: .clear, size: CGSize(width: width*1.5, height: width*1.5))
         
         self.name = "pausebutton"
         self.anchorPoint = CGPoint(x:0.0, y:1.0)
         self.isUserInteractionEnabled = true
         
         // set up pause button node
-        let texture = SKTexture(imageNamed: "PauseButton")
-        pauseButtonNode = SKSpriteNode(texture: texture, color: .clear, size: texture.size())
+        pauseButtonNode = SKSpriteNode(texture: texture, color: .clear, size: textureSize)
         pauseButtonNode.colorBlendFactor = 1.0
+        pauseButtonNode.color = color
         pauseButtonNode.anchorPoint = CGPoint(x:0.0, y:1.0)
-        pauseButtonNode.position = CGPoint(x:10, y:-10)
+        pauseButtonNode.position = CGPoint(x:width*0.25, y:-width*0.25)
         
         // add pause button
         self.addChild(pauseButtonNode)
-    }
-    
-    convenience init(color: SKColor) {
-        self.init()
-        pauseButtonNode.color = color
-        pauseButtonNode.colorBlendFactor = 1.0
     }
     
     required init(coder aDecoder: NSCoder) {

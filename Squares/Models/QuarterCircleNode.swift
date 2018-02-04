@@ -18,20 +18,17 @@ class QuarterCircleNode: SKSpriteNode {
     weak var buttonDelegate: EyeButtonDelegate!
     
     //MARK:- Initialization
-    init() {
+    init(color: SKColor, width: CGFloat) {
         let texture = SKTexture(imageNamed: "QuarterCircle")
+        let textureSize = CGSize(width: width, height: width*texture.size().height/texture.size().width)
            
-        super.init(texture: texture, color: .clear, size: texture.size())
+        super.init(texture: texture, color: .clear, size: textureSize)
         
         self.name = "quartercircle"
         self.isUserInteractionEnabled = true
         
-    }
-    
-    convenience init(quarterCircleColor: SKColor, eyeColor: SKColor) {
-        self.init()
-        self.color = quarterCircleColor
         self.colorBlendFactor = 1.0
+        self.color = color
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -39,8 +36,8 @@ class QuarterCircleNode: SKSpriteNode {
     }
     
     //MARK:- Helper Functions
-    func changeColor(quarterCircleColor: SKColor, eyeColor: SKColor) {
-        self.color = quarterCircleColor
+    func changeColor(color: SKColor) {
+        self.color = color
         self.colorBlendFactor = 1.0
     }
     

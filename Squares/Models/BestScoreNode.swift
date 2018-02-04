@@ -11,7 +11,7 @@ import SpriteKit
 class BestScoreNode: SKLabelNode {
     private var numberDigits: Int = 1
     private var boundingRect: CGRect?
-    var bestScore: Int? {
+    var bestScore: Int {
         get {
             return UserDefaults.standard.integer(forKey: "highScore")
         }
@@ -22,11 +22,7 @@ class BestScoreNode: SKLabelNode {
     
     override init() {
         super.init()
-        
-        if self.bestScore == nil {
-            bestScore = 0
-        }
-        text = "BEST: \(bestScore!)"
+        text = "BEST: \(bestScore)"
         fontName = "ChalkboardSE-Light"
         fontSize = 16
         fontColor = ColorCategory.BestScoreFontColor
@@ -47,7 +43,7 @@ class BestScoreNode: SKLabelNode {
         // animate the update
         let duration = 0.14
         let updateText = SKAction.run() { [weak self] in
-            self?.text = "BEST: \(self?.bestScore! ?? 0)"
+            self?.text = "BEST: \(self?.bestScore ?? 0)"
         }
         let scaleXDown = SKAction.scaleX(to: 0.8, duration: duration)
         let scaleXUp = SKAction.scaleX(to: 1.2, duration: duration)
@@ -61,7 +57,7 @@ class BestScoreNode: SKLabelNode {
     }
     
     func getBestScore() -> Int {
-        return bestScore!
+        return bestScore
     }
     
     func adjustLabelFontSizeToFitRect(rect:CGRect) {
@@ -74,6 +70,20 @@ class BestScoreNode: SKLabelNode {
         self.fontSize *= scalingFactor
         // optionally move the SKLabelNode to the center of the rectangle
         self.position = CGPoint(x: rect.midX, y: rect.midY)
+    }
+    
+    
+    func adjustLabelFontSizeToFitRectRight(rect:CGRect) {
+        if boundingRect == nil{
+            boundingRect = rect
+        }
+        // determine the font scaling factor that should let the label text fit in the given rectangle
+        let scalingFactor = min(rect.width / self.frame.width, rect.height / self.frame.height)
+        // change the fontSize
+        self.fontSize *= scalingFactor
+        // optionally move the SKLabelNode to the center of the rectangle
+        self.position = CGPoint(x: rect.maxX, y: rect.midY)
+        horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
     }
 }
 

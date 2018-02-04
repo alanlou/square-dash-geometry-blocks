@@ -34,20 +34,27 @@ class RecallButtonNode: SKSpriteNode {
         set {
             self._isRecallPossible = newValue
             if newValue {
-                self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.5), completion: { [weak self] in
-                    self?.isUserInteractionEnabled = true
-                })
+                print("---")
+                print(numRecall)
+                print(isAdsRecallPossible)
+                if numRecall > 0 || isAdsRecallPossible {
+                    self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.4), completion: { [weak self] in
+                        self?.isUserInteractionEnabled = true
+                    })
+                }
             } else {
-                self.run(SKAction.fadeAlpha(to: 0.2, duration: 0.1), completion: { [weak self] in
-                    self?.isUserInteractionEnabled = false
-                })
+                self.isUserInteractionEnabled = false
+                self.run(SKAction.fadeAlpha(to: 0.2, duration: 0.1))
             }
         }
     }
     
     //MARK:- Initialization
-    init(color: SKColor) {
-        super.init(texture: nil, color: .clear, size: CGSize(width: 50, height: 50))
+    init(color: SKColor, width: CGFloat){
+        let texture = SKTexture(imageNamed: "RecallButton")
+        let textureSize = CGSize(width: width*0.76, height: width*texture.size().height/texture.size().width*0.76)
+    
+        super.init(texture: nil, color: .clear, size: CGSize(width: width*1.3, height: width*1.5))
         
         self.name = "Recallbutton"
         self.anchorPoint = CGPoint(x:0.0, y:1.0)
@@ -55,18 +62,17 @@ class RecallButtonNode: SKSpriteNode {
         self.alpha = 0.2
         
         // set up Recall button node
-        let texture = SKTexture(imageNamed: "RecallButton")
-        recallButtonNode = SKSpriteNode(texture: texture, color: .clear, size: texture.size())
+        recallButtonNode = SKSpriteNode(texture: texture, color: .clear, size: textureSize)
         recallButtonNode.colorBlendFactor = 1.0
         recallButtonNode.anchorPoint = CGPoint(x:0.0, y:1.0)
-        recallButtonNode.position = CGPoint(x:5.0, y:-17.0) // xpos: 5 - 25
+        recallButtonNode.position = CGPoint(x:width*0.15, y:-width*0.38)
         
         // set up numRecall message node
         numRecallMessageNode = MessageNode(message: "\(numRecall)")
-        let messageNodeFrame = CGRect(x: 28.0,
-                                      y: -23.0,
-                                      width: 15.0,
-                                      height: 12.0)
+        let messageNodeFrame = CGRect(x: width*0.80,
+                                      y: -width*0.69,
+                                      width: width*0.45,
+                                      height: width*0.45)
         numRecallMessageNode.adjustLabelFontSizeToFitRect(rect: messageNodeFrame)
         numRecallMessageNode.setHorizontalAlignment(mode: .left)
         //debugDrawArea(rect: messageNodeFrame)
@@ -111,16 +117,17 @@ class RecallButtonNode: SKSpriteNode {
             if numRecall > 0 {
                 numRecall = numRecall - 1
                 self.numRecallMessageNode.setNumRecall(to: numRecall)
-                self.buttonDelegate.recallButtonWasPressed(sender: self)
+                performRecallAction()
                 
                 // Used all recall chances. Add AdsRecall Node
                 if numRecall == 0 {
-                    isAdsRecallPossible = true
+//                    isAdsRecallPossible = true
                     
                     let texture = SKTexture(imageNamed: "AdsVideo")
                     let adsVideoNode = SKSpriteNode(texture: texture, color: .clear, size: texture.size())
                     adsVideoNode.color = ColorCategory.RecallButtonColor
                     adsVideoNode.colorBlendFactor = 1.0
+                    adsVideoNode.anchorPoint = CGPoint(x:0.35, y:0.35)
                     adsVideoNode.position = numRecallMessageNode.position
                     adsVideoNode.setScale(0.0)
                     self.addChild(adsVideoNode)
@@ -129,15 +136,16 @@ class RecallButtonNode: SKSpriteNode {
                     numRecallMessageNode.removeFromParent()
                     
                 }
+                // exit function
                 return
             }
             
             if isAdsRecallPossible {
                 // RUN ADS HERE!
                 print("Run Ads")
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "runRewardAds"), object: nil)
                 
-                isAdsRecallPossible = false
-                self.buttonDelegate.recallButtonWasPressed(sender: self)
+                disableAdsRecall()
             }
         }
     }
@@ -149,5 +157,26 @@ class RecallButtonNode: SKSpriteNode {
         shape.lineWidth = 2.0
         self.addChild(shape)
     }
+    
+    func enableAdsRecall() {
+        print("ENABLE ADS RECALL!")
+        isAdsRecallPossible = true
+        if isRecallPossible {
+            self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.4), completion: { [weak self] in
+                self?.isUserInteractionEnabled = true
+            })
+        }
+    }
+    
+    func disableAdsRecall() {
+        isAdsRecallPossible = false
+        self.isUserInteractionEnabled = false
+        self.run(SKAction.fadeAlpha(to: 0.2, duration: 0.1))
+    }
+    
+    func performRecallAction() {
+        self.buttonDelegate.recallButtonWasPressed(sender: self)
+    }
+    
     
 }

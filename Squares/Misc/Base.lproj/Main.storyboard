@@ -52,6 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="u4z-PC-6Fa"/>
                     </view>
                     <connections>
+                        <outlet property="logoView" destination="0cg-qZ-dzY" id="SwA-Vr-LKJ"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="showGameViewController" animates="NO" id="lcR-lV-uLB"/>
                     </connections>
                 </viewController>

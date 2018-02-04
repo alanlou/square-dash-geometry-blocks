@@ -11,7 +11,9 @@ import SpriteKit
 
 class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
     
-    
+    // set up nodes container
+    let nodeLayer = SKNode()
+    var isAdReady = false
     var safeAreaRect: CGRect!
     
     let buttonPressedSound: SKAction = SKAction.playSoundFileNamed(
@@ -47,7 +49,7 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
     }
     
     override func didMove(to view: SKView) {
-        // setup background
+        // set up background
         self.backgroundColor = ColorCategory.BackgroundColor
         self.view?.isMultipleTouchEnabled = false
         
@@ -57,26 +59,30 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
                               width: size.width-safeSets.right-safeSets.left,
                               height: size.height-safeSets.top-safeSets.bottom)
         
+        nodeLayer.position = CGPoint(x: 0.0, y: safeSets.bottom)
+        self.addChild(nodeLayer)
+        
         // add title
         let texture = SKTexture(imageNamed: "SquaresTitle")
         let gameTitle = SKSpriteNode(texture: texture, color: .clear, size: CGSize(width: size.width*0.75, height: size.width*0.75*texture.size().height/texture.size().width))
         gameTitle.position = CGPoint(x: safeAreaRect.width/2,
-                                      y: safeAreaRect.height*3.2/4)
-        self.addChild(gameTitle)
+                                      y: safeAreaRect.height*0.8)
+        nodeLayer.addChild(gameTitle)
         
         
         // add play button
-        let playButton = PlayButtonNode(color: ColorCategory.ContinueButtonColor, width: safeAreaRect.width/3, type: PlayButtonType.PlayButton)
+        let playButtonWidth = min(safeAreaRect.width/3,safeAreaRect.height/5)
+        let playButton = PlayButtonNode(color: ColorCategory.ContinueButtonColor, width: playButtonWidth, type: PlayButtonType.PlayButton)
         playButton.position = CGPoint(x: safeAreaRect.width/2,
                                       y: safeAreaRect.height/2-playButton.size.height/2)
         playButton.buttonDelegate = self
-        self.addChild(playButton)
+        nodeLayer.addChild(playButton)
         
         // add best score boarder
         let bestScoreBarNode = BestScoreBarNode(color: ColorCategory.BestScoreFontColor.withAlphaComponent(0.55), width: safeAreaRect.width/1.7)
         bestScoreBarNode.position = CGPoint(x: safeAreaRect.width/2.0,
                                             y: (gameTitle.frame.minY + playButton.frame.maxY)/2.0)
-        self.addChild(bestScoreBarNode)
+        nodeLayer.addChild(bestScoreBarNode)
         
         // add trophy
         let trophy = TrophyNode(color: ColorCategory.TrophyColor, height: bestScoreBarNode.size.height*0.63)
@@ -100,8 +106,8 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
         bestScoreBarNode.addChild(bestScoreNode)
         
         /*** add buttons ***/
-        let buttonWidth = playButton.size.width/2.5
-        let positionArmRadius = safeAreaRect.width/(2.0*cos(CGFloat.pi/6.0)) * 0.8 - buttonWidth*0.5
+        let buttonWidth = playButtonWidth/2.5
+        let positionArmRadius = min(safeAreaRect.width/(2.0*cos(CGFloat.pi/6.0)) * 0.8 - buttonWidth*0.5, playButtonWidth*1.2)
         
         // 1. Add Sound button
         var iconTypeHere = IconType.SoundOnButton
@@ -116,7 +122,7 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
                                        y: playButton.position.y-positionArmRadius*cos(CGFloat.pi*1/3))
         soundButton.name = "soundbutton"
         soundButton.buttonDelegate = self
-        self.addChild(soundButton)
+        nodeLayer.addChild(soundButton)
         
         // 2. Add LeaderBoard button
         let leaderBoardButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
@@ -127,18 +133,18 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
                                              y: playButton.position.y-positionArmRadius*cos(CGFloat.pi/9.0))
         leaderBoardButton.name = "leaderboardbutton"
         leaderBoardButton.buttonDelegate = self
-        self.addChild(leaderBoardButton)
+        nodeLayer.addChild(leaderBoardButton)
         
-        // 3. Add Store button
-        let storeButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
+        // 3. Add Twitter button
+        let twitterButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
                                          buttonType: ButtonType.RoundButton,
-                                         iconType: IconType.StoreButton,
+                                         iconType: IconType.TwitterButton,
                                          width: buttonWidth)
-        storeButton.position = CGPoint(x: safeAreaRect.width/2+positionArmRadius*sin(CGFloat.pi/9.0),
+        twitterButton.position = CGPoint(x: safeAreaRect.width/2+positionArmRadius*sin(CGFloat.pi/9.0),
                                        y: playButton.position.y-positionArmRadius*cos(CGFloat.pi/9.0))
-        storeButton.name = "storebutton"
-        storeButton.buttonDelegate = self
-        self.addChild(storeButton)
+        twitterButton.name = "twitterbutton"
+        twitterButton.buttonDelegate = self
+        nodeLayer.addChild(twitterButton)
         
         // 4. Add NoAds button
         let noAdsButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
@@ -149,7 +155,7 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
                                        y: playButton.position.y-positionArmRadius*cos(CGFloat.pi*1/3))
         noAdsButton.name = "noadsbutton"
         noAdsButton.buttonDelegate = self
-        self.addChild(noAdsButton)
+        nodeLayer.addChild(noAdsButton)
         
     }
     
@@ -158,6 +164,7 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
         if view != nil {
             let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
             let gameScene = GameScene(size: self.size)
+            gameScene.isAdReady = self.isAdReady
             self.view?.presentScene(gameScene, transition: transition)
         }
         return
@@ -175,16 +182,35 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
             self.run(buttonPressedSound)
         }
         
+        // make action based on icon type
         if iconType == IconType.SoundOnButton  {
-            //print("Sound On")
             gameSoundOn = true
+            self.run(buttonPressedSound)
             return
         }
         if iconType == IconType.SoundOffButton  {
-            //print("Sound Off")
             gameSoundOn = false
             return
         }
+        if iconType == IconType.TwitterButton  {
+            guard let url = URL(string: "https://mobile.twitter.com/rawwrstudios") else {
+                return //be safe
+            }
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            return
+        }
+        
+    }
+    
+    func animateNodesFadeIn() {
+        /*** Animate nodeLayer ***/
+        nodeLayer.alpha = 0.0
+        nodeLayer.run(SKAction.fadeIn(withDuration: 0.2))
     }
     
 }

@@ -24,7 +24,9 @@
 		4E8EA9422017147B00AC2955 /* PlayButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */; };
 		4E8EA94420171E1300AC2955 /* BestScoreBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */; };
 		4E92D6212002019800C7B6BA /* blockIsSet.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E92D6202002019800C7B6BA /* blockIsSet.m4a */; };
+		4E97BEE42022EF6C00BAF5E3 /* StoreReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97BEE32022EF6C00BAF5E3 /* StoreReviewHelper.swift */; };
 		4EBB9009201DC47600A19EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EBB9008201DC47600A19EF2 /* Assets.xcassets */; };
+		4EBB90162021A1D400A19EF2 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBB90152021A1D400A19EF2 /* GoogleMobileAds.framework */; };
 		4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */; };
 		4EC2C5241FFABDCE007E44FD /* blockIsNotSet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */; };
 		4EC2C5261FFAFA78007E44FD /* PauseButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */; };
@@ -70,7 +72,10 @@
 		4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonNode.swift; sourceTree = "<group>"; };
 		4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreBarNode.swift; sourceTree = "<group>"; };
 		4E92D6202002019800C7B6BA /* blockIsSet.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = blockIsSet.m4a; sourceTree = "<group>"; };
+		4E97BEE32022EF6C00BAF5E3 /* StoreReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewHelper.swift; sourceTree = "<group>"; };
 		4EBB9008201DC47600A19EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Squares/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		4EBB90132021A1BE00A19EF2 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../../../Downloads/GoogleMobileAdsSdkiOS-7.27.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
+		4EBB90152021A1D400A19EF2 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = addBottomBlocks.wav; sourceTree = "<group>"; };
 		4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blockIsNotSet.wav; sourceTree = "<group>"; };
 		4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonNode.swift; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EBB90162021A1D400A19EF2 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +137,7 @@
 			children = (
 				4E3F6D3B1FEB9C9E00C9DA84 /* Squares */,
 				4E3F6D3A1FEB9C9E00C9DA84 /* Products */,
+				4EBB90122021A1BD00A19EF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,8 +174,8 @@
 				4E1EE2601FF6F9AA0091F7ED /* ThreeBlockNode.swift */,
 				4E1EE2621FF7109A0091F7ED /* FourBlockNode.swift */,
 				4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */,
-				4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */,
 				4EC2C52D1FFB0C1B007E44FD /* RecallButtonNode.swift */,
+				4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */,
 				4EC2C5271FFAFA9B007E44FD /* MenuButtonNode.swift */,
 				4EC2C5351FFF5EC7007E44FD /* NewBestRibbonNode.swift */,
 				4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */,
@@ -189,6 +196,7 @@
 				4E1EE25F1FF6BF650091F7ED /* Sounds */,
 				4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */,
 				4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */,
+				4E97BEE32022EF6C00BAF5E3 /* StoreReviewHelper.swift */,
 				4E1EE2641FF7628D0091F7ED /* MyUtils.swift */,
 			);
 			path = Resources;
@@ -200,8 +208,17 @@
 				4E3F6D3C1FEB9C9E00C9DA84 /* AppDelegate.swift */,
 				4E3F6D461FEB9C9E00C9DA84 /* Main.storyboard */,
 				4E3F6D4B1FEB9C9E00C9DA84 /* LaunchScreen.storyboard */,
+				4EBB90152021A1D400A19EF2 /* GoogleMobileAds.framework */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		4EBB90122021A1BD00A19EF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EBB90132021A1BE00A19EF2 /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +328,7 @@
 				4E3F6D551FEB9DEE00C9DA84 /* DefaultValues.swift in Sources */,
 				4E1EE2611FF6F9AA0091F7ED /* ThreeBlockNode.swift in Sources */,
 				4E8EA94420171E1300AC2955 /* BestScoreBarNode.swift in Sources */,
+				4E97BEE42022EF6C00BAF5E3 /* StoreReviewHelper.swift in Sources */,
 				4EC2C5281FFAFA9B007E44FD /* MenuButtonNode.swift in Sources */,
 				4E3F6D571FEDB12800C9DA84 /* BlockCellNode.swift in Sources */,
 				4EF57B582019706A0073E3F6 /* TrophyNode.swift in Sources */,
@@ -452,6 +470,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E3TBSL5F4P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Squares/Misc",
+				);
 				INFOPLIST_FILE = Squares/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RawwrStudios.Squares;
@@ -467,6 +489,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E3TBSL5F4P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Squares/Misc",
+				);
 				INFOPLIST_FILE = Squares/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RawwrStudios.Squares;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Initialize the Google Mobile Ads SDK.
+        // Sample AdMob app ID: ca-app-pub-5422633750847690~4966311878
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-5422633750847690~4966311878")
+        
+        
         return true
     }
 

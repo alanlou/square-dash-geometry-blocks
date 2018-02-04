@@ -29,6 +29,7 @@ struct IconType {
     static let SoundOffButton:  String = "SoundMute"
     static let LeaderBoardButton:  String = "Medal"
     static let StoreButton:  String = "Store"
+    static let TwitterButton:  String = "Twitter"
     static let NoAdsButton:  String = "NoAds"
 }
 
@@ -70,6 +71,10 @@ class MenuButtonNode: SKSpriteNode {
         
         if buttonType == ButtonType.RoundButton {
             self.performWobbleAction()
+        }
+        
+        if iconType == IconType.ShareButton {
+            self.performShareWobbleAction()
         }
     }
     
@@ -164,6 +169,17 @@ class MenuButtonNode: SKSpriteNode {
         self.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),wobbleAction]))
     }
     
+    func performShareWobbleAction() {
+        // perform wobble action
+        let wobbleLeftSmall1 = SKAction.rotate(byAngle: -CGFloat.pi * 1/7, duration: 0.22)
+        let wobbleRight = SKAction.rotate(byAngle: CGFloat.pi * 1/3.5, duration: 0.44)
+        let wobbleLeftSmall2 = SKAction.rotate(byAngle: -CGFloat.pi * 1/7, duration: 0.22)
+        wobbleLeftSmall1.timingMode = .easeOut
+        wobbleRight.timingMode = .easeInEaseOut
+        wobbleLeftSmall2.timingMode = .easeIn
+        let wobbleAction = SKAction.repeatForever(SKAction.sequence([wobbleLeftSmall1,wobbleRight,wobbleLeftSmall2]))
+        self.run(wobbleAction)
+    }
 
     
 }
