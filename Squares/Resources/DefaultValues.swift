@@ -27,8 +27,8 @@ enum ColorCategory {
     
     // Block Colors
     static let BlockColor1 = SKColor(red: 227/255, green:81/255, blue: 91/255, alpha: 1.0) // red
-    static let BlockColor2 = SKColor(red: 250/255, green:198/255, blue: 86/255, alpha: 1.0) // yellow
-    static let BlockColor3 = SKColor(red: 15/255, green:124/255, blue: 200/255, alpha: 1.0) // blue
+    static let BlockColor2 = SKColor(red: 15/255, green:124/255, blue: 200/255, alpha: 1.0) // blue
+    static let BlockColor3 = SKColor(red: 250/255, green:198/255, blue: 86/255, alpha: 1.0) // yellow
     static let BlockColor4 = SKColor(red: 99/255, green:172/255, blue: 32/255, alpha: 1.0) // green
     static let BlockColor5 = SKColor(red: 162/255, green:138/255, blue: 128/255, alpha: 1.0) // brown
     static let BlockColor6 = SKColor(red: 253/255, green:154/255, blue: 182/255, alpha: 1.0) // pink

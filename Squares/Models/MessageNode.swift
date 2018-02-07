@@ -38,6 +38,10 @@ class MessageNode: SKLabelNode {
         self.fontColor = color
     }
     
+    func setText(to text: String){
+        self.text = text
+    }
+    
     func setNumRecall(to numRecall: Int){
         // animate the update
         let duration = 0.1

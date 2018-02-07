@@ -31,6 +31,7 @@ struct IconType {
     static let StoreButton:  String = "Store"
     static let TwitterButton:  String = "Twitter"
     static let NoAdsButton:  String = "NoAds"
+    static let InfoButton:  String = "Info"
 }
 
 class MenuButtonNode: SKSpriteNode {

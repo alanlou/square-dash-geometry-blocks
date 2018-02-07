@@ -7,8 +7,9 @@
 //
 
 import SpriteKit
+import Photos
 
-class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonDelegate, EyeButtonDelegate, PlayButtonDelegate, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlockNodeDelegate, FourBlockNodeDelegate {
+class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonDelegate, EyeButtonDelegate, PlayButtonDelegate, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlockNodeDelegate, FourBlockNodeDelegate, Alertable {
     
     // super node containing the layers
     let gameLayer = SKNode()
@@ -34,7 +35,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     var bottomBlockNum: Int = 3
     
     // variables
-    let adsHeight: CGFloat = 34
     let boardSpacing: CGFloat
     let sectionSpacing: CGFloat
     let cellSpacing: CGFloat
@@ -50,12 +50,14 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     var previousReleasePositions = Array<CGPoint>()
     var previousPoint: Int = 0
     var previousCombo: Int = 0
+    var postImage: UIImage?
     
     // booleans
     var isAdReady: Bool = false
     var isGameOver: Bool = false
     var isBestScore: Bool = false
     var isGamePaused: Bool = false
+    var isPhotoPermission: Bool = false
     
     var gameSoundOn: Bool? {
         get {
@@ -68,7 +70,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             UserDefaults.standard.set(newValue, forKey: "gameSoundOn")
         }
     }
-    var AdsHeight: CGFloat {
+    var adsHeight: CGFloat {
         get {
             return CGFloat(UserDefaults.standard.float(forKey: "AdsHeight"))
         }
@@ -125,8 +127,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         safeAreaRect = CGRect(x: safeSets.left,
                               y: safeSets.bottom,
                               width: size.width-safeSets.right-safeSets.left,
-                              height: size.height-safeSets.top-safeSets.bottom-AdsHeight)
-        print(safeSets)
+                              height: size.height-safeSets.top-safeSets.bottom-adsHeight)
         
         /*** set up game layer ***/
         self.addChild(gameLayer)
@@ -738,7 +739,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     
     //MARK:- MenuButtonDelegate Func
     func buttonWasPressed(sender: MenuButtonNode) {
-        print("Button Pressed")
         let iconType = sender.getIconType()
         
         // play sound
@@ -761,7 +761,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             return
         }
         if iconType == IconType.HomeButton  {
-            print("BACK TO HOME")
             if view != nil {
                 let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
                 self.view?.presentScene(MenuScene(size: size), transition: transition)
@@ -769,12 +768,10 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             return
         }
         if iconType == IconType.SoundOnButton  {
-            //print("Sound On")
             gameSoundOn = true
             return
         }
         if iconType == IconType.SoundOffButton  {
-            //print("Sound Off")
             gameSoundOn = false
             return
         }
@@ -790,12 +787,34 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             }
             return
         }
+        if iconType == IconType.ShareButton  {
+            //Photos
+            let photos = PHPhotoLibrary.authorizationStatus()
+            if photos == .notDetermined {
+                PHPhotoLibrary.requestAuthorization({status in
+                    if status == .authorized{
+                        self.isPhotoPermission = true
+                        self.presentShareSheet()
+                        return
+                    } else {}
+                })
+            } else if photos == .authorized {
+                isPhotoPermission = true
+                self.presentShareSheet()
+            } else {
+                showAlert(withTitle: "No Permission to Photos", message: "Giving permission will let you save and share game screenshots. This can be configured in Settings.")
+            }
+            
+            return
+        }
     }
     
     //MARK:- PauseButtonDelegate Func
     func pauseButtonWasPressed(sender: PauseButtonNode) {
         //isGamePaused = true
         //pauseGame()
+        // for debugging
+        self.postImage  = self.view!.pb_takeSnapshot()
          gameOver()
     }
     
@@ -1726,8 +1745,8 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         }
         
         if noPossibleMatch {
-            print("Game Over")
             self.run(SKAction.wait(forDuration: 1.0), completion: { [weak self] in
+                self?.postImage  = self?.view?.pb_takeSnapshot()
                 self?.gameOver()
             })
            
@@ -1745,7 +1764,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         // update high score if current game score is higher
         if gameScore >= bestScoreNode.getBestScore(){
-            print("1")
             UserDefaults.standard.set(gameScore, forKey: "highScore")
             if let newBestRibbon = newBestRibbon {
                 let moveBackAction = SKAction.move(by: CGVector(dx: newBestRibbon.size.width, dy: 0), duration: 0.5)
@@ -1841,8 +1859,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         quarterCircleNode.buttonDelegate = self
         gameOverLayer.addChild(quarterCircleNode)
         
-        print(restartButton.size)
-        print(quarterCircleNode.size)
         /*** add best score node ***/
         // add best score boarder
         let bestScoreBarNode = BestScoreBarNode(color: ColorCategory.BestScoreFontColor.withAlphaComponent(0.55), width: restartButtonWidth*1.8)
@@ -2032,5 +2048,28 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         shape.strokeColor = SKColor.red
         shape.lineWidth = 2.0
         gameLayer.addChild(shape)
+    }
+    
+    func presentShareSheet()
+    {
+        let postText: String = "Check out my score! I got \(gameScore) points in Squares! #Squares! #RawwrStudios"
+        // append h ttps://itunes.apple.com/app/circle/id911152486
+        var activityItems : [Any]
+        if let postImage = postImage, isPhotoPermission{
+            activityItems = [postText, postImage] as [Any]
+        } else {
+            activityItems = [postText]
+        }
+        
+        let activityController = UIActivityViewController(
+            activityItems: activityItems,
+            applicationActivities: nil
+        )
+        
+        UIApplication.topViewController()?.present(
+            activityController,
+            animated: true,
+            completion: nil
+        )
     }
 }

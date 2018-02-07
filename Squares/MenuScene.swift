@@ -129,8 +129,8 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
                                                buttonType: ButtonType.RoundButton,
                                                iconType: IconType.LeaderBoardButton,
                                                width: buttonWidth)
-        leaderBoardButton.position = CGPoint(x: safeAreaRect.width/2-positionArmRadius*sin(CGFloat.pi/9.0),
-                                             y: playButton.position.y-positionArmRadius*cos(CGFloat.pi/9.0))
+        leaderBoardButton.position = CGPoint(x: safeAreaRect.width/2-positionArmRadius*sin(CGFloat.pi/6.0),
+                                             y: playButton.position.y-positionArmRadius*cos(CGFloat.pi/6.0))
         leaderBoardButton.name = "leaderboardbutton"
         leaderBoardButton.buttonDelegate = self
         nodeLayer.addChild(leaderBoardButton)
@@ -140,13 +140,25 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
                                          buttonType: ButtonType.RoundButton,
                                          iconType: IconType.TwitterButton,
                                          width: buttonWidth)
-        twitterButton.position = CGPoint(x: safeAreaRect.width/2+positionArmRadius*sin(CGFloat.pi/9.0),
-                                       y: playButton.position.y-positionArmRadius*cos(CGFloat.pi/9.0))
+        twitterButton.position = CGPoint(x: safeAreaRect.width/2,
+                                       y: playButton.position.y-positionArmRadius)
         twitterButton.name = "twitterbutton"
         twitterButton.buttonDelegate = self
         nodeLayer.addChild(twitterButton)
         
-        // 4. Add NoAds button
+        
+        // 4. Add Information button
+        let infoButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
+                                           buttonType: ButtonType.RoundButton,
+                                           iconType: IconType.InfoButton,
+                                           width: buttonWidth)
+        infoButton.position = CGPoint(x: safeAreaRect.width/2+positionArmRadius*sin(CGFloat.pi/6.0),
+                                         y: playButton.position.y-positionArmRadius*cos(CGFloat.pi/6.0))
+        infoButton.name = "infobutton"
+        infoButton.buttonDelegate = self
+        nodeLayer.addChild(infoButton)
+        
+        // 5. Add NoAds button
         let noAdsButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
                                          buttonType: ButtonType.RoundButton,
                                          iconType: IconType.NoAdsButton,

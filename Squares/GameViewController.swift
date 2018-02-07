@@ -66,7 +66,8 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
         if launchedBefore {
             
             /*** initialize Main ***/
-            let scene = MenuScene(size: self.view.bounds.size) // match the device's size
+            //let scene = MenuScene(size: self.view.bounds.size) // match the device's size
+            let scene = TutorialScene(size: self.view.bounds.size) // match the device's size
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
             

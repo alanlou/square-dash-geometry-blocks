@@ -25,6 +25,8 @@
 		4E8EA94420171E1300AC2955 /* BestScoreBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */; };
 		4E92D6212002019800C7B6BA /* blockIsSet.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4E92D6202002019800C7B6BA /* blockIsSet.m4a */; };
 		4E97BEE42022EF6C00BAF5E3 /* StoreReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97BEE32022EF6C00BAF5E3 /* StoreReviewHelper.swift */; };
+		4E97BEE620298FAC00BAF5E3 /* TutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97BEE520298FAC00BAF5E3 /* TutorialScene.swift */; };
+		4E97BEE8202AD13500BAF5E3 /* SkipButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97BEE7202AD13500BAF5E3 /* SkipButtonNode.swift */; };
 		4EBB9009201DC47600A19EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EBB9008201DC47600A19EF2 /* Assets.xcassets */; };
 		4EBB90162021A1D400A19EF2 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBB90152021A1D400A19EF2 /* GoogleMobileAds.framework */; };
 		4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */; };
@@ -73,6 +75,8 @@
 		4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreBarNode.swift; sourceTree = "<group>"; };
 		4E92D6202002019800C7B6BA /* blockIsSet.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = blockIsSet.m4a; sourceTree = "<group>"; };
 		4E97BEE32022EF6C00BAF5E3 /* StoreReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewHelper.swift; sourceTree = "<group>"; };
+		4E97BEE520298FAC00BAF5E3 /* TutorialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScene.swift; sourceTree = "<group>"; };
+		4E97BEE7202AD13500BAF5E3 /* SkipButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButtonNode.swift; sourceTree = "<group>"; };
 		4EBB9008201DC47600A19EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Squares/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		4EBB90132021A1BE00A19EF2 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../../../Downloads/GoogleMobileAdsSdkiOS-7.27.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		4EBB90152021A1D400A19EF2 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				4E3F6D441FEB9C9E00C9DA84 /* GameViewController.swift */,
 				4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */,
 				4ECE1653200DE258009D25C4 /* MenuScene.swift */,
+				4E97BEE520298FAC00BAF5E3 /* TutorialScene.swift */,
 				4E3F6D4E1FEB9C9E00C9DA84 /* Info.plist */,
 				4E3F6D5C1FEE532F00C9DA84 /* Models */,
 				4E3F6D5F1FEE537200C9DA84 /* Misc */,
@@ -176,6 +181,7 @@
 				4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */,
 				4EC2C52D1FFB0C1B007E44FD /* RecallButtonNode.swift */,
 				4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */,
+				4E97BEE7202AD13500BAF5E3 /* SkipButtonNode.swift */,
 				4EC2C5271FFAFA9B007E44FD /* MenuButtonNode.swift */,
 				4EC2C5351FFF5EC7007E44FD /* NewBestRibbonNode.swift */,
 				4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */,
@@ -307,6 +313,7 @@
 			files = (
 				4E3F6D431FEB9C9E00C9DA84 /* GameScene.swift in Sources */,
 				4ECE165E2015C603009D25C4 /* LaunchScreenViewController.swift in Sources */,
+				4E97BEE8202AD13500BAF5E3 /* SkipButtonNode.swift in Sources */,
 				4E1EE25C1FF5A5380091F7ED /* TwoBlockNode.swift in Sources */,
 				4EC2C5301FFB0F27007E44FD /* MessageNode.swift in Sources */,
 				4EC2C53C1FFF7A5D007E44FD /* QuarterCircleNode.swift in Sources */,
@@ -329,6 +336,7 @@
 				4E1EE2611FF6F9AA0091F7ED /* ThreeBlockNode.swift in Sources */,
 				4E8EA94420171E1300AC2955 /* BestScoreBarNode.swift in Sources */,
 				4E97BEE42022EF6C00BAF5E3 /* StoreReviewHelper.swift in Sources */,
+				4E97BEE620298FAC00BAF5E3 /* TutorialScene.swift in Sources */,
 				4EC2C5281FFAFA9B007E44FD /* MenuButtonNode.swift in Sources */,
 				4E3F6D571FEDB12800C9DA84 /* BlockCellNode.swift in Sources */,
 				4EF57B582019706A0073E3F6 /* TrophyNode.swift in Sources */,
