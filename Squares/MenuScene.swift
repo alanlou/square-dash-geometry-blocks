@@ -16,6 +16,10 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
     var isAdReady = false
     var safeAreaRect: CGRect!
     
+    // more icon node
+    var moreIconsButton: MoreIconsNode?
+    
+    
     let buttonPressedSound: SKAction = SKAction.playSoundFileNamed(
         "buttonPressed.wav", waitForCompletion: false)
     
@@ -53,7 +57,12 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
         self.backgroundColor = ColorCategory.BackgroundColor
         self.view?.isMultipleTouchEnabled = false
         
-        let safeSets = view.safeAreaInsets
+        var safeSets:UIEdgeInsets
+        if #available(iOS 11.0, *) {
+            safeSets = view.safeAreaInsets
+        } else {
+            safeSets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        }
         safeAreaRect = CGRect(x: safeSets.left,
                               y: safeSets.bottom,
                               width: size.width-safeSets.right-safeSets.left,
@@ -147,27 +156,30 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
         nodeLayer.addChild(twitterButton)
         
         
-        // 4. Add Information button
-        let infoButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
+        // 4. Add facebook button
+        let facebookButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
                                            buttonType: ButtonType.RoundButton,
-                                           iconType: IconType.InfoButton,
+                                           iconType: IconType.FacebookButton,
                                            width: buttonWidth)
-        infoButton.position = CGPoint(x: safeAreaRect.width/2+positionArmRadius*sin(CGFloat.pi/6.0),
+        facebookButton.position = CGPoint(x: safeAreaRect.width/2+positionArmRadius*sin(CGFloat.pi/6.0),
                                          y: playButton.position.y-positionArmRadius*cos(CGFloat.pi/6.0))
-        infoButton.name = "infobutton"
-        infoButton.buttonDelegate = self
-        nodeLayer.addChild(infoButton)
+        facebookButton.name = "facebookbutton"
+        facebookButton.buttonDelegate = self
+        nodeLayer.addChild(facebookButton)
         
-        // 5. Add NoAds button
-        let noAdsButton = MenuButtonNode(color: ColorCategory.SoundButtonColor,
-                                         buttonType: ButtonType.RoundButton,
-                                         iconType: IconType.NoAdsButton,
-                                         width: buttonWidth)
-        noAdsButton.position = CGPoint(x: safeAreaRect.width/2+positionArmRadius*sin(CGFloat.pi*1/3),
-                                       y: playButton.position.y-positionArmRadius*cos(CGFloat.pi*1/3))
-        noAdsButton.name = "noadsbutton"
-        noAdsButton.buttonDelegate = self
-        nodeLayer.addChild(noAdsButton)
+        // 5. Add moreIcons button
+        moreIconsButton = MoreIconsNode(color: ColorCategory.SoundButtonColor,
+                                            width: buttonWidth)
+        moreIconsButton!.position = CGPoint(x: safeAreaRect.width/2+positionArmRadius*sin(CGFloat.pi*1/3),
+                                           y: playButton.position.y-positionArmRadius*cos(CGFloat.pi*1/3))
+        moreIconsButton!.name = "moreiconsbutton"
+        moreIconsButton!.moreIconsButton.buttonDelegate = self
+        moreIconsButton!.noAdsButton.buttonDelegate = self
+        moreIconsButton!.restoreIAPButton.buttonDelegate = self
+        moreIconsButton!.likeButton.buttonDelegate = self
+        moreIconsButton!.tutorialButton.buttonDelegate = self
+        
+        nodeLayer.addChild(moreIconsButton!)
         
     }
     
@@ -199,24 +211,93 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate {
             gameSoundOn = true
             self.run(buttonPressedSound)
             return
-        }
-        if iconType == IconType.SoundOffButton  {
+        } else if iconType == IconType.SoundOffButton  {
             gameSoundOn = false
             return
-        }
-        if iconType == IconType.TwitterButton  {
-            guard let url = URL(string: "https://mobile.twitter.com/rawwrstudios") else {
-                return //be safe
+        } else if iconType == IconType.TwitterButton  {
+            let twInstalled = schemeAvailable("twitter://")
+            
+            if twInstalled {
+                // If user twitter installed
+                guard let url = URL(string: "twitter://user?screen_name=rawwrstudios") else {
+                    return
+                }
+                
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            } else {
+                // If user does not have twitter installed
+                guard let url = URL(string: "https://mobile.twitter.com/rawwrstudios") else {
+                    return
+                }
+                
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
             }
             
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
             return
+        } else if iconType == IconType.FacebookButton  {
+            let fbInstalled = schemeAvailable("fb://")
+            
+            if fbInstalled {
+                // If user twitter installed
+                guard let url = URL(string: "fb://profile/349909612079389") else {
+                    return
+                }
+                
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            } else {
+                // If user does not have twitter installed
+                guard let url = URL(string: "https://www.facebook.com/RawwrStudios") else {
+                    return
+                }
+                
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+            
+            return
+        } else if iconType == IconType.MoreIconsButton  {
+            if let moreIconsButton = moreIconsButton {
+                moreIconsButton.interact()
+            }
+        } else if iconType == IconType.NoAdsButton  {
+            print("NoAdsButton")
+            
+            
+        } else if iconType == IconType.RestoreIAPButton  {
+            print("RestoreIAPButton")
+            
+            
+        } else if iconType == IconType.LikeButton {
+            let userInfoDict:[String: String] = ["forButton": "like"]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "displayAlertMessage"), object: nil, userInfo: userInfoDict)
+            
+        } else if iconType == IconType.InfoButton {
+            let userInfoDict:[String: String] = ["forButton": "tutorial"]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "displayAlertMessage"), object: nil, userInfo: userInfoDict)
+            
         }
-        
+    }
+    
+    func schemeAvailable(_ scheme: String) -> Bool {
+        if let url = URL(string: scheme) {
+            return UIApplication.shared.canOpenURL(url)
+        }
+        return false
     }
     
     func animateNodesFadeIn() {

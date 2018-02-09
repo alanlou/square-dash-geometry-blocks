@@ -102,7 +102,12 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         self.backgroundColor = ColorCategory.BackgroundColor
         self.view?.isMultipleTouchEnabled = false
         
-        let safeSets = view.safeAreaInsets
+        var safeSets:UIEdgeInsets
+        if #available(iOS 11.0, *) {
+            safeSets = view.safeAreaInsets
+        } else {
+            safeSets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        }
         safeAreaRect = CGRect(x: safeSets.left,
                               y: safeSets.bottom,
                               width: size.width-safeSets.right-safeSets.left,
@@ -128,7 +133,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         /*** set up top message node ***/
         let topMessageNodeWidth = safeAreaRect.width*0.75
         let topMessageNodeHeight = (safeAreaRect.height/2-boardRect.size.height/2)*0.3
-        let topMessageNodeFrame = CGRect(x: safeAreaRect.width/2-topMessageNodeWidth/2, y: (safeAreaRect.maxY + boardRect.maxY)/2-topMessageNodeHeight/2+boardSpacing/2-topMessageNodeHeight*1.0, width: topMessageNodeWidth, height: topMessageNodeHeight)
+        let topMessageNodeFrame = CGRect(x: safeAreaRect.width/2-topMessageNodeWidth/2, y: (safeAreaRect.maxY + boardRect.maxY)/2-topMessageNodeHeight/2+boardSpacing/2-topMessageNodeHeight*0.8, width: topMessageNodeWidth, height: topMessageNodeHeight)
         topMessageNode.adjustLabelFontSizeToFitRect(rect: topMessageNodeFrame)
         //debugDrawArea(rect: topMessageNodeFrame)
         gameLayer.addChild(topMessageNode)
@@ -238,51 +243,51 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             let bottomBlock1 = OneBlockNode(width: tileWidth, color: ColorCategory.BlockColor1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
-            bottomBlock1.name = "bottomBlock1"
+            bottomBlock1.name = "bottomBlock0"
         } else if progressIndex == 4 && messageIndex > 24 {
             let bottomBlock1 = OneBlockNode(width: tileWidth, color: ColorCategory.BlockColor1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
-            bottomBlock1.name = "bottomBlock1"
+            bottomBlock1.name = "bottomBlock0"
         } else {
             let bottomBlock1 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
-            bottomBlock1.name = "bottomBlock1"
+            bottomBlock1.name = "bottomBlock0"
         }
         
         if progressIndex == 1 {
             let bottomBlock2 = TwoBlockNode(width: tileWidth, color: ColorCategory.BlockColor2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
-            bottomBlock2.name = "bottomBlock2"
+            bottomBlock2.name = "bottomBlock1"
         } else if progressIndex == 4 && messageIndex <= 24 {
             let bottomBlock2 = TwoBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: 1), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
-            bottomBlock2.name = "bottomBlock2"
+            bottomBlock2.name = "bottomBlock1"
         } else {
             let bottomBlock2 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: 1), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
-            bottomBlock2.name = "bottomBlock2"
+            bottomBlock2.name = "bottomBlock1"
         }
         
         if progressIndex < 4 {
             let bottomBlock3 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
-            bottomBlock3.name = "bottomBlock3"
+            bottomBlock3.name = "bottomBlock2"
         } else if progressIndex == 4 && messageIndex <= 24 {
             let bottomBlock3 = TwoBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: 1), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
-            bottomBlock3.name = "bottomBlock3"
+            bottomBlock3.name = "bottomBlock2"
         } else {
             let bottomBlock3 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: 1), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
-            bottomBlock3.name = "bottomBlock3"
+            bottomBlock3.name = "bottomBlock2"
         }
         
         

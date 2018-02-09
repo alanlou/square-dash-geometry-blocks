@@ -11,9 +11,10 @@ import SpriteKit
 class NewBestRibbonNode: SKSpriteNode {
     
     //MARK:- Initialization
-    init() {
+    init(height: CGFloat) {
         let texture = SKTexture(imageNamed: "NewBestRibbon")
-        super.init(texture: texture, color: .clear, size: texture.size())
+        let textureSize = CGSize(width: height*texture.size().width/texture.size().height, height: height)
+        super.init(texture: texture, color: .clear, size: textureSize)
         self.name = "newbestribbon"
     }
     

@@ -23,6 +23,7 @@ class RecallButtonNode: SKSpriteNode {
     
     // numbers
     var numRecall: Int = 3
+    var sizeRatio: CGFloat
     
     // variables
     private var _isRecallPossible: Bool = false
@@ -53,7 +54,7 @@ class RecallButtonNode: SKSpriteNode {
     init(color: SKColor, width: CGFloat){
         let texture = SKTexture(imageNamed: "RecallButton")
         let textureSize = CGSize(width: width*0.76, height: width*texture.size().height/texture.size().width*0.76)
-    
+        sizeRatio = width/texture.size().width
         super.init(texture: nil, color: .clear, size: CGSize(width: width*1.3, height: width*1.5))
         
         self.name = "Recallbutton"
@@ -124,7 +125,8 @@ class RecallButtonNode: SKSpriteNode {
 //                    isAdsRecallPossible = true
                     
                     let texture = SKTexture(imageNamed: "AdsVideo")
-                    let adsVideoNode = SKSpriteNode(texture: texture, color: .clear, size: texture.size())
+                    let adsVideoNode = SKSpriteNode(texture: texture, color: .clear,
+                                                    size: CGSize(width:texture.size().width*sizeRatio*0.7, height:texture.size().height*sizeRatio*0.7))
                     adsVideoNode.color = ColorCategory.RecallButtonColor
                     adsVideoNode.colorBlendFactor = 1.0
                     adsVideoNode.anchorPoint = CGPoint(x:0.35, y:0.35)

@@ -123,7 +123,12 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         self.backgroundColor = ColorCategory.BackgroundColor
         self.view?.isMultipleTouchEnabled = false
     
-        let safeSets = view.safeAreaInsets
+        var safeSets:UIEdgeInsets
+        if #available(iOS 11.0, *) {
+            safeSets = view.safeAreaInsets
+        } else {
+            safeSets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        }
         safeAreaRect = CGRect(x: safeSets.left,
                               y: safeSets.bottom,
                               width: size.width-safeSets.right-safeSets.left,
@@ -187,6 +192,8 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         blurBackgroundNode.position = CGPoint(x:safeAreaRect.width/2 ,y: safeAreaRect.height/2)
         pauseLayer.addChild(blurBackgroundNode)
         
+        let verticleDistance = safeAreaRect.size.width/5.5
+        
         // add continue button
         let resumeButton = MenuButtonNode(color: ColorCategory.BlockColor1,
                                           buttonType: ButtonType.LongButton,
@@ -194,22 +201,34 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                                           width: safeAreaRect.size.width/2)
         resumeButton.zPosition = 10000
         resumeButton.position = CGPoint(x: safeAreaRect.width/2,
-                                        y: safeAreaRect.height/2 + 80)
+                                        y: safeAreaRect.height/2 + verticleDistance*1.5)
         resumeButton.name = "resumebutton"
         resumeButton.buttonDelegate = self
         pauseLayer.addChild(resumeButton)
         
         // add restart button
-        let restartButton = MenuButtonNode(color: ColorCategory.BlockColor2,
+        let restartButton = MenuButtonNode(color: ColorCategory.BlockColor2.withAlphaComponent(0.85),
                                           buttonType: ButtonType.LongButton,
-                                          iconType: IconType.RestartButton,
+                                          iconType: IconType.SmallRestartButton,
                                           width: safeAreaRect.size.width/2)
         restartButton.zPosition = 10000
         restartButton.position = CGPoint(x: safeAreaRect.width/2,
-                                        y: safeAreaRect.height/2)
+                                        y: safeAreaRect.height/2 + verticleDistance*0.5)
         restartButton.name = "restartbutton"
         restartButton.buttonDelegate = self
         pauseLayer.addChild(restartButton)
+        
+        // add stop button
+        let stopButton = MenuButtonNode(color: ColorCategory.BlockColor3,
+                                           buttonType: ButtonType.LongButton,
+                                           iconType: IconType.StopButton,
+                                           width: safeAreaRect.size.width/2)
+        stopButton.zPosition = 10000
+        stopButton.position = CGPoint(x: safeAreaRect.width/2,
+                                         y: safeAreaRect.height/2 - verticleDistance*0.5)
+        stopButton.name = "stopbutton"
+        stopButton.buttonDelegate = self
+        pauseLayer.addChild(stopButton)
         
         // add home button
         let homeButton = MenuButtonNode(color: ColorCategory.BlockColor8,
@@ -218,7 +237,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                                         width: safeAreaRect.size.width/4.4)
         homeButton.zPosition = 10000
         homeButton.position = CGPoint(x: safeAreaRect.width/2-resumeButton.size.width/2+homeButton.size.width/2,
-                                      y: safeAreaRect.height/2 - 80)
+                                      y: safeAreaRect.height/2 - verticleDistance*1.5)
         homeButton.name = "homebutton"
         homeButton.buttonDelegate = self
         pauseLayer.addChild(homeButton)
@@ -234,7 +253,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                                          width: safeAreaRect.size.width/4.4)
         soundButton.zPosition = 10000
         soundButton.position = CGPoint(x: safeAreaRect.width/2+resumeButton.size.width/2-homeButton.size.width/2,
-                                       y: safeAreaRect.height/2 - 80)
+                                       y: safeAreaRect.height/2 - verticleDistance*1.5)
         soundButton.name = "soundbutton"
         soundButton.buttonDelegate = self
         pauseLayer.addChild(soundButton)
@@ -762,9 +781,25 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         }
         if iconType == IconType.HomeButton  {
             if view != nil {
+                let scene = MenuScene(size: size)
+                scene.isAdReady = self.isAdReady
                 let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
-                self.view?.presentScene(MenuScene(size: size), transition: transition)
+                self.view?.presentScene(scene, transition: transition)
             }
+            return
+        }
+        if iconType == IconType.SmallRestartButton  {
+            if view != nil {
+                let scene = GameScene(size: size)
+                scene.isAdReady = self.isAdReady
+                let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
+                self.view?.presentScene(scene, transition: transition)
+            }
+            return
+        }
+        if iconType == IconType.StopButton  {
+            unpauseGame()
+            gameOver()
             return
         }
         if iconType == IconType.SoundOnButton  {
@@ -811,11 +846,8 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     
     //MARK:- PauseButtonDelegate Func
     func pauseButtonWasPressed(sender: PauseButtonNode) {
-        //isGamePaused = true
-        //pauseGame()
-        // for debugging
-        self.postImage  = self.view!.pb_takeSnapshot()
-         gameOver()
+        isGamePaused = true
+        pauseGame()
     }
     
     //MARK:- EyeButtonDelegate Func
@@ -868,6 +900,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         if view != nil {
             let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
             let gameScene = GameScene(size: self.size)
+            gameScene.isAdReady = self.isAdReady
             self.view?.presentScene(gameScene, transition: transition)
         }
         return
@@ -1340,9 +1373,9 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         if gameScore > bestScoreNode.getBestScore(), !isBestScore{
             isBestScore = true
             
-            newBestRibbon = NewBestRibbonNode()
+            newBestRibbon = NewBestRibbonNode(height: bestScoreNode.frame.height*1.7)
             newBestRibbon!.position = CGPoint(x: safeAreaRect.width + newBestRibbon!.size.width/2,
-                                              y: safeAreaRect.height - newBestRibbon!.size.height/2-10)
+                                              y: bestScoreNode.position.y)
             newBestRibbon!.zPosition = 200
             gameLayer.addChild(newBestRibbon!)
             
@@ -1755,7 +1788,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     }
     
     func gameOver() {
-        
         if let gameSoundOn = gameSoundOn, gameSoundOn {
             let gameOverSound: SKAction = SKAction.playSoundFileNamed(
                 "gameOver.wav", waitForCompletion: false)
@@ -1820,6 +1852,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     //MARK:- Pause Menu Handling
     func pauseGame()
     {
+        self.postImage  = self.view?.pb_takeSnapshot()
         gameLayer.isPaused = true
         self.addChild(pauseLayer)
         pauseLayer.name = "pauselayer"
@@ -1839,7 +1872,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         // add gameover title
         let gameOverTitleWidth = safeAreaRect.width*0.75
         let gameOverTitleHeight = gameOverTitleWidth*0.3
-        let gameOverTitleFrame = CGRect(x: safeAreaRect.width/2 - gameOverTitleWidth/2, y: (view?.safeAreaInsets.bottom)!+safeAreaRect.height*0.8-gameOverTitleHeight/2, width: gameOverTitleWidth, height: gameOverTitleHeight)
+        let gameOverTitleFrame = CGRect(x: safeAreaRect.width/2 - gameOverTitleWidth/2, y: safeAreaRect.minY+safeAreaRect.height*0.8-gameOverTitleHeight/2, width: gameOverTitleWidth, height: gameOverTitleHeight)
         let gameOverTitle = MessageNode(message: "GAME OVER")
         gameOverTitle.adjustLabelFontSizeToFitRect(rect: gameOverTitleFrame)
         //debugDrawArea(rect: gameOverTitleFrame)

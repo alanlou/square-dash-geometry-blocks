@@ -37,6 +37,10 @@ class BestScoreNode: SKLabelNode {
     
     // helper functions
     func setBestScore(to score: Int){
+        if bestScore == score {
+            return
+        }
+        
         bestScore = score
         numberDigits = score.digitCount
         

@@ -23,6 +23,8 @@ struct IconType {
     static let ResumeButton:  String = "Resume"
     static let PlayButton:  String = "Resume"
     static let RestartButton:  String = "Restart"
+    static let StopButton:  String = "Stop"
+    static let SmallRestartButton:  String = "SmallRestart"
     static let ShareButton:  String = "Share"
     static let HomeButton:  String = "Home"
     static let SoundOnButton:  String = "Sound"
@@ -30,8 +32,12 @@ struct IconType {
     static let LeaderBoardButton:  String = "Medal"
     static let StoreButton:  String = "Store"
     static let TwitterButton:  String = "Twitter"
+    static let FacebookButton:  String = "Facebook"
     static let NoAdsButton:  String = "NoAds"
     static let InfoButton:  String = "Info"
+    static let LikeButton:  String = "Like"
+    static let MoreIconsButton:  String = "MoreIcons"
+    static let RestoreIAPButton:  String = "RestoreIAP"
 }
 
 class MenuButtonNode: SKSpriteNode {

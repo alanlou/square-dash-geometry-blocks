@@ -55,19 +55,49 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
                                        selector: #selector(runRewardsAds),
                                        name: Notification.Name(rawValue: "runRewardAds"),
                                        object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(displayAlertMessage(notification:)),
+                                               name: Notification.Name(rawValue: "displayAlertMessage"),
+                                               object: nil)
         prepareRewardsAds()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        let launchedBefore = UserDefaults.standard.bool(forKey: "justOpenApp")
-
-        if launchedBefore {
+        let justOpenApp = UserDefaults.standard.bool(forKey: "justOpenApp")
+        
+        if justOpenApp {
+            
+            let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+            // first time launching
+            if !launchedBefore  {
+                print("WELCOME! FIRST TIME LAUNCHING!")
+                /*** initialize Main ***/
+                let scene = TutorialScene(size: self.view.bounds.size) // match the device's size
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+                if let view = self.view as! SKView? {
+                    // present game scene
+                    skView = view
+                    skView.showsFPS = true
+                    skView.showsNodeCount = true
+                    skView.ignoresSiblingOrder = true
+                    
+                    UserDefaults.standard.set(false, forKey: "justOpenApp")
+                    skView.presentScene(scene)
+                    
+                    // view fade in
+                    scene.isAdReady = self.isAdReady
+                    scene.animateNodesFadeIn()
+                }
+            }
+            
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
             
             /*** initialize Main ***/
-            //let scene = MenuScene(size: self.view.bounds.size) // match the device's size
-            let scene = TutorialScene(size: self.view.bounds.size) // match the device's size
+            let scene = MenuScene(size: self.view.bounds.size) // match the device's size
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
             
@@ -78,7 +108,6 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
                 skView.showsNodeCount = true
                 skView.ignoresSiblingOrder = true
                 
-                print("viewDidLayoutSubviews")
                 UserDefaults.standard.set(false, forKey: "justOpenApp")
                 skView.presentScene(scene)
                 
@@ -86,7 +115,6 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
                 scene.isAdReady = self.isAdReady
                 scene.animateNodesFadeIn()
             }
-            
         }
     }
     
@@ -180,16 +208,26 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
                                               attribute: .trailing,
                                               multiplier: 1,
                                               constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .top,
-                                              relatedBy: .equal,
-                                              toItem: view.safeAreaLayoutGuide.topAnchor,
-                                              attribute: .top,
-                                              multiplier: 1,
-                                              constant: 0))
+        if #available(iOS 11.0, *) {
+            view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                                  attribute: .top,
+                                                  relatedBy: .equal,
+                                                  toItem: view.safeAreaLayoutGuide.topAnchor,
+                                                  attribute: .top,
+                                                  multiplier: 1,
+                                                  constant: 0))
+        } else {
+            // Fallback on earlier versions
+            view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                                  attribute: .top,
+                                                  relatedBy: .equal,
+                                                  toItem: view,
+                                                  attribute: .top,
+                                                  multiplier: 1,
+                                                  constant: 0))
+        }
     }
 
-    
     
     //MARK:- GADRewardBasedVideoAdDelegate
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
@@ -212,6 +250,12 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
         // check to see if the current scene is the game scene
         if let gameScene = skView.scene as? GameScene {
             gameScene.recallButtonNode.enableAdsRecall()
+        }
+        if let menuScene = skView.scene as? MenuScene {
+            menuScene.isAdReady = true
+        }
+        if let tutorialScene = skView.scene as? TutorialScene {
+            tutorialScene.isAdReady = true
         }
     }
     
@@ -268,6 +312,75 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
         
     }
     
+    //MARK:- Alert Message
+    @objc func displayAlertMessage(notification:NSNotification) {
+        print("1")
+        if let userInfo = notification.userInfo {
+            let message = userInfo["forButton"] as! String
+            print(message)
+            
+            // Case 1. display alert view for like
+            if message == "like" {
+                let alertController = UIAlertController(title: "Enjoy Squares?", message: "Please rate the game to support us. Thank you!", preferredStyle: .alert)
+                let actionYes = UIAlertAction(title: "Yes, I like it!", style: .default) {
+                    UIAlertAction in
+                    self.rateApp(appId: "id959379869") { success in
+                        print("RateApp \(success)")
+                    }
+                }
+                let actionLater = UIAlertAction(title: "Maybe later.", style: .default) {
+                    UIAlertAction in
+                }
+                let actionNo = UIAlertAction(title: "No, thanks.", style: .default) {
+                    UIAlertAction in
+                }
+
+                alertController.addAction(actionYes)
+                alertController.addAction(actionLater)
+                alertController.addAction(actionNo)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+            
+            // Case 2. display alert view for like
+            if message == "tutorial" {
+                let alertController = UIAlertController(title: "How to play", message: "Do you want to follow the tutorial?", preferredStyle: .alert)
+                let actionYes = UIAlertAction(title: "OK", style: .default) {
+                    UIAlertAction in
+                    if let view = self.view as! SKView? {
+                        let scene = TutorialScene(size: self.view.bounds.size)
+                        scene.isAdReady = self.isAdReady
+                        let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
+                        view.presentScene(scene, transition: transition)
+                    }
+                }
+                let actionNo = UIAlertAction(title: "Cancel", style: .cancel) {
+                    UIAlertAction in
+                    NSLog("OK Pressed")
+                }
+                
+                alertController.addAction(actionYes)
+                alertController.addAction(actionNo)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+            
+            
+        }
+    }
+    
+    //MARK:- Helper Function
+    func rateApp(appId: String, completion: @escaping ((_ success: Bool)->())) {
+        guard let url = URL(string : "itms-apps://itunes.apple.com/app/" + appId) else {
+            completion(false)
+            return
+        }
+        guard #available(iOS 10, *) else {
+            completion(UIApplication.shared.openURL(url))
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: completion)
+    }
 }
 
 
