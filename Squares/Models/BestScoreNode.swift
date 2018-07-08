@@ -25,7 +25,7 @@ class BestScoreNode: SKLabelNode {
         text = "BEST: \(bestScore)"
         fontName = "ChalkboardSE-Light"
         fontSize = 16
-        fontColor = ColorCategory.BestScoreFontColor
+        fontColor = ColorCategory.getBestScoreFontColor()
         zPosition = 100
         horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
@@ -36,6 +36,11 @@ class BestScoreNode: SKLabelNode {
     }
     
     // helper functions
+    
+    func setFontColor (color: UIColor) {
+        self.fontColor = color
+    }
+    
     func setBestScore(to score: Int){
         if bestScore == score {
             return

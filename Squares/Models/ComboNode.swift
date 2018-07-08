@@ -19,7 +19,7 @@ class ComboNode: SKLabelNode {
         text = "x\(combo)"
         fontName = "ChalkboardSE-Light"
         fontSize = 150
-        fontColor = ColorCategory.ScoreFontColor
+        fontColor = ColorCategory.getBestScoreFontColor()
         alpha = 0.0
         zPosition = 100
         horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
@@ -32,6 +32,11 @@ class ComboNode: SKLabelNode {
     }
     
     // helper functions
+    
+    func setFontColor (color: UIColor) {
+        self.fontColor = color
+    }
+    
     func setCombo(to combo: Int){
         self.combo = combo
         if let boundingRect = boundingRect, combo.digitCount>numberDigits {

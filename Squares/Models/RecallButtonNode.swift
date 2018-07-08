@@ -35,9 +35,6 @@ class RecallButtonNode: SKSpriteNode {
         set {
             self._isRecallPossible = newValue
             if newValue {
-                print("---")
-                print(numRecall)
-                print(isAdsRecallPossible)
                 if numRecall > 0 || isAdsRecallPossible {
                     self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.4), completion: { [weak self] in
                         self?.isUserInteractionEnabled = true

@@ -108,7 +108,7 @@ class FourBlockNode: SKSpriteNode {
     
     let cellSpacing: CGFloat = 3.0
     let tileWidth: CGFloat
-    let blockColor: SKColor
+    let blockColorIndex: UInt32
     let initialPosition: CGPoint
     let blockOffset: CGFloat
     let touchYOffset: CGFloat
@@ -128,22 +128,22 @@ class FourBlockNode: SKSpriteNode {
     weak var blockDelegate: FourBlockNodeDelegate!
     
     //MARK:- Initialization
-    init(width: CGFloat, color: SKColor, position: CGPoint) {
+    init(width: CGFloat, colorIndex: UInt32, position: CGPoint) {
         
         // set up instance variable
         blockType = FourBlockTypes.randomBlockType()
         
         tileWidth = width
-        blockColor = color
         initialPosition = position
         
         blockOffset = width
         touchYOffset = tileWidth/2 + 25
         
-        block1 = BlockCellNode(color: color)
-        block2 = BlockCellNode(color: color)
-        block3 = BlockCellNode(color: color)
-        block4 = BlockCellNode(color: color)
+        block1 = BlockCellNode(colorIndex: colorIndex)
+        block2 = BlockCellNode(colorIndex: colorIndex)
+        block3 = BlockCellNode(colorIndex: colorIndex)
+        block4 = BlockCellNode(colorIndex: colorIndex)
+        blockColorIndex = colorIndex
         
         super.init(texture: nil, color: .clear, size: CGSize(width:width*4, height:width*4))
         self.name = "fourblock"
@@ -275,8 +275,8 @@ class FourBlockNode: SKSpriteNode {
     }
     
     //MARK:- Helper Functions
-    func getBlockColor() -> SKColor {
-        return blockColor
+    func getBlockColorIndex() -> UInt32 {
+        return blockColorIndex
     }
     
     func getBlockPosition() -> CGPoint {

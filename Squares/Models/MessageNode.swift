@@ -17,7 +17,7 @@ class MessageNode: SKLabelNode {
         text = message
         fontName = "ChalkboardSE-Light"
         fontSize = 16
-        fontColor = ColorCategory.BestScoreFontColor
+        fontColor = ColorCategory.getBestScoreFontColor()
         zPosition = 2000
         horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
@@ -32,6 +32,10 @@ class MessageNode: SKLabelNode {
         self.fontSize *= scalingFactor
         // optionally move the SKLabelNode to the center of the rectangle
         self.position = CGPoint(x: rect.midX, y: rect.midY)
+    }
+    
+    func setFontSize (fontSize: CGFloat) {
+        self.fontSize = fontSize
     }
     
     func setFontColor (color: UIColor) {

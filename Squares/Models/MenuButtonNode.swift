@@ -38,6 +38,8 @@ struct IconType {
     static let LikeButton:  String = "Like"
     static let MoreIconsButton:  String = "MoreIcons"
     static let RestoreIAPButton:  String = "RestoreIAP"
+    static let SkinButton:  String = "Skin"
+    static let Blank:  String = ""
 }
 
 class MenuButtonNode: SKSpriteNode {
@@ -56,6 +58,7 @@ class MenuButtonNode: SKSpriteNode {
     
     //MARK:- Initialization
     init(color: SKColor, buttonType: String, iconType: String, width: CGFloat) {
+        
         self.iconNode = SKSpriteNode()
         self.buttonType = buttonType
         self.iconType = iconType
@@ -69,12 +72,17 @@ class MenuButtonNode: SKSpriteNode {
         self.colorBlendFactor = 1.0
         
         // texture
-        let iconTexture = SKTexture(imageNamed: iconType)
-        let iconTextureSize = CGSize(width: width*iconTexture.size().width/buttonTexture.size().width, height: width*iconTexture.size().height/buttonTexture.size().width)
-        iconNode = SKSpriteNode(texture: iconTexture, color: .white, size: iconTextureSize)
-        iconNode.position = CGPoint(x:0, y:0)
-        iconNode.zPosition = 2000
-        self.addChild(iconNode)
+        if iconType != IconType.Blank {
+            let iconTexture = SKTexture(imageNamed: iconType)
+            let iconTextureSize = CGSize(width: width*iconTexture.size().width/buttonTexture.size().width, height: width*iconTexture.size().height/buttonTexture.size().width)
+            iconNode = SKSpriteNode(texture: iconTexture,
+                                    color: ColorCategory.getButtonBackgroundColor(),
+                                    size: iconTextureSize)
+            iconNode.colorBlendFactor = 1.0
+            iconNode.position = CGPoint(x:0, y:0)
+            iconNode.zPosition = 2000
+            self.addChild(iconNode)
+        }
         
         if buttonType == ButtonType.RoundButton {
             self.performWobbleAction()
@@ -101,6 +109,14 @@ class MenuButtonNode: SKSpriteNode {
     func changeColor(to color: SKColor) {
         self.color = color
         self.colorBlendFactor = 1.0
+    }
+    
+    func changeIconNodeColor(to color: SKColor) {
+        iconNode.color = color
+    }
+    
+    func updateColor() {
+        iconNode.color = ColorCategory.getButtonBackgroundColor()
     }
     
     func getIconType() -> String {

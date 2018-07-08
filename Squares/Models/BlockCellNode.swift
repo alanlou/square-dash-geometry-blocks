@@ -12,14 +12,16 @@ import SpriteKit
 class BlockCellNode: SKSpriteNode {
     var column: Int?
     var row: Int?
-    let blockColor: SKColor
+    var blockColor: SKColor
+    let blockColorIndex: UInt32
     
-    init(color: SKColor) {
-        blockColor = SKColor.clear
+    init(colorIndex: UInt32) {
+        blockColorIndex = colorIndex
+        blockColor = ColorCategory.getBlockColorAtIndex(index: blockColorIndex)
         let texture = SKTexture(imageNamed: "Tile")
         super.init(texture: texture, color: .clear, size: texture.size())
         self.name = "blockcell"
-        self.color = color
+        self.color = blockColor
         self.colorBlendFactor = 1.0
     }
     
@@ -33,7 +35,8 @@ class BlockCellNode: SKSpriteNode {
         self.row = rowTemp
     }
     
-    func getBlockColor() -> SKColor {
-        return blockColor
+    func updateCellColor() {
+        blockColor = ColorCategory.getBlockColorAtIndex(index: blockColorIndex)
+        self.color = blockColor
     }
 }

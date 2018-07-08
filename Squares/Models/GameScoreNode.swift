@@ -18,7 +18,7 @@ class GameScoreNode: SKLabelNode {
         text = "\(gameScore)"
         fontName = "ChalkboardSE-Light"
         fontSize = 150
-        fontColor = ColorCategory.ScoreFontColor
+        fontColor = ColorCategory.getBestScoreFontColor()
         zPosition = 100
         horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
@@ -29,6 +29,11 @@ class GameScoreNode: SKLabelNode {
     }
     
     // helper functions
+    
+    func setFontColor (color: UIColor) {
+        self.fontColor = color
+    }
+    
     func setGameScore(to score: Int){
         gameScore = score
         if let boundingRect = boundingRect, score.digitCount>numberDigits {

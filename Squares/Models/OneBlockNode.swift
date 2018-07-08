@@ -20,7 +20,7 @@ class OneBlockNode: SKSpriteNode {
     let moveDuration:TimeInterval = 0.05
     
     let tileWidth: CGFloat
-    let blockColor: SKColor
+    let blockColorIndex: UInt32
     let initialPosition: CGPoint
     let blockOffset: CGFloat
     let touchYOffset: CGFloat
@@ -33,17 +33,17 @@ class OneBlockNode: SKSpriteNode {
     weak var blockDelegate: OneBlockNodeDelegate!
     
     //MARK:- Initialization
-    init(width: CGFloat, color: SKColor, position: CGPoint) {
+    init(width: CGFloat, colorIndex: UInt32, position: CGPoint) {
         
         // set up instance variable
         tileWidth = width
-        blockColor = color
         initialPosition = position
         
         blockOffset = width
         touchYOffset = tileWidth/2 + 25
         
-        block1 = BlockCellNode(color: color)
+        block1 = BlockCellNode(colorIndex: colorIndex)
+        blockColorIndex = colorIndex
         
         super.init(texture: nil, color: .clear, size: CGSize(width:width*3, height:width*3))
         self.name = "oneblock"
@@ -64,8 +64,8 @@ class OneBlockNode: SKSpriteNode {
     }
     
     //MARK:- Helper Functions
-    func getBlockColor() -> SKColor {
-        return blockColor
+    func getBlockColorIndex() -> UInt32 {
+        return blockColorIndex
     }
     
     func getBlockPosition() -> CGPoint {

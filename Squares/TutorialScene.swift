@@ -15,7 +15,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     let boardLayer = SKNode()
     
     // board 2D array
-    var boardArray = Array2D<SKColor>(columns: 9, rows: 9)
+    var boardArray = Array2D<UInt32>(columns: 9, rows: 9)
     
     // nodes
     var topMessageNode = MessageNode(message: "Welcome to Squares!")
@@ -99,7 +99,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     }
     
     override func didMove(to view: SKView) {
-        self.backgroundColor = ColorCategory.BackgroundColor
+        self.backgroundColor = ColorCategory.getBackgroundColor()
         self.view?.isMultipleTouchEnabled = false
         
         var safeSets:UIEdgeInsets
@@ -125,7 +125,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         addInitialTiles()
         
         /*** set up skip node ***/
-        let skipButtonNode = SkipButtonNode(color: ColorCategory.BestScoreFontColor, width: (safeAreaRect.height/2-boardRect.size.height/2)*0.3)
+        let skipButtonNode = SkipButtonNode(color: ColorCategory.getBestScoreFontColor(), width: (safeAreaRect.height/2-boardRect.size.height/2)*0.3)
         skipButtonNode.position = CGPoint(x:safeAreaRect.width - skipButtonNode.size.width - 10, y: size.height-safeSets.top-adsHeight)
         skipButtonNode.buttonDelegate = self
         gameLayer.addChild(skipButtonNode)
@@ -161,7 +161,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     func addInitialTiles() {
         for row in 3..<6 {
             for col in 0..<NumColumns {
-                let tileNode = TileNode(color: ColorCategory.TileColor)
+                let tileNode = TileNode(color: ColorCategory.getTileColor())
                 tileNode.size = CGSize(width: tileWidth, height: tileWidth)
                 tileNode.position = pointInBoardLayerFor(column: col, row: row)
                 tileNode.name = "tile\(col)\(row)"
@@ -173,7 +173,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     func addRemainingTiles() {
         for row in 0..<3 {
             for col in 0..<NumColumns {
-                let tileNode = TileNode(color: ColorCategory.TileColor)
+                let tileNode = TileNode(color: ColorCategory.getTileColor())
                 tileNode.size = CGSize(width: tileWidth, height: tileWidth)
                 tileNode.position = pointInBoardLayerFor(column: col, row: row)
                 tileNode.name = "tile\(col)\(row)"
@@ -183,7 +183,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         }
         for row in 6..<9 {
             for col in 0..<NumColumns {
-                let tileNode = TileNode(color: ColorCategory.TileColor)
+                let tileNode = TileNode(color: ColorCategory.getTileColor())
                 tileNode.size = CGSize(width: tileWidth, height: tileWidth)
                 tileNode.position = pointInBoardLayerFor(column: col, row: row)
                 tileNode.name = "tile\(col)\(row)"
@@ -238,53 +238,56 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         
         let maxIndex: UInt32 = 2
         
+        let randomIndex = UInt32(arc4random_uniform(maxIndex)) + 1
+        
         // add bottom blocks
         if progressIndex == 1 {
-            let bottomBlock1 = OneBlockNode(width: tileWidth, color: ColorCategory.BlockColor1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
             bottomBlock1.name = "bottomBlock0"
         } else if progressIndex == 4 && messageIndex > 24 {
-            let bottomBlock1 = OneBlockNode(width: tileWidth, color: ColorCategory.BlockColor1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
             bottomBlock1.name = "bottomBlock0"
         } else {
-            let bottomBlock1 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: randomIndex, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
             bottomBlock1.name = "bottomBlock0"
         }
         
         if progressIndex == 1 {
-            let bottomBlock2 = TwoBlockNode(width: tileWidth, color: ColorCategory.BlockColor2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = TwoBlockNode(width: tileWidth, colorIndex: 2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
             bottomBlock2.name = "bottomBlock1"
         } else if progressIndex == 4 && messageIndex <= 24 {
-            let bottomBlock2 = TwoBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: 1), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = TwoBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
             bottomBlock2.name = "bottomBlock1"
         } else {
-            let bottomBlock2 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: 1), position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
             bottomBlock2.name = "bottomBlock1"
         }
         
+        let randomIndex2 = UInt32(arc4random_uniform(maxIndex)) + 1
         if progressIndex < 4 {
-            let bottomBlock3 = ThreeBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: maxIndex), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = ThreeBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
             bottomBlock3.name = "bottomBlock2"
         } else if progressIndex == 4 && messageIndex <= 24 {
-            let bottomBlock3 = TwoBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: 1), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = TwoBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
             bottomBlock3.name = "bottomBlock2"
         } else {
-            let bottomBlock3 = OneBlockNode(width: tileWidth, color: ColorCategory.randomBlockColor(maxIndex: 1), position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = OneBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
             bottomBlock3.name = "bottomBlock2"
@@ -404,11 +407,11 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         return (rowNum, colNum)
     }
     
-    func blockCellColorAt(column: Int, row: Int) -> SKColor? {
+    func blockCellColorIndexAt(column: Int, row: Int) -> UInt32? {
         // only middle section row is visible now
         if progressIndex == 1 {
             if row < 3 || row > 5 {
-                return ColorCategory.BackgroundColor
+                return 999 /* Background Color */
             }
         }
         
@@ -425,15 +428,15 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         assert(column >= 0 && column < NumColumns)
         assert(row >= 0 && row < NumRows)
         
-        let blockColor:SKColor? = blockCellColorAt(column: column, row: row)
+        let blockColorIndex:UInt32? = blockCellColorIndexAt(column: column, row: row)
         let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
         
         // update block cell color
-        if let blockColor = blockColor {
-            targetTileNode.changeColor(to: blockColor)
+        if let blockColorIndex = blockColorIndex {
+            targetTileNode.changeColor(to: ColorCategory.getBlockColorAtIndex(index: blockColorIndex))
         } else {
             // reset block cell color
-            targetTileNode.changeColor(to: ColorCategory.TileColor)
+            targetTileNode.changeColor(to: ColorCategory.getTileColor())
         }
     }
     
@@ -447,33 +450,33 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         }
         
         // initiate section color array
-        var sectionArray = Array2D<Set<SKColor>>(columns: 3, rows: 3)
+        var sectionArray = Array2D<Set<UInt32>>(columns: 3, rows: 3)
         for secRow in 0..<3 {
             for secCol in 0..<3 {
-                sectionArray[secCol,secRow] = Set<SKColor>()
+                sectionArray[secCol,secRow] = Set<UInt32>()
             }
         }
         
         // fill the section array with colors in each section
         for row in 0..<NumRows {
             for col in 0..<NumColumns {
-                let tempColor = blockCellColorAt(column: col, row: row)
+                let tempColorIndex = blockCellColorIndexAt(column: col, row: row)
                 let (secCol, secRow) = sectionColAndRowFor(column: col, row: row)
                 // if there's a cell (color)
-                if let tempColor = tempColor {
-                    sectionArray[secCol, secRow]?.insert(tempColor)
+                if let tempColorIndex = tempColorIndex {
+                    sectionArray[secCol, secRow]?.insert(tempColorIndex)
                 }
             }
         }
         
         // iterate through each color
-        for blockColor in ColorCategory.BlockColorArray {
+        for blockColorIndex in ColorCategory.getBlockColorIndexArray() {
             // Case 1. Row Matching
             for secRow in 0..<3 {
                 var matchCount = 0
                 
                 for secCol in 0..<3 {
-                    let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
+                    let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColorIndex)
                     if let isColorMatching = isColorMatching, isColorMatching {
                         matchCount = matchCount + 1
                     }
@@ -482,12 +485,12 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                 // find a matching row
                 if matchCount == 3 {
                     // highlight the matching row
-                    highlightSecRow(secRow: secRow, color: blockColor)
+                    highlightSecRow(secRow: secRow, colorIndex: blockColorIndex)
                     
                     for column in 0..<NumColumns {
                         for row in secRow*3..<secRow*3+3 {
-                            let matchingColor = blockCellColorAt(column: column, row: row)
-                            if matchingColor == blockColor {
+                            let matchingColorIndex = blockCellColorIndexAt(column: column, row: row)
+                            if matchingColorIndex == blockColorIndex {
                                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                                 boardArray[column, row] = nil
                                 removeTileNode(tileNode: targetTileNode)
@@ -502,7 +505,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                 var matchCount = 0
                 
                 for secRow in 0..<3 {
-                    let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
+                    let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColorIndex)
                     if let isColorMatching = isColorMatching, isColorMatching {
                         matchCount = matchCount + 1
                     }
@@ -511,12 +514,12 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                 // find a matching column
                 if matchCount == 3 {
                     // highlight the matching row
-                    highlightSecCol(secCol: secCol, color: blockColor)
+                    highlightSecCol(secCol: secCol, colorIndex: blockColorIndex)
                     
                     for row in 0..<NumRows {
                         for column in secCol*3..<secCol*3+3 {
-                            let matchingColor = blockCellColorAt(column: column, row: row)
-                            if matchingColor == blockColor {
+                            let matchingColorIndex = blockCellColorIndexAt(column: column, row: row)
+                            if matchingColorIndex == blockColorIndex {
                                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                                 boardArray[column, row] = nil
                                 removeTileNode(tileNode: targetTileNode)
@@ -531,20 +534,20 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             for secCol in 0..<3 {
                 let secRow = 2-secCol
                 
-                let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
+                let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColorIndex)
                 if let isColorMatching = isColorMatching, isColorMatching {
                     matchCount = matchCount + 1
                 }
             }
             if matchCount == 3 {
                 // highlight the matching diagonal
-                highlightDiag1(color: blockColor)
+                highlightDiag1(colorIndex: blockColorIndex)
                 
                 for row in 0..<NumRows{
                     for column in 6-Int(row/3)*3..<9-Int(row/3)*3 {
-                        let matchingColor = blockCellColorAt(column: column, row: row)
+                        let matchingColorIndex = blockCellColorIndexAt(column: column, row: row)
                         
-                        if matchingColor == blockColor {
+                        if matchingColorIndex == blockColorIndex {
                             let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                             boardArray[column, row] = nil
                             removeTileNode(tileNode: targetTileNode)
@@ -558,19 +561,19 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             for secCol in 0..<3 {
                 let secRow = secCol
                 
-                let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColor)
+                let isColorMatching: Bool? = sectionArray[secCol, secRow]?.contains(blockColorIndex)
                 if let isColorMatching = isColorMatching, isColorMatching {
                     matchCount = matchCount + 1
                 }
             }
             if matchCount == 3 {
                 // highlight the matching diagonal
-                highlightDiag2(color: blockColor)
+                highlightDiag2(colorIndex: blockColorIndex)
                 
                 for row in 0..<NumRows{
                     for column in Int(row/3)*3..<Int(row/3)*3+3 {
-                        let matchingColor = blockCellColorAt(column: column, row: row)
-                        if matchingColor == blockColor {
+                        let matchingColorIndex = blockCellColorIndexAt(column: column, row: row)
+                        if matchingColorIndex == blockColorIndex {
                             let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
                             boardArray[column, row] = nil
                             removeTileNode(tileNode: targetTileNode)
@@ -587,9 +590,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     
                     for column in secCol*3..<secCol*3+3 {
                         for row in secRow*3..<secRow*3+3 {
-                            let matchingColor = blockCellColorAt(column: column, row: row)
+                            let matchingColorIndex = blockCellColorIndexAt(column: column, row: row)
                             
-                            if matchingColor == blockColor {
+                            if matchingColorIndex == blockColorIndex {
                                 matchCount = matchCount+1
                             }
                         }
@@ -597,7 +600,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     
                     if matchCount == 9 {
                         // highlight the matching diagonal
-                        highlightSection(secCol: secCol, secRow: secRow, color: blockColor)
+                        highlightSection(secCol: secCol, secRow: secRow, colorIndex: blockColorIndex)
                         
                         for column in secCol*3..<secCol*3+3 {
                             for row in secRow*3..<secRow*3+3 {
@@ -668,7 +671,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         layer.run(actionSeq)
     }
     
-    func highlightSecRow(secRow: Int, color: SKColor?) {
+    func highlightSecRow(secRow: Int, colorIndex: UInt32) {
         numMatchingThisRound = numMatchingThisRound + 1
         
         assert(secRow >= 0 && secRow < 3)
@@ -678,9 +681,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
+                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                    let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -702,19 +705,20 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         
     }
     
-    func highlightSecCol(secCol: Int, color: SKColor?) {
+    func highlightSecCol(secCol: Int, colorIndex: UInt32) {
         numMatchingThisRound = numMatchingThisRound + 1
         
         assert(secCol >= 0 && secCol < 3)
+        
         for row in 0..<NumRows {
             for column in secCol*3..<secCol*3+3 {
                 if boardLayer.childNode(withName: "tile\(column)\(row)") == nil {
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
+                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                    let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -723,14 +727,14 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         }
         
         if progressIndex == 2 {
-            topMessageNode.setText(to: "Awesome! Diagonally next!")
+            topMessageNode.setText(to: "Awesome! Next, Diagonal.")
             //topMessageNode.adjustLabelFontSizeToFitRect(rect: topMessageNode.frameRect)
             progressIndex = 3
             messageIndex = 15
         }
     }
     
-    func highlightDiag1(color: SKColor?) {
+    func highlightDiag1(colorIndex: UInt32) {
         numMatchingThisRound = numMatchingThisRound + 1
         
         for row in 0..<NumRows{
@@ -739,9 +743,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
+                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                    let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -761,7 +765,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         }
     }
     
-    func highlightDiag2(color: SKColor?) {
+    func highlightDiag2(colorIndex: UInt32) {
         numMatchingThisRound = numMatchingThisRound + 1
         
         for row in 0..<NumRows{
@@ -770,9 +774,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
+                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                    let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -792,7 +796,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         }
     }
     
-    func highlightSection(secCol:Int, secRow:Int, color: SKColor?) {
+    func highlightSection(secCol:Int, secRow:Int, colorIndex: UInt32) {
         numMatchingThisRound = numMatchingThisRound + 1
         
         for column in secCol*3..<secCol*3+3 {
@@ -801,9 +805,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if let color = color, boardArray[column,row] == nil || boardArray[column,row] == color {
-                    let changeColor = SKAction.colorize(with: color.withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
-                    let changeColorBack = SKAction.colorize(with: ColorCategory.TileColor, colorBlendFactor: 1.0, duration: 0.3)
+                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                    let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
+                    let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
                         targetTileNode.run(SKAction.sequence([changeColor,changeColorBack]))
                     }
@@ -822,7 +826,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                 bottomBlock?.run(fadeOut)
             }
             
-            topMessageNode.setText(to: "Good Luck, Have Fun!")
+            topMessageNode.setText(to: "Great job! You are ready now!")
             //topMessageNode.adjustLabelFontSizeToFitRect(rect: topMessageNode.frameRect)
             bottomMessageNode.setText(to: "Tap to Finish Tutorial")
             messageIndex = messageIndex+1
@@ -860,7 +864,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                                        SKAction.removeFromParent()]))
         
         // reset the tile color
-        tileNode.changeColor(to: ColorCategory.TileColor)
+        tileNode.changeColor(to: ColorCategory.getTileColor())
     }
     
     //MARK:- SkipButtonDelegate
@@ -886,7 +890,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         /*** put the block in board ***/
         if let colNum = colNum, let rowNum = rowNum {
             // already a block in place
-            if blockCellColorAt(column: colNum, row: rowNum) != nil {
+            if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
                 sender.setNodeAt(positionInScreen: nil)
                 // run sound
                 self.run(blockIsNotSetSound)
@@ -927,7 +931,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         
         /*** Update the tile color ***/
         if let colNum = colNum, let rowNum = rowNum {
-            boardArray[colNum, rowNum] = sender.getBlockColor()
+            boardArray[colNum, rowNum] = sender.getBlockColorIndex()
             updateBlockCellColorAt(column: colNum, row: rowNum)
         }
         
@@ -951,7 +955,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             /*** if node in position ***/
             if let colNum = colNum, let rowNum = rowNum {
                 // already a block in place. put back
-                if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
                     // run sound
                     self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
@@ -1019,7 +1023,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
-                boardArray[colNum, rowNum] = sender.getBlockColor()
+                boardArray[colNum, rowNum] = sender.getBlockColorIndex()
                 updateBlockCellColorAt(column: colNum, row: rowNum)
             }
         }
@@ -1044,7 +1048,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             /*** if node in position ***/
             if let colNum = colNum, let rowNum = rowNum {
                 // already a block in place. put back
-                if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
                     // run sound
                     self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
@@ -1112,7 +1116,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
-                boardArray[colNum, rowNum] = sender.getBlockColor()
+                boardArray[colNum, rowNum] = sender.getBlockColorIndex()
                 updateBlockCellColorAt(column: colNum, row: rowNum)
             }
         }
@@ -1138,7 +1142,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             /*** if node in position ***/
             if let colNum = colNum, let rowNum = rowNum {
                 // already a block in place. put back
-                if blockCellColorAt(column: colNum, row: rowNum) != nil {
+                if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
                     // run sound
                     self.run(blockIsNotSetSound)
                     sender.setNodeAt(positionsInScreen: nil)
@@ -1206,7 +1210,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
-                boardArray[colNum, rowNum] = sender.getBlockColor()
+                boardArray[colNum, rowNum] = sender.getBlockColorIndex()
                 updateBlockCellColorAt(column: colNum, row: rowNum)
             }
         }

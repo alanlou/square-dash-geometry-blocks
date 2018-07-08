@@ -9,8 +9,9 @@
 import UIKit
 import SpriteKit
 import GoogleMobileAds
+import GameKit
 
-class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
     
     // declare a property to keep a reference to the SKView
     var skView: SKView!
@@ -37,33 +38,50 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Set up banner with desired ad size
-        // Smart Banner: Screen width x 32|50|90
-        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-
-        if UserDefaults.standard.float(forKey: "AdsHeight") == 0.0 {
-            UserDefaults.standard.set(bannerView.frame.height, forKey: "AdsHeight")
-        }
         
-        bannerView.adUnitID = self.bannerAdsUnitID
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        bannerView.delegate = self
+        let noAdsPurchased = UserDefaults.standard.bool(forKey: "noAdsPurchased")
+        
+        // noAds NOT purchased
+        if !noAdsPurchased {
+            
+            // Set up banner with desired ad size
+            // Smart Banner: Screen width x 32|50|90
+            bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+            
+            if UserDefaults.standard.float(forKey: "AdsHeight") == 0.0 {
+                UserDefaults.standard.set(bannerView.frame.height, forKey: "AdsHeight")
+            }
+            
+            bannerView.adUnitID = self.bannerAdsUnitID
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+            bannerView.delegate = self
+            
+        }
         
         // Add reward ads observer
         NotificationCenter.default.addObserver(self,
-                                       selector: #selector(runRewardsAds),
-                                       name: Notification.Name(rawValue: "runRewardAds"),
-                                       object: nil)
+                                               selector: #selector(runRewardsAds),
+                                               name: Notification.Name(rawValue: "runRewardAds"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(removeBannerAds),
+                                               name: Notification.Name(rawValue: "removeBannerAds"),
+                                               object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(displayAlertMessage(notification:)),
                                                name: Notification.Name(rawValue: "displayAlertMessage"),
                                                object: nil)
         prepareRewardsAds()
+        
+        // For Gamecenter
+        authenticateLocalPlayer()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        print("viewWillLayoutSubviews")
+        
         
         let justOpenApp = UserDefaults.standard.bool(forKey: "justOpenApp")
         
@@ -86,15 +104,20 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
                     skView.ignoresSiblingOrder = true
                     
                     UserDefaults.standard.set(false, forKey: "justOpenApp")
+                    UserDefaults.standard.set(false, forKey: "noAdsPurchased")
+                    UserDefaults.standard.set(true, forKey: "launchedBefore")
+                    UserDefaults.standard.set("Classic", forKey: "skin")
+                    
+                    scene.isAdReady = self.isAdReady
                     skView.presentScene(scene)
                     
                     // view fade in
-                    scene.isAdReady = self.isAdReady
                     scene.animateNodesFadeIn()
+                    
+                    return
                 }
             }
             
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
             
             /*** initialize Main ***/
             let scene = MenuScene(size: self.view.bounds.size) // match the device's size
@@ -109,10 +132,11 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
                 skView.ignoresSiblingOrder = true
                 
                 UserDefaults.standard.set(false, forKey: "justOpenApp")
+                
+                scene.isAdReady = self.isAdReady
                 skView.presentScene(scene)
                 
                 // view fade in
-                scene.isAdReady = self.isAdReady
                 scene.animateNodesFadeIn()
             }
         }
@@ -309,12 +333,21 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
         if rewardBasedVideo?.isReady == true {
             rewardBasedVideo?.present(fromRootViewController: self)
         }
-        
+
+    }
+    
+    @objc func removeBannerAds() {
+        print("Remove Banner Ads!")
+        if bannerView == nil {
+            return
+        }
+        UserDefaults.standard.set(0.0, forKey: "AdsHeight")
+        self.bannerView.removeFromSuperview()
+        self.view.setNeedsDisplay()
     }
     
     //MARK:- Alert Message
     @objc func displayAlertMessage(notification:NSNotification) {
-        print("1")
         if let userInfo = notification.userInfo {
             let message = userInfo["forButton"] as! String
             print(message)
@@ -324,28 +357,24 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
                 let alertController = UIAlertController(title: "Enjoy Squares?", message: "Please rate the game to support us. Thank you!", preferredStyle: .alert)
                 let actionYes = UIAlertAction(title: "Yes, I like it!", style: .default) {
                     UIAlertAction in
-                    self.rateApp(appId: "id959379869") { success in
+                    self.rateApp(appId: "id1348195923") { success in
                         print("RateApp \(success)")
                     }
-                }
-                let actionLater = UIAlertAction(title: "Maybe later.", style: .default) {
-                    UIAlertAction in
                 }
                 let actionNo = UIAlertAction(title: "No, thanks.", style: .default) {
                     UIAlertAction in
                 }
 
                 alertController.addAction(actionYes)
-                alertController.addAction(actionLater)
                 alertController.addAction(actionNo)
                 
                 self.present(alertController, animated: true, completion: nil)
             }
             
-            // Case 2. display alert view for like
+            // Case 2. display alert view for tutorial
             if message == "tutorial" {
                 let alertController = UIAlertController(title: "How to play", message: "Do you want to follow the tutorial?", preferredStyle: .alert)
-                let actionYes = UIAlertAction(title: "OK", style: .default) {
+                let actionYes = UIAlertAction(title: "Yes", style: .default) {
                     UIAlertAction in
                     if let view = self.view as! SKView? {
                         let scene = TutorialScene(size: self.view.bounds.size)
@@ -365,6 +394,10 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
                 self.present(alertController, animated: true, completion: nil)
             }
             
+            // Case 3. display alert view for leaderboard
+            if message == "leaderboard" {
+                 showLeaderboard()
+            }
             
         }
     }
@@ -381,6 +414,31 @@ class GameViewController: UIViewController, GADBannerViewDelegate, GADRewardBase
         }
         UIApplication.shared.open(url, options: [:], completionHandler: completion)
     }
+    
+    func authenticateLocalPlayer() {
+        let localPlayer = GKLocalPlayer.localPlayer()
+        localPlayer.authenticateHandler = {(viewController, error) -> Void in
+            
+            if (viewController != nil) {
+                self.present(viewController!, animated: true, completion: nil)
+            }
+            else {
+                print((GKLocalPlayer.localPlayer().isAuthenticated))
+            }
+        }
+    }
+    
+    func showLeaderboard() {
+        print("show leaderboard")
+        let gKGCViewController = GKGameCenterViewController()
+        gKGCViewController.gameCenterDelegate = self as GKGameCenterControllerDelegate
+        self.present(gKGCViewController, animated: true, completion: nil)
+    }
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 

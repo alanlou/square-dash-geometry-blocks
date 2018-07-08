@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sample AdMob app ID: ca-app-pub-5422633750847690~4966311878
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5422633750847690~4966311878")
         
+        // do not surpress background music
+        do
+            {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+                try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError
+        {
+            print(error)
+        }
         
         return true
     }

@@ -11,6 +11,7 @@ import SpriteKit
 class MoreIconsNode: SKSpriteNode {
     // buttons inside
     var moreIconsButton: MenuButtonNode
+    var skinButton: MenuButtonNode
     var noAdsButton: MenuButtonNode
     var restoreIAPButton: MenuButtonNode
     var likeButton: MenuButtonNode
@@ -28,43 +29,46 @@ class MoreIconsNode: SKSpriteNode {
                                          iconType: IconType.MoreIconsButton,
                                          width: width)
         moreIconsButton.position = CGPoint(x: 0.0, y: 0.0)
-        moreIconsButton.name = "moreiconsbutton"
         
-        // 2. Add noAds button
+        // 2. Add skin button
+        skinButton = MenuButtonNode(color: color,
+                                     buttonType: ButtonType.RoundButton,
+                                     iconType: IconType.SkinButton,
+                                     width: width*0.8)
+        skinButton.position = CGPoint(x: 0.0, y: 0.0)
+        skinButton.alpha = 0.0
+        
+        // 3. Add noAds button
         noAdsButton = MenuButtonNode(color: color,
                                          buttonType: ButtonType.RoundButton,
                                          iconType: IconType.NoAdsButton,
                                          width: width*0.8)
         noAdsButton.position = CGPoint(x: 0.0, y: 0.0)
         noAdsButton.alpha = 0.0
-        noAdsButton.name = "noadsbutton"
         
-        // 3. Add restoreIAP button
+        // 4. Add restoreIAP button
         restoreIAPButton = MenuButtonNode(color: color,
                                      buttonType: ButtonType.RoundButton,
                                      iconType: IconType.RestoreIAPButton,
                                      width: width*0.8)
         restoreIAPButton.position = CGPoint(x: 0.0, y: 0.0)
         restoreIAPButton.alpha = 0.0
-        restoreIAPButton.name = "restoreIAPbutton"
         
-        // 4. Add like button
+        // 5. Add like button
         likeButton = MenuButtonNode(color: color,
                                           buttonType: ButtonType.RoundButton,
                                           iconType: IconType.LikeButton,
                                           width: width*0.8)
         likeButton.position = CGPoint(x: 0.0, y: 0.0)
         likeButton.alpha = 0.0
-        likeButton.name = "likebutton"
         
-        // 5. Add tutorial button
+        // 6. Add tutorial button
         tutorialButton = MenuButtonNode(color: color,
                                     buttonType: ButtonType.RoundButton,
                                     iconType: IconType.InfoButton,
                                     width: width*0.8)
         tutorialButton.position = CGPoint(x: 0.0, y: 0.0)
         tutorialButton.alpha = 0.0
-        tutorialButton.name = "tutorialbutton"
         
         // underlying larger area
         super.init(texture: nil, color: .clear, size: CGSize(width: width, height: width))
@@ -76,6 +80,7 @@ class MoreIconsNode: SKSpriteNode {
         
         // add buttons
         self.addChild(moreIconsButton)
+        self.addChild(skinButton)
         self.addChild(noAdsButton)
         self.addChild(restoreIAPButton)
         self.addChild(likeButton)
@@ -96,7 +101,8 @@ class MoreIconsNode: SKSpriteNode {
         let duration1 = 0.3
         let duration2 = 0.08
         if !isOpen {
-            // rotate right to open
+            
+            // more buttion rotate right to open
             let rotateRight = SKAction.rotate(byAngle: -CGFloat.pi*0.58, duration: duration1)
             rotateRight.timingMode = .easeOut
             let rotateLeft = SKAction.rotate(byAngle: CGFloat.pi*0.08, duration: duration2)
@@ -109,6 +115,7 @@ class MoreIconsNode: SKSpriteNode {
             let moveUp2 = SKAction.move(to: CGPoint(x:0.0, y:offset+moveLength*2.0+5.0), duration: duration1)
             let moveUp3 = SKAction.move(to: CGPoint(x:0.0, y:offset+moveLength*3.0+5.0), duration: duration1)
             let moveUp4 = SKAction.move(to: CGPoint(x:0.0, y:offset+moveLength*4.0+5.0), duration: duration1)
+            let moveUp5 = SKAction.move(to: CGPoint(x:0.0, y:offset+moveLength*5.0+5.0), duration: duration1)
             let moveDown = SKAction.move(by: CGVector(dx:0.0, dy:-5.0), duration: duration2)
             let fadeIn = SKAction.fadeIn(withDuration: duration1+duration2)
             
@@ -116,17 +123,30 @@ class MoreIconsNode: SKSpriteNode {
             moveUp2.timingMode = .easeOut
             moveUp3.timingMode = .easeOut
             moveUp4.timingMode = .easeOut
+            moveUp5.timingMode = .easeOut
             moveDown.timingMode = .easeOut
             fadeIn.timingMode = .easeOut
             
-            // 1. Add noAds button
-            noAdsButton.run(SKAction.group([SKAction.sequence([moveUp1,moveDown]),fadeIn]))
-            // 2. Add restoreIAP button
-            restoreIAPButton.run(SKAction.group([SKAction.sequence([moveUp2,moveDown]),fadeIn]))
+            // 1. Add skin button
+            skinButton.run(SKAction.group([SKAction.sequence([moveUp1,moveDown]),fadeIn]), completion: {[weak self] in
+                self?.skinButton.isUserInteractionEnabled = true
+            })
+            // 2. Add noAds button
+            noAdsButton.run(SKAction.group([SKAction.sequence([moveUp2,moveDown]),fadeIn]), completion: {[weak self] in
+                self?.noAdsButton.isUserInteractionEnabled = true
+            })
             // 3. Add restoreIAP button
-            likeButton.run(SKAction.group([SKAction.sequence([moveUp3,moveDown]),fadeIn]))
-            // 4. Add tutorialIAP button
-            tutorialButton.run(SKAction.group([SKAction.sequence([moveUp4,moveDown]),fadeIn]))
+            restoreIAPButton.run(SKAction.group([SKAction.sequence([moveUp3,moveDown]),fadeIn]), completion: {[weak self] in
+                self?.restoreIAPButton.isUserInteractionEnabled = true
+            })
+            // 4. Add restoreIAP button
+            likeButton.run(SKAction.group([SKAction.sequence([moveUp4,moveDown]),fadeIn]), completion: {[weak self] in
+                self?.likeButton.isUserInteractionEnabled = true
+            })
+            // 5. Add tutorialIAP button
+            tutorialButton.run(SKAction.group([SKAction.sequence([moveUp5,moveDown]),fadeIn]), completion: {[weak self] in
+                self?.tutorialButton.isUserInteractionEnabled = true
+            })
             
         } else {
             // rotate left to close
@@ -143,14 +163,21 @@ class MoreIconsNode: SKSpriteNode {
             
             let retractAction = SKAction.group([moveDown,fadeOut])
             
-            // 1. Add noAds button
+            // 1. Add skin button
+            skinButton.run(retractAction)
+            skinButton.isUserInteractionEnabled = false
+            // 2. Add noAds button
             noAdsButton.run(retractAction)
-            // 2. Add restoreIAP button
-            restoreIAPButton.run(retractAction)
+            noAdsButton.isUserInteractionEnabled = false
             // 3. Add restoreIAP button
+            restoreIAPButton.run(retractAction)
+            restoreIAPButton.isUserInteractionEnabled = false
+            // 4. Add restoreIAP button
             likeButton.run(retractAction)
-            // 4. Add tutorialIAP button
+            likeButton.isUserInteractionEnabled = false
+            // 5. Add tutorialIAP button
             tutorialButton.run(retractAction)
+            tutorialButton.isUserInteractionEnabled = false
             
         }
         
