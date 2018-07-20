@@ -139,7 +139,7 @@ class MoreIconsNode: SKSpriteNode {
             restoreIAPButton.run(SKAction.group([SKAction.sequence([moveUp3,moveDown]),fadeIn]), completion: {[weak self] in
                 self?.restoreIAPButton.isUserInteractionEnabled = true
             })
-            // 4. Add restoreIAP button
+            // 4. Add like button
             likeButton.run(SKAction.group([SKAction.sequence([moveUp4,moveDown]),fadeIn]), completion: {[weak self] in
                 self?.likeButton.isUserInteractionEnabled = true
             })

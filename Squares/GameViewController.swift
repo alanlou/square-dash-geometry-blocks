@@ -11,30 +11,34 @@ import SpriteKit
 import GoogleMobileAds
 import GameKit
 
-class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate, GADInterstitialDelegate {
     
     // declare a property to keep a reference to the SKView
     var skView: SKView!
 
-    /// The banner ads view.
+    /// The ad
     var bannerView: GADBannerView!
+    var interstitial: GADInterstitial!
+    var rewardBasedVideo: GADRewardBasedVideoAd?
     /// Is an ad being loaded.
     var adRequestInProgress: Bool = false
     /// Is an ad ready.
     var isAdReady: Bool = false
-    /// The reward-based video ad.
-    var rewardBasedVideo: GADRewardBasedVideoAd?
     
     // Variables
     var makeRecallAfterClosing: Bool = false
     
+    
     // Ads Unit ID
     // Banner Ad unit ID (Test): ca-app-pub-3940256099942544/2934735716
-    // Banner Ad unit ID (Squares!): ca-app-pub-5422633750847690/7863937958
-    let bannerAdsUnitID = "ca-app-pub-3940256099942544/2934735716"
+    // Banner Ad unit ID (Square Dash): ca-app-pub-5422633750847690/7863937958
+    let bannerAdsUnitID = "ca-app-pub-5422633750847690/7863937958"
     // Reward Ad unit ID (Test): ca-app-pub-3940256099942544/1712485313
-    // Reward Ad unit ID (Squares!): ca-app-pub-5422633750847690/1953135721
-    let rewardAdsUnitID = "ca-app-pub-3940256099942544/1712485313"
+    // Reward Ad unit ID (Square Dash): ca-app-pub-5422633750847690/1953135721
+    let rewardAdsUnitID = "ca-app-pub-5422633750847690/1953135721"
+    // Interstitial Ad unit ID (Test): ca-app-pub-3940256099942544/4411468910
+    // Interstitial Ad unit ID (Square Dash): ca-app-pub-5422633750847690/5364830335
+    let gameFinishAdsUnitID = "ca-app-pub-5422633750847690/5364830335"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,12 +61,17 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
             bannerView.load(GADRequest())
             bannerView.delegate = self
             
+            interstitial = createAndLoadInterstitial()
         }
         
         // Add reward ads observer
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(runRewardsAds),
                                                name: Notification.Name(rawValue: "runRewardAds"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(runInterstitialAds),
+                                               name: Notification.Name(rawValue: "runInterstitialAds"),
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(removeBannerAds),
@@ -80,8 +89,6 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        print("viewWillLayoutSubviews")
-        
         
         let justOpenApp = UserDefaults.standard.bool(forKey: "justOpenApp")
         
@@ -99,8 +106,8 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
                 if let view = self.view as! SKView? {
                     // present game scene
                     skView = view
-                    skView.showsFPS = true
-                    skView.showsNodeCount = true
+                    //skView.showsFPS = true
+                    //skView.showsNodeCount = true
                     skView.ignoresSiblingOrder = true
                     
                     UserDefaults.standard.set(false, forKey: "justOpenApp")
@@ -127,8 +134,8 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
             if let view = self.view as! SKView? {
                 // present game scene
                 skView = view
-                skView.showsFPS = true
-                skView.showsNodeCount = true
+                //skView.showsFPS = true
+                //skView.showsNodeCount = true
                 skView.ignoresSiblingOrder = true
                 
                 UserDefaults.standard.set(false, forKey: "justOpenApp")
@@ -154,7 +161,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
     //MARK:- GADBannerViewDelegate
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("adViewDidReceiveAd")
+//        print("Banner adViewDidReceiveAd")
         addBannerViewToView(bannerView)
         bannerView.alpha = 0
         UIView.animate(withDuration: 1, animations: {
@@ -260,16 +267,19 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
         //print("Reward based video ad failed to load: \(error.localizedDescription)")
         // load again
         if !adRequestInProgress && rewardBasedVideo?.isReady == false {
-            rewardBasedVideo?.load(GADRequest(),
-                                   withAdUnitID: self.rewardAdsUnitID)
-            adRequestInProgress = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+                // request new ads
+                self?.rewardBasedVideo?.load(GADRequest(),
+                                             withAdUnitID: (self?.rewardAdsUnitID)!)
+                self?.adRequestInProgress = true
+            }
         }
     }
     
     func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
         adRequestInProgress = false
         isAdReady = true
-        print("Reward based video ad is received.")
+//        print("Reward based video ad is received.")
         
         // check to see if the current scene is the game scene
         if let gameScene = skView.scene as? GameScene {
@@ -284,15 +294,15 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
     }
     
     func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Opened reward based video ad.")
+//        print("Opened reward based video ad.")
     }
     
     func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad started playing.")
+//        print("Reward based video ad started playing.")
     }
     
     func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad is closed.")
+//        print("Reward based video ad is closed.")
         
         // check to see if the current scene is the game scene
         if let gameScene = skView.scene as? GameScene, makeRecallAfterClosing {
@@ -305,19 +315,19 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
     }
     
     func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad will leave application.")
+//        print("Reward based video ad will leave application.")
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didRewardUserWith reward: GADAdReward) {
-        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+//        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
 
         makeRecallAfterClosing = true
     }
     
     //MARK:- Prepare and Run Reward Video Ads
     func prepareRewardsAds() {
-        print("PREPARE ADS!")
+//        print("PREPARE ADS!")
         rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
         rewardBasedVideo?.delegate = self
         
@@ -329,7 +339,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
     }
     
     @objc func runRewardsAds() {
-        print("RUN ADS!")
+//        print("RUN ADS!")
         if rewardBasedVideo?.isReady == true {
             rewardBasedVideo?.present(fromRootViewController: self)
         }
@@ -337,7 +347,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
     }
     
     @objc func removeBannerAds() {
-        print("Remove Banner Ads!")
+//        print("Remove Banner Ads!")
         if bannerView == nil {
             return
         }
@@ -346,19 +356,72 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
         self.view.setNeedsDisplay()
     }
     
+    //MARK:- Interstitial Ads
+    func createAndLoadInterstitial() -> GADInterstitial {
+//        print("Create and Load Interstitial Ads!")
+        let interstitial = GADInterstitial(adUnitID: gameFinishAdsUnitID)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    
+    @objc func runInterstitialAds() {
+        if interstitial == nil {
+            return
+        }
+        if self.interstitial.isReady {
+            self.interstitial.present(fromRootViewController: self)
+        } else {
+            print("Interstitial Ad wasn't ready")
+            //interstitial = createAndLoadInterstitial()
+        }
+        
+    }
+    
+    /// Tells the delegate an ad request succeeded.
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+//        print("interstitialDidReceiveAd")
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+//        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that an interstitial will be presented.
+    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
+//        print("interstitialWillPresentScreen")
+    }
+    
+    /// Tells the delegate the interstitial is to be animated off the screen.
+    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
+//        print("interstitialWillDismissScreen")
+    }
+    
+    /// Tells the delegate the interstitial had been animated off the screen.
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+//        print("interstitialDidDismissScreen")
+        interstitial = createAndLoadInterstitial()
+    }
+    
+    /// Tells the delegate that a user click will open another app
+    /// (such as the App Store), backgrounding the current app.
+    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+//        print("interstitialWillLeaveApplication")
+    }
+    
     //MARK:- Alert Message
     @objc func displayAlertMessage(notification:NSNotification) {
         if let userInfo = notification.userInfo {
             let message = userInfo["forButton"] as! String
-            print(message)
             
             // Case 1. display alert view for like
             if message == "like" {
-                let alertController = UIAlertController(title: "Enjoy Squares?", message: "Please rate the game to support us. Thank you!", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Enjoy Square Dash?", message: "Please rate the game to support us. Thank you!", preferredStyle: .alert)
                 let actionYes = UIAlertAction(title: "Yes, I like it!", style: .default) {
                     UIAlertAction in
                     self.rateApp(appId: "id1348195923") { success in
-                        print("RateApp \(success)")
+//                        print("RateApp \(success)")
                     }
                 }
                 let actionNo = UIAlertAction(title: "No, thanks.", style: .default) {
@@ -385,7 +448,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
                 }
                 let actionNo = UIAlertAction(title: "Cancel", style: .cancel) {
                     UIAlertAction in
-                    NSLog("OK Pressed")
+//                    NSLog("OK Pressed")
                 }
                 
                 alertController.addAction(actionYes)
@@ -397,6 +460,18 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
             // Case 3. display alert view for leaderboard
             if message == "leaderboard" {
                  showLeaderboard()
+            }
+            
+            // Case 4. iap failed
+            if message == "iapfail" {
+                let alertController = UIAlertController(title: "Purchase Failed", message: "Ooops, something went wrong. Please try again later. Thank you!", preferredStyle: .alert)
+                let actionCancel = UIAlertAction(title: "Cancel", style: .cancel) {
+                    UIAlertAction in
+//                    NSLog("Cancel Pressed")
+                }
+                alertController.addAction(actionCancel)
+                
+                self.present(alertController, animated: true, completion: nil)
             }
             
         }
@@ -423,13 +498,13 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
                 self.present(viewController!, animated: true, completion: nil)
             }
             else {
-                print((GKLocalPlayer.localPlayer().isAuthenticated))
+//                print((GKLocalPlayer.localPlayer().isAuthenticated))
             }
         }
     }
     
     func showLeaderboard() {
-        print("show leaderboard")
+//        print("show leaderboard")
         let gKGCViewController = GKGameCenterViewController()
         gKGCViewController.gameCenterDelegate = self as GKGameCenterControllerDelegate
         self.present(gKGCViewController, animated: true, completion: nil)

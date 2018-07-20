@@ -50,8 +50,7 @@ class SkinItemNode: SKSpriteNode {
         // add block cell nodes
         for row in 0..<3 {
             for col in 0..<3 {
-                let tileNode = TileNode(color: getBlockColorAtIndex(index: UInt32((2-row)*3+col+1))) // arrange color in correct order
-                tileNode.size = CGSize(width: tileWidth, height: tileWidth)
+                let tileNode = TileNode(color: getBlockColorAtIndex(index: UInt32((2-row)*3+col+1)), width:tileWidth) // arrange color in correct order
                 tileNode.position = pointInBoardLayerFor(column: col, row: row)
                 tileNode.name = "tile\(col)\(row)"
                 self.addChild(tileNode)

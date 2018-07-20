@@ -11,9 +11,8 @@ import Foundation
 public struct IAPProducts {
     
     public static let NoAds = "com.RawwrStudios.Squares.NoAds"
-    public static let NoAdsTest = "com.RawwrStudios.Squares.NoAdsTest"
     
-    fileprivate static let productIdentifiers: Set<ProductIdentifier> = [IAPProducts.NoAdsTest]
+    fileprivate static let productIdentifiers: Set<ProductIdentifier> = [IAPProducts.NoAds]
     
     public static let store = IAPHelper(productIds: IAPProducts.productIdentifiers)
 }

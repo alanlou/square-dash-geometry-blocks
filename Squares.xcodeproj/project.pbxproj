@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A8E345CAC19A67CDDC8113A /* Pods_Squares.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0931595ACA3B52104D3C419 /* Pods_Squares.framework */; };
+		4E12D70420F6B5DD00437487 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E12D70320F6B5DD00437487 /* ImageAssets.xcassets */; };
+		4E17C53A20F69E260035C0B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E17C53920F69E260035C0B9 /* GoogleService-Info.plist */; };
 		4E1EE25C1FF5A5380091F7ED /* TwoBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EE25B1FF5A5380091F7ED /* TwoBlockNode.swift */; };
 		4E1EE2611FF6F9AA0091F7ED /* ThreeBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EE2601FF6F9AA0091F7ED /* ThreeBlockNode.swift */; };
 		4E1EE2631FF7109A0091F7ED /* FourBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EE2621FF7109A0091F7ED /* FourBlockNode.swift */; };
 		4E1EE2651FF7628D0091F7ED /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EE2641FF7628D0091F7ED /* MyUtils.swift */; };
+		4E383BC620F2ECCB006D6094 /* Nice.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E383BAE20F2ECCA006D6094 /* Nice.wav */; };
+		4E383BC820F2ECCB006D6094 /* Woohoo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E383BC420F2ECCB006D6094 /* Woohoo.wav */; };
+		4E383BC920F2ECCB006D6094 /* Aha.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E383BC520F2ECCB006D6094 /* Aha.wav */; };
 		4E3F6D3D1FEB9C9E00C9DA84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D3C1FEB9C9E00C9DA84 /* AppDelegate.swift */; };
 		4E3F6D431FEB9C9E00C9DA84 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */; };
 		4E3F6D451FEB9C9E00C9DA84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F6D441FEB9C9E00C9DA84 /* GameViewController.swift */; };
@@ -24,7 +30,7 @@
 		4E55AABD20E4C726001F7088 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E55AABC20E4C726001F7088 /* StoreKit.framework */; };
 		4E55AABF20E4C76D001F7088 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55AABE20E4C76D001F7088 /* IAPHelper.swift */; };
 		4E55AAC120E4C950001F7088 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55AAC020E4C950001F7088 /* IAPProducts.swift */; };
-		4E80DD0320E4BB710011395E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBB90152021A1D400A19EF2 /* GoogleMobileAds.framework */; };
+		4E74B54A20FC48F700737786 /* gameStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E74B54920FC48F600737786 /* gameStart.mp3 */; };
 		4E83D47C20E35869000FC04B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E83D47B20E35869000FC04B /* GameKit.framework */; };
 		4E8EA9422017147B00AC2955 /* PlayButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */; };
 		4E8EA94420171E1300AC2955 /* BestScoreBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */; };
@@ -35,7 +41,6 @@
 		4E97BEEA202C240900BAF5E3 /* MoreIconsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E97BEE9202C240900BAF5E3 /* MoreIconsNode.swift */; };
 		4E9AABDB20EDBB90000292E7 /* SkinItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AABDA20EDBB90000292E7 /* SkinItemNode.swift */; };
 		4E9AABF120EDEA65000292E7 /* DismissButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AABF020EDEA65000292E7 /* DismissButtonNode.swift */; };
-		4EBB9009201DC47600A19EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EBB9008201DC47600A19EF2 /* Assets.xcassets */; };
 		4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */; };
 		4EC2C5241FFABDCE007E44FD /* blockIsNotSet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */; };
 		4EC2C5261FFAFA78007E44FD /* PauseButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */; };
@@ -49,9 +54,9 @@
 		4EC2C5361FFF5EC7007E44FD /* NewBestRibbonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C5351FFF5EC7007E44FD /* NewBestRibbonNode.swift */; };
 		4EC2C5381FFF60B5007E44FD /* newBestScore.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5371FFF60B5007E44FD /* newBestScore.wav */; };
 		4EC2C53C1FFF7A5D007E44FD /* QuarterCircleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */; };
-		4EC2C5422001BB05007E44FD /* startGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5412001BB05007E44FD /* startGame.wav */; };
 		4EC2C54E2001D224007E44FD /* gameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C54D2001D224007E44FD /* gameOver.wav */; };
 		4EC2C55A2001FDA7007E44FD /* findMatching1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5522001FDA7007E44FD /* findMatching1.wav */; };
+		4EC4B97D20F3298900210FB6 /* Fantastic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC4B96820F3298800210FB6 /* Fantastic.wav */; };
 		4ECE1654200DE258009D25C4 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE1653200DE258009D25C4 /* MenuScene.swift */; };
 		4ECE165920108796009D25C4 /* findMatching5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165520108795009D25C4 /* findMatching5.mp3 */; };
 		4ECE165A20108796009D25C4 /* findMatching3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165620108796009D25C4 /* findMatching3.mp3 */; };
@@ -216,10 +221,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E12D70320F6B5DD00437487 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
+		4E17C53920F69E260035C0B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E1EE25B1FF5A5380091F7ED /* TwoBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoBlockNode.swift; sourceTree = "<group>"; };
 		4E1EE2601FF6F9AA0091F7ED /* ThreeBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeBlockNode.swift; sourceTree = "<group>"; };
 		4E1EE2621FF7109A0091F7ED /* FourBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourBlockNode.swift; sourceTree = "<group>"; };
 		4E1EE2641FF7628D0091F7ED /* MyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
+		4E383BAE20F2ECCA006D6094 /* Nice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nice.wav; sourceTree = "<group>"; };
+		4E383BC420F2ECCB006D6094 /* Woohoo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Woohoo.wav; sourceTree = "<group>"; };
+		4E383BC520F2ECCB006D6094 /* Aha.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Aha.wav; sourceTree = "<group>"; };
 		4E3F6D391FEB9C9E00C9DA84 /* Squares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3F6D3C1FEB9C9E00C9DA84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -235,11 +245,11 @@
 		4E55AABC20E4C726001F7088 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4E55AABE20E4C76D001F7088 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		4E55AAC020E4C950001F7088 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
+		4E74B54920FC48F600737786 /* gameStart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameStart.mp3; sourceTree = "<group>"; };
 		4E80DB0920E4BB520011395E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4E80DB0A20E4BB520011395E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4E80DB0F20E4BB520011395E /* MenuItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemViewCell.swift; sourceTree = "<group>"; };
 		4E80DB1020E4BB520011395E /* menuItemsJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = menuItemsJSON.json; sourceTree = "<group>"; };
-		4E80DB1120E4BB520011395E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E80DB1320E4BB520011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E80DB1520E4BB520011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DB1620E4BB520011395E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -250,14 +260,13 @@
 		4E80DB1B20E4BB520011395E /* menu_item_image-web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_image-web.png"; sourceTree = "<group>"; };
 		4E80DB1C20E4BB520011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DB1D20E4BB520011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DB1E20E4BB520011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DB1E20E4BB520011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DB1F20E4BB520011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DB2020E4BB520011395E /* BannerTableViewExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BannerTableViewExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DB2420E4BB530011395E /* APIDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = APIDemo.xcodeproj; sourceTree = "<group>"; };
 		4E80DB2820E4BB530011395E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4E80DB2920E4BB530011395E /* DFPMultipleAdSizesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFPMultipleAdSizesViewController.swift; sourceTree = "<group>"; };
 		4E80DB2A20E4BB530011395E /* AdMobBannerSizesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobBannerSizesViewController.swift; sourceTree = "<group>"; };
-		4E80DB2B20E4BB530011395E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E80DB2D20E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E80DB2F20E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DB3020E4BB530011395E /* DFPCustomTargetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFPCustomTargetingViewController.swift; sourceTree = "<group>"; };
@@ -272,36 +281,33 @@
 		4E80DB3920E4BB530011395E /* DFPAppEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFPAppEventsViewController.swift; sourceTree = "<group>"; };
 		4E80DB3A20E4BB530011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DB3B20E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DB3C20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DB3C20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DB3D20E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DB4120E4BB530011395E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4E80DB4220E4BB530011395E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E80DB4420E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E80DB4620E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DB4720E4BB530011395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E80DB4820E4BB530011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DB4920E4BB530011395E /* NativeExpressExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = NativeExpressExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DB4C20E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DB4D20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DB4D20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DB4E20E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DB5120E4BB530011395E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E80DB5320E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4E80DB5520E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4E80DB5620E4BB530011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DB5720E4BB530011395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E80DB5820E4BB530011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DB5920E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DB5A20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DB5A20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DB5B20E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DB5C20E4BB530011395E /* BannerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BannerExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DB6120E4BB530011395E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E80DB6320E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4E80DB6520E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4E80DB6620E4BB530011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DB6720E4BB530011395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E80DB6820E4BB530011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DB6920E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DB6A20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DB6A20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DB6F20E4BB530011395E /* RewardedVideoExample-all-target-headers.hmap */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RewardedVideoExample-all-target-headers.hmap"; sourceTree = "<group>"; };
 		4E80DB7220E4BB530011395E /* RewardedVideoExample-OutputFileMap.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "RewardedVideoExample-OutputFileMap.json"; sourceTree = "<group>"; };
 		4E80DB7320E4BB530011395E /* ViewController.d */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.dtrace; path = ViewController.d; sourceTree = "<group>"; };
@@ -313,7 +319,7 @@
 		4E80DB7920E4BB530011395E /* AppDelegate.swiftdeps */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppDelegate.swiftdeps; sourceTree = "<group>"; };
 		4E80DB7A20E4BB530011395E /* ViewController.dia */ = {isa = PBXFileReference; lastKnownFileType = file; path = ViewController.dia; sourceTree = "<group>"; };
 		4E80DB7B20E4BB530011395E /* RewardedVideoExample-generated-files.hmap */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RewardedVideoExample-generated-files.hmap"; sourceTree = "<group>"; };
-		4E80DB7C20E4BB530011395E /* dgph */ = {isa = PBXFileReference; lastKnownFileType = file; path = dgph; sourceTree = "<group>"; };
+		4E80DB7C20E4BB530011395E /* dgph */ = {isa = PBXFileReference; lastKnownFileType = text; path = dgph; sourceTree = "<group>"; };
 		4E80DB7D20E4BB530011395E /* RewardedVideoExample-own-target-headers.hmap */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RewardedVideoExample-own-target-headers.hmap"; sourceTree = "<group>"; };
 		4E80DB7E20E4BB530011395E /* RewardedVideoExample-all-non-framework-target-headers.hmap */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RewardedVideoExample-all-non-framework-target-headers.hmap"; sourceTree = "<group>"; };
 		4E80DB7F20E4BB530011395E /* swift-overrides.hmap */ = {isa = PBXFileReference; lastKnownFileType = file; path = "swift-overrides.hmap"; sourceTree = "<group>"; };
@@ -323,9 +329,8 @@
 		4E80DB8520E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DB8720E4BB530011395E /* NativeAdvancedExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = NativeAdvancedExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DB8A20E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DB8B20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DB8B20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DB8D20E4BB530011395E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4E80DB8E20E4BB530011395E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E80DB9020E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E80DB9220E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAppInstallAdView.xib; sourceTree = "<group>"; };
 		4E80DB9420E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -335,41 +340,37 @@
 		4E80DB9920E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DB9B20E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4E80DB9C20E4BB530011395E /* InterstitialExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = InterstitialExample.xcodeproj; sourceTree = "<group>"; };
-		4E80DB9F20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DB9F20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DBA020E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DBA220E4BB530011395E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E80DBA420E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4E80DBA620E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4E80DBA720E4BB530011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DBA820E4BB530011395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E80DBA920E4BB530011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DBAD20E4BB530011395E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E80DBAF20E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4E80DBB120E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4E80DBB220E4BB530011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DBB320E4BB530011395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E80DBB420E4BB530011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DBB520E4BB530011395E /* DFPInterstitialExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DFPInterstitialExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DBB820E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DBB920E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DBB920E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DBBA20E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DBBD20E4BB530011395E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E80DBBF20E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4E80DBC120E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4E80DBC220E4BB530011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DBC320E4BB530011395E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E80DBC420E4BB530011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DBC520E4BB530011395E /* DFPBannerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DFPBannerExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DBC820E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DBC920E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DBC920E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DBCA20E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DBCC20E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4E80DBCD20E4BB530011395E /* DFPCustomRenderingExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DFPCustomRenderingExample.xcodeproj; sourceTree = "<group>"; };
-		4E80DBD020E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DBD020E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DBD120E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DBD320E4BB530011395E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E80DBD420E4BB530011395E /* MySimpleNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySimpleNativeAdView.swift; sourceTree = "<group>"; };
-		4E80DBD520E4BB530011395E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E80DBD720E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SimpleCustomNativeAdView.xib; sourceTree = "<group>"; };
 		4E80DBD920E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E80DBDB20E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAppInstallAdView.xib; sourceTree = "<group>"; };
@@ -380,7 +381,6 @@
 		4E80DBE620E4BB530011395E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E80DBE720E4BB530011395E /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		4E80DBE820E4BB530011395E /* menuItemsJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = menuItemsJSON.json; sourceTree = "<group>"; };
-		4E80DBE920E4BB530011395E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E80DBEA20E4BB530011395E /* MenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		4E80DBEB20E4BB530011395E /* MenuItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuItemTableViewCell.m; sourceTree = "<group>"; };
 		4E80DBED20E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -395,7 +395,7 @@
 		4E80DBF720E4BB530011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DBF820E4BB530011395E /* MenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		4E80DBF920E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DBFA20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DBFA20E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DBFB20E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DBFC20E4BB530011395E /* BannerTableViewExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BannerTableViewExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DC0020E4BB530011395E /* APIDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = APIDemo.xcodeproj; sourceTree = "<group>"; };
@@ -417,7 +417,6 @@
 		4E80DC1520E4BB530011395E /* DFPMultipleAdSizesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFPMultipleAdSizesViewController.m; sourceTree = "<group>"; };
 		4E80DC1620E4BB530011395E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4E80DC1720E4BB530011395E /* DFPAppEventsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFPAppEventsViewController.m; sourceTree = "<group>"; };
-		4E80DC1820E4BB530011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DC1920E4BB530011395E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E80DC1A20E4BB530011395E /* DFPCustomTargetingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFPCustomTargetingViewController.m; sourceTree = "<group>"; };
 		4E80DC1B20E4BB530011395E /* AdMobBannerSizesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdMobBannerSizesViewController.m; sourceTree = "<group>"; };
@@ -428,10 +427,9 @@
 		4E80DC2020E4BB530011395E /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		4E80DC2120E4BB530011395E /* AdMobAdDelegateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdMobAdDelegateViewController.h; sourceTree = "<group>"; };
 		4E80DC2220E4BB530011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DC2320E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DC2320E4BB530011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DC2420E4BB530011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DC2820E4BB530011395E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4E80DC2920E4BB530011395E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E80DC2A20E4BB530011395E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4E80DC2C20E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E80DC2E20E4BB530011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -441,19 +439,18 @@
 		4E80DC3220E4BB530011395E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4E80DC3320E4BB530011395E /* NativeExpressExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = NativeExpressExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DC3620E4BB540011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DC3720E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DC3720E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DC3820E4BB540011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DC3B20E4BB540011395E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E80DC3C20E4BB540011395E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4E80DC3E20E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DC3F20E4BB540011395E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E80DC4020E4BB540011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DC4120E4BB540011395E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E80DC4220E4BB540011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DC4320E4BB540011395E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4E80DC4420E4BB540011395E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4E80DC4520E4BB540011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DC4620E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DC4620E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DC4720E4BB540011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DC4820E4BB540011395E /* BannerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BannerExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DC4D20E4BB540011395E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -461,17 +458,16 @@
 		4E80DC5020E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4E80DC5220E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DC5320E4BB540011395E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E80DC5420E4BB540011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DC5520E4BB540011395E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E80DC5620E4BB540011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DC5720E4BB540011395E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4E80DC5820E4BB540011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DC5920E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DC5920E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DC5A20E4BB540011395E /* RewardedVideoExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = RewardedVideoExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DC5D20E4BB540011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DC5F20E4BB540011395E /* NativeAdvancedExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = NativeAdvancedExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DC6220E4BB540011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DC6320E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DC6320E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DC6520E4BB540011395E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E80DC6620E4BB540011395E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4E80DC6820E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -479,7 +475,6 @@
 		4E80DC6C20E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DC6E20E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeContentAdView.xib; sourceTree = "<group>"; };
 		4E80DC6F20E4BB540011395E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E80DC7020E4BB540011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DC7120E4BB540011395E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E80DC7220E4BB540011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DC7320E4BB540011395E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -487,13 +482,12 @@
 		4E80DC7620E4BB540011395E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4E80DC7720E4BB540011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4E80DC7820E4BB540011395E /* InterstitialExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = InterstitialExample.xcodeproj; sourceTree = "<group>"; };
-		4E80DC7B20E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DC7B20E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DC7C20E4BB540011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DC7E20E4BB540011395E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E80DC7F20E4BB540011395E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4E80DC8120E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DC8220E4BB540011395E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E80DC8320E4BB540011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DC8420E4BB540011395E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E80DC8520E4BB540011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DC8620E4BB540011395E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -501,31 +495,29 @@
 		4E80DC8B20E4BB540011395E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4E80DC8D20E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DC8E20E4BB540011395E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E80DC8F20E4BB540011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DC9020E4BB540011395E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E80DC9120E4BB540011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DC9220E4BB540011395E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4E80DC9320E4BB540011395E /* DFPInterstitialExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DFPInterstitialExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DC9620E4BB540011395E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4E80DC9720E4BB540011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DC9820E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DC9820E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DC9920E4BB540011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DC9C20E4BB540011395E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E80DC9D20E4BB540011395E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4E80DC9F20E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E80DCA020E4BB540011395E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E80DCA120E4BB540011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DCA220E4BB540011395E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E80DCA320E4BB540011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DCA420E4BB540011395E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4E80DCA520E4BB540011395E /* DFPBannerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DFPBannerExample.xcodeproj; sourceTree = "<group>"; };
 		4E80DCA820E4BB540011395E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4E80DCA920E4BB540011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4E80DCAA20E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DCAA20E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DCAB20E4BB540011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DCAD20E4BB540011395E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4E80DCAE20E4BB540011395E /* DFPCustomRenderingExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DFPCustomRenderingExample.xcodeproj; sourceTree = "<group>"; };
-		4E80DCB120E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		4E80DCB120E4BB540011395E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4E80DCB220E4BB540011395E /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		4E80DCB420E4BB540011395E /* MySimpleNativeAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySimpleNativeAdView.h; sourceTree = "<group>"; };
 		4E80DCB520E4BB540011395E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -537,7 +529,6 @@
 		4E80DCC020E4BB540011395E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeContentAdView.xib; sourceTree = "<group>"; };
 		4E80DCC120E4BB540011395E /* MySimpleNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySimpleNativeAdView.m; sourceTree = "<group>"; };
 		4E80DCC220E4BB540011395E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E80DCC320E4BB540011395E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E80DCC420E4BB540011395E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E80DCC520E4BB540011395E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E80DCC620E4BB540011395E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -551,9 +542,7 @@
 		4E97BEE9202C240900BAF5E3 /* MoreIconsNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreIconsNode.swift; sourceTree = "<group>"; };
 		4E9AABDA20EDBB90000292E7 /* SkinItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinItemNode.swift; sourceTree = "<group>"; };
 		4E9AABF020EDEA65000292E7 /* DismissButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonNode.swift; sourceTree = "<group>"; };
-		4EBB9008201DC47600A19EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Squares/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		4EBB90132021A1BE00A19EF2 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../../../Downloads/GoogleMobileAdsSdkiOS-7.27.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
-		4EBB90152021A1D400A19EF2 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = addBottomBlocks.wav; sourceTree = "<group>"; };
 		4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blockIsNotSet.wav; sourceTree = "<group>"; };
 		4EC2C5251FFAFA78007E44FD /* PauseButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonNode.swift; sourceTree = "<group>"; };
@@ -567,9 +556,9 @@
 		4EC2C5351FFF5EC7007E44FD /* NewBestRibbonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBestRibbonNode.swift; sourceTree = "<group>"; };
 		4EC2C5371FFF60B5007E44FD /* newBestScore.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newBestScore.wav; sourceTree = "<group>"; };
 		4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarterCircleNode.swift; sourceTree = "<group>"; };
-		4EC2C5412001BB05007E44FD /* startGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startGame.wav; sourceTree = "<group>"; };
 		4EC2C54D2001D224007E44FD /* gameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameOver.wav; sourceTree = "<group>"; };
 		4EC2C5522001FDA7007E44FD /* findMatching1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching1.wav; sourceTree = "<group>"; };
+		4EC4B96820F3298800210FB6 /* Fantastic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Fantastic.wav; sourceTree = "<group>"; };
 		4ECE1653200DE258009D25C4 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		4ECE165520108795009D25C4 /* findMatching5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching5.mp3; sourceTree = "<group>"; };
 		4ECE165620108796009D25C4 /* findMatching3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching3.mp3; sourceTree = "<group>"; };
@@ -588,6 +577,9 @@
 		4EE32A0920F002AF0013F632 /* Merge_matching_8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Merge_matching_8.wav; sourceTree = "<group>"; };
 		4EE32A1320F012D30013F632 /* TitleLetterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLetterNode.swift; sourceTree = "<group>"; };
 		4EF57B572019706A0073E3F6 /* TrophyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyNode.swift; sourceTree = "<group>"; };
+		5D962167B7B478FD632D20EB /* Pods-Squares.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squares.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Squares/Pods-Squares.debug.xcconfig"; sourceTree = "<group>"; };
+		A0931595ACA3B52104D3C419 /* Pods_Squares.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squares.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB2B6B95221C5ED75C1A305 /* Pods-Squares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squares.release.xcconfig"; path = "Pods/Target Support Files/Pods-Squares/Pods-Squares.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -596,23 +588,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E55AABD20E4C726001F7088 /* StoreKit.framework in Frameworks */,
-				4E80DD0320E4BB710011395E /* GoogleMobileAds.framework in Frameworks */,
 				4E83D47C20E35869000FC04B /* GameKit.framework in Frameworks */,
+				3A8E345CAC19A67CDDC8113A /* Pods_Squares.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4081AE42CCE6EBEC838E01D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D962167B7B478FD632D20EB /* Pods-Squares.debug.xcconfig */,
+				AAB2B6B95221C5ED75C1A305 /* Pods-Squares.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4E1EE25F1FF6BF650091F7ED /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				4E74B54920FC48F600737786 /* gameStart.mp3 */,
 				4EE32A0820F002AE0013F632 /* Merge_matching_1.wav */,
 				4EE32A0720F002AE0013F632 /* Merge_matching_2.wav */,
 				4EE32A0120F002AB0013F632 /* Merge_matching_3.wav */,
 				4EE32A0220F002AB0013F632 /* Merge_matching_4.wav */,
 				4EE32A0320F002AC0013F632 /* Merge_matching_5.wav */,
 				4EE32A0420F002AC0013F632 /* Merge_matching_6.wav */,
+				4E383BC520F2ECCB006D6094 /* Aha.wav */,
+				4E383BAE20F2ECCA006D6094 /* Nice.wav */,
+				4EC4B96820F3298800210FB6 /* Fantastic.wav */,
+				4E383BC420F2ECCB006D6094 /* Woohoo.wav */,
 				4EE32A0520F002AD0013F632 /* Merge_matching_7.wav */,
 				4EE32A0920F002AF0013F632 /* Merge_matching_8.wav */,
 				4EE32A0620F002AD0013F632 /* Merge_matching_9.wav */,
@@ -625,7 +631,6 @@
 				4ECE165520108795009D25C4 /* findMatching5.mp3 */,
 				4E92D6202002019800C7B6BA /* blockIsSet.m4a */,
 				4EC2C54D2001D224007E44FD /* gameOver.wav */,
-				4EC2C5412001BB05007E44FD /* startGame.wav */,
 				4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */,
 				4EC2C51F1FFABB3B007E44FD /* addBottomBlocks.wav */,
 			);
@@ -638,6 +643,7 @@
 				4E3F6D3B1FEB9C9E00C9DA84 /* Squares */,
 				4E3F6D3A1FEB9C9E00C9DA84 /* Products */,
 				4EBB90122021A1BD00A19EF2 /* Frameworks */,
+				4081AE42CCE6EBEC838E01D0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -658,6 +664,7 @@
 				4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */,
 				4E97BEE520298FAC00BAF5E3 /* TutorialScene.swift */,
 				4E3F6D4E1FEB9C9E00C9DA84 /* Info.plist */,
+				4E17C53920F69E260035C0B9 /* GoogleService-Info.plist */,
 				4E3F6D5C1FEE532F00C9DA84 /* Models */,
 				4E3F6D5F1FEE537200C9DA84 /* Misc */,
 				4E3F6D5E1FEE534F00C9DA84 /* Resources */,
@@ -680,6 +687,7 @@
 				4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */,
 				4E9AABF020EDEA65000292E7 /* DismissButtonNode.swift */,
 				4EE329DB20EF3F1C0013F632 /* PinIconNode.swift */,
+				4EC2C5311FFDD521007E44FD /* GameScoreNode.swift */,
 				4EE32A1320F012D30013F632 /* TitleLetterNode.swift */,
 				4E97BEE7202AD13500BAF5E3 /* SkipButtonNode.swift */,
 				4EC2C5271FFAFA9B007E44FD /* MenuButtonNode.swift */,
@@ -690,7 +698,6 @@
 				4EF57B572019706A0073E3F6 /* TrophyNode.swift */,
 				4EC2C52F1FFB0F27007E44FD /* MessageNode.swift */,
 				4EC2C5291FFAFBCB007E44FD /* BestScoreNode.swift */,
-				4EC2C5311FFDD521007E44FD /* GameScoreNode.swift */,
 				4EC2C5331FFDDAFD007E44FD /* ComboNode.swift */,
 			);
 			path = Models;
@@ -699,7 +706,6 @@
 		4E3F6D5E1FEE534F00C9DA84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4EBB9008201DC47600A19EF2 /* Assets.xcassets */,
 				4E1EE25F1FF6BF650091F7ED /* Sounds */,
 				4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */,
 				4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */,
@@ -715,9 +721,9 @@
 			isa = PBXGroup;
 			children = (
 				4E3F6D3C1FEB9C9E00C9DA84 /* AppDelegate.swift */,
+				4E12D70320F6B5DD00437487 /* ImageAssets.xcassets */,
 				4E3F6D461FEB9C9E00C9DA84 /* Main.storyboard */,
 				4E3F6D4B1FEB9C9E00C9DA84 /* LaunchScreen.storyboard */,
-				4EBB90152021A1D400A19EF2 /* GoogleMobileAds.framework */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -770,7 +776,6 @@
 			children = (
 				4E80DB0F20E4BB520011395E /* MenuItemViewCell.swift */,
 				4E80DB1020E4BB520011395E /* menuItemsJSON.json */,
-				4E80DB1120E4BB520011395E /* Assets.xcassets */,
 				4E80DB1220E4BB520011395E /* LaunchScreen.storyboard */,
 				4E80DB1420E4BB520011395E /* Main.storyboard */,
 				4E80DB1620E4BB520011395E /* TableViewController.swift */,
@@ -818,7 +823,6 @@
 				4E80DB2820E4BB530011395E /* Constants.swift */,
 				4E80DB2920E4BB530011395E /* DFPMultipleAdSizesViewController.swift */,
 				4E80DB2A20E4BB530011395E /* AdMobBannerSizesViewController.swift */,
-				4E80DB2B20E4BB530011395E /* Assets.xcassets */,
 				4E80DB2C20E4BB530011395E /* LaunchScreen.storyboard */,
 				4E80DB2E20E4BB530011395E /* Main.storyboard */,
 				4E80DB3020E4BB530011395E /* DFPCustomTargetingViewController.swift */,
@@ -864,7 +868,6 @@
 			isa = PBXGroup;
 			children = (
 				4E80DB4120E4BB530011395E /* ViewController.swift */,
-				4E80DB4220E4BB530011395E /* Assets.xcassets */,
 				4E80DB4320E4BB530011395E /* LaunchScreen.storyboard */,
 				4E80DB4520E4BB530011395E /* Main.storyboard */,
 				4E80DB4720E4BB530011395E /* AppDelegate.swift */,
@@ -899,7 +902,6 @@
 				4E80DB5120E4BB530011395E /* ViewController.swift */,
 				4E80DB5220E4BB530011395E /* LaunchScreen.xib */,
 				4E80DB5420E4BB530011395E /* Main.storyboard */,
-				4E80DB5620E4BB530011395E /* Images.xcassets */,
 				4E80DB5720E4BB530011395E /* AppDelegate.swift */,
 				4E80DB5820E4BB530011395E /* Info.plist */,
 			);
@@ -933,7 +935,6 @@
 				4E80DB6120E4BB530011395E /* ViewController.swift */,
 				4E80DB6220E4BB530011395E /* LaunchScreen.xib */,
 				4E80DB6420E4BB530011395E /* Main.storyboard */,
-				4E80DB6620E4BB530011395E /* Images.xcassets */,
 				4E80DB6720E4BB530011395E /* AppDelegate.swift */,
 				4E80DB6820E4BB530011395E /* Info.plist */,
 			);
@@ -1036,7 +1037,6 @@
 			isa = PBXGroup;
 			children = (
 				4E80DB8D20E4BB530011395E /* ViewController.swift */,
-				4E80DB8E20E4BB530011395E /* Assets.xcassets */,
 				4E80DB8F20E4BB530011395E /* LaunchScreen.storyboard */,
 				4E80DB9120E4BB530011395E /* NativeAppInstallAdView.xib */,
 				4E80DB9320E4BB530011395E /* Main.storyboard */,
@@ -1073,7 +1073,6 @@
 				4E80DBA220E4BB530011395E /* ViewController.swift */,
 				4E80DBA320E4BB530011395E /* LaunchScreen.xib */,
 				4E80DBA520E4BB530011395E /* Main.storyboard */,
-				4E80DBA720E4BB530011395E /* Images.xcassets */,
 				4E80DBA820E4BB530011395E /* AppDelegate.swift */,
 				4E80DBA920E4BB530011395E /* Info.plist */,
 			);
@@ -1108,7 +1107,6 @@
 				4E80DBAD20E4BB530011395E /* ViewController.swift */,
 				4E80DBAE20E4BB530011395E /* LaunchScreen.xib */,
 				4E80DBB020E4BB530011395E /* Main.storyboard */,
-				4E80DBB220E4BB530011395E /* Images.xcassets */,
 				4E80DBB320E4BB530011395E /* AppDelegate.swift */,
 				4E80DBB420E4BB530011395E /* Info.plist */,
 			);
@@ -1141,7 +1139,6 @@
 				4E80DBBD20E4BB530011395E /* ViewController.swift */,
 				4E80DBBE20E4BB530011395E /* LaunchScreen.xib */,
 				4E80DBC020E4BB530011395E /* Main.storyboard */,
-				4E80DBC220E4BB530011395E /* Images.xcassets */,
 				4E80DBC320E4BB530011395E /* AppDelegate.swift */,
 				4E80DBC420E4BB530011395E /* Info.plist */,
 			);
@@ -1181,7 +1178,6 @@
 			children = (
 				4E80DBD320E4BB530011395E /* ViewController.swift */,
 				4E80DBD420E4BB530011395E /* MySimpleNativeAdView.swift */,
-				4E80DBD520E4BB530011395E /* Assets.xcassets */,
 				4E80DBD620E4BB530011395E /* SimpleCustomNativeAdView.xib */,
 				4E80DBD820E4BB530011395E /* LaunchScreen.storyboard */,
 				4E80DBDA20E4BB530011395E /* NativeAppInstallAdView.xib */,
@@ -1230,7 +1226,6 @@
 				4E80DBE620E4BB530011395E /* AppDelegate.h */,
 				4E80DBE720E4BB530011395E /* TableViewController.h */,
 				4E80DBE820E4BB530011395E /* menuItemsJSON.json */,
-				4E80DBE920E4BB530011395E /* Assets.xcassets */,
 				4E80DBEA20E4BB530011395E /* MenuItem.m */,
 				4E80DBEB20E4BB530011395E /* MenuItemTableViewCell.m */,
 				4E80DBEC20E4BB530011395E /* LaunchScreen.storyboard */,
@@ -1297,7 +1292,6 @@
 				4E80DC1520E4BB530011395E /* DFPMultipleAdSizesViewController.m */,
 				4E80DC1620E4BB530011395E /* main.m */,
 				4E80DC1720E4BB530011395E /* DFPAppEventsViewController.m */,
-				4E80DC1820E4BB530011395E /* Images.xcassets */,
 				4E80DC1920E4BB530011395E /* AppDelegate.m */,
 				4E80DC1A20E4BB530011395E /* DFPCustomTargetingViewController.m */,
 				4E80DC1B20E4BB530011395E /* AdMobBannerSizesViewController.m */,
@@ -1339,7 +1333,6 @@
 			isa = PBXGroup;
 			children = (
 				4E80DC2820E4BB530011395E /* AppDelegate.h */,
-				4E80DC2920E4BB530011395E /* Assets.xcassets */,
 				4E80DC2A20E4BB530011395E /* ViewController.m */,
 				4E80DC2B20E4BB530011395E /* LaunchScreen.storyboard */,
 				4E80DC2D20E4BB530011395E /* Main.storyboard */,
@@ -1379,7 +1372,6 @@
 				4E80DC3C20E4BB540011395E /* ViewController.m */,
 				4E80DC3D20E4BB540011395E /* Main.storyboard */,
 				4E80DC3F20E4BB540011395E /* main.m */,
-				4E80DC4020E4BB540011395E /* Images.xcassets */,
 				4E80DC4120E4BB540011395E /* AppDelegate.m */,
 				4E80DC4220E4BB540011395E /* Info.plist */,
 				4E80DC4320E4BB540011395E /* ViewController.h */,
@@ -1415,7 +1407,6 @@
 				4E80DC4F20E4BB540011395E /* LaunchScreen.xib */,
 				4E80DC5120E4BB540011395E /* Main.storyboard */,
 				4E80DC5320E4BB540011395E /* main.m */,
-				4E80DC5420E4BB540011395E /* Images.xcassets */,
 				4E80DC5520E4BB540011395E /* AppDelegate.m */,
 				4E80DC5620E4BB540011395E /* Info.plist */,
 				4E80DC5720E4BB540011395E /* ViewController.h */,
@@ -1461,7 +1452,6 @@
 				4E80DC6B20E4BB540011395E /* Main.storyboard */,
 				4E80DC6D20E4BB540011395E /* NativeContentAdView.xib */,
 				4E80DC6F20E4BB540011395E /* main.m */,
-				4E80DC7020E4BB540011395E /* Images.xcassets */,
 				4E80DC7120E4BB540011395E /* AppDelegate.m */,
 				4E80DC7220E4BB540011395E /* Info.plist */,
 				4E80DC7320E4BB540011395E /* ViewController.h */,
@@ -1497,7 +1487,6 @@
 				4E80DC7F20E4BB540011395E /* ViewController.m */,
 				4E80DC8020E4BB540011395E /* Main.storyboard */,
 				4E80DC8220E4BB540011395E /* main.m */,
-				4E80DC8320E4BB540011395E /* Images.xcassets */,
 				4E80DC8420E4BB540011395E /* AppDelegate.m */,
 				4E80DC8520E4BB540011395E /* Info.plist */,
 				4E80DC8620E4BB540011395E /* ViewController.h */,
@@ -1535,7 +1524,6 @@
 				4E80DC8B20E4BB540011395E /* ViewController.m */,
 				4E80DC8C20E4BB540011395E /* Main.storyboard */,
 				4E80DC8E20E4BB540011395E /* main.m */,
-				4E80DC8F20E4BB540011395E /* Images.xcassets */,
 				4E80DC9020E4BB540011395E /* AppDelegate.m */,
 				4E80DC9120E4BB540011395E /* Info.plist */,
 				4E80DC9220E4BB540011395E /* ViewController.h */,
@@ -1571,7 +1559,6 @@
 				4E80DC9D20E4BB540011395E /* ViewController.m */,
 				4E80DC9E20E4BB540011395E /* Main.storyboard */,
 				4E80DCA020E4BB540011395E /* main.m */,
-				4E80DCA120E4BB540011395E /* Images.xcassets */,
 				4E80DCA220E4BB540011395E /* AppDelegate.m */,
 				4E80DCA320E4BB540011395E /* Info.plist */,
 				4E80DCA420E4BB540011395E /* ViewController.h */,
@@ -1620,7 +1607,6 @@
 				4E80DCBF20E4BB540011395E /* NativeContentAdView.xib */,
 				4E80DCC120E4BB540011395E /* MySimpleNativeAdView.m */,
 				4E80DCC220E4BB540011395E /* main.m */,
-				4E80DCC320E4BB540011395E /* Images.xcassets */,
 				4E80DCC420E4BB540011395E /* AppDelegate.m */,
 				4E80DCC520E4BB540011395E /* Info.plist */,
 				4E80DCC620E4BB540011395E /* ViewController.h */,
@@ -1635,6 +1621,7 @@
 				4E80DB0820E4BB520011395E /* googleads-mobile-ios-examples-master */,
 				4E83D47B20E35869000FC04B /* GameKit.framework */,
 				4EBB90132021A1BE00A19EF2 /* GoogleMobileAds.framework */,
+				A0931595ACA3B52104D3C419 /* Pods_Squares.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1646,9 +1633,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E3F6D511FEB9C9E00C9DA84 /* Build configuration list for PBXNativeTarget "Squares" */;
 			buildPhases = (
+				204B1822FF565916583828DE /* [CP] Check Pods Manifest.lock */,
 				4E3F6D351FEB9C9E00C9DA84 /* Sources */,
 				4E3F6D361FEB9C9E00C9DA84 /* Frameworks */,
 				4E3F6D371FEB9C9E00C9DA84 /* Resources */,
+				6CFDF1B22613A83F21209E34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1936,32 +1925,78 @@
 			files = (
 				4EE32A0E20F002AF0013F632 /* Merge_matching_7.wav in Resources */,
 				4EE32A0C20F002AF0013F632 /* Merge_matching_5.wav in Resources */,
+				4EC4B97D20F3298900210FB6 /* Fantastic.wav in Resources */,
 				4ECE165920108796009D25C4 /* findMatching5.mp3 in Resources */,
+				4E17C53A20F69E260035C0B9 /* GoogleService-Info.plist in Resources */,
 				4EE32A0F20F002AF0013F632 /* Merge_matching_9.wav in Resources */,
 				4EE32A1120F002AF0013F632 /* Merge_matching_1.wav in Resources */,
 				4EC2C5381FFF60B5007E44FD /* newBestScore.wav in Resources */,
+				4E383BC620F2ECCB006D6094 /* Nice.wav in Resources */,
 				4E3F6D481FEB9C9E00C9DA84 /* Main.storyboard in Resources */,
 				4ECE165A20108796009D25C4 /* findMatching3.mp3 in Resources */,
-				4EBB9009201DC47600A19EF2 /* Assets.xcassets in Resources */,
 				4EE32A1220F002AF0013F632 /* Merge_matching_8.wav in Resources */,
 				4EC2C5241FFABDCE007E44FD /* blockIsNotSet.wav in Resources */,
 				4EC2C54E2001D224007E44FD /* gameOver.wav in Resources */,
 				4EE32A0B20F002AF0013F632 /* Merge_matching_4.wav in Resources */,
+				4E74B54A20FC48F700737786 /* gameStart.mp3 in Resources */,
 				4E3F6D4D1FEB9C9E00C9DA84 /* LaunchScreen.storyboard in Resources */,
 				4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */,
 				4E92D6212002019800C7B6BA /* blockIsSet.m4a in Resources */,
+				4E383BC920F2ECCB006D6094 /* Aha.wav in Resources */,
 				4EC2C55A2001FDA7007E44FD /* findMatching1.wav in Resources */,
+				4E12D70420F6B5DD00437487 /* ImageAssets.xcassets in Resources */,
 				4EE32A1020F002AF0013F632 /* Merge_matching_2.wav in Resources */,
 				4ECE165B20108796009D25C4 /* findMatching2.mp3 in Resources */,
 				4EE32A0A20F002AF0013F632 /* Merge_matching_3.wav in Resources */,
 				4ECE165C20108796009D25C4 /* findMatching4.mp3 in Resources */,
 				4EE32A0D20F002AF0013F632 /* Merge_matching_6.wav in Resources */,
 				4EC2C52C1FFAFDFB007E44FD /* buttonPressed.wav in Resources */,
-				4EC2C5422001BB05007E44FD /* startGame.wav in Resources */,
+				4E383BC820F2ECCB006D6094 /* Woohoo.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		204B1822FF565916583828DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Squares-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CFDF1B22613A83F21209E34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Squares/Pods-Squares-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Squares/Pods-Squares-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E3F6D351FEB9C9E00C9DA84 /* Sources */ = {
@@ -2447,7 +2482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2500,7 +2535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2510,10 +2545,12 @@
 		};
 		4E3F6D521FEB9C9E00C9DA84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D962167B7B478FD632D20EB /* Pods-Squares.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E3TBSL5F4P;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Squares/Misc",
@@ -2523,6 +2560,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RawwrStudios.Squares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2530,10 +2568,12 @@
 		};
 		4E3F6D531FEB9C9E00C9DA84 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAB2B6B95221C5ED75C1A305 /* Pods-Squares.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E3TBSL5F4P;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Squares/Misc",
@@ -2543,6 +2583,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RawwrStudios.Squares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

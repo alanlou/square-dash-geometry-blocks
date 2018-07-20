@@ -141,7 +141,7 @@ class RecallButtonNode: SKSpriteNode {
             
             if isAdsRecallPossible {
                 // RUN ADS HERE!
-                print("Run Ads")
+//                print("Run Ads")
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "runRewardAds"), object: nil)
                 
                 disableAdsRecall()
@@ -158,7 +158,7 @@ class RecallButtonNode: SKSpriteNode {
     }
     
     func enableAdsRecall() {
-        print("ENABLE ADS RECALL!")
+//        print("ENABLE ADS RECALL!")
         isAdsRecallPossible = true
         if isRecallPossible {
             self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.4), completion: { [weak self] in

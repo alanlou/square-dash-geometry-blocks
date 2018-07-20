@@ -293,11 +293,13 @@ class ThreeBlockNode: SKSpriteNode {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        let touchLocation = touch!.location(in: self.parent!)
-        
-        if isMoving {
-            self.position = CGPoint(x: touchLocation.x, y: touchLocation.y+touchYOffset+blockOffset)
+        if self.parent != nil {
+            let touch = touches.first
+            let touchLocation = touch!.location(in: self.parent!)
+            
+            if isMoving {
+                self.position = CGPoint(x: touchLocation.x, y: touchLocation.y+touchYOffset+blockOffset)
+            }
         }
         
     }

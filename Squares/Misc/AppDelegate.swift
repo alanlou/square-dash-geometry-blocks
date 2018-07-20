@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMobileAds
 import AVFoundation
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,10 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Use Firebase library to configure APIs.
+        FirebaseApp.configure()
+        
         // Initialize the Google Mobile Ads SDK.
         // Sample AdMob app ID: ca-app-pub-5422633750847690~4966311878
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5422633750847690~4966311878")
-        
+
         // do not surpress background music
         do
             {

@@ -8,6 +8,7 @@
 
 import Foundation
 import StoreKit
+import Firebase
 
 struct StoreReviewHelper {
     
@@ -30,13 +31,34 @@ struct StoreReviewHelper {
         }
         
         switch appOpenCount {
-        case 10,25:
+        case 2,20:
             StoreReviewHelper().requestReview()
-        case _ where appOpenCount%50 == 0 :
+            Analytics.logEvent("request_review", parameters: [:])
+        case _ where appOpenCount%40 == 0 :
             StoreReviewHelper().requestReview()
+            Analytics.logEvent("request_review", parameters: [:])
         default:
-            print("Total game count is : \(appOpenCount)")
+//            print("Total game count is : \(appOpenCount)")
             break;
+        }
+        
+    }
+    
+    static func isAskingForReviewThisRound() -> Bool { // call this whenever appropriate
+        // this will not be shown everytime. Apple has some internal logic on how to show this.
+        let Defaults = UserDefaults()
+        guard let appOpenCount = Defaults.value(forKey: "Update_High_Score_Count") as? Int else {
+            Defaults.set(1, forKey: "Update_High_Score_Count")
+            return false
+        }
+        
+        switch appOpenCount {
+        case 2,20:
+            return true
+        case _ where appOpenCount%40 == 0 :
+            return true
+        default:
+            return false
         }
         
     }

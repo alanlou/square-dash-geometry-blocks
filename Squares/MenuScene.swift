@@ -36,6 +36,7 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate, DismissButtonD
     let buttonPressedSound: SKAction = SKAction.playSoundFileNamed(
         "buttonPressed.wav", waitForCompletion: false)
     
+    
     var gameSoundOn: Bool? {
         get {
             if  UserDefaults.standard.object(forKey: "gameSoundOn") == nil {
@@ -99,7 +100,7 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate, DismissButtonD
         nodeLayer.addChild(playButton)
         
         // add orangeBackgroundBox
-        let skinNodeHeight:CGFloat = (safeAreaRect.height-adsHeight-skinItemOffset*5.0)*0.25
+        let skinNodeHeight:CGFloat = (safeAreaRect.height-skinItemOffset*5.0)*0.25
         orangeBackgroundBox = SKSpriteNode(texture: nil,
                                           color: ColorCategory.BlockColor9_Colorblind.withAlphaComponent(0.8),
                                           size: CGSize(width:safeAreaRect.width, height:skinNodeHeight+skinItemOffset*2))
@@ -184,7 +185,7 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate, DismissButtonD
         
         
         /*** add title - letters ***/
-        let letterWidth = safeAreaRect.width/15.0
+        let letterWidth = min(safeAreaRect.width/15.0,safeAreaRect.height/22.5)
         let letterSpacing = letterWidth/3.0
         let sideSpacing = (safeAreaRect.width - letterWidth*8.0 - letterSpacing*7.0)*0.48
         var currX = sideSpacing
@@ -518,33 +519,21 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate, DismissButtonD
             showSkinSelectionView()
             
         } else if iconType == IconType.NoAdsButton  {
-            print("NoAdsButton")
-            let noAdsPurchased = UserDefaults.standard.bool(forKey: "noAdsPurchased")
+//            print("NoAdsButton")
             
-            //if !noAdsPurchased {
-                // purchased NoAds
-                UserDefaults.standard.set(true, forKey: "noAdsPurchased")
-                
-                // remove banner ads
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "removeBannerAds"), object: nil)
-            //}
-            
-            /*
             products = []
             IAPProducts.store.requestProducts{success, products in
                 if success {
-                    print("NoAdsButton Success")
+//                    print("NoAdsButton Success")
                     self.products = products!
                     let firstProduct = self.products[0] as SKProduct
                     IAPProducts.store.buyProduct(firstProduct)
                 }
             }
-            */
-            
             
         } else if iconType == IconType.RestoreIAPButton  {
-            print("RestoreIAPButton")
-            
+            IAPProducts.store.restorePurchases()
+//            print("RestoreIAPButton")
             
         } else if iconType == IconType.LikeButton {
             let userInfoDict:[String: String] = ["forButton": "like"]
@@ -583,7 +572,7 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate, DismissButtonD
         let skinFontSize:CGFloat = skinItemNode4.getFontSize()
         
         // add gray mask to background
-        let skinSelectionBackgroundNode = SKSpriteNode(color: SKColor.gray, size: CGSize(width: safeAreaRect.width, height: skinNodeHeight*5))
+        let skinSelectionBackgroundNode = SKSpriteNode(color: SKColor.gray, size: CGSize(width: safeAreaRect.width, height: (skinNodeHeight+skinItemOffset)*5))
         skinSelectionBackgroundNode.zPosition = 5000
         skinSelectionBackgroundNode.name = "skinSelectionBackgroundNode"
         skinSelectionBackgroundNode.anchorPoint = CGPoint(x:0.0, y:1.0)
@@ -591,6 +580,13 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate, DismissButtonD
         nodeLayer.addChild(skinSelectionBackgroundNode)
         
         // Add skin item nodes
+        // upper layer
+//        let upperMask = SKSpriteNode(color: SKColor.gray, size: CGSize(width: safeAreaRect.width, height: skinNodeHeight+skinItemOffset))
+//        upperMask.zPosition = 5000
+//        upperMask.anchorPoint = CGPoint(x:0.0, y:0.0)
+//        upperMask.position = CGPoint(x:0.0 ,y: 0.0)
+//        skinSelectionBackgroundNode.addChild(upperMask)
+
         // Skin 1. Classic
         let skinItemNode1 = SkinItemNode(width: safeAreaRect.width-skinItemOffset*2.0, height: skinNodeHeight, skin: "Classic")
         skinItemNode1.zPosition = 15000
@@ -627,21 +623,22 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate, DismissButtonD
         
         // add dismiss button
         let dismissButton = DismissButtonNode(color: ColorCategory.BlockColor1_Day.withAlphaComponent(0.8), width: skinItemNode1.size.height*0.25)
-        dismissButton.position = CGPoint(x:safeAreaRect.width-2.0 ,y: -safeAreaRect.height+4.0)
+        dismissButton.position = CGPoint(x:safeAreaRect.width-skinItemOffset*1.5 ,y: -safeAreaRect.height+skinItemOffset*1.5)
         dismissButton.zPosition = 20000
         dismissButton.buttonDelegate = self
         skinSelectionBackgroundNode.addChild(dismissButton)
         
         // animate
         let moveUp = SKAction.move(to: CGPoint(x: 0.0, y: safeAreaRect.height*1.1), duration: 0.32)
-        let moveDown = SKAction.move(to: CGPoint(x: 0.0, y: safeAreaRect.height), duration: 0.15)
-        moveUp.timingMode = .easeIn
-        skinSelectionBackgroundNode.run(SKAction.sequence([moveUp,moveDown]))
+        let moveDown = SKAction.move(to: CGPoint(x: 0.0, y: safeAreaRect.height*0.97), duration: 0.15)
+        let moveUpSmall = SKAction.move(to: CGPoint(x: 0.0, y: safeAreaRect.height), duration: 0.07)
+        moveUp.timingMode = .easeOut
+        skinSelectionBackgroundNode.run(SKAction.sequence([moveUp,moveDown,moveUpSmall]))
     }
     
     func updateSkinItemFrame(skinItem: String) {
         // calculate size
-        let skinNodeHeight:CGFloat = (safeAreaRect.height - adsHeight-skinItemOffset*5.0)*0.25
+        let skinNodeHeight:CGFloat = (safeAreaRect.height-skinItemOffset*5.0)*0.25
         
         if let orangeBackgroundBox = orangeBackgroundBox {
             if skinItem == "Classic" {

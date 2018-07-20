@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import Firebase
 
 class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlockNodeDelegate, ThreeBlockNodeDelegate, FourBlockNodeDelegate {
     
@@ -18,7 +19,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     var boardArray = Array2D<UInt32>(columns: 9, rows: 9)
     
     // nodes
-    var topMessageNode = MessageNode(message: "Welcome to Squares!")
+    var topMessageNode = MessageNode(message: "Welcome to Square Dash!")
     var bottomMessageNode = MessageNode(message: "Tap to Start Tutorial")
     
     // numbers
@@ -155,14 +156,16 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         let scaleActions = SKAction.sequence([wait,scaleUp,scaleDown])
         topMessageNode.run(SKAction.repeatForever(scaleActions))
         
+        // log firebase event
+        Analytics.logEvent("tutorial_begin", parameters: [:])
+        
     }
     
     //MARK:- Set Up Board
     func addInitialTiles() {
         for row in 3..<6 {
             for col in 0..<NumColumns {
-                let tileNode = TileNode(color: ColorCategory.getTileColor())
-                tileNode.size = CGSize(width: tileWidth, height: tileWidth)
+                let tileNode = TileNode(color: ColorCategory.getTileColor(), width:tileWidth)
                 tileNode.position = pointInBoardLayerFor(column: col, row: row)
                 tileNode.name = "tile\(col)\(row)"
                 boardLayer.addChild(tileNode)
@@ -173,8 +176,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     func addRemainingTiles() {
         for row in 0..<3 {
             for col in 0..<NumColumns {
-                let tileNode = TileNode(color: ColorCategory.getTileColor())
-                tileNode.size = CGSize(width: tileWidth, height: tileWidth)
+                let tileNode = TileNode(color: ColorCategory.getTileColor(), width:tileWidth)
                 tileNode.position = pointInBoardLayerFor(column: col, row: row)
                 tileNode.name = "tile\(col)\(row)"
                 tileNode.alpha = 0.0
@@ -183,8 +185,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         }
         for row in 6..<9 {
             for col in 0..<NumColumns {
-                let tileNode = TileNode(color: ColorCategory.getTileColor())
-                tileNode.size = CGSize(width: tileWidth, height: tileWidth)
+                let tileNode = TileNode(color: ColorCategory.getTileColor(), width:tileWidth)
                 tileNode.position = pointInBoardLayerFor(column: col, row: row)
                 tileNode.name = "tile\(col)\(row)"
                 tileNode.alpha = 0.0
@@ -831,6 +832,10 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             bottomMessageNode.setText(to: "Tap to Finish Tutorial")
             messageIndex = messageIndex+1
             progressIndex = 5
+            
+            
+            // log firebase event
+            Analytics.logEvent("tutorial_complete", parameters: [:])
         }
     }
     

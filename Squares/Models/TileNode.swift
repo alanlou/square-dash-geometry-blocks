@@ -11,9 +11,10 @@ import SpriteKit
 class TileNode: SKSpriteNode {
     
     //MARK:- Initialization
-    init(color: SKColor) {
+    init(color: SKColor, width: CGFloat) {
         let texture = SKTexture(imageNamed: "Tile")
-        super.init(texture: texture, color: .clear, size: texture.size())
+        let textureSize = CGSize(width: width, height: width)
+        super.init(texture: texture, color: .clear, size: textureSize)
         self.name = "tile"
         self.color = color
         self.colorBlendFactor = 1.0
