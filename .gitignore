@@ -11,6 +11,7 @@ build
 *.png
 
 ## Frameworks
+Pods
 pods
 Podfile
 Podfile.lock
