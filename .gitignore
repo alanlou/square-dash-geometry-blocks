@@ -4,6 +4,9 @@ xcuserdata
 *.xcscheme
 build
 
+# plist
+*.plist
+
 # localization
 *.lproj
 
