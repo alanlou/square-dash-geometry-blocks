@@ -1,0 +1,1227 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "OneBlockNodeDelegate"
+- "OneBlockNode"
+provides-nominal:
+- "7Squares20OneBlockNodeDelegateP"
+- "7Squares12OneBlockNodeC"
+provides-member:
+- ["7Squares20OneBlockNodeDelegateP", ""]
+- ["7Squares12OneBlockNodeC", ""]
+provides-dynamic-lookup:
+- "encode"
+- "touchesBegan"
+- "touchesEnded"
+- "touchesMoved"
+depends-top-level:
+- !private "*"
+- !private "+"
+- !private "/"
+- !private "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "BlockCellNode"
+- "Bool"
+- "BooleanLiteralType"
+- "CGFloat"
+- "CGPoint"
+- !private "CGSize"
+- "CastingPrecedence"
+- "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "NSCoder"
+- "NSObjectProtocol"
+- "OneBlockNode"
+- "OneBlockNodeDelegate"
+- !private "SKAction"
+- "SKSpriteNode"
+- "Set"
+- !private "StringLiteralType"
+- "TimeInterval"
+- "UIEvent"
+- "UITouch"
+- "UInt32"
+depends-member:
+- !private ["SK", "init"]
+- !private ["SK", "init"]
+- !private ["7Squares13BlockCellNodeC", "deinit"]
+- !private ["7Squares13BlockCellNodeC", "init"]
+- !private ["7Squares13BlockCellNodeC", "position"]
+- !private ["7Squares13BlockCellNodeC", "size"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["So7CGPointV", "init"]
+- !private ["So7CGPointV", "x"]
+- !private ["So7CGPointV", "y"]
+- !private ["So6CGSizeV", "height"]
+- !private ["So6CGSizeV", "init"]
+- !private ["s7CVarArgP", "BlockCellNode"]
+- !private ["s7CVarArgP", "CGPoint"]
+- !private ["s7CVarArgP", "CGSize"]
+- !private ["s7CVarArgP", "SKAction"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "addChild"]
+- !private ["s7CVarArgP", "anchorPoint"]
+- !private ["s7CVarArgP", "block1"]
+- !private ["s7CVarArgP", "blockColorIndex"]
+- !private ["s7CVarArgP", "blockDelegate"]
+- !private ["s7CVarArgP", "blockOffset"]
+- !private ["s7CVarArgP", "bottomIndex"]
+- !private ["s7CVarArgP", "clear"]
+- !private ["s7CVarArgP", "contains"]
+- !private ["s7CVarArgP", "decodeCGPoint"]
+- !private ["s7CVarArgP", "decodeObject"]
+- !private ["s7CVarArgP", "encode"]
+- !private ["s7CVarArgP", "first"]
+- !private ["s7CVarArgP", "group"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "initialPosition"]
+- !private ["s7CVarArgP", "isMoving"]
+- !private ["s7CVarArgP", "isUserInteractionEnabled"]
+- !private ["s7CVarArgP", "location"]
+- !private ["s7CVarArgP", "lowScaleNum"]
+- !private ["s7CVarArgP", "midScaleNum"]
+- !private ["s7CVarArgP", "move"]
+- !private ["s7CVarArgP", "moveDuration"]
+- !private ["s7CVarArgP", "name"]
+- !private ["s7CVarArgP", "parent"]
+- !private ["s7CVarArgP", "position"]
+- !private ["s7CVarArgP", "releasePosition"]
+- !private ["s7CVarArgP", "run"]
+- !private ["s7CVarArgP", "scale"]
+- !private ["s7CVarArgP", "size"]
+- !private ["s7CVarArgP", "tileWidth"]
+- !private ["s7CVarArgP", "touchYOffset"]
+- !private ["s7CVarArgP", "wait"]
+- !private ["s7CVarArgP", "zPosition"]
+- !private ["Sl", "first"]
+- !private ["Sl", "init"]
+- !private ["Sl", "init"]
+- !private ["SL", "init"]
+- !private ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "BlockCellNode"]
+- !private ["s28CustomDebugStringConvertibleP", "CGPoint"]
+- !private ["s28CustomDebugStringConvertibleP", "CGSize"]
+- !private ["s28CustomDebugStringConvertibleP", "SKAction"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "addChild"]
+- !private ["s28CustomDebugStringConvertibleP", "anchorPoint"]
+- !private ["s28CustomDebugStringConvertibleP", "block1"]
+- !private ["s28CustomDebugStringConvertibleP", "blockColorIndex"]
+- !private ["s28CustomDebugStringConvertibleP", "blockDelegate"]
+- !private ["s28CustomDebugStringConvertibleP", "blockOffset"]
+- !private ["s28CustomDebugStringConvertibleP", "bottomIndex"]
+- !private ["s28CustomDebugStringConvertibleP", "clear"]
+- !private ["s28CustomDebugStringConvertibleP", "contains"]
+- !private ["s28CustomDebugStringConvertibleP", "decodeCGPoint"]
+- !private ["s28CustomDebugStringConvertibleP", "decodeObject"]
+- !private ["s28CustomDebugStringConvertibleP", "encode"]
+- !private ["s28CustomDebugStringConvertibleP", "first"]
+- !private ["s28CustomDebugStringConvertibleP", "group"]
+- !private ["s28CustomDebugStringConvertibleP", "height"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "initialPosition"]
+- !private ["s28CustomDebugStringConvertibleP", "isMoving"]
+- !private ["s28CustomDebugStringConvertibleP", "isUserInteractionEnabled"]
+- !private ["s28CustomDebugStringConvertibleP", "location"]
+- !private ["s28CustomDebugStringConvertibleP", "lowScaleNum"]
+- !private ["s28CustomDebugStringConvertibleP", "midScaleNum"]
+- !private ["s28CustomDebugStringConvertibleP", "move"]
+- !private ["s28CustomDebugStringConvertibleP", "moveDuration"]
+- !private ["s28CustomDebugStringConvertibleP", "name"]
+- !private ["s28CustomDebugStringConvertibleP", "oneBlockWasReleased"]
+- !private ["s28CustomDebugStringConvertibleP", "oneBlockWasSet"]
+- !private ["s28CustomDebugStringConvertibleP", "parent"]
+- !private ["s28CustomDebugStringConvertibleP", "position"]
+- !private ["s28CustomDebugStringConvertibleP", "releasePosition"]
+- !private ["s28CustomDebugStringConvertibleP", "run"]
+- !private ["s28CustomDebugStringConvertibleP", "scale"]
+- !private ["s28CustomDebugStringConvertibleP", "size"]
+- !private ["s28CustomDebugStringConvertibleP", "tileWidth"]
+- !private ["s28CustomDebugStringConvertibleP", "touchYOffset"]
+- !private ["s28CustomDebugStringConvertibleP", "wait"]
+- !private ["s28CustomDebugStringConvertibleP", "x"]
+- !private ["s28CustomDebugStringConvertibleP", "y"]
+- !private ["s28CustomDebugStringConvertibleP", "zPosition"]
+- !private ["s29CustomPlaygroundQuickLookableP", "BlockCellNode"]
+- !private ["s29CustomPlaygroundQuickLookableP", "CGPoint"]
+- !private ["s29CustomPlaygroundQuickLookableP", "CGSize"]
+- !private ["s29CustomPlaygroundQuickLookableP", "SKAction"]
+- ["s29CustomPlaygroundQuickLookableP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "addChild"]
+- !private ["s29CustomPlaygroundQuickLookableP", "anchorPoint"]
+- !private ["s29CustomPlaygroundQuickLookableP", "block1"]
+- !private ["s29CustomPlaygroundQuickLookableP", "blockColorIndex"]
+- !private ["s29CustomPlaygroundQuickLookableP", "blockDelegate"]
+- !private ["s29CustomPlaygroundQuickLookableP", "blockOffset"]
+- !private ["s29CustomPlaygroundQuickLookableP", "bottomIndex"]
+- !private ["s29CustomPlaygroundQuickLookableP", "contains"]
+- !private ["s29CustomPlaygroundQuickLookableP", "height"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "initialPosition"]
+- !private ["s29CustomPlaygroundQuickLookableP", "isMoving"]
+- !private ["s29CustomPlaygroundQuickLookableP", "isUserInteractionEnabled"]
+- !private ["s29CustomPlaygroundQuickLookableP", "lowScaleNum"]
+- !private ["s29CustomPlaygroundQuickLookableP", "midScaleNum"]
+- !private ["s29CustomPlaygroundQuickLookableP", "moveDuration"]
+- !private ["s29CustomPlaygroundQuickLookableP", "name"]
+- !private ["s29CustomPlaygroundQuickLookableP", "parent"]
+- !private ["s29CustomPlaygroundQuickLookableP", "position"]
+- !private ["s29CustomPlaygroundQuickLookableP", "releasePosition"]
+- !private ["s29CustomPlaygroundQuickLookableP", "run"]
+- !private ["s29CustomPlaygroundQuickLookableP", "size"]
+- !private ["s29CustomPlaygroundQuickLookableP", "tileWidth"]
+- !private ["s29CustomPlaygroundQuickLookableP", "touchYOffset"]
+- !private ["s29CustomPlaygroundQuickLookableP", "x"]
+- !private ["s29CustomPlaygroundQuickLookableP", "y"]
+- !private ["s29CustomPlaygroundQuickLookableP", "zPosition"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "first"]
+- !private ["s17CustomReflectableP", "height"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "oneBlockWasReleased"]
+- !private ["s17CustomReflectableP", "oneBlockWasSet"]
+- !private ["s17CustomReflectableP", "x"]
+- !private ["s17CustomReflectableP", "y"]
+- !private ["s23CustomStringConvertibleP", "BlockCellNode"]
+- !private ["s23CustomStringConvertibleP", "CGPoint"]
+- !private ["s23CustomStringConvertibleP", "CGSize"]
+- !private ["s23CustomStringConvertibleP", "SKAction"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "addChild"]
+- !private ["s23CustomStringConvertibleP", "anchorPoint"]
+- !private ["s23CustomStringConvertibleP", "block1"]
+- !private ["s23CustomStringConvertibleP", "blockColorIndex"]
+- !private ["s23CustomStringConvertibleP", "blockDelegate"]
+- !private ["s23CustomStringConvertibleP", "blockOffset"]
+- !private ["s23CustomStringConvertibleP", "bottomIndex"]
+- !private ["s23CustomStringConvertibleP", "clear"]
+- !private ["s23CustomStringConvertibleP", "contains"]
+- !private ["s23CustomStringConvertibleP", "decodeCGPoint"]
+- !private ["s23CustomStringConvertibleP", "decodeObject"]
+- !private ["s23CustomStringConvertibleP", "encode"]
+- !private ["s23CustomStringConvertibleP", "first"]
+- !private ["s23CustomStringConvertibleP", "group"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "initialPosition"]
+- !private ["s23CustomStringConvertibleP", "isMoving"]
+- !private ["s23CustomStringConvertibleP", "isUserInteractionEnabled"]
+- !private ["s23CustomStringConvertibleP", "location"]
+- !private ["s23CustomStringConvertibleP", "lowScaleNum"]
+- !private ["s23CustomStringConvertibleP", "midScaleNum"]
+- !private ["s23CustomStringConvertibleP", "move"]
+- !private ["s23CustomStringConvertibleP", "moveDuration"]
+- !private ["s23CustomStringConvertibleP", "name"]
+- !private ["s23CustomStringConvertibleP", "parent"]
+- !private ["s23CustomStringConvertibleP", "position"]
+- !private ["s23CustomStringConvertibleP", "releasePosition"]
+- !private ["s23CustomStringConvertibleP", "run"]
+- !private ["s23CustomStringConvertibleP", "scale"]
+- !private ["s23CustomStringConvertibleP", "size"]
+- !private ["s23CustomStringConvertibleP", "tileWidth"]
+- !private ["s23CustomStringConvertibleP", "touchYOffset"]
+- !private ["s23CustomStringConvertibleP", "wait"]
+- !private ["s23CustomStringConvertibleP", "zPosition"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "first"]
+- !private ["Se", "height"]
+- !private ["Se", "init"]
+- !private ["Se", "init"]
+- !private ["Se", "oneBlockWasReleased"]
+- !private ["Se", "oneBlockWasSet"]
+- !private ["Se", "x"]
+- !private ["Se", "y"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "first"]
+- !private ["SE", "height"]
+- !private ["SE", "init"]
+- !private ["SE", "init"]
+- !private ["SE", "oneBlockWasReleased"]
+- !private ["SE", "oneBlockWasSet"]
+- !private ["SE", "x"]
+- !private ["SE", "y"]
+- !private ["SQ", "BlockCellNode"]
+- !private ["SQ", "CGPoint"]
+- !private ["SQ", "CGSize"]
+- !private ["SQ", "SKAction"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "addChild"]
+- !private ["SQ", "anchorPoint"]
+- !private ["SQ", "block1"]
+- !private ["SQ", "blockColorIndex"]
+- !private ["SQ", "blockDelegate"]
+- !private ["SQ", "blockOffset"]
+- !private ["SQ", "bottomIndex"]
+- !private ["SQ", "clear"]
+- !private ["SQ", "contains"]
+- !private ["SQ", "decodeCGPoint"]
+- !private ["SQ", "decodeObject"]
+- !private ["SQ", "encode"]
+- !private ["SQ", "first"]
+- !private ["SQ", "group"]
+- !private ["SQ", "height"]
+- !private ["SQ", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "initialPosition"]
+- !private ["SQ", "isMoving"]
+- !private ["SQ", "isUserInteractionEnabled"]
+- !private ["SQ", "location"]
+- !private ["SQ", "lowScaleNum"]
+- !private ["SQ", "midScaleNum"]
+- !private ["SQ", "move"]
+- !private ["SQ", "moveDuration"]
+- !private ["SQ", "name"]
+- !private ["SQ", "oneBlockWasReleased"]
+- !private ["SQ", "oneBlockWasSet"]
+- !private ["SQ", "parent"]
+- !private ["SQ", "position"]
+- !private ["SQ", "releasePosition"]
+- !private ["SQ", "run"]
+- !private ["SQ", "scale"]
+- !private ["SQ", "size"]
+- !private ["SQ", "tileWidth"]
+- !private ["SQ", "touchYOffset"]
+- !private ["SQ", "wait"]
+- !private ["SQ", "x"]
+- !private ["SQ", "y"]
+- !private ["SQ", "zPosition"]
+- !private ["s25ExpressibleByArrayLiteralP", "first"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s23ExpressibleByNilLiteralP", "oneBlockWasReleased"]
+- !private ["s23ExpressibleByNilLiteralP", "oneBlockWasSet"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "BlockCellNode"]
+- !private ["SH", "CGPoint"]
+- !private ["SH", "CGSize"]
+- !private ["SH", "SKAction"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "addChild"]
+- !private ["SH", "anchorPoint"]
+- !private ["SH", "block1"]
+- !private ["SH", "blockColorIndex"]
+- !private ["SH", "blockDelegate"]
+- !private ["SH", "blockOffset"]
+- !private ["SH", "bottomIndex"]
+- !private ["SH", "clear"]
+- !private ["SH", "contains"]
+- !private ["SH", "decodeCGPoint"]
+- !private ["SH", "decodeObject"]
+- !private ["SH", "encode"]
+- !private ["SH", "first"]
+- !private ["SH", "group"]
+- !private ["SH", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "initialPosition"]
+- !private ["SH", "isMoving"]
+- !private ["SH", "isUserInteractionEnabled"]
+- !private ["SH", "location"]
+- !private ["SH", "lowScaleNum"]
+- !private ["SH", "midScaleNum"]
+- !private ["SH", "move"]
+- !private ["SH", "moveDuration"]
+- !private ["SH", "name"]
+- !private ["SH", "oneBlockWasReleased"]
+- !private ["SH", "oneBlockWasSet"]
+- !private ["SH", "parent"]
+- !private ["SH", "position"]
+- !private ["SH", "releasePosition"]
+- !private ["SH", "run"]
+- !private ["SH", "scale"]
+- !private ["SH", "size"]
+- !private ["SH", "tileWidth"]
+- !private ["SH", "touchYOffset"]
+- !private ["SH", "wait"]
+- !private ["SH", "zPosition"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["So7NSCoderC", "decodeCGPoint"]
+- !private ["So7NSCoderC", "decodeObject"]
+- !private ["So7NSCoderC", "encode"]
+- !private ["So8NSCodingP", "BlockCellNode"]
+- !private ["So8NSCodingP", "CGPoint"]
+- !private ["So8NSCodingP", "CGSize"]
+- !private ["So8NSCodingP", "SKAction"]
+- ["So8NSCodingP", ""]
+- !private ["So8NSCodingP", "addChild"]
+- !private ["So8NSCodingP", "anchorPoint"]
+- !private ["So8NSCodingP", "block1"]
+- !private ["So8NSCodingP", "blockColorIndex"]
+- !private ["So8NSCodingP", "blockDelegate"]
+- !private ["So8NSCodingP", "blockOffset"]
+- !private ["So8NSCodingP", "bottomIndex"]
+- !private ["So8NSCodingP", "clear"]
+- !private ["So8NSCodingP", "contains"]
+- !private ["So8NSCodingP", "group"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "initialPosition"]
+- !private ["So8NSCodingP", "isMoving"]
+- !private ["So8NSCodingP", "isUserInteractionEnabled"]
+- !private ["So8NSCodingP", "lowScaleNum"]
+- !private ["So8NSCodingP", "midScaleNum"]
+- !private ["So8NSCodingP", "move"]
+- !private ["So8NSCodingP", "moveDuration"]
+- !private ["So8NSCodingP", "name"]
+- !private ["So8NSCodingP", "parent"]
+- !private ["So8NSCodingP", "position"]
+- !private ["So8NSCodingP", "releasePosition"]
+- !private ["So8NSCodingP", "run"]
+- !private ["So8NSCodingP", "scale"]
+- !private ["So8NSCodingP", "size"]
+- !private ["So8NSCodingP", "tileWidth"]
+- !private ["So8NSCodingP", "touchYOffset"]
+- !private ["So8NSCodingP", "wait"]
+- !private ["So8NSCodingP", "zPosition"]
+- !private ["So9NSCopyingP", "BlockCellNode"]
+- !private ["So9NSCopyingP", "CGPoint"]
+- !private ["So9NSCopyingP", "CGSize"]
+- !private ["So9NSCopyingP", "SKAction"]
+- ["So9NSCopyingP", ""]
+- !private ["So9NSCopyingP", "addChild"]
+- !private ["So9NSCopyingP", "anchorPoint"]
+- !private ["So9NSCopyingP", "block1"]
+- !private ["So9NSCopyingP", "blockColorIndex"]
+- !private ["So9NSCopyingP", "blockDelegate"]
+- !private ["So9NSCopyingP", "blockOffset"]
+- !private ["So9NSCopyingP", "bottomIndex"]
+- !private ["So9NSCopyingP", "clear"]
+- !private ["So9NSCopyingP", "contains"]
+- !private ["So9NSCopyingP", "group"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "initialPosition"]
+- !private ["So9NSCopyingP", "isMoving"]
+- !private ["So9NSCopyingP", "isUserInteractionEnabled"]
+- !private ["So9NSCopyingP", "lowScaleNum"]
+- !private ["So9NSCopyingP", "midScaleNum"]
+- !private ["So9NSCopyingP", "move"]
+- !private ["So9NSCopyingP", "moveDuration"]
+- !private ["So9NSCopyingP", "name"]
+- !private ["So9NSCopyingP", "parent"]
+- !private ["So9NSCopyingP", "position"]
+- !private ["So9NSCopyingP", "releasePosition"]
+- !private ["So9NSCopyingP", "run"]
+- !private ["So9NSCopyingP", "scale"]
+- !private ["So9NSCopyingP", "size"]
+- !private ["So9NSCopyingP", "tileWidth"]
+- !private ["So9NSCopyingP", "touchYOffset"]
+- !private ["So9NSCopyingP", "wait"]
+- !private ["So9NSCopyingP", "zPosition"]
+- !private ["So21NSItemProviderReadingP", "clear"]
+- !private ["So21NSItemProviderWritingP", "clear"]
+- ["So8NSObjectC", "BlockCellNode"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "CGFloat"]
+- ["So8NSObjectC", "CGPoint"]
+- !private ["So8NSObjectC", "CGSize"]
+- ["So8NSObjectC", "NSCoder"]
+- ["So8NSObjectC", "OneBlockNodeDelegate"]
+- !private ["So8NSObjectC", "SKAction"]
+- ["So8NSObjectC", "Set"]
+- ["So8NSObjectC", "TimeInterval"]
+- ["So8NSObjectC", "UIEvent"]
+- ["So8NSObjectC", "UITouch"]
+- ["So8NSObjectC", "UInt32"]
+- !private ["So8NSObjectC", "addChild"]
+- !private ["So8NSObjectC", "anchorPoint"]
+- ["So8NSObjectC", "block1"]
+- ["So8NSObjectC", "blockColorIndex"]
+- ["So8NSObjectC", "blockDelegate"]
+- ["So8NSObjectC", "blockOffset"]
+- ["So8NSObjectC", "bottomIndex"]
+- !private ["So8NSObjectC", "clear"]
+- !private ["So8NSObjectC", "contains"]
+- !private ["So8NSObjectC", "decodeCGPoint"]
+- !private ["So8NSObjectC", "decodeObject"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "getBlockColorIndex"]
+- ["So8NSObjectC", "getBlockPosition"]
+- ["So8NSObjectC", "getReleasePosition"]
+- !private ["So8NSObjectC", "group"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "initialPosition"]
+- ["So8NSObjectC", "isMoving"]
+- !private ["So8NSObjectC", "isUserInteractionEnabled"]
+- !private ["So8NSObjectC", "location"]
+- ["So8NSObjectC", "lowScaleNum"]
+- ["So8NSObjectC", "midScaleNum"]
+- !private ["So8NSObjectC", "move"]
+- ["So8NSObjectC", "moveDuration"]
+- !private ["So8NSObjectC", "name"]
+- !private ["So8NSObjectC", "parent"]
+- !private ["So8NSObjectC", "position"]
+- ["So8NSObjectC", "releasePosition"]
+- !private ["So8NSObjectC", "run"]
+- !private ["So8NSObjectC", "scale"]
+- ["So8NSObjectC", "setNodeAt"]
+- !private ["So8NSObjectC", "size"]
+- ["So8NSObjectC", "tileWidth"]
+- ["So8NSObjectC", "touchYOffset"]
+- ["So8NSObjectC", "touchesBegan"]
+- ["So8NSObjectC", "touchesEnded"]
+- ["So8NSObjectC", "touchesMoved"]
+- !private ["So8NSObjectC", "wait"]
+- !private ["So8NSObjectC", "zPosition"]
+- !private ["So8NSObjectP", "BlockCellNode"]
+- !private ["So8NSObjectP", "CGPoint"]
+- !private ["So8NSObjectP", "CGSize"]
+- ["So8NSObjectP", "OneBlockNode"]
+- !private ["So8NSObjectP", "SKAction"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "addChild"]
+- !private ["So8NSObjectP", "anchorPoint"]
+- !private ["So8NSObjectP", "block1"]
+- !private ["So8NSObjectP", "blockColorIndex"]
+- !private ["So8NSObjectP", "blockDelegate"]
+- !private ["So8NSObjectP", "blockOffset"]
+- !private ["So8NSObjectP", "bottomIndex"]
+- !private ["So8NSObjectP", "clear"]
+- !private ["So8NSObjectP", "contains"]
+- !private ["So8NSObjectP", "decodeCGPoint"]
+- !private ["So8NSObjectP", "decodeObject"]
+- !private ["So8NSObjectP", "encode"]
+- !private ["So8NSObjectP", "group"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "initialPosition"]
+- !private ["So8NSObjectP", "isMoving"]
+- !private ["So8NSObjectP", "isUserInteractionEnabled"]
+- !private ["So8NSObjectP", "location"]
+- !private ["So8NSObjectP", "lowScaleNum"]
+- !private ["So8NSObjectP", "midScaleNum"]
+- !private ["So8NSObjectP", "move"]
+- !private ["So8NSObjectP", "moveDuration"]
+- !private ["So8NSObjectP", "name"]
+- !private ["So8NSObjectP", "oneBlockWasReleased"]
+- !private ["So8NSObjectP", "oneBlockWasSet"]
+- !private ["So8NSObjectP", "parent"]
+- !private ["So8NSObjectP", "position"]
+- !private ["So8NSObjectP", "releasePosition"]
+- !private ["So8NSObjectP", "run"]
+- !private ["So8NSObjectP", "scale"]
+- !private ["So8NSObjectP", "size"]
+- !private ["So8NSObjectP", "tileWidth"]
+- !private ["So8NSObjectP", "touchYOffset"]
+- !private ["So8NSObjectP", "wait"]
+- !private ["So8NSObjectP", "zPosition"]
+- !private ["So14NSSecureCodingP", "BlockCellNode"]
+- !private ["So14NSSecureCodingP", "CGPoint"]
+- !private ["So14NSSecureCodingP", "CGSize"]
+- !private ["So14NSSecureCodingP", "SKAction"]
+- ["So14NSSecureCodingP", ""]
+- !private ["So14NSSecureCodingP", "addChild"]
+- !private ["So14NSSecureCodingP", "anchorPoint"]
+- !private ["So14NSSecureCodingP", "block1"]
+- !private ["So14NSSecureCodingP", "blockColorIndex"]
+- !private ["So14NSSecureCodingP", "blockDelegate"]
+- !private ["So14NSSecureCodingP", "blockOffset"]
+- !private ["So14NSSecureCodingP", "bottomIndex"]
+- !private ["So14NSSecureCodingP", "clear"]
+- !private ["So14NSSecureCodingP", "contains"]
+- !private ["So14NSSecureCodingP", "group"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "initialPosition"]
+- !private ["So14NSSecureCodingP", "isMoving"]
+- !private ["So14NSSecureCodingP", "isUserInteractionEnabled"]
+- !private ["So14NSSecureCodingP", "lowScaleNum"]
+- !private ["So14NSSecureCodingP", "midScaleNum"]
+- !private ["So14NSSecureCodingP", "move"]
+- !private ["So14NSSecureCodingP", "moveDuration"]
+- !private ["So14NSSecureCodingP", "name"]
+- !private ["So14NSSecureCodingP", "parent"]
+- !private ["So14NSSecureCodingP", "position"]
+- !private ["So14NSSecureCodingP", "releasePosition"]
+- !private ["So14NSSecureCodingP", "run"]
+- !private ["So14NSSecureCodingP", "scale"]
+- !private ["So14NSSecureCodingP", "size"]
+- !private ["So14NSSecureCodingP", "tileWidth"]
+- !private ["So14NSSecureCodingP", "touchYOffset"]
+- !private ["So14NSSecureCodingP", "wait"]
+- !private ["So14NSSecureCodingP", "zPosition"]
+- ["7Squares12OneBlockNodeC", "BlockCellNode"]
+- ["7Squares12OneBlockNodeC", "Bool"]
+- ["7Squares12OneBlockNodeC", "CGFloat"]
+- ["7Squares12OneBlockNodeC", "CGPoint"]
+- !private ["7Squares12OneBlockNodeC", "CGSize"]
+- ["7Squares12OneBlockNodeC", "NSCoder"]
+- ["7Squares12OneBlockNodeC", "OneBlockNodeDelegate"]
+- !private ["7Squares12OneBlockNodeC", "SKAction"]
+- ["7Squares12OneBlockNodeC", "Set"]
+- ["7Squares12OneBlockNodeC", "TimeInterval"]
+- ["7Squares12OneBlockNodeC", "UIEvent"]
+- ["7Squares12OneBlockNodeC", "UITouch"]
+- ["7Squares12OneBlockNodeC", "UInt32"]
+- !private ["7Squares12OneBlockNodeC", "addChild"]
+- !private ["7Squares12OneBlockNodeC", "anchorPoint"]
+- ["7Squares12OneBlockNodeC", "block1"]
+- ["7Squares12OneBlockNodeC", "blockColorIndex"]
+- ["7Squares12OneBlockNodeC", "blockDelegate"]
+- ["7Squares12OneBlockNodeC", "blockOffset"]
+- ["7Squares12OneBlockNodeC", "bottomIndex"]
+- !private ["7Squares12OneBlockNodeC", "contains"]
+- ["7Squares12OneBlockNodeC", "encode"]
+- ["7Squares12OneBlockNodeC", "getBlockColorIndex"]
+- ["7Squares12OneBlockNodeC", "getBlockPosition"]
+- ["7Squares12OneBlockNodeC", "getReleasePosition"]
+- ["7Squares12OneBlockNodeC", "init"]
+- ["7Squares12OneBlockNodeC", "initialPosition"]
+- ["7Squares12OneBlockNodeC", "isMoving"]
+- !private ["7Squares12OneBlockNodeC", "isUserInteractionEnabled"]
+- ["7Squares12OneBlockNodeC", "lowScaleNum"]
+- ["7Squares12OneBlockNodeC", "midScaleNum"]
+- ["7Squares12OneBlockNodeC", "moveDuration"]
+- !private ["7Squares12OneBlockNodeC", "name"]
+- !private ["7Squares12OneBlockNodeC", "parent"]
+- !private ["7Squares12OneBlockNodeC", "position"]
+- ["7Squares12OneBlockNodeC", "releasePosition"]
+- !private ["7Squares12OneBlockNodeC", "run"]
+- ["7Squares12OneBlockNodeC", "setNodeAt"]
+- !private ["7Squares12OneBlockNodeC", "size"]
+- ["7Squares12OneBlockNodeC", "tileWidth"]
+- ["7Squares12OneBlockNodeC", "touchYOffset"]
+- ["7Squares12OneBlockNodeC", "touchesBegan"]
+- ["7Squares12OneBlockNodeC", "touchesEnded"]
+- ["7Squares12OneBlockNodeC", "touchesMoved"]
+- !private ["7Squares12OneBlockNodeC", "zPosition"]
+- ["7Squares20OneBlockNodeDelegateP", "OneBlockNode"]
+- ["7Squares20OneBlockNodeDelegateP", "oneBlockWasReleased"]
+- ["7Squares20OneBlockNodeDelegateP", "oneBlockWasSet"]
+- !private ["Sq", "oneBlockWasReleased"]
+- !private ["Sq", "oneBlockWasSet"]
+- !private ["Sm", "init"]
+- !private ["Sm", "init"]
+- !private ["So8SKActionC", "group"]
+- !private ["So8SKActionC", "move"]
+- !private ["So8SKActionC", "scale"]
+- !private ["So8SKActionC", "wait"]
+- ["So6SKNodeC", "BlockCellNode"]
+- ["So6SKNodeC", "Bool"]
+- ["So6SKNodeC", "CGFloat"]
+- ["So6SKNodeC", "CGPoint"]
+- !private ["So6SKNodeC", "CGSize"]
+- ["So6SKNodeC", "NSCoder"]
+- ["So6SKNodeC", "OneBlockNodeDelegate"]
+- !private ["So6SKNodeC", "SKAction"]
+- ["So6SKNodeC", "Set"]
+- ["So6SKNodeC", "TimeInterval"]
+- ["So6SKNodeC", "UIEvent"]
+- ["So6SKNodeC", "UITouch"]
+- ["So6SKNodeC", "UInt32"]
+- !private ["So6SKNodeC", "addChild"]
+- !private ["So6SKNodeC", "anchorPoint"]
+- ["So6SKNodeC", "block1"]
+- ["So6SKNodeC", "blockColorIndex"]
+- ["So6SKNodeC", "blockDelegate"]
+- ["So6SKNodeC", "blockOffset"]
+- ["So6SKNodeC", "bottomIndex"]
+- !private ["So6SKNodeC", "contains"]
+- ["So6SKNodeC", "encode"]
+- ["So6SKNodeC", "getBlockColorIndex"]
+- ["So6SKNodeC", "getBlockPosition"]
+- ["So6SKNodeC", "getReleasePosition"]
+- ["So6SKNodeC", "init"]
+- ["So6SKNodeC", "initialPosition"]
+- ["So6SKNodeC", "isMoving"]
+- !private ["So6SKNodeC", "isUserInteractionEnabled"]
+- ["So6SKNodeC", "lowScaleNum"]
+- ["So6SKNodeC", "midScaleNum"]
+- ["So6SKNodeC", "moveDuration"]
+- !private ["So6SKNodeC", "name"]
+- !private ["So6SKNodeC", "parent"]
+- !private ["So6SKNodeC", "position"]
+- ["So6SKNodeC", "releasePosition"]
+- !private ["So6SKNodeC", "run"]
+- ["So6SKNodeC", "setNodeAt"]
+- !private ["So6SKNodeC", "size"]
+- ["So6SKNodeC", "tileWidth"]
+- ["So6SKNodeC", "touchYOffset"]
+- ["So6SKNodeC", "touchesBegan"]
+- ["So6SKNodeC", "touchesEnded"]
+- ["So6SKNodeC", "touchesMoved"]
+- !private ["So6SKNodeC", "zPosition"]
+- ["So12SKSpriteNodeC", "BlockCellNode"]
+- ["So12SKSpriteNodeC", "Bool"]
+- ["So12SKSpriteNodeC", "CGFloat"]
+- ["So12SKSpriteNodeC", "CGPoint"]
+- !private ["So12SKSpriteNodeC", "CGSize"]
+- ["So12SKSpriteNodeC", "NSCoder"]
+- ["So12SKSpriteNodeC", "OneBlockNodeDelegate"]
+- !private ["So12SKSpriteNodeC", "SKAction"]
+- ["So12SKSpriteNodeC", "Set"]
+- ["So12SKSpriteNodeC", "TimeInterval"]
+- ["So12SKSpriteNodeC", "UIEvent"]
+- ["So12SKSpriteNodeC", "UITouch"]
+- ["So12SKSpriteNodeC", "UInt32"]
+- ["So12SKSpriteNodeC", ""]
+- !private ["So12SKSpriteNodeC", "addChild"]
+- !private ["So12SKSpriteNodeC", "anchorPoint"]
+- ["So12SKSpriteNodeC", "block1"]
+- ["So12SKSpriteNodeC", "blockColorIndex"]
+- ["So12SKSpriteNodeC", "blockDelegate"]
+- ["So12SKSpriteNodeC", "blockOffset"]
+- ["So12SKSpriteNodeC", "bottomIndex"]
+- !private ["So12SKSpriteNodeC", "contains"]
+- ["So12SKSpriteNodeC", "encode"]
+- ["So12SKSpriteNodeC", "getBlockColorIndex"]
+- ["So12SKSpriteNodeC", "getBlockPosition"]
+- ["So12SKSpriteNodeC", "getReleasePosition"]
+- ["So12SKSpriteNodeC", "init"]
+- ["So12SKSpriteNodeC", "initialPosition"]
+- ["So12SKSpriteNodeC", "isMoving"]
+- !private ["So12SKSpriteNodeC", "isUserInteractionEnabled"]
+- ["So12SKSpriteNodeC", "lowScaleNum"]
+- ["So12SKSpriteNodeC", "midScaleNum"]
+- ["So12SKSpriteNodeC", "moveDuration"]
+- !private ["So12SKSpriteNodeC", "name"]
+- !private ["So12SKSpriteNodeC", "parent"]
+- !private ["So12SKSpriteNodeC", "position"]
+- ["So12SKSpriteNodeC", "releasePosition"]
+- !private ["So12SKSpriteNodeC", "run"]
+- ["So12SKSpriteNodeC", "setNodeAt"]
+- !private ["So12SKSpriteNodeC", "size"]
+- ["So12SKSpriteNodeC", "tileWidth"]
+- ["So12SKSpriteNodeC", "touchYOffset"]
+- ["So12SKSpriteNodeC", "touchesBegan"]
+- ["So12SKSpriteNodeC", "touchesEnded"]
+- ["So12SKSpriteNodeC", "touchesMoved"]
+- !private ["So12SKSpriteNodeC", "zPosition"]
+- !private ["So10SKWarpableP", "BlockCellNode"]
+- !private ["So10SKWarpableP", "CGPoint"]
+- !private ["So10SKWarpableP", "CGSize"]
+- !private ["So10SKWarpableP", "SKAction"]
+- ["So10SKWarpableP", ""]
+- !private ["So10SKWarpableP", "addChild"]
+- !private ["So10SKWarpableP", "anchorPoint"]
+- !private ["So10SKWarpableP", "block1"]
+- !private ["So10SKWarpableP", "blockColorIndex"]
+- !private ["So10SKWarpableP", "blockDelegate"]
+- !private ["So10SKWarpableP", "blockOffset"]
+- !private ["So10SKWarpableP", "bottomIndex"]
+- !private ["So10SKWarpableP", "contains"]
+- !private ["So10SKWarpableP", "init"]
+- !private ["So10SKWarpableP", "initialPosition"]
+- !private ["So10SKWarpableP", "isMoving"]
+- !private ["So10SKWarpableP", "isUserInteractionEnabled"]
+- !private ["So10SKWarpableP", "lowScaleNum"]
+- !private ["So10SKWarpableP", "midScaleNum"]
+- !private ["So10SKWarpableP", "moveDuration"]
+- !private ["So10SKWarpableP", "name"]
+- !private ["So10SKWarpableP", "parent"]
+- !private ["So10SKWarpableP", "position"]
+- !private ["So10SKWarpableP", "releasePosition"]
+- !private ["So10SKWarpableP", "run"]
+- !private ["So10SKWarpableP", "size"]
+- !private ["So10SKWarpableP", "tileWidth"]
+- !private ["So10SKWarpableP", "touchYOffset"]
+- !private ["So10SKWarpableP", "zPosition"]
+- !private ["ST", "first"]
+- !private ["ST", "init"]
+- !private ["ST", "init"]
+- !private ["Sh", "first"]
+- !private ["s10SetAlgebraP", "first"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["SS", "init"]
+- !private ["SS", "init"]
+- !private ["Sy", "init"]
+- !private ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["So7UIColorC", "clear"]
+- !private ["So18UIFocusEnvironmentP", "BlockCellNode"]
+- !private ["So18UIFocusEnvironmentP", "CGPoint"]
+- !private ["So18UIFocusEnvironmentP", "CGSize"]
+- !private ["So18UIFocusEnvironmentP", "SKAction"]
+- ["So18UIFocusEnvironmentP", ""]
+- !private ["So18UIFocusEnvironmentP", "addChild"]
+- !private ["So18UIFocusEnvironmentP", "anchorPoint"]
+- !private ["So18UIFocusEnvironmentP", "block1"]
+- !private ["So18UIFocusEnvironmentP", "blockColorIndex"]
+- !private ["So18UIFocusEnvironmentP", "blockDelegate"]
+- !private ["So18UIFocusEnvironmentP", "blockOffset"]
+- !private ["So18UIFocusEnvironmentP", "bottomIndex"]
+- !private ["So18UIFocusEnvironmentP", "contains"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "initialPosition"]
+- !private ["So18UIFocusEnvironmentP", "isMoving"]
+- !private ["So18UIFocusEnvironmentP", "isUserInteractionEnabled"]
+- !private ["So18UIFocusEnvironmentP", "lowScaleNum"]
+- !private ["So18UIFocusEnvironmentP", "midScaleNum"]
+- !private ["So18UIFocusEnvironmentP", "moveDuration"]
+- !private ["So18UIFocusEnvironmentP", "name"]
+- !private ["So18UIFocusEnvironmentP", "parent"]
+- !private ["So18UIFocusEnvironmentP", "position"]
+- !private ["So18UIFocusEnvironmentP", "releasePosition"]
+- !private ["So18UIFocusEnvironmentP", "run"]
+- !private ["So18UIFocusEnvironmentP", "size"]
+- !private ["So18UIFocusEnvironmentP", "tileWidth"]
+- !private ["So18UIFocusEnvironmentP", "touchYOffset"]
+- !private ["So18UIFocusEnvironmentP", "zPosition"]
+- !private ["So11UIFocusItemP", "BlockCellNode"]
+- !private ["So11UIFocusItemP", "CGPoint"]
+- !private ["So11UIFocusItemP", "CGSize"]
+- !private ["So11UIFocusItemP", "SKAction"]
+- ["So11UIFocusItemP", ""]
+- !private ["So11UIFocusItemP", "addChild"]
+- !private ["So11UIFocusItemP", "anchorPoint"]
+- !private ["So11UIFocusItemP", "block1"]
+- !private ["So11UIFocusItemP", "blockColorIndex"]
+- !private ["So11UIFocusItemP", "blockDelegate"]
+- !private ["So11UIFocusItemP", "blockOffset"]
+- !private ["So11UIFocusItemP", "bottomIndex"]
+- !private ["So11UIFocusItemP", "contains"]
+- !private ["So11UIFocusItemP", "init"]
+- !private ["So11UIFocusItemP", "initialPosition"]
+- !private ["So11UIFocusItemP", "isMoving"]
+- !private ["So11UIFocusItemP", "isUserInteractionEnabled"]
+- !private ["So11UIFocusItemP", "lowScaleNum"]
+- !private ["So11UIFocusItemP", "midScaleNum"]
+- !private ["So11UIFocusItemP", "moveDuration"]
+- !private ["So11UIFocusItemP", "name"]
+- !private ["So11UIFocusItemP", "parent"]
+- !private ["So11UIFocusItemP", "position"]
+- !private ["So11UIFocusItemP", "releasePosition"]
+- !private ["So11UIFocusItemP", "run"]
+- !private ["So11UIFocusItemP", "size"]
+- !private ["So11UIFocusItemP", "tileWidth"]
+- !private ["So11UIFocusItemP", "touchYOffset"]
+- !private ["So11UIFocusItemP", "zPosition"]
+- !private ["So30UIPasteConfigurationSupportingP", "BlockCellNode"]
+- !private ["So30UIPasteConfigurationSupportingP", "CGPoint"]
+- !private ["So30UIPasteConfigurationSupportingP", "CGSize"]
+- !private ["So30UIPasteConfigurationSupportingP", "SKAction"]
+- ["So30UIPasteConfigurationSupportingP", ""]
+- !private ["So30UIPasteConfigurationSupportingP", "addChild"]
+- !private ["So30UIPasteConfigurationSupportingP", "anchorPoint"]
+- !private ["So30UIPasteConfigurationSupportingP", "block1"]
+- !private ["So30UIPasteConfigurationSupportingP", "blockColorIndex"]
+- !private ["So30UIPasteConfigurationSupportingP", "blockDelegate"]
+- !private ["So30UIPasteConfigurationSupportingP", "blockOffset"]
+- !private ["So30UIPasteConfigurationSupportingP", "bottomIndex"]
+- !private ["So30UIPasteConfigurationSupportingP", "contains"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "initialPosition"]
+- !private ["So30UIPasteConfigurationSupportingP", "isMoving"]
+- !private ["So30UIPasteConfigurationSupportingP", "isUserInteractionEnabled"]
+- !private ["So30UIPasteConfigurationSupportingP", "lowScaleNum"]
+- !private ["So30UIPasteConfigurationSupportingP", "midScaleNum"]
+- !private ["So30UIPasteConfigurationSupportingP", "moveDuration"]
+- !private ["So30UIPasteConfigurationSupportingP", "name"]
+- !private ["So30UIPasteConfigurationSupportingP", "parent"]
+- !private ["So30UIPasteConfigurationSupportingP", "position"]
+- !private ["So30UIPasteConfigurationSupportingP", "releasePosition"]
+- !private ["So30UIPasteConfigurationSupportingP", "run"]
+- !private ["So30UIPasteConfigurationSupportingP", "size"]
+- !private ["So30UIPasteConfigurationSupportingP", "tileWidth"]
+- !private ["So30UIPasteConfigurationSupportingP", "touchYOffset"]
+- !private ["So30UIPasteConfigurationSupportingP", "zPosition"]
+- ["So11UIResponderC", "BlockCellNode"]
+- ["So11UIResponderC", "Bool"]
+- ["So11UIResponderC", "CGFloat"]
+- ["So11UIResponderC", "CGPoint"]
+- !private ["So11UIResponderC", "CGSize"]
+- ["So11UIResponderC", "NSCoder"]
+- ["So11UIResponderC", "OneBlockNodeDelegate"]
+- !private ["So11UIResponderC", "SKAction"]
+- ["So11UIResponderC", "Set"]
+- ["So11UIResponderC", "TimeInterval"]
+- ["So11UIResponderC", "UIEvent"]
+- ["So11UIResponderC", "UITouch"]
+- ["So11UIResponderC", "UInt32"]
+- !private ["So11UIResponderC", "addChild"]
+- !private ["So11UIResponderC", "anchorPoint"]
+- ["So11UIResponderC", "block1"]
+- ["So11UIResponderC", "blockColorIndex"]
+- ["So11UIResponderC", "blockDelegate"]
+- ["So11UIResponderC", "blockOffset"]
+- ["So11UIResponderC", "bottomIndex"]
+- !private ["So11UIResponderC", "contains"]
+- ["So11UIResponderC", "encode"]
+- ["So11UIResponderC", "getBlockColorIndex"]
+- ["So11UIResponderC", "getBlockPosition"]
+- ["So11UIResponderC", "getReleasePosition"]
+- ["So11UIResponderC", "init"]
+- ["So11UIResponderC", "initialPosition"]
+- ["So11UIResponderC", "isMoving"]
+- !private ["So11UIResponderC", "isUserInteractionEnabled"]
+- ["So11UIResponderC", "lowScaleNum"]
+- ["So11UIResponderC", "midScaleNum"]
+- ["So11UIResponderC", "moveDuration"]
+- !private ["So11UIResponderC", "name"]
+- !private ["So11UIResponderC", "parent"]
+- !private ["So11UIResponderC", "position"]
+- ["So11UIResponderC", "releasePosition"]
+- !private ["So11UIResponderC", "run"]
+- ["So11UIResponderC", "setNodeAt"]
+- !private ["So11UIResponderC", "size"]
+- ["So11UIResponderC", "tileWidth"]
+- ["So11UIResponderC", "touchYOffset"]
+- ["So11UIResponderC", "touchesBegan"]
+- ["So11UIResponderC", "touchesEnded"]
+- ["So11UIResponderC", "touchesMoved"]
+- !private ["So11UIResponderC", "zPosition"]
+- !private ["So30UIResponderStandardEditActionsP", "BlockCellNode"]
+- !private ["So30UIResponderStandardEditActionsP", "CGPoint"]
+- !private ["So30UIResponderStandardEditActionsP", "CGSize"]
+- !private ["So30UIResponderStandardEditActionsP", "SKAction"]
+- ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So30UIResponderStandardEditActionsP", "addChild"]
+- !private ["So30UIResponderStandardEditActionsP", "anchorPoint"]
+- !private ["So30UIResponderStandardEditActionsP", "block1"]
+- !private ["So30UIResponderStandardEditActionsP", "blockColorIndex"]
+- !private ["So30UIResponderStandardEditActionsP", "blockDelegate"]
+- !private ["So30UIResponderStandardEditActionsP", "blockOffset"]
+- !private ["So30UIResponderStandardEditActionsP", "bottomIndex"]
+- !private ["So30UIResponderStandardEditActionsP", "contains"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "initialPosition"]
+- !private ["So30UIResponderStandardEditActionsP", "isMoving"]
+- !private ["So30UIResponderStandardEditActionsP", "isUserInteractionEnabled"]
+- !private ["So30UIResponderStandardEditActionsP", "lowScaleNum"]
+- !private ["So30UIResponderStandardEditActionsP", "midScaleNum"]
+- !private ["So30UIResponderStandardEditActionsP", "moveDuration"]
+- !private ["So30UIResponderStandardEditActionsP", "name"]
+- !private ["So30UIResponderStandardEditActionsP", "parent"]
+- !private ["So30UIResponderStandardEditActionsP", "position"]
+- !private ["So30UIResponderStandardEditActionsP", "releasePosition"]
+- !private ["So30UIResponderStandardEditActionsP", "run"]
+- !private ["So30UIResponderStandardEditActionsP", "size"]
+- !private ["So30UIResponderStandardEditActionsP", "tileWidth"]
+- !private ["So30UIResponderStandardEditActionsP", "touchYOffset"]
+- !private ["So30UIResponderStandardEditActionsP", "zPosition"]
+- !private ["So7UITouchC", "location"]
+- !private ["So23UIUserActivityRestoringP", "BlockCellNode"]
+- !private ["So23UIUserActivityRestoringP", "CGPoint"]
+- !private ["So23UIUserActivityRestoringP", "CGSize"]
+- !private ["So23UIUserActivityRestoringP", "SKAction"]
+- ["So23UIUserActivityRestoringP", ""]
+- !private ["So23UIUserActivityRestoringP", "addChild"]
+- !private ["So23UIUserActivityRestoringP", "anchorPoint"]
+- !private ["So23UIUserActivityRestoringP", "block1"]
+- !private ["So23UIUserActivityRestoringP", "blockColorIndex"]
+- !private ["So23UIUserActivityRestoringP", "blockDelegate"]
+- !private ["So23UIUserActivityRestoringP", "blockOffset"]
+- !private ["So23UIUserActivityRestoringP", "bottomIndex"]
+- !private ["So23UIUserActivityRestoringP", "contains"]
+- !private ["So23UIUserActivityRestoringP", "init"]
+- !private ["So23UIUserActivityRestoringP", "initialPosition"]
+- !private ["So23UIUserActivityRestoringP", "isMoving"]
+- !private ["So23UIUserActivityRestoringP", "isUserInteractionEnabled"]
+- !private ["So23UIUserActivityRestoringP", "lowScaleNum"]
+- !private ["So23UIUserActivityRestoringP", "midScaleNum"]
+- !private ["So23UIUserActivityRestoringP", "moveDuration"]
+- !private ["So23UIUserActivityRestoringP", "name"]
+- !private ["So23UIUserActivityRestoringP", "parent"]
+- !private ["So23UIUserActivityRestoringP", "position"]
+- !private ["So23UIUserActivityRestoringP", "releasePosition"]
+- !private ["So23UIUserActivityRestoringP", "run"]
+- !private ["So23UIUserActivityRestoringP", "size"]
+- !private ["So23UIUserActivityRestoringP", "tileWidth"]
+- !private ["So23UIUserActivityRestoringP", "touchYOffset"]
+- !private ["So23UIUserActivityRestoringP", "zPosition"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s26_ExpressibleByColorLiteralP", "clear"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "first"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "BlockCellNode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGPoint"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGSize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKAction"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addChild"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "anchorPoint"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "block1"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "blockColorIndex"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "blockDelegate"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "blockOffset"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "bottomIndex"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "clear"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "contains"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "decodeCGPoint"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "decodeObject"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "encode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "group"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "initialPosition"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isMoving"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isUserInteractionEnabled"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "location"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "lowScaleNum"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "midScaleNum"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "move"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "moveDuration"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "parent"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "position"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "releasePosition"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "run"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "scale"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "size"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tileWidth"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "touchYOffset"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "wait"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "zPosition"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "first"]
+- !private ["s21_ObjectiveCBridgeableP", "height"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "oneBlockWasReleased"]
+- !private ["s21_ObjectiveCBridgeableP", "oneBlockWasSet"]
+- !private ["s21_ObjectiveCBridgeableP", "x"]
+- !private ["s21_ObjectiveCBridgeableP", "y"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "SK"
+- !private "7Squares13BlockCellNodeC"
+- !private "Sb"
+- !private "So7CGPointV"
+- !private "So6CGSizeV"
+- "s7CVarArgP"
+- !private "Sl"
+- !private "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "Se"
+- !private "SE"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "So7NSCoderC"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "So14NSSecureCodingP"
+- "7Squares12OneBlockNodeC"
+- "7Squares20OneBlockNodeDelegateP"
+- !private "Sq"
+- !private "Sm"
+- !private "So8SKActionC"
+- "So6SKNodeC"
+- "So12SKSpriteNodeC"
+- "So10SKWarpableP"
+- !private "ST"
+- !private "Sh"
+- !private "s10SetAlgebraP"
+- !private "s12StaticStringV"
+- !private "SS"
+- !private "Sy"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "So7UIColorC"
+- "So18UIFocusEnvironmentP"
+- "So11UIFocusItemP"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- !private "So7UITouchC"
+- "So23UIUserActivityRestoringP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s26_ExpressibleByColorLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ModelIO.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Photos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SceneKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MetalKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GameplayKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore-umbrella.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeCustomTemplateAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedUnifiedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAppInstallAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAppInstallAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeContentAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeContentAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdReward.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedUnifiedNativeAdNotificationSource.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAdNotificationSource.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImage.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Firebase/CoreOnly/Sources/Firebase.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInAppPurchase.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInAppPurchaseDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdSizeDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdUnconfirmedClickDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoaderDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAudioVideoManagerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoControllerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventBannerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAppEventDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeExpressAdViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADBannerViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedBannerViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdSize.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Headers/FIRInAppMessaging.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Headers/FirebaseInAppMessaging.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAd+ConfirmationClick.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMAdNetworkAdapterProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMRewardBasedVideoAdNetworkAdapterProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMAdNetworkConnectorProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMRewardBasedVideoAdNetworkConnectorProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImage+Mediation.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoader.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAudioVideoManager.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoController.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADDebugOptionsViewController.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventBanner.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRequestError.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCorrelator.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAppInstallAdAssetIDs.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeContentAdAssetIDs.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdNetworkExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMobileAds.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GoogleMobileAds.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoaderAdTypes.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMEnums.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdViewAdOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImageAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCorrelatorAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMultipleAdsAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPBannerViewOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdAssetIdentifiers.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventParameters.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediationAdRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADSearchRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADDynamicHeightSearchRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMediaView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeExpressAdView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADSearchBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdChoicesView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/ModelIO.framework/Headers/ModelIO.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Photos.framework/Headers/Photos.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GLKit.framework/Headers/GLKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GameKit.framework/Headers/GameKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/SceneKit.framework/Headers/SceneKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/StoreKit.framework/Headers/StoreKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/SpriteKit.framework/Headers/SpriteKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MetalKit.framework/Headers/MetalKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GameplayKit.framework/Headers/GameplayKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "d8767b3c69542231be67efdbf4f79bce"

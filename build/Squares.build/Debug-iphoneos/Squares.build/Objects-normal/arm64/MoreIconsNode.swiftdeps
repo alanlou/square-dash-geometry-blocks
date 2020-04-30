@@ -1,0 +1,1117 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MoreIconsNode"
+provides-nominal:
+- "7Squares13MoreIconsNodeC"
+provides-member:
+- ["7Squares13MoreIconsNodeC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!"
+- !private "*"
+- !private "+"
+- !private "-"
+- !private "Array"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- !private "ButtonType"
+- "CGFloat"
+- !private "CGPoint"
+- !private "CGSize"
+- !private "CGVector"
+- !private "FloatLiteralType"
+- !private "IconType"
+- !private "IntegerLiteralType"
+- "MenuButtonNode"
+- "MoreIconsNode"
+- "NSCoder"
+- !private "SKAction"
+- "SKColor"
+- "SKSpriteNode"
+- !private "StringLiteralType"
+- !private "fatalError"
+depends-member:
+- !private ["SK", "init"]
+- !private ["SK", "init"]
+- !private ["SB", "pi"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["7Squares10ButtonTypeV", "RoundButton"]
+- !private ["12CoreGraphics7CGFloatV", "pi"]
+- !private ["So7CGPointV", "init"]
+- !private ["So6CGSizeV", "height"]
+- !private ["So6CGSizeV", "init"]
+- !private ["So8CGVectorV", "init"]
+- !private ["s7CVarArgP", "ButtonType"]
+- !private ["s7CVarArgP", "CGFloat"]
+- !private ["s7CVarArgP", "CGPoint"]
+- !private ["s7CVarArgP", "CGSize"]
+- !private ["s7CVarArgP", "CGVector"]
+- !private ["s7CVarArgP", "IconType"]
+- !private ["s7CVarArgP", "MenuButtonNode"]
+- !private ["s7CVarArgP", "SKAction"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "addChild"]
+- !private ["s7CVarArgP", "alpha"]
+- !private ["s7CVarArgP", "anchorPoint"]
+- !private ["s7CVarArgP", "clear"]
+- !private ["s7CVarArgP", "color"]
+- !private ["s7CVarArgP", "colorBlendFactor"]
+- !private ["s7CVarArgP", "fadeIn"]
+- !private ["s7CVarArgP", "fadeOut"]
+- !private ["s7CVarArgP", "fatalError"]
+- !private ["s7CVarArgP", "group"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isOpen"]
+- !private ["s7CVarArgP", "isUserInteractionEnabled"]
+- !private ["s7CVarArgP", "likeButton"]
+- !private ["s7CVarArgP", "moreIconsButton"]
+- !private ["s7CVarArgP", "move"]
+- !private ["s7CVarArgP", "name"]
+- !private ["s7CVarArgP", "noAdsButton"]
+- !private ["s7CVarArgP", "pi"]
+- !private ["s7CVarArgP", "position"]
+- !private ["s7CVarArgP", "restoreIAPButton"]
+- !private ["s7CVarArgP", "rotate"]
+- !private ["s7CVarArgP", "run"]
+- !private ["s7CVarArgP", "sequence"]
+- !private ["s7CVarArgP", "size"]
+- !private ["s7CVarArgP", "skinButton"]
+- !private ["s7CVarArgP", "timingMode"]
+- !private ["s7CVarArgP", "tutorialButton"]
+- !private ["Sl", "init"]
+- !private ["Sl", "init"]
+- !private ["SL", "init"]
+- !private ["SL", "init"]
+- !private ["SL", "pi"]
+- !private ["s28CustomDebugStringConvertibleP", "ButtonType"]
+- !private ["s28CustomDebugStringConvertibleP", "CGFloat"]
+- !private ["s28CustomDebugStringConvertibleP", "CGPoint"]
+- !private ["s28CustomDebugStringConvertibleP", "CGSize"]
+- !private ["s28CustomDebugStringConvertibleP", "CGVector"]
+- !private ["s28CustomDebugStringConvertibleP", "IconType"]
+- !private ["s28CustomDebugStringConvertibleP", "MenuButtonNode"]
+- !private ["s28CustomDebugStringConvertibleP", "SKAction"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "addChild"]
+- !private ["s28CustomDebugStringConvertibleP", "alpha"]
+- !private ["s28CustomDebugStringConvertibleP", "anchorPoint"]
+- !private ["s28CustomDebugStringConvertibleP", "clear"]
+- !private ["s28CustomDebugStringConvertibleP", "color"]
+- !private ["s28CustomDebugStringConvertibleP", "colorBlendFactor"]
+- !private ["s28CustomDebugStringConvertibleP", "fadeIn"]
+- !private ["s28CustomDebugStringConvertibleP", "fadeOut"]
+- !private ["s28CustomDebugStringConvertibleP", "fatalError"]
+- !private ["s28CustomDebugStringConvertibleP", "group"]
+- !private ["s28CustomDebugStringConvertibleP", "height"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "isOpen"]
+- !private ["s28CustomDebugStringConvertibleP", "isUserInteractionEnabled"]
+- !private ["s28CustomDebugStringConvertibleP", "likeButton"]
+- !private ["s28CustomDebugStringConvertibleP", "moreIconsButton"]
+- !private ["s28CustomDebugStringConvertibleP", "move"]
+- !private ["s28CustomDebugStringConvertibleP", "name"]
+- !private ["s28CustomDebugStringConvertibleP", "noAdsButton"]
+- !private ["s28CustomDebugStringConvertibleP", "position"]
+- !private ["s28CustomDebugStringConvertibleP", "restoreIAPButton"]
+- !private ["s28CustomDebugStringConvertibleP", "rotate"]
+- !private ["s28CustomDebugStringConvertibleP", "run"]
+- !private ["s28CustomDebugStringConvertibleP", "sequence"]
+- !private ["s28CustomDebugStringConvertibleP", "size"]
+- !private ["s28CustomDebugStringConvertibleP", "skinButton"]
+- !private ["s28CustomDebugStringConvertibleP", "timingMode"]
+- !private ["s28CustomDebugStringConvertibleP", "tutorialButton"]
+- !private ["s29CustomPlaygroundQuickLookableP", "ButtonType"]
+- !private ["s29CustomPlaygroundQuickLookableP", "CGFloat"]
+- !private ["s29CustomPlaygroundQuickLookableP", "CGPoint"]
+- !private ["s29CustomPlaygroundQuickLookableP", "CGSize"]
+- !private ["s29CustomPlaygroundQuickLookableP", "CGVector"]
+- !private ["s29CustomPlaygroundQuickLookableP", "IconType"]
+- !private ["s29CustomPlaygroundQuickLookableP", "MenuButtonNode"]
+- !private ["s29CustomPlaygroundQuickLookableP", "SKAction"]
+- ["s29CustomPlaygroundQuickLookableP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "addChild"]
+- !private ["s29CustomPlaygroundQuickLookableP", "alpha"]
+- !private ["s29CustomPlaygroundQuickLookableP", "anchorPoint"]
+- !private ["s29CustomPlaygroundQuickLookableP", "color"]
+- !private ["s29CustomPlaygroundQuickLookableP", "colorBlendFactor"]
+- !private ["s29CustomPlaygroundQuickLookableP", "fatalError"]
+- !private ["s29CustomPlaygroundQuickLookableP", "height"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "isOpen"]
+- !private ["s29CustomPlaygroundQuickLookableP", "isUserInteractionEnabled"]
+- !private ["s29CustomPlaygroundQuickLookableP", "likeButton"]
+- !private ["s29CustomPlaygroundQuickLookableP", "moreIconsButton"]
+- !private ["s29CustomPlaygroundQuickLookableP", "name"]
+- !private ["s29CustomPlaygroundQuickLookableP", "noAdsButton"]
+- !private ["s29CustomPlaygroundQuickLookableP", "position"]
+- !private ["s29CustomPlaygroundQuickLookableP", "restoreIAPButton"]
+- !private ["s29CustomPlaygroundQuickLookableP", "run"]
+- !private ["s29CustomPlaygroundQuickLookableP", "size"]
+- !private ["s29CustomPlaygroundQuickLookableP", "skinButton"]
+- !private ["s29CustomPlaygroundQuickLookableP", "tutorialButton"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "height"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "pi"]
+- !private ["s23CustomStringConvertibleP", "ButtonType"]
+- !private ["s23CustomStringConvertibleP", "CGFloat"]
+- !private ["s23CustomStringConvertibleP", "CGPoint"]
+- !private ["s23CustomStringConvertibleP", "CGSize"]
+- !private ["s23CustomStringConvertibleP", "CGVector"]
+- !private ["s23CustomStringConvertibleP", "IconType"]
+- !private ["s23CustomStringConvertibleP", "MenuButtonNode"]
+- !private ["s23CustomStringConvertibleP", "SKAction"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "addChild"]
+- !private ["s23CustomStringConvertibleP", "alpha"]
+- !private ["s23CustomStringConvertibleP", "anchorPoint"]
+- !private ["s23CustomStringConvertibleP", "clear"]
+- !private ["s23CustomStringConvertibleP", "color"]
+- !private ["s23CustomStringConvertibleP", "colorBlendFactor"]
+- !private ["s23CustomStringConvertibleP", "fadeIn"]
+- !private ["s23CustomStringConvertibleP", "fadeOut"]
+- !private ["s23CustomStringConvertibleP", "fatalError"]
+- !private ["s23CustomStringConvertibleP", "group"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isOpen"]
+- !private ["s23CustomStringConvertibleP", "isUserInteractionEnabled"]
+- !private ["s23CustomStringConvertibleP", "likeButton"]
+- !private ["s23CustomStringConvertibleP", "moreIconsButton"]
+- !private ["s23CustomStringConvertibleP", "move"]
+- !private ["s23CustomStringConvertibleP", "name"]
+- !private ["s23CustomStringConvertibleP", "noAdsButton"]
+- !private ["s23CustomStringConvertibleP", "pi"]
+- !private ["s23CustomStringConvertibleP", "position"]
+- !private ["s23CustomStringConvertibleP", "restoreIAPButton"]
+- !private ["s23CustomStringConvertibleP", "rotate"]
+- !private ["s23CustomStringConvertibleP", "run"]
+- !private ["s23CustomStringConvertibleP", "sequence"]
+- !private ["s23CustomStringConvertibleP", "size"]
+- !private ["s23CustomStringConvertibleP", "skinButton"]
+- !private ["s23CustomStringConvertibleP", "timingMode"]
+- !private ["s23CustomStringConvertibleP", "tutorialButton"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "height"]
+- !private ["Se", "init"]
+- !private ["Se", "init"]
+- !private ["Se", "pi"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "height"]
+- !private ["SE", "init"]
+- !private ["SE", "init"]
+- !private ["SE", "pi"]
+- !private ["SQ", "ButtonType"]
+- !private ["SQ", "CGFloat"]
+- !private ["SQ", "CGPoint"]
+- !private ["SQ", "CGSize"]
+- !private ["SQ", "CGVector"]
+- !private ["SQ", "IconType"]
+- !private ["SQ", "MenuButtonNode"]
+- !private ["SQ", "SKAction"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "addChild"]
+- !private ["SQ", "alpha"]
+- !private ["SQ", "anchorPoint"]
+- !private ["SQ", "clear"]
+- !private ["SQ", "color"]
+- !private ["SQ", "colorBlendFactor"]
+- !private ["SQ", "easeOut"]
+- !private ["SQ", "fadeIn"]
+- !private ["SQ", "fadeOut"]
+- !private ["SQ", "fatalError"]
+- !private ["SQ", "group"]
+- !private ["SQ", "height"]
+- !private ["SQ", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "isOpen"]
+- !private ["SQ", "isUserInteractionEnabled"]
+- !private ["SQ", "likeButton"]
+- !private ["SQ", "moreIconsButton"]
+- !private ["SQ", "move"]
+- !private ["SQ", "name"]
+- !private ["SQ", "noAdsButton"]
+- !private ["SQ", "pi"]
+- !private ["SQ", "position"]
+- !private ["SQ", "restoreIAPButton"]
+- !private ["SQ", "rotate"]
+- !private ["SQ", "run"]
+- !private ["SQ", "sequence"]
+- !private ["SQ", "size"]
+- !private ["SQ", "skinButton"]
+- !private ["SQ", "timingMode"]
+- !private ["SQ", "tutorialButton"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s25ExpressibleByFloatLiteralP", "pi"]
+- !private ["s27ExpressibleByIntegerLiteralP", "pi"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SF", "pi"]
+- !private ["SH", "ButtonType"]
+- !private ["SH", "CGFloat"]
+- !private ["SH", "CGPoint"]
+- !private ["SH", "CGSize"]
+- !private ["SH", "CGVector"]
+- !private ["SH", "IconType"]
+- !private ["SH", "MenuButtonNode"]
+- !private ["SH", "SKAction"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "addChild"]
+- !private ["SH", "alpha"]
+- !private ["SH", "anchorPoint"]
+- !private ["SH", "clear"]
+- !private ["SH", "color"]
+- !private ["SH", "colorBlendFactor"]
+- !private ["SH", "easeOut"]
+- !private ["SH", "fadeIn"]
+- !private ["SH", "fadeOut"]
+- !private ["SH", "fatalError"]
+- !private ["SH", "group"]
+- !private ["SH", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "isOpen"]
+- !private ["SH", "isUserInteractionEnabled"]
+- !private ["SH", "likeButton"]
+- !private ["SH", "moreIconsButton"]
+- !private ["SH", "move"]
+- !private ["SH", "name"]
+- !private ["SH", "noAdsButton"]
+- !private ["SH", "pi"]
+- !private ["SH", "position"]
+- !private ["SH", "restoreIAPButton"]
+- !private ["SH", "rotate"]
+- !private ["SH", "run"]
+- !private ["SH", "sequence"]
+- !private ["SH", "size"]
+- !private ["SH", "skinButton"]
+- !private ["SH", "timingMode"]
+- !private ["SH", "tutorialButton"]
+- !private ["7Squares8IconTypeV", "InfoButton"]
+- !private ["7Squares8IconTypeV", "LikeButton"]
+- !private ["7Squares8IconTypeV", "MoreIconsButton"]
+- !private ["7Squares8IconTypeV", "NoAdsButton"]
+- !private ["7Squares8IconTypeV", "RestoreIAPButton"]
+- !private ["7Squares8IconTypeV", "SkinButton"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["7Squares14MenuButtonNodeC", "alpha"]
+- !private ["7Squares14MenuButtonNodeC", "color"]
+- !private ["7Squares14MenuButtonNodeC", "colorBlendFactor"]
+- !private ["7Squares14MenuButtonNodeC", "deinit"]
+- !private ["7Squares14MenuButtonNodeC", "init"]
+- !private ["7Squares14MenuButtonNodeC", "isUserInteractionEnabled"]
+- !private ["7Squares14MenuButtonNodeC", "position"]
+- !private ["7Squares14MenuButtonNodeC", "run"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- ["7Squares13MoreIconsNodeC", "Bool"]
+- !private ["7Squares13MoreIconsNodeC", "ButtonType"]
+- ["7Squares13MoreIconsNodeC", "CGFloat"]
+- !private ["7Squares13MoreIconsNodeC", "CGPoint"]
+- !private ["7Squares13MoreIconsNodeC", "CGSize"]
+- !private ["7Squares13MoreIconsNodeC", "CGVector"]
+- !private ["7Squares13MoreIconsNodeC", "IconType"]
+- ["7Squares13MoreIconsNodeC", "MenuButtonNode"]
+- ["7Squares13MoreIconsNodeC", "NSCoder"]
+- !private ["7Squares13MoreIconsNodeC", "SKAction"]
+- ["7Squares13MoreIconsNodeC", "SKColor"]
+- !private ["7Squares13MoreIconsNodeC", "addChild"]
+- !private ["7Squares13MoreIconsNodeC", "anchorPoint"]
+- ["7Squares13MoreIconsNodeC", "changeColor"]
+- !private ["7Squares13MoreIconsNodeC", "fatalError"]
+- ["7Squares13MoreIconsNodeC", "init"]
+- ["7Squares13MoreIconsNodeC", "interact"]
+- ["7Squares13MoreIconsNodeC", "isOpen"]
+- !private ["7Squares13MoreIconsNodeC", "isUserInteractionEnabled"]
+- ["7Squares13MoreIconsNodeC", "likeButton"]
+- ["7Squares13MoreIconsNodeC", "moreIconsButton"]
+- !private ["7Squares13MoreIconsNodeC", "name"]
+- ["7Squares13MoreIconsNodeC", "noAdsButton"]
+- ["7Squares13MoreIconsNodeC", "restoreIAPButton"]
+- !private ["7Squares13MoreIconsNodeC", "size"]
+- ["7Squares13MoreIconsNodeC", "skinButton"]
+- ["7Squares13MoreIconsNodeC", "tutorialButton"]
+- !private ["So8NSCodingP", "ButtonType"]
+- !private ["So8NSCodingP", "CGFloat"]
+- !private ["So8NSCodingP", "CGPoint"]
+- !private ["So8NSCodingP", "CGSize"]
+- !private ["So8NSCodingP", "CGVector"]
+- !private ["So8NSCodingP", "IconType"]
+- !private ["So8NSCodingP", "MenuButtonNode"]
+- !private ["So8NSCodingP", "SKAction"]
+- ["So8NSCodingP", ""]
+- !private ["So8NSCodingP", "addChild"]
+- !private ["So8NSCodingP", "alpha"]
+- !private ["So8NSCodingP", "anchorPoint"]
+- !private ["So8NSCodingP", "clear"]
+- !private ["So8NSCodingP", "color"]
+- !private ["So8NSCodingP", "colorBlendFactor"]
+- !private ["So8NSCodingP", "fadeIn"]
+- !private ["So8NSCodingP", "fadeOut"]
+- !private ["So8NSCodingP", "fatalError"]
+- !private ["So8NSCodingP", "group"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "isOpen"]
+- !private ["So8NSCodingP", "isUserInteractionEnabled"]
+- !private ["So8NSCodingP", "likeButton"]
+- !private ["So8NSCodingP", "moreIconsButton"]
+- !private ["So8NSCodingP", "move"]
+- !private ["So8NSCodingP", "name"]
+- !private ["So8NSCodingP", "noAdsButton"]
+- !private ["So8NSCodingP", "position"]
+- !private ["So8NSCodingP", "restoreIAPButton"]
+- !private ["So8NSCodingP", "rotate"]
+- !private ["So8NSCodingP", "run"]
+- !private ["So8NSCodingP", "sequence"]
+- !private ["So8NSCodingP", "size"]
+- !private ["So8NSCodingP", "skinButton"]
+- !private ["So8NSCodingP", "timingMode"]
+- !private ["So8NSCodingP", "tutorialButton"]
+- !private ["So9NSCopyingP", "ButtonType"]
+- !private ["So9NSCopyingP", "CGFloat"]
+- !private ["So9NSCopyingP", "CGPoint"]
+- !private ["So9NSCopyingP", "CGSize"]
+- !private ["So9NSCopyingP", "CGVector"]
+- !private ["So9NSCopyingP", "IconType"]
+- !private ["So9NSCopyingP", "MenuButtonNode"]
+- !private ["So9NSCopyingP", "SKAction"]
+- ["So9NSCopyingP", ""]
+- !private ["So9NSCopyingP", "addChild"]
+- !private ["So9NSCopyingP", "alpha"]
+- !private ["So9NSCopyingP", "anchorPoint"]
+- !private ["So9NSCopyingP", "clear"]
+- !private ["So9NSCopyingP", "color"]
+- !private ["So9NSCopyingP", "colorBlendFactor"]
+- !private ["So9NSCopyingP", "fadeIn"]
+- !private ["So9NSCopyingP", "fadeOut"]
+- !private ["So9NSCopyingP", "fatalError"]
+- !private ["So9NSCopyingP", "group"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "isOpen"]
+- !private ["So9NSCopyingP", "isUserInteractionEnabled"]
+- !private ["So9NSCopyingP", "likeButton"]
+- !private ["So9NSCopyingP", "moreIconsButton"]
+- !private ["So9NSCopyingP", "move"]
+- !private ["So9NSCopyingP", "name"]
+- !private ["So9NSCopyingP", "noAdsButton"]
+- !private ["So9NSCopyingP", "position"]
+- !private ["So9NSCopyingP", "restoreIAPButton"]
+- !private ["So9NSCopyingP", "rotate"]
+- !private ["So9NSCopyingP", "run"]
+- !private ["So9NSCopyingP", "sequence"]
+- !private ["So9NSCopyingP", "size"]
+- !private ["So9NSCopyingP", "skinButton"]
+- !private ["So9NSCopyingP", "timingMode"]
+- !private ["So9NSCopyingP", "tutorialButton"]
+- !private ["So21NSItemProviderReadingP", "clear"]
+- !private ["So21NSItemProviderWritingP", "clear"]
+- ["So8NSObjectC", "Bool"]
+- !private ["So8NSObjectC", "ButtonType"]
+- ["So8NSObjectC", "CGFloat"]
+- !private ["So8NSObjectC", "CGPoint"]
+- !private ["So8NSObjectC", "CGSize"]
+- !private ["So8NSObjectC", "CGVector"]
+- !private ["So8NSObjectC", "IconType"]
+- ["So8NSObjectC", "MenuButtonNode"]
+- ["So8NSObjectC", "NSCoder"]
+- !private ["So8NSObjectC", "SKAction"]
+- ["So8NSObjectC", "SKColor"]
+- !private ["So8NSObjectC", "addChild"]
+- !private ["So8NSObjectC", "alpha"]
+- !private ["So8NSObjectC", "anchorPoint"]
+- ["So8NSObjectC", "changeColor"]
+- !private ["So8NSObjectC", "clear"]
+- !private ["So8NSObjectC", "color"]
+- !private ["So8NSObjectC", "colorBlendFactor"]
+- !private ["So8NSObjectC", "fadeIn"]
+- !private ["So8NSObjectC", "fadeOut"]
+- !private ["So8NSObjectC", "fatalError"]
+- !private ["So8NSObjectC", "group"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "interact"]
+- ["So8NSObjectC", "isOpen"]
+- !private ["So8NSObjectC", "isUserInteractionEnabled"]
+- ["So8NSObjectC", "likeButton"]
+- ["So8NSObjectC", "moreIconsButton"]
+- !private ["So8NSObjectC", "move"]
+- !private ["So8NSObjectC", "name"]
+- ["So8NSObjectC", "noAdsButton"]
+- !private ["So8NSObjectC", "position"]
+- ["So8NSObjectC", "restoreIAPButton"]
+- !private ["So8NSObjectC", "rotate"]
+- !private ["So8NSObjectC", "run"]
+- !private ["So8NSObjectC", "sequence"]
+- !private ["So8NSObjectC", "size"]
+- ["So8NSObjectC", "skinButton"]
+- !private ["So8NSObjectC", "timingMode"]
+- ["So8NSObjectC", "tutorialButton"]
+- !private ["So8NSObjectP", "ButtonType"]
+- !private ["So8NSObjectP", "CGFloat"]
+- !private ["So8NSObjectP", "CGPoint"]
+- !private ["So8NSObjectP", "CGSize"]
+- !private ["So8NSObjectP", "CGVector"]
+- !private ["So8NSObjectP", "IconType"]
+- !private ["So8NSObjectP", "MenuButtonNode"]
+- !private ["So8NSObjectP", "SKAction"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "addChild"]
+- !private ["So8NSObjectP", "alpha"]
+- !private ["So8NSObjectP", "anchorPoint"]
+- !private ["So8NSObjectP", "clear"]
+- !private ["So8NSObjectP", "color"]
+- !private ["So8NSObjectP", "colorBlendFactor"]
+- !private ["So8NSObjectP", "fadeIn"]
+- !private ["So8NSObjectP", "fadeOut"]
+- !private ["So8NSObjectP", "fatalError"]
+- !private ["So8NSObjectP", "group"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "isOpen"]
+- !private ["So8NSObjectP", "isUserInteractionEnabled"]
+- !private ["So8NSObjectP", "likeButton"]
+- !private ["So8NSObjectP", "moreIconsButton"]
+- !private ["So8NSObjectP", "move"]
+- !private ["So8NSObjectP", "name"]
+- !private ["So8NSObjectP", "noAdsButton"]
+- !private ["So8NSObjectP", "position"]
+- !private ["So8NSObjectP", "restoreIAPButton"]
+- !private ["So8NSObjectP", "rotate"]
+- !private ["So8NSObjectP", "run"]
+- !private ["So8NSObjectP", "sequence"]
+- !private ["So8NSObjectP", "size"]
+- !private ["So8NSObjectP", "skinButton"]
+- !private ["So8NSObjectP", "timingMode"]
+- !private ["So8NSObjectP", "tutorialButton"]
+- !private ["So14NSSecureCodingP", "ButtonType"]
+- !private ["So14NSSecureCodingP", "CGFloat"]
+- !private ["So14NSSecureCodingP", "CGPoint"]
+- !private ["So14NSSecureCodingP", "CGSize"]
+- !private ["So14NSSecureCodingP", "CGVector"]
+- !private ["So14NSSecureCodingP", "IconType"]
+- !private ["So14NSSecureCodingP", "MenuButtonNode"]
+- !private ["So14NSSecureCodingP", "SKAction"]
+- ["So14NSSecureCodingP", ""]
+- !private ["So14NSSecureCodingP", "addChild"]
+- !private ["So14NSSecureCodingP", "alpha"]
+- !private ["So14NSSecureCodingP", "anchorPoint"]
+- !private ["So14NSSecureCodingP", "clear"]
+- !private ["So14NSSecureCodingP", "color"]
+- !private ["So14NSSecureCodingP", "colorBlendFactor"]
+- !private ["So14NSSecureCodingP", "fadeIn"]
+- !private ["So14NSSecureCodingP", "fadeOut"]
+- !private ["So14NSSecureCodingP", "fatalError"]
+- !private ["So14NSSecureCodingP", "group"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "isOpen"]
+- !private ["So14NSSecureCodingP", "isUserInteractionEnabled"]
+- !private ["So14NSSecureCodingP", "likeButton"]
+- !private ["So14NSSecureCodingP", "moreIconsButton"]
+- !private ["So14NSSecureCodingP", "move"]
+- !private ["So14NSSecureCodingP", "name"]
+- !private ["So14NSSecureCodingP", "noAdsButton"]
+- !private ["So14NSSecureCodingP", "position"]
+- !private ["So14NSSecureCodingP", "restoreIAPButton"]
+- !private ["So14NSSecureCodingP", "rotate"]
+- !private ["So14NSSecureCodingP", "run"]
+- !private ["So14NSSecureCodingP", "sequence"]
+- !private ["So14NSSecureCodingP", "size"]
+- !private ["So14NSSecureCodingP", "skinButton"]
+- !private ["So14NSSecureCodingP", "timingMode"]
+- !private ["So14NSSecureCodingP", "tutorialButton"]
+- !private ["Sj", "pi"]
+- !private ["Sm", "init"]
+- !private ["Sm", "init"]
+- !private ["SY", "easeOut"]
+- !private ["So8SKActionC", "fadeIn"]
+- !private ["So8SKActionC", "fadeOut"]
+- !private ["So8SKActionC", "group"]
+- !private ["So8SKActionC", "move"]
+- !private ["So8SKActionC", "rotate"]
+- !private ["So8SKActionC", "sequence"]
+- !private ["So8SKActionC", "timingMode"]
+- !private ["So18SKActionTimingModeV", "easeOut"]
+- ["So6SKNodeC", "Bool"]
+- !private ["So6SKNodeC", "ButtonType"]
+- ["So6SKNodeC", "CGFloat"]
+- !private ["So6SKNodeC", "CGPoint"]
+- !private ["So6SKNodeC", "CGSize"]
+- !private ["So6SKNodeC", "CGVector"]
+- !private ["So6SKNodeC", "IconType"]
+- ["So6SKNodeC", "MenuButtonNode"]
+- ["So6SKNodeC", "NSCoder"]
+- !private ["So6SKNodeC", "SKAction"]
+- ["So6SKNodeC", "SKColor"]
+- !private ["So6SKNodeC", "addChild"]
+- !private ["So6SKNodeC", "alpha"]
+- !private ["So6SKNodeC", "anchorPoint"]
+- ["So6SKNodeC", "changeColor"]
+- !private ["So6SKNodeC", "color"]
+- !private ["So6SKNodeC", "colorBlendFactor"]
+- !private ["So6SKNodeC", "fatalError"]
+- ["So6SKNodeC", "init"]
+- ["So6SKNodeC", "interact"]
+- ["So6SKNodeC", "isOpen"]
+- !private ["So6SKNodeC", "isUserInteractionEnabled"]
+- ["So6SKNodeC", "likeButton"]
+- ["So6SKNodeC", "moreIconsButton"]
+- !private ["So6SKNodeC", "name"]
+- ["So6SKNodeC", "noAdsButton"]
+- !private ["So6SKNodeC", "position"]
+- ["So6SKNodeC", "restoreIAPButton"]
+- !private ["So6SKNodeC", "run"]
+- !private ["So6SKNodeC", "size"]
+- ["So6SKNodeC", "skinButton"]
+- ["So6SKNodeC", "tutorialButton"]
+- ["So12SKSpriteNodeC", "Bool"]
+- !private ["So12SKSpriteNodeC", "ButtonType"]
+- ["So12SKSpriteNodeC", "CGFloat"]
+- !private ["So12SKSpriteNodeC", "CGPoint"]
+- !private ["So12SKSpriteNodeC", "CGSize"]
+- !private ["So12SKSpriteNodeC", "CGVector"]
+- !private ["So12SKSpriteNodeC", "IconType"]
+- ["So12SKSpriteNodeC", "MenuButtonNode"]
+- ["So12SKSpriteNodeC", "NSCoder"]
+- !private ["So12SKSpriteNodeC", "SKAction"]
+- ["So12SKSpriteNodeC", "SKColor"]
+- ["So12SKSpriteNodeC", ""]
+- !private ["So12SKSpriteNodeC", "addChild"]
+- !private ["So12SKSpriteNodeC", "alpha"]
+- !private ["So12SKSpriteNodeC", "anchorPoint"]
+- ["So12SKSpriteNodeC", "changeColor"]
+- !private ["So12SKSpriteNodeC", "color"]
+- !private ["So12SKSpriteNodeC", "colorBlendFactor"]
+- !private ["So12SKSpriteNodeC", "fatalError"]
+- ["So12SKSpriteNodeC", "init"]
+- ["So12SKSpriteNodeC", "interact"]
+- ["So12SKSpriteNodeC", "isOpen"]
+- !private ["So12SKSpriteNodeC", "isUserInteractionEnabled"]
+- ["So12SKSpriteNodeC", "likeButton"]
+- ["So12SKSpriteNodeC", "moreIconsButton"]
+- !private ["So12SKSpriteNodeC", "name"]
+- ["So12SKSpriteNodeC", "noAdsButton"]
+- !private ["So12SKSpriteNodeC", "position"]
+- ["So12SKSpriteNodeC", "restoreIAPButton"]
+- !private ["So12SKSpriteNodeC", "run"]
+- !private ["So12SKSpriteNodeC", "size"]
+- ["So12SKSpriteNodeC", "skinButton"]
+- ["So12SKSpriteNodeC", "tutorialButton"]
+- !private ["So10SKWarpableP", "ButtonType"]
+- !private ["So10SKWarpableP", "CGFloat"]
+- !private ["So10SKWarpableP", "CGPoint"]
+- !private ["So10SKWarpableP", "CGSize"]
+- !private ["So10SKWarpableP", "CGVector"]
+- !private ["So10SKWarpableP", "IconType"]
+- !private ["So10SKWarpableP", "MenuButtonNode"]
+- !private ["So10SKWarpableP", "SKAction"]
+- ["So10SKWarpableP", ""]
+- !private ["So10SKWarpableP", "addChild"]
+- !private ["So10SKWarpableP", "alpha"]
+- !private ["So10SKWarpableP", "anchorPoint"]
+- !private ["So10SKWarpableP", "color"]
+- !private ["So10SKWarpableP", "colorBlendFactor"]
+- !private ["So10SKWarpableP", "fatalError"]
+- !private ["So10SKWarpableP", "init"]
+- !private ["So10SKWarpableP", "isOpen"]
+- !private ["So10SKWarpableP", "isUserInteractionEnabled"]
+- !private ["So10SKWarpableP", "likeButton"]
+- !private ["So10SKWarpableP", "moreIconsButton"]
+- !private ["So10SKWarpableP", "name"]
+- !private ["So10SKWarpableP", "noAdsButton"]
+- !private ["So10SKWarpableP", "position"]
+- !private ["So10SKWarpableP", "restoreIAPButton"]
+- !private ["So10SKWarpableP", "run"]
+- !private ["So10SKWarpableP", "size"]
+- !private ["So10SKWarpableP", "skinButton"]
+- !private ["So10SKWarpableP", "tutorialButton"]
+- !private ["ST", "init"]
+- !private ["ST", "init"]
+- !private ["s13SignedNumericP", "pi"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["Sx", "pi"]
+- !private ["SS", "init"]
+- !private ["SS", "init"]
+- !private ["Sy", "init"]
+- !private ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["So7UIColorC", "clear"]
+- !private ["So18UIFocusEnvironmentP", "ButtonType"]
+- !private ["So18UIFocusEnvironmentP", "CGFloat"]
+- !private ["So18UIFocusEnvironmentP", "CGPoint"]
+- !private ["So18UIFocusEnvironmentP", "CGSize"]
+- !private ["So18UIFocusEnvironmentP", "CGVector"]
+- !private ["So18UIFocusEnvironmentP", "IconType"]
+- !private ["So18UIFocusEnvironmentP", "MenuButtonNode"]
+- !private ["So18UIFocusEnvironmentP", "SKAction"]
+- ["So18UIFocusEnvironmentP", ""]
+- !private ["So18UIFocusEnvironmentP", "addChild"]
+- !private ["So18UIFocusEnvironmentP", "alpha"]
+- !private ["So18UIFocusEnvironmentP", "anchorPoint"]
+- !private ["So18UIFocusEnvironmentP", "color"]
+- !private ["So18UIFocusEnvironmentP", "colorBlendFactor"]
+- !private ["So18UIFocusEnvironmentP", "fatalError"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "isOpen"]
+- !private ["So18UIFocusEnvironmentP", "isUserInteractionEnabled"]
+- !private ["So18UIFocusEnvironmentP", "likeButton"]
+- !private ["So18UIFocusEnvironmentP", "moreIconsButton"]
+- !private ["So18UIFocusEnvironmentP", "name"]
+- !private ["So18UIFocusEnvironmentP", "noAdsButton"]
+- !private ["So18UIFocusEnvironmentP", "position"]
+- !private ["So18UIFocusEnvironmentP", "restoreIAPButton"]
+- !private ["So18UIFocusEnvironmentP", "run"]
+- !private ["So18UIFocusEnvironmentP", "size"]
+- !private ["So18UIFocusEnvironmentP", "skinButton"]
+- !private ["So18UIFocusEnvironmentP", "tutorialButton"]
+- !private ["So11UIFocusItemP", "ButtonType"]
+- !private ["So11UIFocusItemP", "CGFloat"]
+- !private ["So11UIFocusItemP", "CGPoint"]
+- !private ["So11UIFocusItemP", "CGSize"]
+- !private ["So11UIFocusItemP", "CGVector"]
+- !private ["So11UIFocusItemP", "IconType"]
+- !private ["So11UIFocusItemP", "MenuButtonNode"]
+- !private ["So11UIFocusItemP", "SKAction"]
+- ["So11UIFocusItemP", ""]
+- !private ["So11UIFocusItemP", "addChild"]
+- !private ["So11UIFocusItemP", "alpha"]
+- !private ["So11UIFocusItemP", "anchorPoint"]
+- !private ["So11UIFocusItemP", "color"]
+- !private ["So11UIFocusItemP", "colorBlendFactor"]
+- !private ["So11UIFocusItemP", "fatalError"]
+- !private ["So11UIFocusItemP", "init"]
+- !private ["So11UIFocusItemP", "isOpen"]
+- !private ["So11UIFocusItemP", "isUserInteractionEnabled"]
+- !private ["So11UIFocusItemP", "likeButton"]
+- !private ["So11UIFocusItemP", "moreIconsButton"]
+- !private ["So11UIFocusItemP", "name"]
+- !private ["So11UIFocusItemP", "noAdsButton"]
+- !private ["So11UIFocusItemP", "position"]
+- !private ["So11UIFocusItemP", "restoreIAPButton"]
+- !private ["So11UIFocusItemP", "run"]
+- !private ["So11UIFocusItemP", "size"]
+- !private ["So11UIFocusItemP", "skinButton"]
+- !private ["So11UIFocusItemP", "tutorialButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "ButtonType"]
+- !private ["So30UIPasteConfigurationSupportingP", "CGFloat"]
+- !private ["So30UIPasteConfigurationSupportingP", "CGPoint"]
+- !private ["So30UIPasteConfigurationSupportingP", "CGSize"]
+- !private ["So30UIPasteConfigurationSupportingP", "CGVector"]
+- !private ["So30UIPasteConfigurationSupportingP", "IconType"]
+- !private ["So30UIPasteConfigurationSupportingP", "MenuButtonNode"]
+- !private ["So30UIPasteConfigurationSupportingP", "SKAction"]
+- ["So30UIPasteConfigurationSupportingP", ""]
+- !private ["So30UIPasteConfigurationSupportingP", "addChild"]
+- !private ["So30UIPasteConfigurationSupportingP", "alpha"]
+- !private ["So30UIPasteConfigurationSupportingP", "anchorPoint"]
+- !private ["So30UIPasteConfigurationSupportingP", "color"]
+- !private ["So30UIPasteConfigurationSupportingP", "colorBlendFactor"]
+- !private ["So30UIPasteConfigurationSupportingP", "fatalError"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "isOpen"]
+- !private ["So30UIPasteConfigurationSupportingP", "isUserInteractionEnabled"]
+- !private ["So30UIPasteConfigurationSupportingP", "likeButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "moreIconsButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "name"]
+- !private ["So30UIPasteConfigurationSupportingP", "noAdsButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "position"]
+- !private ["So30UIPasteConfigurationSupportingP", "restoreIAPButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "run"]
+- !private ["So30UIPasteConfigurationSupportingP", "size"]
+- !private ["So30UIPasteConfigurationSupportingP", "skinButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "tutorialButton"]
+- ["So11UIResponderC", "Bool"]
+- !private ["So11UIResponderC", "ButtonType"]
+- ["So11UIResponderC", "CGFloat"]
+- !private ["So11UIResponderC", "CGPoint"]
+- !private ["So11UIResponderC", "CGSize"]
+- !private ["So11UIResponderC", "CGVector"]
+- !private ["So11UIResponderC", "IconType"]
+- ["So11UIResponderC", "MenuButtonNode"]
+- ["So11UIResponderC", "NSCoder"]
+- !private ["So11UIResponderC", "SKAction"]
+- ["So11UIResponderC", "SKColor"]
+- !private ["So11UIResponderC", "addChild"]
+- !private ["So11UIResponderC", "alpha"]
+- !private ["So11UIResponderC", "anchorPoint"]
+- ["So11UIResponderC", "changeColor"]
+- !private ["So11UIResponderC", "color"]
+- !private ["So11UIResponderC", "colorBlendFactor"]
+- !private ["So11UIResponderC", "fatalError"]
+- ["So11UIResponderC", "init"]
+- ["So11UIResponderC", "interact"]
+- ["So11UIResponderC", "isOpen"]
+- !private ["So11UIResponderC", "isUserInteractionEnabled"]
+- ["So11UIResponderC", "likeButton"]
+- ["So11UIResponderC", "moreIconsButton"]
+- !private ["So11UIResponderC", "name"]
+- ["So11UIResponderC", "noAdsButton"]
+- !private ["So11UIResponderC", "position"]
+- ["So11UIResponderC", "restoreIAPButton"]
+- !private ["So11UIResponderC", "run"]
+- !private ["So11UIResponderC", "size"]
+- ["So11UIResponderC", "skinButton"]
+- ["So11UIResponderC", "tutorialButton"]
+- !private ["So30UIResponderStandardEditActionsP", "ButtonType"]
+- !private ["So30UIResponderStandardEditActionsP", "CGFloat"]
+- !private ["So30UIResponderStandardEditActionsP", "CGPoint"]
+- !private ["So30UIResponderStandardEditActionsP", "CGSize"]
+- !private ["So30UIResponderStandardEditActionsP", "CGVector"]
+- !private ["So30UIResponderStandardEditActionsP", "IconType"]
+- !private ["So30UIResponderStandardEditActionsP", "MenuButtonNode"]
+- !private ["So30UIResponderStandardEditActionsP", "SKAction"]
+- ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So30UIResponderStandardEditActionsP", "addChild"]
+- !private ["So30UIResponderStandardEditActionsP", "alpha"]
+- !private ["So30UIResponderStandardEditActionsP", "anchorPoint"]
+- !private ["So30UIResponderStandardEditActionsP", "color"]
+- !private ["So30UIResponderStandardEditActionsP", "colorBlendFactor"]
+- !private ["So30UIResponderStandardEditActionsP", "fatalError"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "isOpen"]
+- !private ["So30UIResponderStandardEditActionsP", "isUserInteractionEnabled"]
+- !private ["So30UIResponderStandardEditActionsP", "likeButton"]
+- !private ["So30UIResponderStandardEditActionsP", "moreIconsButton"]
+- !private ["So30UIResponderStandardEditActionsP", "name"]
+- !private ["So30UIResponderStandardEditActionsP", "noAdsButton"]
+- !private ["So30UIResponderStandardEditActionsP", "position"]
+- !private ["So30UIResponderStandardEditActionsP", "restoreIAPButton"]
+- !private ["So30UIResponderStandardEditActionsP", "run"]
+- !private ["So30UIResponderStandardEditActionsP", "size"]
+- !private ["So30UIResponderStandardEditActionsP", "skinButton"]
+- !private ["So30UIResponderStandardEditActionsP", "tutorialButton"]
+- !private ["So23UIUserActivityRestoringP", "ButtonType"]
+- !private ["So23UIUserActivityRestoringP", "CGFloat"]
+- !private ["So23UIUserActivityRestoringP", "CGPoint"]
+- !private ["So23UIUserActivityRestoringP", "CGSize"]
+- !private ["So23UIUserActivityRestoringP", "CGVector"]
+- !private ["So23UIUserActivityRestoringP", "IconType"]
+- !private ["So23UIUserActivityRestoringP", "MenuButtonNode"]
+- !private ["So23UIUserActivityRestoringP", "SKAction"]
+- ["So23UIUserActivityRestoringP", ""]
+- !private ["So23UIUserActivityRestoringP", "addChild"]
+- !private ["So23UIUserActivityRestoringP", "alpha"]
+- !private ["So23UIUserActivityRestoringP", "anchorPoint"]
+- !private ["So23UIUserActivityRestoringP", "color"]
+- !private ["So23UIUserActivityRestoringP", "colorBlendFactor"]
+- !private ["So23UIUserActivityRestoringP", "fatalError"]
+- !private ["So23UIUserActivityRestoringP", "init"]
+- !private ["So23UIUserActivityRestoringP", "isOpen"]
+- !private ["So23UIUserActivityRestoringP", "isUserInteractionEnabled"]
+- !private ["So23UIUserActivityRestoringP", "likeButton"]
+- !private ["So23UIUserActivityRestoringP", "moreIconsButton"]
+- !private ["So23UIUserActivityRestoringP", "name"]
+- !private ["So23UIUserActivityRestoringP", "noAdsButton"]
+- !private ["So23UIUserActivityRestoringP", "position"]
+- !private ["So23UIUserActivityRestoringP", "restoreIAPButton"]
+- !private ["So23UIUserActivityRestoringP", "run"]
+- !private ["So23UIUserActivityRestoringP", "size"]
+- !private ["So23UIUserActivityRestoringP", "skinButton"]
+- !private ["So23UIUserActivityRestoringP", "tutorialButton"]
+- !private ["s15_CVarArgAlignedP", "pi"]
+- !private ["s22_CVarArgPassedAsDoubleP", "pi"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s26_ExpressibleByColorLiteralP", "clear"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ButtonType"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGFloat"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGPoint"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGSize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGVector"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "IconType"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "MenuButtonNode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKAction"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addChild"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "alpha"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "anchorPoint"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "clear"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "color"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "colorBlendFactor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fadeIn"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fadeOut"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fatalError"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "group"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isOpen"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isUserInteractionEnabled"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "likeButton"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "moreIconsButton"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "move"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "noAdsButton"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "position"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "restoreIAPButton"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "rotate"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "run"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "sequence"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "size"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "skinButton"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "timingMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tutorialButton"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "height"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "pi"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "SK"
+- !private "SB"
+- !private "Sb"
+- !private "7Squares10ButtonTypeV"
+- !private "12CoreGraphics7CGFloatV"
+- !private "So7CGPointV"
+- !private "So6CGSizeV"
+- !private "So8CGVectorV"
+- "s7CVarArgP"
+- !private "Sl"
+- !private "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "Se"
+- !private "SE"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s25ExpressibleByFloatLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "SF"
+- "SH"
+- !private "7Squares8IconTypeV"
+- !private "s25LosslessStringConvertibleP"
+- !private "7Squares14MenuButtonNodeC"
+- !private "s10MirrorPathP"
+- "7Squares13MoreIconsNodeC"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "So14NSSecureCodingP"
+- !private "Sj"
+- !private "Sm"
+- !private "SY"
+- !private "So8SKActionC"
+- !private "So18SKActionTimingModeV"
+- "So6SKNodeC"
+- "So12SKSpriteNodeC"
+- "So10SKWarpableP"
+- !private "ST"
+- !private "s13SignedNumericP"
+- !private "s12StaticStringV"
+- !private "Sx"
+- !private "SS"
+- !private "Sy"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "So7UIColorC"
+- "So18UIFocusEnvironmentP"
+- "So11UIFocusItemP"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- "So23UIUserActivityRestoringP"
+- !private "s15_CVarArgAlignedP"
+- !private "s22_CVarArgPassedAsDoubleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s26_ExpressibleByColorLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ModelIO.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Photos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SceneKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MetalKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GameplayKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore-umbrella.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeCustomTemplateAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedUnifiedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAppInstallAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAppInstallAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeContentAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeContentAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdReward.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedUnifiedNativeAdNotificationSource.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAdNotificationSource.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImage.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Firebase/CoreOnly/Sources/Firebase.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInAppPurchase.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInAppPurchaseDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdSizeDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdUnconfirmedClickDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoaderDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAudioVideoManagerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoControllerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventBannerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAppEventDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeExpressAdViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADBannerViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedBannerViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdSize.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Headers/FIRInAppMessaging.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Headers/FirebaseInAppMessaging.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAd+ConfirmationClick.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMAdNetworkAdapterProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMRewardBasedVideoAdNetworkAdapterProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMAdNetworkConnectorProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMRewardBasedVideoAdNetworkConnectorProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImage+Mediation.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoader.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAudioVideoManager.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoController.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADDebugOptionsViewController.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventBanner.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRequestError.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCorrelator.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAppInstallAdAssetIDs.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeContentAdAssetIDs.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdNetworkExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMobileAds.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GoogleMobileAds.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoaderAdTypes.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMEnums.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdViewAdOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImageAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCorrelatorAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMultipleAdsAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPBannerViewOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdAssetIdentifiers.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventParameters.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediationAdRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADSearchRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADDynamicHeightSearchRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMediaView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeExpressAdView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADSearchBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdChoicesView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/ModelIO.framework/Headers/ModelIO.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Photos.framework/Headers/Photos.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GLKit.framework/Headers/GLKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GameKit.framework/Headers/GameKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/SceneKit.framework/Headers/SceneKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/StoreKit.framework/Headers/StoreKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/SpriteKit.framework/Headers/SpriteKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MetalKit.framework/Headers/MetalKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GameplayKit.framework/Headers/GameplayKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "6cfe948c86c2b2d0ec35189102dbfda3"

@@ -521,6 +521,11 @@ class MenuScene: SKScene, MenuButtonDelegate, PlayButtonDelegate, DismissButtonD
         } else if iconType == IconType.NoAdsButton  {
 //            print("NoAdsButton")
             
+            if !IAPHelper.canMakePayments() {
+                let userInfoDict:[String: String] = ["forButton": "iapfail"]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "displayAlertMessage"), object: nil, userInfo: userInfoDict)
+            }
+            
             products = []
             IAPProducts.store.requestProducts{success, products in
                 if success {

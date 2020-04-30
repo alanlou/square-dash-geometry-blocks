@@ -6,18 +6,18 @@
 //  Copyright © 2017 Rawwr Studios. All rights reserved.
 //
 
-struct Array2D<T> {
+struct Array2D<T>: Codable {
     let columns: Int
     let rows: Int
-    fileprivate var array: Array<T?>
+    fileprivate var array: Array<UInt32?>
     
     init(columns: Int, rows: Int) {
         self.columns = columns
         self.rows = rows
-        array = Array<T?>(repeating: nil, count: rows*columns)
+        array = Array<UInt32?>(repeating: nil, count: rows*columns)
     }
     
-    subscript(column: Int, row: Int) -> T? {
+    subscript(column: Int, row: Int) -> UInt32? {
         get {
             // safe column
             if column < 0 {

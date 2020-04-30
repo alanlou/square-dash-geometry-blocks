@@ -30,7 +30,6 @@
 		4E55AABD20E4C726001F7088 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E55AABC20E4C726001F7088 /* StoreKit.framework */; };
 		4E55AABF20E4C76D001F7088 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55AABE20E4C76D001F7088 /* IAPHelper.swift */; };
 		4E55AAC120E4C950001F7088 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55AAC020E4C950001F7088 /* IAPProducts.swift */; };
-		4E74B54A20FC48F700737786 /* gameStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E74B54920FC48F600737786 /* gameStart.mp3 */; };
 		4E83D47C20E35869000FC04B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E83D47B20E35869000FC04B /* GameKit.framework */; };
 		4E8EA9422017147B00AC2955 /* PlayButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA9412017147B00AC2955 /* PlayButtonNode.swift */; };
 		4E8EA94420171E1300AC2955 /* BestScoreBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8EA94320171E1300AC2955 /* BestScoreBarNode.swift */; };
@@ -55,13 +54,8 @@
 		4EC2C5381FFF60B5007E44FD /* newBestScore.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5371FFF60B5007E44FD /* newBestScore.wav */; };
 		4EC2C53C1FFF7A5D007E44FD /* QuarterCircleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */; };
 		4EC2C54E2001D224007E44FD /* gameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C54D2001D224007E44FD /* gameOver.wav */; };
-		4EC2C55A2001FDA7007E44FD /* findMatching1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2C5522001FDA7007E44FD /* findMatching1.wav */; };
 		4EC4B97D20F3298900210FB6 /* Fantastic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC4B96820F3298800210FB6 /* Fantastic.wav */; };
 		4ECE1654200DE258009D25C4 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE1653200DE258009D25C4 /* MenuScene.swift */; };
-		4ECE165920108796009D25C4 /* findMatching5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165520108795009D25C4 /* findMatching5.mp3 */; };
-		4ECE165A20108796009D25C4 /* findMatching3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165620108796009D25C4 /* findMatching3.mp3 */; };
-		4ECE165B20108796009D25C4 /* findMatching2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165720108796009D25C4 /* findMatching2.mp3 */; };
-		4ECE165C20108796009D25C4 /* findMatching4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE165820108796009D25C4 /* findMatching4.mp3 */; };
 		4ECE165E2015C603009D25C4 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE165D2015C603009D25C4 /* LaunchScreenViewController.swift */; };
 		4EE329DC20EF3F1C0013F632 /* PinIconNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE329DB20EF3F1C0013F632 /* PinIconNode.swift */; };
 		4EE32A0A20F002AF0013F632 /* Merge_matching_3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EE32A0120F002AB0013F632 /* Merge_matching_3.wav */; };
@@ -74,6 +68,9 @@
 		4EE32A1120F002AF0013F632 /* Merge_matching_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EE32A0820F002AE0013F632 /* Merge_matching_1.wav */; };
 		4EE32A1220F002AF0013F632 /* Merge_matching_8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EE32A0920F002AF0013F632 /* Merge_matching_8.wav */; };
 		4EE32A1420F012D30013F632 /* TitleLetterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE32A1320F012D30013F632 /* TitleLetterNode.swift */; };
+		4EE564FE2108E3D8000FBD57 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EE565002108E3D8000FBD57 /* Localizable.strings */; };
+		4EE565062108E521000FBD57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EE565082108E521000FBD57 /* InfoPlist.strings */; };
+		4EE5651F210986D4000FBD57 /* SetArray2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5651E210986D4000FBD57 /* SetArray2D.swift */; };
 		4EF57B582019706A0073E3F6 /* TrophyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF57B572019706A0073E3F6 /* TrophyNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -227,6 +224,14 @@
 		4E1EE2601FF6F9AA0091F7ED /* ThreeBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeBlockNode.swift; sourceTree = "<group>"; };
 		4E1EE2621FF7109A0091F7ED /* FourBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourBlockNode.swift; sourceTree = "<group>"; };
 		4E1EE2641FF7628D0091F7ED /* MyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
+		4E1F8974210AA6650059F16F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		4E1F8975210AA6650059F16F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4E1F8976210AA6660059F16F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E1F8977210AA6670059F16F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E1F8978210AA69D0059F16F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		4E1F8979210AA69E0059F16F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4E1F897A210AA69F0059F16F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E1F897B210AA6A00059F16F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E383BAE20F2ECCA006D6094 /* Nice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nice.wav; sourceTree = "<group>"; };
 		4E383BC420F2ECCB006D6094 /* Woohoo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Woohoo.wav; sourceTree = "<group>"; };
 		4E383BC520F2ECCB006D6094 /* Aha.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Aha.wav; sourceTree = "<group>"; };
@@ -245,7 +250,6 @@
 		4E55AABC20E4C726001F7088 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4E55AABE20E4C76D001F7088 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		4E55AAC020E4C950001F7088 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
-		4E74B54920FC48F600737786 /* gameStart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameStart.mp3; sourceTree = "<group>"; };
 		4E80DB0920E4BB520011395E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4E80DB0A20E4BB520011395E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4E80DB0F20E4BB520011395E /* MenuItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemViewCell.swift; sourceTree = "<group>"; };
@@ -557,13 +561,8 @@
 		4EC2C5371FFF60B5007E44FD /* newBestScore.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newBestScore.wav; sourceTree = "<group>"; };
 		4EC2C53B1FFF7A5D007E44FD /* QuarterCircleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarterCircleNode.swift; sourceTree = "<group>"; };
 		4EC2C54D2001D224007E44FD /* gameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameOver.wav; sourceTree = "<group>"; };
-		4EC2C5522001FDA7007E44FD /* findMatching1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = findMatching1.wav; sourceTree = "<group>"; };
 		4EC4B96820F3298800210FB6 /* Fantastic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Fantastic.wav; sourceTree = "<group>"; };
 		4ECE1653200DE258009D25C4 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
-		4ECE165520108795009D25C4 /* findMatching5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching5.mp3; sourceTree = "<group>"; };
-		4ECE165620108796009D25C4 /* findMatching3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching3.mp3; sourceTree = "<group>"; };
-		4ECE165720108796009D25C4 /* findMatching2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching2.mp3; sourceTree = "<group>"; };
-		4ECE165820108796009D25C4 /* findMatching4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = findMatching4.mp3; sourceTree = "<group>"; };
 		4ECE165D2015C603009D25C4 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		4EE329DB20EF3F1C0013F632 /* PinIconNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinIconNode.swift; sourceTree = "<group>"; };
 		4EE32A0120F002AB0013F632 /* Merge_matching_3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Merge_matching_3.wav; sourceTree = "<group>"; };
@@ -576,6 +575,27 @@
 		4EE32A0820F002AE0013F632 /* Merge_matching_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Merge_matching_1.wav; sourceTree = "<group>"; };
 		4EE32A0920F002AF0013F632 /* Merge_matching_8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Merge_matching_8.wav; sourceTree = "<group>"; };
 		4EE32A1320F012D30013F632 /* TitleLetterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLetterNode.swift; sourceTree = "<group>"; };
+		4EE565022108E478000FBD57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4EE565072108E521000FBD57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4EE5650C2108E674000FBD57 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4EE5650D2108E675000FBD57 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4EE5650E2108E6A7000FBD57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4EE5650F2108E6AA000FBD57 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4EE565102108E6AF000FBD57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4EE565112108E6B2000FBD57 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4EE565122109108C000FBD57 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		4EE565132109108D000FBD57 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4EE565142109108D000FBD57 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4EE56515210910BF000FBD57 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4EE5651621091145000FBD57 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		4EE5651721091146000FBD57 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4EE5651821091146000FBD57 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4EE5651921091147000FBD57 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4EE5651A21092E8F000FBD57 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		4EE5651B21092E90000FBD57 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4EE5651C21092E90000FBD57 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4EE5651D21092E91000FBD57 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4EE5651E210986D4000FBD57 /* SetArray2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetArray2D.swift; sourceTree = "<group>"; };
 		4EF57B572019706A0073E3F6 /* TrophyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyNode.swift; sourceTree = "<group>"; };
 		5D962167B7B478FD632D20EB /* Pods-Squares.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squares.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Squares/Pods-Squares.debug.xcconfig"; sourceTree = "<group>"; };
 		A0931595ACA3B52104D3C419 /* Pods_Squares.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squares.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -608,7 +628,6 @@
 		4E1EE25F1FF6BF650091F7ED /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				4E74B54920FC48F600737786 /* gameStart.mp3 */,
 				4EE32A0820F002AE0013F632 /* Merge_matching_1.wav */,
 				4EE32A0720F002AE0013F632 /* Merge_matching_2.wav */,
 				4EE32A0120F002AB0013F632 /* Merge_matching_3.wav */,
@@ -624,11 +643,6 @@
 				4EE32A0620F002AD0013F632 /* Merge_matching_9.wav */,
 				4EC2C5371FFF60B5007E44FD /* newBestScore.wav */,
 				4EC2C52B1FFAFDFA007E44FD /* buttonPressed.wav */,
-				4EC2C5522001FDA7007E44FD /* findMatching1.wav */,
-				4ECE165720108796009D25C4 /* findMatching2.mp3 */,
-				4ECE165620108796009D25C4 /* findMatching3.mp3 */,
-				4ECE165820108796009D25C4 /* findMatching4.mp3 */,
-				4ECE165520108795009D25C4 /* findMatching5.mp3 */,
 				4E92D6202002019800C7B6BA /* blockIsSet.m4a */,
 				4EC2C54D2001D224007E44FD /* gameOver.wav */,
 				4EC2C5231FFABDCE007E44FD /* blockIsNotSet.wav */,
@@ -664,6 +678,7 @@
 				4E3F6D421FEB9C9E00C9DA84 /* GameScene.swift */,
 				4E97BEE520298FAC00BAF5E3 /* TutorialScene.swift */,
 				4E3F6D4E1FEB9C9E00C9DA84 /* Info.plist */,
+				4EE565082108E521000FBD57 /* InfoPlist.strings */,
 				4E17C53920F69E260035C0B9 /* GoogleService-Info.plist */,
 				4E3F6D5C1FEE532F00C9DA84 /* Models */,
 				4E3F6D5F1FEE537200C9DA84 /* Misc */,
@@ -708,6 +723,7 @@
 			children = (
 				4E1EE25F1FF6BF650091F7ED /* Sounds */,
 				4E3F6D581FEDB2B200C9DA84 /* Array2D.swift */,
+				4EE5651E210986D4000FBD57 /* SetArray2D.swift */,
 				4E3F6D541FEB9DEE00C9DA84 /* DefaultValues.swift */,
 				4E97BEE32022EF6C00BAF5E3 /* StoreReviewHelper.swift */,
 				4E1EE2641FF7628D0091F7ED /* MyUtils.swift */,
@@ -724,6 +740,7 @@
 				4E12D70320F6B5DD00437487 /* ImageAssets.xcassets */,
 				4E3F6D461FEB9C9E00C9DA84 /* Main.storyboard */,
 				4E3F6D4B1FEB9C9E00C9DA84 /* LaunchScreen.storyboard */,
+				4EE565002108E3D8000FBD57 /* Localizable.strings */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -1638,6 +1655,7 @@
 				4E3F6D361FEB9C9E00C9DA84 /* Frameworks */,
 				4E3F6D371FEB9C9E00C9DA84 /* Resources */,
 				6CFDF1B22613A83F21209E34 /* [CP] Embed Pods Frameworks */,
+				EAF16C063516922EEB696B69 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1682,6 +1700,12 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
+				fr,
+				ja,
+				ru,
+				uk,
 			);
 			mainGroup = 4E3F6D301FEB9C9E00C9DA84;
 			productRefGroup = 4E3F6D3A1FEB9C9E00C9DA84 /* Products */;
@@ -1926,29 +1950,25 @@
 				4EE32A0E20F002AF0013F632 /* Merge_matching_7.wav in Resources */,
 				4EE32A0C20F002AF0013F632 /* Merge_matching_5.wav in Resources */,
 				4EC4B97D20F3298900210FB6 /* Fantastic.wav in Resources */,
-				4ECE165920108796009D25C4 /* findMatching5.mp3 in Resources */,
 				4E17C53A20F69E260035C0B9 /* GoogleService-Info.plist in Resources */,
 				4EE32A0F20F002AF0013F632 /* Merge_matching_9.wav in Resources */,
 				4EE32A1120F002AF0013F632 /* Merge_matching_1.wav in Resources */,
 				4EC2C5381FFF60B5007E44FD /* newBestScore.wav in Resources */,
 				4E383BC620F2ECCB006D6094 /* Nice.wav in Resources */,
 				4E3F6D481FEB9C9E00C9DA84 /* Main.storyboard in Resources */,
-				4ECE165A20108796009D25C4 /* findMatching3.mp3 in Resources */,
 				4EE32A1220F002AF0013F632 /* Merge_matching_8.wav in Resources */,
 				4EC2C5241FFABDCE007E44FD /* blockIsNotSet.wav in Resources */,
 				4EC2C54E2001D224007E44FD /* gameOver.wav in Resources */,
 				4EE32A0B20F002AF0013F632 /* Merge_matching_4.wav in Resources */,
-				4E74B54A20FC48F700737786 /* gameStart.mp3 in Resources */,
+				4EE564FE2108E3D8000FBD57 /* Localizable.strings in Resources */,
 				4E3F6D4D1FEB9C9E00C9DA84 /* LaunchScreen.storyboard in Resources */,
 				4EC2C5201FFABB3B007E44FD /* addBottomBlocks.wav in Resources */,
 				4E92D6212002019800C7B6BA /* blockIsSet.m4a in Resources */,
 				4E383BC920F2ECCB006D6094 /* Aha.wav in Resources */,
-				4EC2C55A2001FDA7007E44FD /* findMatching1.wav in Resources */,
 				4E12D70420F6B5DD00437487 /* ImageAssets.xcassets in Resources */,
+				4EE565062108E521000FBD57 /* InfoPlist.strings in Resources */,
 				4EE32A1020F002AF0013F632 /* Merge_matching_2.wav in Resources */,
-				4ECE165B20108796009D25C4 /* findMatching2.mp3 in Resources */,
 				4EE32A0A20F002AF0013F632 /* Merge_matching_3.wav in Resources */,
-				4ECE165C20108796009D25C4 /* findMatching4.mp3 in Resources */,
 				4EE32A0D20F002AF0013F632 /* Merge_matching_6.wav in Resources */,
 				4EC2C52C1FFAFDFB007E44FD /* buttonPressed.wav in Resources */,
 				4E383BC820F2ECCB006D6094 /* Woohoo.wav in Resources */,
@@ -1983,17 +2003,35 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Squares/Pods-Squares-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Squares/Pods-Squares-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAF16C063516922EEB696B69 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Squares/Pods-Squares-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInAppMessaging/InAppMessagingResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/InAppMessagingResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Squares/Pods-Squares-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2017,6 +2055,7 @@
 				4E9AABF120EDEA65000292E7 /* DismissButtonNode.swift in Sources */,
 				4E8EA9422017147B00AC2955 /* PlayButtonNode.swift in Sources */,
 				4E3F6D451FEB9C9E00C9DA84 /* GameViewController.swift in Sources */,
+				4EE5651F210986D4000FBD57 /* SetArray2D.swift in Sources */,
 				4E3F6D3D1FEB9C9E00C9DA84 /* AppDelegate.swift in Sources */,
 				4EC2C52E1FFB0C1B007E44FD /* RecallButtonNode.swift in Sources */,
 				4EC2C5361FFF5EC7007E44FD /* NewBestRibbonNode.swift in Sources */,
@@ -2049,6 +2088,12 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E3F6D471FEB9C9E00C9DA84 /* Base */,
+				4EE5650C2108E674000FBD57 /* zh-Hans */,
+				4EE565122109108C000FBD57 /* zh-Hant */,
+				4EE5651621091145000FBD57 /* fr */,
+				4EE5651A21092E8F000FBD57 /* ja */,
+				4E1F8974210AA6650059F16F /* ru */,
+				4E1F8978210AA69D0059F16F /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2057,6 +2102,12 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E3F6D4C1FEB9C9E00C9DA84 /* Base */,
+				4EE5650D2108E675000FBD57 /* zh-Hans */,
+				4EE565132109108D000FBD57 /* zh-Hant */,
+				4EE5651721091146000FBD57 /* fr */,
+				4EE5651B21092E90000FBD57 /* ja */,
+				4E1F8975210AA6650059F16F /* ru */,
+				4E1F8979210AA69E0059F16F /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2429,6 +2480,36 @@
 			name = NativeContentAdView.xib;
 			sourceTree = "<group>";
 		};
+		4EE565002108E3D8000FBD57 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EE565022108E478000FBD57 /* Base */,
+				4EE565102108E6AF000FBD57 /* en */,
+				4EE565112108E6B2000FBD57 /* zh-Hans */,
+				4EE565142109108D000FBD57 /* zh-Hant */,
+				4EE5651921091147000FBD57 /* fr */,
+				4EE5651D21092E91000FBD57 /* ja */,
+				4E1F8977210AA6670059F16F /* ru */,
+				4E1F897B210AA6A00059F16F /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		4EE565082108E521000FBD57 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EE565072108E521000FBD57 /* en */,
+				4EE5650E2108E6A7000FBD57 /* Base */,
+				4EE5650F2108E6AA000FBD57 /* zh-Hans */,
+				4EE56515210910BF000FBD57 /* zh-Hant */,
+				4EE5651821091146000FBD57 /* fr */,
+				4EE5651C21092E90000FBD57 /* ja */,
+				4E1F8976210AA6660059F16F /* ru */,
+				4E1F897A210AA69F0059F16F /* uk */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2436,6 +2517,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2495,6 +2577,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

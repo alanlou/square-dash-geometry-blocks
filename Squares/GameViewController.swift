@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GoogleMobileAds
+import Firebase
 import GameKit
 
 class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate, GADInterstitialDelegate {
@@ -44,9 +45,10 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
         super.viewDidLoad()
         
         let noAdsPurchased = UserDefaults.standard.bool(forKey: "noAdsPurchased")
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
-        // noAds NOT purchased
-        if !noAdsPurchased {
+        // noAds NOT purchased, not first time
+        if !noAdsPurchased, launchedBefore {
             
             // Set up banner with desired ad size
             // Smart Banner: Screen width x 32|50|90
@@ -85,6 +87,20 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
         
         // For Gamecenter
         authenticateLocalPlayer()
+        
+        //Register for the applicationWillResignActive anywhere in the app
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationWillResignActive),
+                                               name: NSNotification.Name.UIApplicationWillResignActive,
+                                               object: nil)
+
+    }
+    
+    @objc func applicationWillResignActive(notification: NSNotification) {
+        if let gameScene = skView.scene as? GameScene {
+            gameScene.moveBackAllBottomBlocks()
+            gameScene.saveBoard()
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -97,7 +113,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
             let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
             // first time launching
             if !launchedBefore  {
-                print("WELCOME! FIRST TIME LAUNCHING!")
+//                print("WELCOME! FIRST TIME LAUNCHING!")
                 /*** initialize Main ***/
                 let scene = TutorialScene(size: self.view.bounds.size) // match the device's size
                 // Set the scale mode to scale to fit the window
@@ -110,6 +126,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
                     //skView.showsNodeCount = true
                     skView.ignoresSiblingOrder = true
                     
+                    UserDefaults.standard.set(false, forKey: "gameInProgress")
                     UserDefaults.standard.set(false, forKey: "justOpenApp")
                     UserDefaults.standard.set(false, forKey: "noAdsPurchased")
                     UserDefaults.standard.set(true, forKey: "launchedBefore")
@@ -125,8 +142,33 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
                 }
             }
             
-            
             /*** initialize Main ***/
+            let isGameInProgress = UserDefaults.standard.bool(forKey: "gameInProgress")
+            // No game in progress -> go to game scene
+            if isGameInProgress {
+                let scene = GameScene(size: self.view.bounds.size) // match the device's size
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+                if let view = self.view as! SKView? {
+                    // present game scene
+                    skView = view
+                    //skView.showsFPS = true
+                    //skView.showsNodeCount = true
+                    skView.ignoresSiblingOrder = true
+                    
+                    UserDefaults.standard.set(false, forKey: "justOpenApp")
+                    
+                    scene.isAdReady = self.isAdReady
+                    skView.presentScene(scene)
+                    
+                    // view fade in
+                    scene.animateNodesFadeIn()
+                }
+                return
+            }
+            
+            // No game in progress -> go to menu scene
             let scene = MenuScene(size: self.view.bounds.size) // match the device's size
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
@@ -401,6 +443,9 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
     /// Tells the delegate the interstitial had been animated off the screen.
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
 //        print("interstitialDidDismissScreen")
+        
+        // Log Event
+        Analytics.logEvent("ad_gameend", parameters: [:])
         interstitial = createAndLoadInterstitial()
     }
     
@@ -417,14 +462,20 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
             
             // Case 1. display alert view for like
             if message == "like" {
-                let alertController = UIAlertController(title: "Enjoy Square Dash?", message: "Please rate the game to support us. Thank you!", preferredStyle: .alert)
-                let actionYes = UIAlertAction(title: "Yes, I like it!", style: .default) {
+                
+                let titleText = NSLocalizedString("Enjoy Square Dash?", comment: "")
+                let messageText = NSLocalizedString("Please rate the game to support us. Thank you!", comment: "")
+                let yesText = NSLocalizedString("Yes, I like it!", comment: "")
+                let noText = NSLocalizedString("No, thanks.", comment: "")
+                
+                let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+                let actionYes = UIAlertAction(title: yesText, style: .default) {
                     UIAlertAction in
                     self.rateApp(appId: "id1348195923") { success in
 //                        print("RateApp \(success)")
                     }
                 }
-                let actionNo = UIAlertAction(title: "No, thanks.", style: .default) {
+                let actionNo = UIAlertAction(title: noText, style: .cancel) {
                     UIAlertAction in
                 }
 
@@ -436,8 +487,16 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
             
             // Case 2. display alert view for tutorial
             if message == "tutorial" {
-                let alertController = UIAlertController(title: "How to play", message: "Do you want to follow the tutorial?", preferredStyle: .alert)
-                let actionYes = UIAlertAction(title: "Yes", style: .default) {
+                // localization
+                let alertTileText = NSLocalizedString("How to Play", comment: "")
+                let alertMessageText = NSLocalizedString("Do you want to follow the tutorial?", comment: "")
+                let alertYesText = NSLocalizedString("Yes", comment: "")
+                let alertCancelText = NSLocalizedString("Cancel", comment: "")
+                
+                let alertController = UIAlertController(title: alertTileText,
+                                                        message: alertMessageText,
+                                                        preferredStyle: .alert)
+                let actionYes = UIAlertAction(title: alertYesText, style: .default) {
                     UIAlertAction in
                     if let view = self.view as! SKView? {
                         let scene = TutorialScene(size: self.view.bounds.size)
@@ -446,7 +505,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
                         view.presentScene(scene, transition: transition)
                     }
                 }
-                let actionNo = UIAlertAction(title: "Cancel", style: .cancel) {
+                let actionNo = UIAlertAction(title: alertCancelText, style: .cancel) {
                     UIAlertAction in
 //                    NSLog("OK Pressed")
                 }
@@ -464,8 +523,13 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADB
             
             // Case 4. iap failed
             if message == "iapfail" {
-                let alertController = UIAlertController(title: "Purchase Failed", message: "Ooops, something went wrong. Please try again later. Thank you!", preferredStyle: .alert)
-                let actionCancel = UIAlertAction(title: "Cancel", style: .cancel) {
+                
+                let titleText = NSLocalizedString("Purchase Failed", comment: "")
+                let messageText = NSLocalizedString("Ooops, something went wrong. Please try again later. Thank you!", comment: "")
+                let cancelText = NSLocalizedString("Cancel", comment: "")
+                
+                let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+                let actionCancel = UIAlertAction(title: cancelText, style: .cancel) {
                     UIAlertAction in
 //                    NSLog("Cancel Pressed")
                 }

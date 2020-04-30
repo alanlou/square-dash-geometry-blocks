@@ -13,10 +13,10 @@ protocol FourBlockNodeDelegate: NSObjectProtocol {
     func FourBlockWasSet(sender: FourBlockNode)
 }
 
-enum FourBlockTypes {
+enum FourBlockTypes: Int {
     // x x
     // x x
-    case Type1
+    case Type1 = 0
     // x
     // x x x
     case Type2
@@ -109,6 +109,7 @@ class FourBlockNode: SKSpriteNode {
     let cellSpacing: CGFloat = 3.0
     let tileWidth: CGFloat
     let blockColorIndex: UInt32
+    let bottomIndex: UInt32
     let initialPosition: CGPoint
     let blockOffset: CGFloat
     let touchYOffset: CGFloat
@@ -128,7 +129,7 @@ class FourBlockNode: SKSpriteNode {
     weak var blockDelegate: FourBlockNodeDelegate!
     
     //MARK:- Initialization
-    init(width: CGFloat, colorIndex: UInt32, position: CGPoint) {
+    init(width: CGFloat, colorIndex: UInt32, position: CGPoint, bottomIndex: UInt32) {
         
         // set up instance variable
         blockType = FourBlockTypes.randomBlockType()
@@ -144,6 +145,7 @@ class FourBlockNode: SKSpriteNode {
         block3 = BlockCellNode(colorIndex: colorIndex)
         block4 = BlockCellNode(colorIndex: colorIndex)
         blockColorIndex = colorIndex
+        self.bottomIndex = bottomIndex
         
         super.init(texture: nil, color: .clear, size: CGSize(width:width*4, height:width*4))
         self.name = "fourblock"
@@ -270,8 +272,162 @@ class FourBlockNode: SKSpriteNode {
         self.addChild(block4)
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.tileWidth, forKey: "width")
+        coder.encode(self.blockColorIndex, forKey: "colorIndex")
+        coder.encode(self.initialPosition, forKey: "position")
+        coder.encode(self.blockType.rawValue, forKey:"blockType")
+        coder.encode(self.bottomIndex, forKey: "bottomIndex")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        let width = aDecoder.decodeObject(forKey: "width") as! CGFloat
+        let colorIndex = aDecoder.decodeObject(forKey: "colorIndex") as! UInt32
+        let position = aDecoder.decodeCGPoint(forKey: "position")
+        let savedBlockType = FourBlockTypes(rawValue: aDecoder.decodeInteger(forKey:"blockType"))
+        let bottomIndex = aDecoder.decodeObject(forKey: "bottomIndex") as! UInt32
+        
+        // set up instance variable
+        blockType = savedBlockType!
+        
+        tileWidth = width
+        initialPosition = position
+        
+        blockOffset = width
+        touchYOffset = tileWidth/2 + 25
+        
+        block1 = BlockCellNode(colorIndex: colorIndex)
+        block2 = BlockCellNode(colorIndex: colorIndex)
+        block3 = BlockCellNode(colorIndex: colorIndex)
+        block4 = BlockCellNode(colorIndex: colorIndex)
+        blockColorIndex = colorIndex
+        self.bottomIndex = bottomIndex
+        
+        super.init(texture: nil, color: .clear, size: CGSize(width:width*4, height:width*4))
+        
+        self.name = "fourblock"
+        self.zPosition = 100
+        self.anchorPoint = CGPoint(x:0.5, y:0.5+blockOffset/self.size.height)
+        
+        // set up options
+        isUserInteractionEnabled = true
+        
+        // add block cell nodes
+        block1.size = CGSize(width: tileWidth, height: tileWidth)
+        block2.size = CGSize(width: tileWidth, height: tileWidth)
+        block3.size = CGSize(width: tileWidth, height: tileWidth)
+        block4.size = CGSize(width: tileWidth, height: tileWidth)
+        
+        switch blockType {
+            // x x
+        // x x
+        case .Type1:
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block3.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+            block4.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+            // x
+        // x x x
+        case .Type2:
+            block1.position = CGPoint(x:-tileWidth-cellSpacing, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:-tileWidth-cellSpacing, y:-tileWidth/2-cellSpacing/2)
+            block3.position = CGPoint(x:0.0, y:-tileWidth/2-cellSpacing/2)
+            block4.position = CGPoint(x:tileWidth+cellSpacing, y:-tileWidth/2-cellSpacing/2)
+            // x x
+            // x
+        // x
+        case .Type3:
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth+cellSpacing)
+            block2.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth+cellSpacing)
+            block3.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:0.0)
+            block4.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth-cellSpacing)
+            // x x x
+        //     x
+        case .Type4:
+            block1.position = CGPoint(x:-tileWidth-cellSpacing, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:0.0, y:tileWidth/2+cellSpacing/2)
+            block3.position = CGPoint(x:tileWidth+cellSpacing, y:tileWidth/2+cellSpacing/2)
+            block4.position = CGPoint(x:tileWidth+cellSpacing, y:-tileWidth/2-cellSpacing/2)
+            //   x
+            //   x
+        // x x
+        case .Type5:
+            block1.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth+cellSpacing)
+            block2.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:0.0)
+            block3.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth-cellSpacing)
+            block4.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth-cellSpacing)
+            //     x
+        // x x x
+        case .Type6:
+            block1.position = CGPoint(x:tileWidth+cellSpacing, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:-tileWidth-cellSpacing, y:-tileWidth/2-cellSpacing/2)
+            block3.position = CGPoint(x:0.0, y:-tileWidth/2-cellSpacing/2)
+            block4.position = CGPoint(x:tileWidth+cellSpacing, y:-tileWidth/2-cellSpacing/2)
+            // x
+            // x
+        // x x
+        case .Type7:
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth+cellSpacing)
+            block2.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:0.0)
+            block3.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth-cellSpacing)
+            block4.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth-cellSpacing)
+            // x x x
+        // x
+        case .Type8:
+            block1.position = CGPoint(x:-tileWidth-cellSpacing, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:0.0, y:tileWidth/2+cellSpacing/2)
+            block3.position = CGPoint(x:tileWidth+cellSpacing, y:tileWidth/2+cellSpacing/2)
+            block4.position = CGPoint(x:-tileWidth-cellSpacing, y:-tileWidth/2-cellSpacing/2)
+            // x x
+            //   x
+        //   x
+        case .Type9:
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth+cellSpacing)
+            block2.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth+cellSpacing)
+            block3.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:0.0)
+            block4.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth-cellSpacing)
+            //   x
+        // x x x
+        case .Type10:
+            block1.position = CGPoint(x:0.0, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:-tileWidth-cellSpacing, y:-tileWidth/2-cellSpacing/2)
+            block3.position = CGPoint(x:0.0, y:-tileWidth/2-cellSpacing/2)
+            block4.position = CGPoint(x:tileWidth+cellSpacing, y:-tileWidth/2-cellSpacing/2)
+            // x
+            // x x
+        // x
+        case .Type11:
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth+cellSpacing)
+            block2.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:0.0)
+            block3.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:0.0)
+            block4.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth-cellSpacing)
+            // x x x
+        //   x
+        case .Type12:
+            block1.position = CGPoint(x:-tileWidth-cellSpacing, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:0.0, y:tileWidth/2+cellSpacing/2)
+            block3.position = CGPoint(x:tileWidth+cellSpacing, y:tileWidth/2+cellSpacing/2)
+            block4.position = CGPoint(x:0.0, y:-tileWidth/2-cellSpacing/2)
+            //   x
+            // x x
+        //   x
+        case .Type13:
+            block1.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth+cellSpacing)
+            block2.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:0.0)
+            block3.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:0.0)
+            block4.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth-cellSpacing)
+        }
+        
+        block1InitialPos = block1.position
+        block2InitialPos = block2.position
+        block3InitialPos = block3.position
+        block4InitialPos = block4.position
+        
+        self.addChild(block1)
+        self.addChild(block2)
+        self.addChild(block3)
+        self.addChild(block4)
     }
     
     //MARK:- Helper Functions

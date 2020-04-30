@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  Squares
+
+  Created by Alan Lou on 7/25/18.
+  Copyright © 2018 Rawwr Studios. All rights reserved.
+*/
+
+/* GameViewController */
+"How to Play"  = "遊び方";
+"Do you want to follow the tutorial?" = "チュートリアルを観る？";
+"Yes" = "はい";
+"Cancel" = "キャンセル";
+"Skip" = "スキップ";
+
+/* Tutorial Scene */
+"Welcome to Square Dash!" = "スクエア・ダッシュへようこそ！";
+"Tap to Start Tutorial" = "タッチしてチュートリアルを始める";
+"Place squares on the board." = "ボードに四角を載せて下さい";
+"Good Job! Keep it going." = "素晴らしい！このペースで続けましょう";
+"Place squares in each 3x3 section." = "３かけ３の部分に四角を載せて下さい";
+"And match color across sections to score." = "そして、色合わせで点が取れます";
+"Nice! Now try vertically." = "ナイス！今回、縦にしてみよう";
+"Remember to match colors." = "色合わせを、忘れずに";
+"Awesome! Next, Diagonal." = "すごい！こんどは、斜め";
+"Fantastic!" = "素晴らしい！";
+"Finally, fill a 3x3 section." = "最後に、３かけ３の部分を完成しましょう";
+"Of course, match colors." = "もちろん、色も合せて";
+"Great job! You are ready now!" = "良く出来ました！もう、準備満タンです！";
+"Tap to Finish Tutorial" = "タッチでチュートリアル終了";
+
+/* Rate App */
+"Enjoy Square Dash?" = "スクエア・ダッシュ、楽しかった？";
+"Please rate the game to support us. Thank you!" = "ゲームをランクして、私達を応援して下さい";
+"Yes, I like it!" = "はい、喜んで！";
+"No, thanks." = "いいえ";
+
+/* IAP */
+"Purchase Failed" = "購入が失敗しました";
+"Ooops, something went wrong. Please try again later. Thank you!" = "すみませんが、エラーが発生しました。後程やり直してください";

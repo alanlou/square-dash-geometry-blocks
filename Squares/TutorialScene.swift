@@ -19,8 +19,8 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     var boardArray = Array2D<UInt32>(columns: 9, rows: 9)
     
     // nodes
-    var topMessageNode = MessageNode(message: "Welcome to Square Dash!")
-    var bottomMessageNode = MessageNode(message: "Tap to Start Tutorial")
+    var topMessageNode: MessageNode
+    var bottomMessageNode: MessageNode
     
     // numbers
     let NumColumns: Int = 9
@@ -34,10 +34,11 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     let boardSpacing: CGFloat
     let sectionSpacing: CGFloat
     let cellSpacing: CGFloat
-    let boardRect: CGRect!
     let boardInset: CGFloat
+    var boardRect: CGRect!
     var safeAreaRect: CGRect!
-    let tileWidth: CGFloat
+    var tileWidth: CGFloat!
+    var bottomSafeSets: CGFloat!
     var numMatchingThisRound: Int = 0
     var bottomBlockArray = [SKSpriteNode?](repeating: nil, count: 3)
     
@@ -63,15 +64,23 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     
     // sharing actions
     let findMatchingSound1: SKAction = SKAction.playSoundFileNamed(
-        "findMatching1.wav", waitForCompletion: false)
+        "Merge_matching_1.wav", waitForCompletion: false)
     let findMatchingSound2: SKAction = SKAction.playSoundFileNamed(
-        "findMatching2.mp3", waitForCompletion: false)
+        "Merge_matching_2.wav", waitForCompletion: false)
     let findMatchingSound3: SKAction = SKAction.playSoundFileNamed(
-        "findMatching3.mp3", waitForCompletion: false)
+        "Merge_matching_3.wav", waitForCompletion: false)
     let findMatchingSound4: SKAction = SKAction.playSoundFileNamed(
-        "findMatching4.mp3", waitForCompletion: false)
+        "Merge_matching_4.wav", waitForCompletion: false)
     let findMatchingSound5: SKAction = SKAction.playSoundFileNamed(
-        "findMatching5.mp3", waitForCompletion: false)
+        "Merge_matching_5.wav", waitForCompletion: false)
+    let findMatchingSound6: SKAction = SKAction.playSoundFileNamed(
+        "Merge_matching_6.wav", waitForCompletion: false)
+    let findMatchingSound7: SKAction = SKAction.playSoundFileNamed(
+        "Merge_matching_7.wav", waitForCompletion: false)
+    let findMatchingSound8: SKAction = SKAction.playSoundFileNamed(
+        "Merge_matching_8.wav", waitForCompletion: false)
+    let findMatchingSound9: SKAction = SKAction.playSoundFileNamed(
+        "Merge_matching_9.wav", waitForCompletion: false)
     
     let addBottomBlocksSound: SKAction = SKAction.playSoundFileNamed(
         "addBottomBlocks.wav", waitForCompletion: false)
@@ -89,9 +98,15 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         boardSpacing = boardWidth/15.0
         sectionSpacing = boardWidth/20.0
         cellSpacing = boardWidth/150.0
-        boardRect = CGRect(x:0, y:size.height/2-size.width/2, width:boardWidth, height:boardWidth)
         boardInset = (size.width - boardWidth)/2.0
-        tileWidth = (boardRect.size.width - boardSpacing*2.0 - sectionSpacing*2.0 - cellSpacing*6.0)/9.0
+        
+        // set texts
+        let topMessageText = NSLocalizedString("Welcome to Square Dash!", comment: "")
+        let bottomMessageText = NSLocalizedString("Tap to Start Tutorial", comment: "")
+        
+        topMessageNode = MessageNode(message: topMessageText)
+        bottomMessageNode = MessageNode(message: bottomMessageText)
+        
         super.init(size: size)
     }
     
@@ -110,20 +125,31 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             safeSets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         }
         safeAreaRect = CGRect(x: safeSets.left,
-                              y: safeSets.bottom,
+                              y: 0.0,
                               width: size.width-safeSets.right-safeSets.left,
                               height: size.height-safeSets.top-safeSets.bottom-adsHeight)
+        //debugDrawArea(rect: safeAreaRect)
+        
+        // define board area
+        let boardWidth = min(safeAreaRect.width, safeAreaRect.height*0.6)
+        boardRect = CGRect(x:0, y:(safeAreaRect.height-boardWidth)*0.5, width:boardWidth, height:boardWidth)
+        tileWidth = (CGFloat(boardRect.size.width) - boardSpacing*2.0 - sectionSpacing*2.0 - cellSpacing*6.0)/9.0
+        //debugDrawArea(rect: boardRect)
+        
         
         /*** set up game layer ***/
+        bottomSafeSets = safeSets.bottom
+        gameLayer.position = CGPoint(x: 0.0, y: bottomSafeSets)
         self.addChild(gameLayer)
         
         /*** set up board layer ***/
-        boardLayer.position = CGPoint(x: boardInset+boardRect.minX, y: boardInset+boardRect.minY)
+        boardLayer.position = CGPoint(x: (safeAreaRect.width-boardWidth)*0.5, y: boardRect.minY-bottomSafeSets)
         boardLayer.name = "boardlayer"
         gameLayer.addChild(boardLayer)
         
-        /*** add tiles ***/
+        /*** add tiles and bottom blocks ***/
         addInitialTiles()
+//        addBottomBlocks()
         
         /*** set up skip node ***/
         let skipButtonNode = SkipButtonNode(color: ColorCategory.getBestScoreFontColor(), width: (safeAreaRect.height/2-boardRect.size.height/2)*0.3)
@@ -132,7 +158,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         gameLayer.addChild(skipButtonNode)
         
         /*** set up top message node ***/
-        let topMessageNodeWidth = safeAreaRect.width*0.75
+        let topMessageNodeWidth = safeAreaRect.width*0.63
         let topMessageNodeHeight = (safeAreaRect.height/2-boardRect.size.height/2)*0.3
         let topMessageNodeFrame = CGRect(x: safeAreaRect.width/2-topMessageNodeWidth/2, y: (safeAreaRect.maxY + boardRect.maxY)/2-topMessageNodeHeight/2+boardSpacing/2-topMessageNodeHeight*0.8, width: topMessageNodeWidth, height: topMessageNodeHeight)
         topMessageNode.adjustLabelFontSizeToFitRect(rect: topMessageNodeFrame)
@@ -243,52 +269,57 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         
         // add bottom blocks
         if progressIndex == 1 {
-            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY), bottomIndex:0)
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
             bottomBlock1.name = "bottomBlock0"
         } else if progressIndex == 4 && messageIndex > 24 {
-            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY), bottomIndex:0)
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
             bottomBlock1.name = "bottomBlock0"
         } else {
-            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: randomIndex, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: randomIndex, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY), bottomIndex:0)
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
             bottomBlock1.name = "bottomBlock0"
         }
         
         if progressIndex == 1 {
-            let bottomBlock2 = TwoBlockNode(width: tileWidth, colorIndex: 2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = TwoBlockNode(width: tileWidth, colorIndex: 2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY), bottomIndex:1)
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
             bottomBlock2.name = "bottomBlock1"
         } else if progressIndex == 4 && messageIndex <= 24 {
-            let bottomBlock2 = TwoBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = TwoBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY), bottomIndex:1)
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
             bottomBlock2.name = "bottomBlock1"
         } else {
-            let bottomBlock2 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = OneBlockNode(width: tileWidth, colorIndex: 1, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY), bottomIndex:1)
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
             bottomBlock2.name = "bottomBlock1"
         }
         
         let randomIndex2 = UInt32(arc4random_uniform(maxIndex)) + 1
-        if progressIndex < 4 {
-            let bottomBlock3 = ThreeBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+        if progressIndex == 1 {
+            let bottomBlock3 = TwoBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY), bottomIndex:2)
+            addSingleBottomBlock(bottomBlock: bottomBlock3)
+            bottomBlockArray[2] = bottomBlock3
+            bottomBlock3.name = "bottomBlock2"
+        } else if progressIndex < 4 {
+            let bottomBlock3 = ThreeBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY), bottomIndex:2)
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
             bottomBlock3.name = "bottomBlock2"
         } else if progressIndex == 4 && messageIndex <= 24 {
-            let bottomBlock3 = TwoBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = TwoBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY), bottomIndex:2)
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
             bottomBlock3.name = "bottomBlock2"
         } else {
-            let bottomBlock3 = OneBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = OneBlockNode(width: tileWidth, colorIndex: randomIndex2, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY), bottomIndex:2)
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
             bottomBlock3.name = "bottomBlock2"
@@ -324,7 +355,6 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         bottomBlock.run(SKAction.sequence([scaleUp, scaleDown]))
     }
     
-    
     //MARK:- Game Logic Handling
     func pointInBoardLayerFor(column: Int, row: Int) -> CGPoint {
         var xCoord = CGFloat(0.0)
@@ -334,9 +364,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         case (0...2):
             xCoord = CGFloat(column)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing
         case (3...5):
-            xCoord = CGFloat(column)*(tileWidth+cellSpacing) - cellSpacing + tileWidth/2 + boardSpacing + sectionSpacing
+            xCoord = CGFloat(column)*(tileWidth+cellSpacing) - cellSpacing + tileWidth*CGFloat(0.5) + boardSpacing + sectionSpacing
         case (6...8):
-            xCoord = CGFloat(column)*(tileWidth+cellSpacing) - cellSpacing*CGFloat(2.0) + tileWidth/2 + boardSpacing + sectionSpacing*CGFloat(2.0)
+            xCoord = CGFloat(column)*(tileWidth+cellSpacing) - cellSpacing*CGFloat(2.0) + tileWidth*CGFloat(0.5) + boardSpacing + sectionSpacing*CGFloat(2.0)
         default: break
         }
         
@@ -344,14 +374,17 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         case (0...2):
             yCoord = CGFloat(row)*(tileWidth+cellSpacing) + tileWidth/2 + boardSpacing
         case (3...5):
-            yCoord = CGFloat(row)*(tileWidth+cellSpacing) - cellSpacing + tileWidth/2 + boardSpacing + sectionSpacing
+            yCoord = CGFloat(row)*(tileWidth+cellSpacing) - cellSpacing + tileWidth*0.5 + boardSpacing + sectionSpacing
         case (6...8):
-            yCoord = CGFloat(row)*(tileWidth+cellSpacing) - cellSpacing*CGFloat(2.0) + tileWidth/2 + boardSpacing + sectionSpacing*CGFloat(2.0)
+            yCoord = CGFloat(row)*(tileWidth+cellSpacing) - cellSpacing*CGFloat(2.0) + tileWidth*CGFloat(0.5) + boardSpacing + sectionSpacing*CGFloat(2.0)
         default: break
         }
         
+        yCoord = yCoord+bottomSafeSets
+        
         return CGPoint(x: xCoord, y: yCoord)
     }
+    
     
     func rowAndColFor(position: CGPoint) -> (Int?, Int?) {
         let xPos = position.x
@@ -451,7 +484,7 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         }
         
         // initiate section color array
-        var sectionArray = Array2D<Set<UInt32>>(columns: 3, rows: 3)
+        var sectionArray = SetArray2D<Set<UInt32>>(columns: 3, rows: 3)
         for secRow in 0..<3 {
             for secCol in 0..<3 {
                 sectionArray[secCol,secRow] = Set<UInt32>()
@@ -633,8 +666,16 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     self.run(findMatchingSound3)
                 case 4:
                     self.run(findMatchingSound4)
-                default:
+                case 5:
                     self.run(findMatchingSound5)
+                case 6:
+                    self.run(findMatchingSound6)
+                case 7:
+                    self.run(findMatchingSound7)
+                case 8:
+                    self.run(findMatchingSound8)
+                default:
+                    self.run(findMatchingSound9)
                 }
             }
             
@@ -694,7 +735,8 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         
         // finished 1st task
         if progressIndex == 1 {
-            topMessageNode.setText(to: "Nice! Now try vertically.")
+            let topMessageText = NSLocalizedString("Nice! Now try vertically.", comment: "")
+            topMessageNode.setText(to: topMessageText)
             //topMessageNode.adjustLabelFontSizeToFitRect(rect: topMessageNode.frameRect)
             addRemainingTiles()
             let wait = SKAction.wait(forDuration: 1.0)
@@ -728,7 +770,8 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         }
         
         if progressIndex == 2 {
-            topMessageNode.setText(to: "Awesome! Next, Diagonal.")
+            let topMessageText = NSLocalizedString("Awesome! Next, Diagonal.", comment: "")
+            topMessageNode.setText(to: topMessageText)
             //topMessageNode.adjustLabelFontSizeToFitRect(rect: topMessageNode.frameRect)
             progressIndex = 3
             messageIndex = 15
@@ -756,7 +799,8 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         
         // finished 3rd task
         if progressIndex == 3 {
-            topMessageNode.setText(to: "Fantastic!")
+            let topMessageText = NSLocalizedString("Fantastic!", comment: "")
+            topMessageNode.setText(to: topMessageText)
             let wait = SKAction.wait(forDuration: 1.3)
             gameLayer.run(wait, completion: {[weak self] in
                 self?.progressIndex = 4
@@ -787,7 +831,8 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         
         // finished 3rd task
         if progressIndex == 3 {
-            topMessageNode.setText(to: "Fantastic!")
+            let topMessageText = NSLocalizedString("Fantastic!", comment: "")
+            topMessageNode.setText(to: topMessageText)
             let wait = SKAction.wait(forDuration: 1.3)
             gameLayer.run(wait, completion: {[weak self] in
                 self?.progressIndex = 4
@@ -827,9 +872,12 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                 bottomBlock?.run(fadeOut)
             }
             
-            topMessageNode.setText(to: "Great job! You are ready now!")
+            let topMessageText = NSLocalizedString("Great job! You are ready now!", comment: "")
+            topMessageNode.setText(to: topMessageText)
             //topMessageNode.adjustLabelFontSizeToFitRect(rect: topMessageNode.frameRect)
-            bottomMessageNode.setText(to: "Tap to Finish Tutorial")
+            
+            let bottomMessageText = NSLocalizedString("Tap to Finish Tutorial", comment: "")
+            bottomMessageNode.setText(to: bottomMessageText)
             messageIndex = messageIndex+1
             progressIndex = 5
             
@@ -898,13 +946,15 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
             if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
                 sender.setNodeAt(positionInScreen: nil)
                 // run sound
-                self.run(blockIsNotSetSound)
+                if let gameSoundOn = gameSoundOn, gameSoundOn {
+                    self.run(blockIsNotSetSound)
+                }
                 return
             }
             
             let positionInBoard = pointInBoardLayerFor(column: colNum, row: rowNum)
             let positionInScreen = CGPoint(x: positionInBoard.x + boardLayer.position.x - gameLayer.position.x,
-                                           y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y)
+                                           y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y + bottomSafeSets)
             sender.setNodeAt(positionInScreen: positionInScreen)
             bottomBlockNum = bottomBlockNum-1
             
@@ -916,7 +966,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
         } else {
             /*** put the block back to bottom ***/
             // run sound
-            self.run(blockIsNotSetSound)
+            if let gameSoundOn = gameSoundOn, gameSoundOn {
+                self.run(blockIsNotSetSound)
+            }
             sender.setNodeAt(positionInScreen: nil)
         }
     }
@@ -962,7 +1014,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                 // already a block in place. put back
                 if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -972,7 +1026,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     secRow = Int(rowNum/3)
                 } else if secRow != Int(rowNum/3) {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -980,21 +1036,26 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     secCol = Int(colNum/3)
                 } else if secCol != Int(colNum/3) {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
                 
+                
                 let positionInBoard = pointInBoardLayerFor(column: colNum, row: rowNum)
                 let positionInScreen = CGPoint(x: positionInBoard.x + boardLayer.position.x - gameLayer.position.x,
-                                               y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y)
+                                               y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y + bottomSafeSets)
                 releasePositionsInScreen.append(positionInScreen)
                 
                 matchCount = matchCount+1
             } else {
                 // not in right position. put back
                 // run sound
-                self.run(blockIsNotSetSound)
+                if let gameSoundOn = gameSoundOn, gameSoundOn {
+                    self.run(blockIsNotSetSound)
+                }
                 sender.setNodeAt(positionsInScreen: nil)
             }
         }
@@ -1055,7 +1116,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                 // already a block in place. put back
                 if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -1065,7 +1128,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     secRow = Int(rowNum/3)
                 } else if secRow != Int(rowNum/3) {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -1073,21 +1138,25 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     secCol = Int(colNum/3)
                 } else if secCol != Int(colNum/3) {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
                 
                 let positionInBoard = pointInBoardLayerFor(column: colNum, row: rowNum)
                 let positionInScreen = CGPoint(x: positionInBoard.x + boardLayer.position.x - gameLayer.position.x,
-                                               y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y)
+                                               y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y + bottomSafeSets)
                 releasePositionsInScreen.append(positionInScreen)
                 
                 matchCount = matchCount+1
             } else {
                 // not in right position. put back
                 // run sound
-                self.run(blockIsNotSetSound)
+                if let gameSoundOn = gameSoundOn, gameSoundOn {
+                    self.run(blockIsNotSetSound)
+                }
                 sender.setNodeAt(positionsInScreen: nil)
             }
         }
@@ -1149,7 +1218,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                 // already a block in place. put back
                 if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -1159,7 +1230,9 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     secRow = Int(rowNum/3)
                 } else if secRow != Int(rowNum/3) {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
@@ -1167,21 +1240,25 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
                     secCol = Int(colNum/3)
                 } else if secCol != Int(colNum/3) {
                     // run sound
-                    self.run(blockIsNotSetSound)
+                    if let gameSoundOn = gameSoundOn, gameSoundOn {
+                        self.run(blockIsNotSetSound)
+                    }
                     sender.setNodeAt(positionsInScreen: nil)
                     return
                 }
                 
                 let positionInBoard = pointInBoardLayerFor(column: colNum, row: rowNum)
                 let positionInScreen = CGPoint(x: positionInBoard.x + boardLayer.position.x - gameLayer.position.x,
-                                               y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y)
+                                               y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y + bottomSafeSets)
                 releasePositionsInScreen.append(positionInScreen)
                 
                 matchCount = matchCount+1
             } else {
                 // not in right position. put back
                 // run sound
-                self.run(blockIsNotSetSound)
+                if let gameSoundOn = gameSoundOn, gameSoundOn {
+                    self.run(blockIsNotSetSound)
+                }
                 sender.setNodeAt(positionsInScreen: nil)
             }
         }
@@ -1238,14 +1315,16 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if progressIndex == 0 {
             progressIndex = 1
-            topMessageNode.setText(to: "Place squares on the board.")
+            let messageText = NSLocalizedString("Place squares on the board.", comment: "")
+            topMessageNode.setText(to: messageText)
             topMessageNode.adjustLabelFontSizeToFitRect(rect: topMessageNode.frameRect)
             bottomMessageNode.setText(to: "")
             messageIndex = messageIndex+1
             addBottomBlocks()
         }
         if progressIndex == 4 && messageIndex == 20 {
-            topMessageNode.setText(to: "Finally, fill a 3x3 section.")
+            let topMessageText = NSLocalizedString("Finally, fill a 3x3 section.", comment: "")
+            topMessageNode.setText(to: topMessageText)
             messageIndex = messageIndex+1
         }
         // Back to Home Screen
@@ -1271,34 +1350,38 @@ class TutorialScene: SKScene, SkipButtonDelegate, OneBlockNodeDelegate, TwoBlock
     func updateTopMessageBasedOnProgress() {
         if progressIndex == 1 {
             if messageIndex == 1 {
-                topMessageNode.setText(to: "Good Job! Keep it going.")
+                let messageText = NSLocalizedString("Good Job! Keep it going.", comment: "")
+                topMessageNode.setText(to: messageText)
                 messageIndex = messageIndex+1
             } else if messageIndex == 2 {
-                topMessageNode.setText(to: "Place squares in every 3x3 section.")
+                let messageText = NSLocalizedString("Place squares in each 3x3 section.", comment: "")
+                topMessageNode.setText(to: messageText)
                 messageIndex = messageIndex+1
             } else if messageIndex == 3 {
-                topMessageNode.setText(to: "And match colors to score.")
+                let messageText = NSLocalizedString("And match color across sections to score.", comment: "")
+                topMessageNode.setText(to: messageText)
                 messageIndex = messageIndex+1
             }
         }
         
         if progressIndex == 2 && messageIndex == 11 {
-            topMessageNode.setText(to: "Remember to match colors.")
+            let topMessageText = NSLocalizedString("Remember to match colors.", comment: "")
+            topMessageNode.setText(to: topMessageText)
         } else if progressIndex == 2 {
             messageIndex = messageIndex+1
         }
         
         if progressIndex == 4 && messageIndex == 20 {
-            topMessageNode.setText(to: "Finally, fill a 3x3 section.")
+            let topMessageText = NSLocalizedString("Finally, fill a 3x3 section.", comment: "")
+            topMessageNode.setText(to: topMessageText)
             messageIndex = messageIndex+1
-        } else if progressIndex == 4 && messageIndex == 23 {
-            topMessageNode.setText(to: "Of course, match colors.")
+        } else if progressIndex == 4 && messageIndex == 26 {
+            let topMessageText = NSLocalizedString("Of course, match colors.", comment: "")
+            topMessageNode.setText(to: topMessageText)
             messageIndex = messageIndex+1
         } else if progressIndex == 4 {
             messageIndex = messageIndex+1
         }
-        
-        
         
     }
     

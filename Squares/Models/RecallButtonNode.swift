@@ -36,7 +36,7 @@ class RecallButtonNode: SKSpriteNode {
             self._isRecallPossible = newValue
             if newValue {
                 if numRecall > 0 || isAdsRecallPossible {
-                    self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.4), completion: { [weak self] in
+                    self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.3), completion: { [weak self] in
                         self?.isUserInteractionEnabled = true
                     })
                 }
@@ -96,6 +96,44 @@ class RecallButtonNode: SKSpriteNode {
         numRecallMessageNode.setFontColor(color: color)
     }
     
+    func getNumRecall() -> Int {
+        return self.numRecall
+    }
+    
+    func setNumRecall(to numRecall: Int) {
+        self.numRecall = numRecall
+        if numRecall == 0 {
+            //                    isAdsRecallPossible = true
+            
+            let texture = SKTexture(imageNamed: "AdsVideo")
+            let adsVideoNode = SKSpriteNode(texture: texture, color: .clear,
+                                            size: CGSize(width:texture.size().width*sizeRatio*0.7, height:texture.size().height*sizeRatio*0.7))
+            adsVideoNode.color = ColorCategory.RecallButtonColor
+            adsVideoNode.colorBlendFactor = 1.0
+            adsVideoNode.anchorPoint = CGPoint(x:0.35, y:0.35)
+            adsVideoNode.position = numRecallMessageNode.position
+            adsVideoNode.setScale(0.0)
+            self.addChild(adsVideoNode)
+            adsVideoNode.run(SKAction.scale(to: 1.0, duration: 0.1))
+            
+            numRecallMessageNode.removeFromParent()
+        } else {
+            self.numRecallMessageNode.setNumRecall(to: numRecall)
+        }
+        
+    }
+    
+    func setIsRecallPossibleNoFade(to newValue: Bool) {
+        self._isRecallPossible = newValue
+        if newValue {
+            if numRecall > 0 || isAdsRecallPossible {
+                self.isUserInteractionEnabled = true
+            }
+        } else {
+            self.isUserInteractionEnabled = false
+        }
+    }
+    
     //MARK:- Touch Events
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -110,7 +148,6 @@ class RecallButtonNode: SKSpriteNode {
         let touchLocation = touch!.location(in: self.parent!)
         
         if self.contains(touchLocation) {
-            
             
             if numRecall > 0 {
                 numRecall = numRecall - 1
@@ -158,7 +195,6 @@ class RecallButtonNode: SKSpriteNode {
     }
     
     func enableAdsRecall() {
-//        print("ENABLE ADS RECALL!")
         isAdsRecallPossible = true
         if isRecallPossible {
             self.run(SKAction.fadeAlpha(to: 1.0, duration: 0.4), completion: { [weak self] in

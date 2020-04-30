@@ -21,6 +21,7 @@ class OneBlockNode: SKSpriteNode {
     
     let tileWidth: CGFloat
     let blockColorIndex: UInt32
+    let bottomIndex: UInt32
     let initialPosition: CGPoint
     let blockOffset: CGFloat
     let touchYOffset: CGFloat
@@ -33,7 +34,7 @@ class OneBlockNode: SKSpriteNode {
     weak var blockDelegate: OneBlockNodeDelegate!
     
     //MARK:- Initialization
-    init(width: CGFloat, colorIndex: UInt32, position: CGPoint) {
+    init(width: CGFloat, colorIndex: UInt32, position: CGPoint, bottomIndex: UInt32) {
         
         // set up instance variable
         tileWidth = width
@@ -44,6 +45,7 @@ class OneBlockNode: SKSpriteNode {
         
         block1 = BlockCellNode(colorIndex: colorIndex)
         blockColorIndex = colorIndex
+        self.bottomIndex = bottomIndex
         
         super.init(texture: nil, color: .clear, size: CGSize(width:width*3, height:width*3))
         self.name = "oneblock"
@@ -59,8 +61,44 @@ class OneBlockNode: SKSpriteNode {
         self.addChild(block1)
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.tileWidth, forKey: "width")
+        coder.encode(self.blockColorIndex, forKey: "colorIndex")
+        coder.encode(self.initialPosition, forKey: "position")
+        coder.encode(self.bottomIndex, forKey: "bottomIndex")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        let width = aDecoder.decodeObject(forKey: "width") as! CGFloat
+        let colorIndex = aDecoder.decodeObject(forKey: "colorIndex") as! UInt32
+        let position = aDecoder.decodeCGPoint(forKey: "position")
+        let bottomIndex = aDecoder.decodeObject(forKey: "bottomIndex") as! UInt32
+        
+        // set up instance variable
+        tileWidth = width
+        initialPosition = position
+        
+        blockOffset = width
+        touchYOffset = tileWidth/2 + 25
+        
+        block1 = BlockCellNode(colorIndex: colorIndex)
+        blockColorIndex = colorIndex
+        self.bottomIndex = bottomIndex
+        
+        super.init(texture: nil, color: .clear, size: CGSize(width:width*3, height:width*3))
+        
+        self.name = "oneblock"
+        self.zPosition = 100
+        self.anchorPoint = CGPoint(x:0.5, y:0.5+blockOffset/self.size.height)
+        
+        // set up options
+        isUserInteractionEnabled = true
+        
+        // add block cell nodes
+        block1.size = CGSize(width: tileWidth, height: tileWidth)
+        block1.position = CGPoint(x:0.0, y:0.0)
+        self.addChild(block1)
     }
     
     //MARK:- Helper Functions

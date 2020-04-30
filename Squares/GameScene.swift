@@ -20,8 +20,8 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     let gameOverLayer = SKNode()
     
     // board 2D array
-    var boardArray = Array2D<UInt32>(columns: 9, rows: 9)
-    var previousBoardArray = Array2D<UInt32>(columns: 9, rows: 9)
+    var boardArray: [[UInt32?]] = Array(repeating: Array(repeating: 0, count: 9), count: 9)
+    var previousBoardArray: [[UInt32?]] = Array(repeating: Array(repeating: 0, count: 9), count: 9)
     
     // nodes
     let pauseButtonNode: PauseButtonNode
@@ -178,12 +178,11 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         /*** add tiles and bottom blocks ***/
         addTiles()
-        addBottomBlocks()
         
         /*** set up best score node ***/
         let bestScoreNodeHeightInitial = pauseButtonNode.size.height/1.5
         let bestScoreNodeHeight = bestScoreNodeHeightInitial*0.8
-        let bestScoreNodeWidth = bestScoreNodeHeight*3
+        let bestScoreNodeWidth = bestScoreNodeHeight*3.2
         let bestScoreNodeFrame = CGRect(x: safeAreaRect.width-bestScoreNodeWidth-pauseButtonNode.size.height/6, y: safeAreaRect.minY+safeAreaRect.height-bestScoreNodeHeight-pauseButtonNode.size.height/6-bestScoreNodeHeightInitial*0.1, width: bestScoreNodeWidth, height: bestScoreNodeHeight)
         bestScoreNode.adjustLabelFontSizeToFitRectRight(rect: bestScoreNodeFrame)
         //debugDrawArea(rect: bestScoreNodeFrame)
@@ -338,6 +337,17 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             soundButton.changeIconNodeColor(to: ColorCategory.getBestScoreFontColor())
         }
         
+        // load saved game
+        loadSavedGame()
+        
+        let isGameInProgress = UserDefaults.standard.bool(forKey: "gameInProgress")
+        if isGameInProgress {
+            //print("GAME IN PROGRESS!")
+            addSavedBottomBlocks()
+        } else {
+            addBottomBlocks()
+        }
+        
         // Log Event
         Analytics.logEvent("start_game", parameters: [:])
         
@@ -351,6 +361,8 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                 tileNode.position = pointInBoardLayerFor(column: col, row: row)
                 tileNode.name = "tile\(col)\(row)"
                 boardLayer.addChild(tileNode)
+                boardArray[col][row] = nil
+                previousBoardArray[col][row] = nil
             }
         }
     }
@@ -382,63 +394,92 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         // initialize block nodes
         let randomColorIndex1 = UInt32(arc4random_uniform(maxIndex)) + 1
         if randomIndex1 <= blockOneProb {
-            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: randomColorIndex1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = OneBlockNode(width: tileWidth, colorIndex: randomColorIndex1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY), bottomIndex: 0)
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
         } else if randomIndex1 <= blockOneProb + blockTwoProb{
-            let bottomBlock1 = TwoBlockNode(width: tileWidth, colorIndex: randomColorIndex1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = TwoBlockNode(width: tileWidth, colorIndex: randomColorIndex1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY), bottomIndex: 0)
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
         } else if randomIndex1 <= blockOneProb + blockTwoProb + blockThreeProb {
-            let bottomBlock1 = ThreeBlockNode(width: tileWidth, colorIndex: randomColorIndex1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = ThreeBlockNode(width: tileWidth, colorIndex: randomColorIndex1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY), bottomIndex: 0)
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
         } else {
-            let bottomBlock1 = FourBlockNode(width: tileWidth, colorIndex: randomColorIndex1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY))
+            let bottomBlock1 = FourBlockNode(width: tileWidth, colorIndex: randomColorIndex1, position: CGPoint(x: bottomBlockXLeft, y: bottomBlockY), bottomIndex: 0)
             addSingleBottomBlock(bottomBlock: bottomBlock1)
             bottomBlockArray[0] = bottomBlock1
         }
         
         let randomColorIndex2 = UInt32(arc4random_uniform(maxIndex)) + 1
         if randomIndex2 <= blockOneProb {
-            let bottomBlock2 = OneBlockNode(width: tileWidth, colorIndex: randomColorIndex2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = OneBlockNode(width: tileWidth, colorIndex: randomColorIndex2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY), bottomIndex: 1)
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
         } else if randomIndex2 <= blockOneProb + blockTwoProb {
-            let bottomBlock2 = TwoBlockNode(width: tileWidth, colorIndex: randomColorIndex2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = TwoBlockNode(width: tileWidth, colorIndex: randomColorIndex2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY), bottomIndex: 1)
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
         } else if randomIndex2 <= blockOneProb + blockTwoProb + blockThreeProb {
-            let bottomBlock2 = ThreeBlockNode(width: tileWidth, colorIndex: randomColorIndex2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = ThreeBlockNode(width: tileWidth, colorIndex: randomColorIndex2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY), bottomIndex: 1)
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
         } else {
-            let bottomBlock2 = FourBlockNode(width: tileWidth, colorIndex: randomColorIndex2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY))
+            let bottomBlock2 = FourBlockNode(width: tileWidth, colorIndex: randomColorIndex2, position: CGPoint(x: bottomBlockXMid, y: bottomBlockY), bottomIndex: 1)
             addSingleBottomBlock(bottomBlock: bottomBlock2)
             bottomBlockArray[1] = bottomBlock2
         }
         
         let randomColorIndex3 = UInt32(arc4random_uniform(maxIndex)) + 1
         if randomIndex3 <= blockOneProb {
-            let bottomBlock3 = OneBlockNode(width: tileWidth, colorIndex: randomColorIndex3, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = OneBlockNode(width: tileWidth, colorIndex: randomColorIndex3, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY), bottomIndex: 2)
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
         } else if randomIndex3 <= blockOneProb + blockTwoProb {
-            let bottomBlock3 = TwoBlockNode(width: tileWidth, colorIndex: randomColorIndex3, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = TwoBlockNode(width: tileWidth, colorIndex: randomColorIndex3, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY), bottomIndex: 2)
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
         } else if randomIndex3 <= blockOneProb + blockTwoProb + blockThreeProb {
-            let bottomBlock3 = ThreeBlockNode(width: tileWidth, colorIndex: randomColorIndex3, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = ThreeBlockNode(width: tileWidth, colorIndex: randomColorIndex3, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY), bottomIndex: 2)
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
         } else {
-            let bottomBlock3 = FourBlockNode(width: tileWidth, colorIndex: randomColorIndex3, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY))
+            let bottomBlock3 = FourBlockNode(width: tileWidth, colorIndex: randomColorIndex3, position: CGPoint(x: bottomBlockXRight, y: bottomBlockY), bottomIndex: 2)
             addSingleBottomBlock(bottomBlock: bottomBlock3)
             bottomBlockArray[2] = bottomBlock3
         }
         
         for index in 0..<3 {
             bottomBlockArray[index]?.name = "bottomBlock\(index)"
+        }
+    }
+    
+    func addSavedBottomBlocks() {
+        //print("addSavedBottomBlocks")
+        // run sound
+        if let gameSoundOn = gameSoundOn, gameSoundOn {
+            self.run(addBottomBlocksSound)
+        }
+        
+        // initialize block nodes
+        let bottomBlock1 = bottomBlockArray[0]
+        let bottomBlock2 = bottomBlockArray[1]
+        let bottomBlock3 = bottomBlockArray[2]
+        
+        if let bottomBlock1 = bottomBlock1 {
+            addSingleBottomBlock(bottomBlock: bottomBlock1)
+        }
+        if let bottomBlock2 = bottomBlock2 {
+            addSingleBottomBlock(bottomBlock: bottomBlock2)
+        }
+        if let bottomBlock3 = bottomBlock3 {
+            addSingleBottomBlock(bottomBlock: bottomBlock3)
+        }
+        
+        for index in 0..<3 {
+            if bottomBlockArray[index] != nil {
+                bottomBlockArray[index]?.name = "bottomBlock\(index)"
+            }
         }
     }
     
@@ -482,14 +523,13 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         if let colNum = colNum, let rowNum = rowNum {
             // already a block in place
             if blockCellColorIndexAt(column: colNum, row: rowNum) != nil {
-                sender.setNodeAt(positionInScreen: nil)
                 // run sound
                 if let gameSoundOn = gameSoundOn, gameSoundOn {
                     self.run(blockIsNotSetSound)
                 }
+                sender.setNodeAt(positionInScreen: nil)
                 return
             }
-            
             let positionInBoard = pointInBoardLayerFor(column: colNum, row: rowNum)
             let positionInScreen = CGPoint(x: positionInBoard.x + boardLayer.position.x - gameLayer.position.x,
                                            y: positionInBoard.y + boardLayer.position.y - gameLayer.position.y + bottomSafeSets)
@@ -497,6 +537,8 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             bottomBlockNum = bottomBlockNum-1
             
             // put new blocks
+            //print("ADD BOTTOM BLOCK?")
+            //print(bottomBlockNum)
             if bottomBlockNum == 0 {
                 addBottomBlocks()
                 bottomBlockNum = 3
@@ -530,11 +572,16 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         /*** Update the tile color ***/
         if let colNum = colNum, let rowNum = rowNum {
-            boardArray[colNum, rowNum] = sender.getBlockColorIndex()
+            boardArray[colNum][rowNum] = sender.getBlockColorIndex()
             updateBlockCellColorAt(column: colNum, row: rowNum)
         }
         
         bottomBlockJustPut = sender
+        recallButtonNode.setIsRecallPossibleNoFade(to: false)
+        let wait = SKAction.wait(forDuration: 0.1)
+        self.run(wait, completion: { [weak self] in
+            self?.recallButtonNode.isRecallPossible = true
+        })
         recallButtonNode.isRecallPossible = true
         sender.removeFromParent()
         
@@ -638,13 +685,17 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
-                boardArray[colNum, rowNum] = sender.getBlockColorIndex()
+                boardArray[colNum][rowNum] = sender.getBlockColorIndex()
                 updateBlockCellColorAt(column: colNum, row: rowNum)
             }
         }
         
         bottomBlockJustPut = sender
-        recallButtonNode.isRecallPossible = true
+        recallButtonNode.setIsRecallPossibleNoFade(to: false)
+        let wait = SKAction.wait(forDuration: 0.1)
+        self.run(wait, completion: { [weak self] in
+            self?.recallButtonNode.isRecallPossible = true
+        })
         sender.removeFromParent()
         
         checkBoardAndUpdate()
@@ -747,13 +798,17 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
-                boardArray[colNum, rowNum] = sender.getBlockColorIndex()
+                boardArray[colNum][rowNum] = sender.getBlockColorIndex()
                 updateBlockCellColorAt(column: colNum, row: rowNum)
             }
         }
         
         bottomBlockJustPut = sender
-        recallButtonNode.isRecallPossible = true
+        recallButtonNode.setIsRecallPossibleNoFade(to: false)
+        let wait = SKAction.wait(forDuration: 0.1)
+        self.run(wait, completion: { [weak self] in
+            self?.recallButtonNode.isRecallPossible = true
+        })
         sender.removeFromParent()
         
         // run after the block is removed
@@ -857,13 +912,17 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             
             /*** Update the tile color ***/
             if let colNum = colNum, let rowNum = rowNum {
-                boardArray[colNum, rowNum] = sender.getBlockColorIndex()
+                boardArray[colNum][rowNum] = sender.getBlockColorIndex()
                 updateBlockCellColorAt(column: colNum, row: rowNum)
             }
         }
         
         bottomBlockJustPut = sender
-        recallButtonNode.isRecallPossible = true
+        recallButtonNode.setIsRecallPossibleNoFade(to: false)
+        let wait = SKAction.wait(forDuration: 0.1)
+        self.run(wait, completion: { [weak self] in
+            self?.recallButtonNode.isRecallPossible = true
+        })
         sender.removeFromParent()
         
         checkBoardAndUpdate()
@@ -899,6 +958,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         }
         if iconType == IconType.HomeButton  {
             if view != nil {
+                saveBoard()
                 let scene = MenuScene(size: size)
                 scene.isAdReady = self.isAdReady
                 let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
@@ -908,6 +968,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         }
         if iconType == IconType.SmallRestartButton  {
             if view != nil {
+                clearSavedBoard()
                 let scene = GameScene(size: size)
                 scene.isAdReady = self.isAdReady
                 let transition:SKTransition = SKTransition.fade(withDuration: 0.5)
@@ -960,6 +1021,11 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         }
         if iconType == IconType.NoAdsButton  {
 //            print("NoAdsButton")
+            
+            if !IAPHelper.canMakePayments() {
+                let userInfoDict:[String: String] = ["forButton": "iapfail"]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "displayAlertMessage"), object: nil, userInfo: userInfoDict)
+            }
             
             products = []
             IAPProducts.store.requestProducts{success, products in
@@ -1139,7 +1205,6 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             self.run(addBottomBlocksSound)
         }
         
-        
         // remove all bottom blocks
         if self.bottomBlockNum == 3 {
             for index in 0..<3 {
@@ -1148,6 +1213,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                     bottomBlock.run(SKAction.sequence([SKAction.scale(to: 0.0, duration: 0.1),
                                                        SKAction.removeFromParent()]))
                 }
+                self.bottomBlockArray[index] = nil
             }
         }
         
@@ -1173,6 +1239,9 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                 if (self?.bottomBlockNum)! > 3 {
                     self?.bottomBlockNum = 1
                 }
+                let bottomBlockIndex = Int(bottomBlockJustPut.bottomIndex)
+                self?.bottomBlockArray[bottomBlockIndex] = bottomBlockJustPut
+                self?.bottomBlockArray[bottomBlockIndex]?.name = "bottomBlock\(bottomBlockIndex)"
             })
         }
         if let bottomBlockJustPut = bottomBlockJustPut as? TwoBlockNode {
@@ -1191,6 +1260,9 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                 if (self?.bottomBlockNum)! > 3 {
                     self?.bottomBlockNum = 1
                 }
+                let bottomBlockIndex = Int(bottomBlockJustPut.bottomIndex)
+                self?.bottomBlockArray[bottomBlockIndex] = bottomBlockJustPut
+                self?.bottomBlockArray[bottomBlockIndex]?.name = "bottomBlock\(bottomBlockIndex)"
             })
         }
         if let bottomBlockJustPut = bottomBlockJustPut as? ThreeBlockNode {
@@ -1209,6 +1281,9 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                 if (self?.bottomBlockNum)! > 3 {
                     self?.bottomBlockNum = 1
                 }
+                let bottomBlockIndex = Int(bottomBlockJustPut.bottomIndex)
+                self?.bottomBlockArray[bottomBlockIndex] = bottomBlockJustPut
+                self?.bottomBlockArray[bottomBlockIndex]?.name = "bottomBlock\(bottomBlockIndex)"
             })
         }
         if let bottomBlockJustPut = bottomBlockJustPut as? FourBlockNode {
@@ -1227,6 +1302,9 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                 if (self?.bottomBlockNum)! > 3 {
                     self?.bottomBlockNum = 1
                 }
+                let bottomBlockIndex = Int(bottomBlockJustPut.bottomIndex)
+                self?.bottomBlockArray[bottomBlockIndex] = bottomBlockJustPut
+                self?.bottomBlockArray[bottomBlockIndex]?.name = "bottomBlock\(bottomBlockIndex)"
             })
         }
         
@@ -1238,7 +1316,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             
             for colNum in 0..<NumColumns {
                 for rowNum in 0..<NumRows {
-                    boardArray[colNum, rowNum] = previousBoardArray[colNum, rowNum]
+                    boardArray[colNum][rowNum] = previousBoardArray[colNum][rowNum]
                     updateBlockCellColorAt(column: colNum, row: rowNum)
                 }
             }
@@ -1248,13 +1326,13 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                 
                 /*** Update the tile color back to gray ***/
                 if let colNum = colNum, let rowNum = rowNum {
-                    boardArray[colNum, rowNum] = nil
+                    boardArray[colNum][rowNum] = nil
                     updateBlockCellColorAt(column: colNum, row: rowNum)
                 }
             }
             
         }
-        
+     
     }
     
     
@@ -1346,7 +1424,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     func blockCellColorIndexAt(column: Int, row: Int) -> UInt32? {
         assert(column >= 0 && column < NumColumns)
         assert(row >= 0 && row < NumRows)
-        return boardArray[column, row]
+        return boardArray[column][row]
     }
     
     func sectionColAndRowFor(column: Int, row: Int) -> (Int, Int) {
@@ -1383,7 +1461,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
     func checkBoardAndUpdate() {
         for colNum in 0..<NumColumns {
             for rowNum in 0..<NumRows {
-                previousBoardArray[colNum, rowNum] = boardArray[colNum, rowNum]
+                previousBoardArray[colNum][rowNum] = boardArray[colNum][rowNum]
             }
         }
         
@@ -1393,7 +1471,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         }
         
         // initiate section color array
-        var sectionArray = Array2D<Set<UInt32>>(columns: 3, rows: 3)
+        var sectionArray = SetArray2D<Set<UInt32>>(columns: 3, rows: 3)
         for secRow in 0..<3 {
             for secCol in 0..<3 {
                 sectionArray[secCol,secRow] = Set<UInt32>()
@@ -1437,7 +1515,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                             let matchingColorIndex = blockCellColorIndexAt(column: column, row: row)
                             if matchingColorIndex == blockColorIndex {
                                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                                boardArray[column, row] = nil
+                                boardArray[column][row] = nil
                                 removeTileNode(tileNode: targetTileNode)
                             }
                         }
@@ -1467,7 +1545,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                             let matchingColorIndex = blockCellColorIndexAt(column: column, row: row)
                             if matchingColorIndex == blockColorIndex {
                                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                                boardArray[column, row] = nil
+                                boardArray[column][row] = nil
                                 removeTileNode(tileNode: targetTileNode)
                             }
                         }
@@ -1496,7 +1574,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                         
                         if matchingColorIndex == blockColorIndex {
                             let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                            boardArray[column, row] = nil
+                            boardArray[column][row] = nil
                             removeTileNode(tileNode: targetTileNode)
                         }
                     }
@@ -1523,7 +1601,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                         let matchingColorIndex = blockCellColorIndexAt(column: column, row: row)
                         if matchingColorIndex == blockColorIndex {
                             let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                            boardArray[column, row] = nil
+                            boardArray[column][row] = nil
                             removeTileNode(tileNode: targetTileNode)
                         }
                     }
@@ -1554,7 +1632,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                         for column in secCol*3..<secCol*3+3 {
                             for row in secRow*3..<secRow*3+3 {
                                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                                boardArray[column, row] = nil
+                                boardArray[column][row] = nil
                                 removeTileNode(tileNode: targetTileNode)
                             }
                         }
@@ -1739,7 +1817,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                if boardArray[column][row] == nil || boardArray[column][row] == colorIndex {
                     let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
@@ -1760,7 +1838,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                if boardArray[column][row] == nil || boardArray[column][row] == colorIndex {
                     let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
@@ -1780,7 +1858,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                if boardArray[column][row] == nil || boardArray[column][row] == colorIndex {
                     let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
@@ -1800,7 +1878,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                if boardArray[column][row] == nil || boardArray[column][row] == colorIndex {
                     let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
@@ -1820,7 +1898,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                     continue
                 }
                 let targetTileNode: TileNode = boardLayer.childNode(withName: "tile\(column)\(row)") as! TileNode
-                if boardArray[column,row] == nil || boardArray[column,row] == colorIndex {
+                if boardArray[column][row] == nil || boardArray[column][row] == colorIndex {
                     let changeColor = SKAction.colorize(with: ColorCategory.getBlockColorAtIndex(index: colorIndex).withAlphaComponent(0.5), colorBlendFactor: 1.0, duration: 0.3)
                     let changeColorBack = SKAction.colorize(with: ColorCategory.getTileColor(), colorBlendFactor: 1.0, duration: 0.3)
                     if !targetTileNode.hasActions(){
@@ -1836,7 +1914,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         for column in secCol*3..<secCol*3+3 {
             for row in secRow*3..<secRow*3+3 {
-                if boardArray[column, row] != nil {
+                if boardArray[column][row] != nil {
                     cellArray[Int(column)%3, Int(row)%3] = 1
                 } else {
                     cellArray[Int(column)%3, Int(row)%3] = 0
@@ -2053,8 +2131,7 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                 }
             }
         }
-            
-        isGameOver = true
+        
         return true
     }
     
@@ -2077,8 +2154,66 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
             })
            
         }
+    }
+    
+    func saveBoard() {
+        //print("saveBoard()")
+        if isGameOver {
+            return
+        }
+        //print("saveBoard()2")
+        
+        //print("SAVE BOARD NOW")
+        UserDefaults.standard.set(true, forKey: "gameInProgress")
+        
+        // save game board
+        var encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: boardArray)
+        UserDefaults.standard.set(encodedData, forKey: "boardArray")
+        encodedData = NSKeyedArchiver.archivedData(withRootObject: previousBoardArray)
+        UserDefaults.standard.set(encodedData, forKey: "previousBoardArray")
+        encodedData = NSKeyedArchiver.archivedData(withRootObject: previousReleasePositions)
+        UserDefaults.standard.set(encodedData, forKey: "previousReleasePositions")
+        
+        
+        // save bottom blocks
+        encodedData = NSKeyedArchiver.archivedData(withRootObject: bottomBlockArray)
+        UserDefaults.standard.set(encodedData, forKey: "bottomBlockArray")
+        if let bottomBlockJustPut = bottomBlockJustPut {
+            encodedData = NSKeyedArchiver.archivedData(withRootObject: bottomBlockJustPut)
+            UserDefaults.standard.set(encodedData, forKey: "bottomBlockJustPut")
+        }
+        
+        // save recall variables
+        UserDefaults.standard.set(recallButtonNode.isRecallPossible, forKey: "isRecallPossible")
+        UserDefaults.standard.set(recallButtonNode.getNumRecall(), forKey: "numRecall")
+        
+        // save other variables
+        UserDefaults.standard.set(gameScore, forKey: "gameScore")
+        UserDefaults.standard.set(combo, forKey: "combo")
+        UserDefaults.standard.set(previousPoint, forKey: "previousPoint")
+        UserDefaults.standard.set(previousCombo, forKey: "previousCombo")
+        UserDefaults.standard.set(bottomBlockNum, forKey: "bottomBlockNum")
         
     }
+    
+    func clearSavedBoard() {
+        //print("clearSavedBoard()")
+        // clear saved board
+        UserDefaults.standard.set(false, forKey: "gameInProgress")
+        UserDefaults.standard.set(nil, forKey: "boardArray")
+        UserDefaults.standard.set(nil, forKey: "previousBoardArray")
+        UserDefaults.standard.set(nil, forKey: "bottomBlockArray")
+        UserDefaults.standard.set(nil, forKey: "bottomBlockJustPut")
+        UserDefaults.standard.set(nil, forKey: "gameScore")
+        UserDefaults.standard.set(nil, forKey: "combo")
+        UserDefaults.standard.set(nil, forKey: "previousPoint")
+        UserDefaults.standard.set(nil, forKey: "previousCombo")
+        UserDefaults.standard.set(nil, forKey: "previousReleasePositions")
+        UserDefaults.standard.set(nil, forKey: "bottomBlockNum")
+        UserDefaults.standard.set(nil, forKey: "isRecallPossible")
+        UserDefaults.standard.set(nil, forKey: "numRecall")
+    }
+    
     
     func gameOver() {
         if let gameSoundOn = gameSoundOn, gameSoundOn {
@@ -2086,6 +2221,9 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
                 "gameOver.wav", waitForCompletion: false)
             self.run(gameOverSound)
         }
+        
+        isGameOver = true
+        clearSavedBoard()
         
         // update high score if current game score is higher
         if gameScore >= bestScoreNode.getBestScore(){
@@ -2154,6 +2292,59 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         
         let actionSeq = SKAction.sequence(actionsArray)
         layer.run(actionSeq)
+    }
+    
+    
+    func loadSavedGame() {
+        let isGameInProgress = UserDefaults.standard.bool(forKey: "gameInProgress")
+        //print(isGameInProgress)
+        if !isGameInProgress {
+            return
+        }
+        
+        // play sound
+        if let gameSoundOn = gameSoundOn, gameSoundOn {
+            self.run(addBottomBlocksSound)
+        }
+        
+        //print("LOAD SAVED GAME!")
+        //print(UserDefaults.standard.bool(forKey: "isRecallPossible"))
+        
+        // load saved variables
+        combo = UserDefaults.standard.integer(forKey: "combo")
+        gameScore = UserDefaults.standard.integer(forKey: "gameScore")
+        comboNode.recallSetCombo(to: combo)
+        gameScoreNode.recallSetGameScore(to: gameScore)
+        previousCombo = UserDefaults.standard.integer(forKey: "previousCombo")
+        previousPoint = UserDefaults.standard.integer(forKey: "previousPoint")
+        bottomBlockNum = UserDefaults.standard.integer(forKey: "bottomBlockNum")
+        recallButtonNode.setNumRecall(to: UserDefaults.standard.integer(forKey: "numRecall"))
+        recallButtonNode.isRecallPossible = UserDefaults.standard.bool(forKey: "isRecallPossible")
+        
+        // load saved board
+        var decoded  = UserDefaults.standard.object(forKey: "boardArray") as! Data
+        boardArray = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [[UInt32?]]
+        decoded  = UserDefaults.standard.object(forKey: "previousBoardArray") as! Data
+        previousBoardArray = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [[UInt32?]]
+        decoded  = UserDefaults.standard.object(forKey: "bottomBlockArray") as! Data
+        bottomBlockArray = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [SKSpriteNode?]
+        decoded  = UserDefaults.standard.object(forKey: "previousReleasePositions") as! Data
+        previousReleasePositions = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! Array<CGPoint>
+        
+        
+        let decodedOptional  = UserDefaults.standard.object(forKey: "bottomBlockJustPut") as? Data
+        if let decoded = decodedOptional {
+            bottomBlockJustPut = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! SKSpriteNode?
+        }
+        
+        
+        // update board
+        for colNum in 0..<NumColumns {
+            for rowNum in 0..<NumRows {
+                updateBlockCellColorAt(column: colNum, row: rowNum)
+            }
+        }
+    
     }
     
     //MARK:- Pause Menu Handling
@@ -2391,8 +2582,34 @@ class GameScene: SKScene, MenuButtonDelegate, PauseButtonDelegate, RecallButtonD
         gameLayer.addChild(shape)
     }
     
-    func presentShareSheet()
-    {
+    func animateNodesFadeIn() {
+        /*** Animate nodeLayer ***/
+        for nodeLayer in self.children {
+            nodeLayer.alpha = 0.0
+            nodeLayer.run(SKAction.fadeIn(withDuration: 0.2))
+        }
+    }
+    
+    func moveBackAllBottomBlocks() {
+        for index in 0..<3 {
+            if bottomBlockArray[index] != nil {
+                if let tempBlockNode = bottomBlockArray[index] as? OneBlockNode {
+                    tempBlockNode.setNodeAt(positionInScreen: nil)
+                }
+                if let tempBlockNode = bottomBlockArray[index] as? TwoBlockNode {
+                    tempBlockNode.setNodeAt(positionsInScreen: nil)
+                }
+                if let tempBlockNode = bottomBlockArray[index] as? ThreeBlockNode {
+                    tempBlockNode.setNodeAt(positionsInScreen: nil)
+                }
+                if let tempBlockNode = bottomBlockArray[index] as? FourBlockNode {
+                    tempBlockNode.setNodeAt(positionsInScreen: nil)
+                }
+            }
+        }
+    }
+    
+    func presentShareSheet() {
         let postText: String = "Check out my score! I got \(gameScore) points in Square Dash! #SquareDash #RawwrStudios"
         // append h ttps://itunes.apple.com/app/circle/id911152486
         var activityItems : [Any]

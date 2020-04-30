@@ -1,0 +1,972 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ProductIdentifier"
+- "ProductsRequestCompletionHandler"
+- "IAPHelper"
+provides-nominal:
+- "7Squares9IAPHelperC"
+provides-member:
+- ["7Squares9IAPHelperC", ""]
+- ["7Squares9IAPHelperC", "requestProducts"]
+- ["7Squares9IAPHelperC", "buyProduct"]
+- ["7Squares9IAPHelperC", "isProductPurchased"]
+- ["7Squares9IAPHelperC", "canMakePayments"]
+- ["7Squares9IAPHelperC", "restorePurchases"]
+provides-dynamic-lookup:
+- "paymentQueue"
+- "productsRequest"
+- "request"
+depends-top-level:
+- !private "!"
+- !private "!="
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CastingPrecedence"
+- "Error"
+- !private "FloatLiteralType"
+- "IAPHelper"
+- !private "IntegerLiteralType"
+- !private "NSError"
+- !private "NSNotification"
+- "NSObject"
+- !private "Notification"
+- !private "NotificationCenter"
+- "ProductIdentifier"
+- "ProductsRequestCompletionHandler"
+- !private "SKError"
+- !private "SKPayment"
+- "SKPaymentQueue"
+- "SKPaymentTransaction"
+- "SKPaymentTransactionObserver"
+- "SKProduct"
+- "SKProductsRequest"
+- "SKProductsRequestDelegate"
+- "SKProductsResponse"
+- "SKRequest"
+- "Set"
+- "String"
+- !private "StringLiteralType"
+- !private "UserDefaults"
+- !private "print"
+depends-member:
+- !private ["SK", "init"]
+- !private ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "NSNotification"]
+- !private ["s7CVarArgP", "Name"]
+- !private ["s7CVarArgP", "Notification"]
+- !private ["s7CVarArgP", "NotificationCenter"]
+- !private ["s7CVarArgP", "SKError"]
+- !private ["s7CVarArgP", "SKPayment"]
+- !private ["s7CVarArgP", "SKPaymentQueue"]
+- !private ["s7CVarArgP", "SKProductsRequest"]
+- ["s7CVarArgP", "Set"]
+- !private ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "UserDefaults"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "add"]
+- !private ["s7CVarArgP", "bool"]
+- !private ["s7CVarArgP", "canMakePayments"]
+- !private ["s7CVarArgP", "cancel"]
+- !private ["s7CVarArgP", "clearRequestAndHandler"]
+- !private ["s7CVarArgP", "code"]
+- !private ["s7CVarArgP", "complete"]
+- !private ["s7CVarArgP", "contains"]
+- !private ["s7CVarArgP", "default"]
+- !private ["s7CVarArgP", "delegate"]
+- !private ["s7CVarArgP", "deliverPurchaseNotificationFor"]
+- !private ["s7CVarArgP", "error"]
+- !private ["s7CVarArgP", "fail"]
+- !private ["s7CVarArgP", "finishTransaction"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "insert"]
+- !private ["s7CVarArgP", "original"]
+- !private ["s7CVarArgP", "payment"]
+- ["s7CVarArgP", "paymentQueue"]
+- ["s7CVarArgP", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["s7CVarArgP", "post"]
+- !private ["s7CVarArgP", "print"]
+- !private ["s7CVarArgP", "productIdentifier"]
+- !private ["s7CVarArgP", "productIdentifiers"]
+- !private ["s7CVarArgP", "products"]
+- ["s7CVarArgP", "productsRequest"]
+- !private ["s7CVarArgP", "productsRequestCompletionHandler"]
+- !private ["s7CVarArgP", "purchasedProductIdentifiers"]
+- ["s7CVarArgP", "request"]
+- ["s7CVarArgP", "requestDidFinish"]
+- !private ["s7CVarArgP", "restore"]
+- !private ["s7CVarArgP", "restoreCompletedTransactions"]
+- !private ["s7CVarArgP", "set"]
+- !private ["s7CVarArgP", "standard"]
+- !private ["s7CVarArgP", "start"]
+- !private ["s7CVarArgP", "synchronize"]
+- !private ["s7CVarArgP", "transactionState"]
+- !private ["So11SKErrorCodeV", "rawValue"]
+- !private ["Sl", "contains"]
+- ["Sl", "init"]
+- !private ["Sl", "init"]
+- !private ["Sl", "insert"]
+- !private ["SL", "init"]
+- !private ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "NSNotification"]
+- !private ["s28CustomDebugStringConvertibleP", "Name"]
+- !private ["s28CustomDebugStringConvertibleP", "Notification"]
+- !private ["s28CustomDebugStringConvertibleP", "NotificationCenter"]
+- !private ["s28CustomDebugStringConvertibleP", "SKError"]
+- !private ["s28CustomDebugStringConvertibleP", "SKPayment"]
+- !private ["s28CustomDebugStringConvertibleP", "SKPaymentQueue"]
+- !private ["s28CustomDebugStringConvertibleP", "SKProductsRequest"]
+- ["s28CustomDebugStringConvertibleP", "Set"]
+- !private ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "UserDefaults"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "add"]
+- !private ["s28CustomDebugStringConvertibleP", "bool"]
+- !private ["s28CustomDebugStringConvertibleP", "canMakePayments"]
+- !private ["s28CustomDebugStringConvertibleP", "cancel"]
+- !private ["s28CustomDebugStringConvertibleP", "clearRequestAndHandler"]
+- !private ["s28CustomDebugStringConvertibleP", "code"]
+- !private ["s28CustomDebugStringConvertibleP", "complete"]
+- !private ["s28CustomDebugStringConvertibleP", "contains"]
+- !private ["s28CustomDebugStringConvertibleP", "default"]
+- !private ["s28CustomDebugStringConvertibleP", "delegate"]
+- !private ["s28CustomDebugStringConvertibleP", "deliverPurchaseNotificationFor"]
+- !private ["s28CustomDebugStringConvertibleP", "error"]
+- !private ["s28CustomDebugStringConvertibleP", "fail"]
+- !private ["s28CustomDebugStringConvertibleP", "finishTransaction"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "insert"]
+- !private ["s28CustomDebugStringConvertibleP", "original"]
+- !private ["s28CustomDebugStringConvertibleP", "payment"]
+- ["s28CustomDebugStringConvertibleP", "paymentQueue"]
+- ["s28CustomDebugStringConvertibleP", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["s28CustomDebugStringConvertibleP", "post"]
+- !private ["s28CustomDebugStringConvertibleP", "print"]
+- !private ["s28CustomDebugStringConvertibleP", "productIdentifier"]
+- !private ["s28CustomDebugStringConvertibleP", "productIdentifiers"]
+- !private ["s28CustomDebugStringConvertibleP", "products"]
+- ["s28CustomDebugStringConvertibleP", "productsRequest"]
+- !private ["s28CustomDebugStringConvertibleP", "productsRequestCompletionHandler"]
+- !private ["s28CustomDebugStringConvertibleP", "purchasedProductIdentifiers"]
+- ["s28CustomDebugStringConvertibleP", "request"]
+- ["s28CustomDebugStringConvertibleP", "requestDidFinish"]
+- !private ["s28CustomDebugStringConvertibleP", "restore"]
+- !private ["s28CustomDebugStringConvertibleP", "restoreCompletedTransactions"]
+- !private ["s28CustomDebugStringConvertibleP", "set"]
+- !private ["s28CustomDebugStringConvertibleP", "standard"]
+- !private ["s28CustomDebugStringConvertibleP", "start"]
+- !private ["s28CustomDebugStringConvertibleP", "synchronize"]
+- !private ["s28CustomDebugStringConvertibleP", "transactionState"]
+- !private ["10Foundation13CustomNSErrorP", "paymentCancelled"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "Name"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "contains"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "insert"]
+- !private ["s23CustomStringConvertibleP", "NSNotification"]
+- !private ["s23CustomStringConvertibleP", "Name"]
+- !private ["s23CustomStringConvertibleP", "Notification"]
+- !private ["s23CustomStringConvertibleP", "NotificationCenter"]
+- !private ["s23CustomStringConvertibleP", "SKError"]
+- !private ["s23CustomStringConvertibleP", "SKPayment"]
+- !private ["s23CustomStringConvertibleP", "SKPaymentQueue"]
+- !private ["s23CustomStringConvertibleP", "SKProductsRequest"]
+- ["s23CustomStringConvertibleP", "Set"]
+- !private ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "UserDefaults"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "add"]
+- !private ["s23CustomStringConvertibleP", "bool"]
+- !private ["s23CustomStringConvertibleP", "canMakePayments"]
+- !private ["s23CustomStringConvertibleP", "cancel"]
+- !private ["s23CustomStringConvertibleP", "clearRequestAndHandler"]
+- !private ["s23CustomStringConvertibleP", "code"]
+- !private ["s23CustomStringConvertibleP", "complete"]
+- !private ["s23CustomStringConvertibleP", "contains"]
+- !private ["s23CustomStringConvertibleP", "default"]
+- !private ["s23CustomStringConvertibleP", "delegate"]
+- !private ["s23CustomStringConvertibleP", "deliverPurchaseNotificationFor"]
+- !private ["s23CustomStringConvertibleP", "error"]
+- !private ["s23CustomStringConvertibleP", "fail"]
+- !private ["s23CustomStringConvertibleP", "finishTransaction"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "insert"]
+- !private ["s23CustomStringConvertibleP", "original"]
+- !private ["s23CustomStringConvertibleP", "payment"]
+- ["s23CustomStringConvertibleP", "paymentQueue"]
+- ["s23CustomStringConvertibleP", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["s23CustomStringConvertibleP", "post"]
+- !private ["s23CustomStringConvertibleP", "print"]
+- !private ["s23CustomStringConvertibleP", "productIdentifier"]
+- !private ["s23CustomStringConvertibleP", "productIdentifiers"]
+- !private ["s23CustomStringConvertibleP", "products"]
+- ["s23CustomStringConvertibleP", "productsRequest"]
+- !private ["s23CustomStringConvertibleP", "productsRequestCompletionHandler"]
+- !private ["s23CustomStringConvertibleP", "purchasedProductIdentifiers"]
+- ["s23CustomStringConvertibleP", "request"]
+- ["s23CustomStringConvertibleP", "requestDidFinish"]
+- !private ["s23CustomStringConvertibleP", "restore"]
+- !private ["s23CustomStringConvertibleP", "restoreCompletedTransactions"]
+- !private ["s23CustomStringConvertibleP", "set"]
+- !private ["s23CustomStringConvertibleP", "standard"]
+- !private ["s23CustomStringConvertibleP", "start"]
+- !private ["s23CustomStringConvertibleP", "synchronize"]
+- !private ["s23CustomStringConvertibleP", "transactionState"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "contains"]
+- ["Se", "init"]
+- !private ["Se", "init"]
+- !private ["Se", "insert"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "contains"]
+- ["SE", "init"]
+- !private ["SE", "init"]
+- !private ["SE", "insert"]
+- !private ["SQ", "NSNotification"]
+- !private ["SQ", "Name"]
+- !private ["SQ", "Notification"]
+- !private ["SQ", "NotificationCenter"]
+- !private ["SQ", "SKError"]
+- !private ["SQ", "SKPayment"]
+- !private ["SQ", "SKPaymentQueue"]
+- !private ["SQ", "SKProductsRequest"]
+- ["SQ", "Set"]
+- !private ["SQ", "String"]
+- !private ["SQ", "UserDefaults"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "add"]
+- !private ["SQ", "bool"]
+- !private ["SQ", "canMakePayments"]
+- !private ["SQ", "cancel"]
+- !private ["SQ", "clearRequestAndHandler"]
+- !private ["SQ", "code"]
+- !private ["SQ", "complete"]
+- !private ["SQ", "contains"]
+- !private ["SQ", "default"]
+- ["SQ", "deferred"]
+- !private ["SQ", "delegate"]
+- !private ["SQ", "deliverPurchaseNotificationFor"]
+- !private ["SQ", "error"]
+- !private ["SQ", "fail"]
+- ["SQ", "failed"]
+- !private ["SQ", "finishTransaction"]
+- ["SQ", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "insert"]
+- !private ["SQ", "original"]
+- !private ["SQ", "payment"]
+- !private ["SQ", "paymentCancelled"]
+- ["SQ", "paymentQueue"]
+- ["SQ", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["SQ", "post"]
+- !private ["SQ", "print"]
+- !private ["SQ", "productIdentifier"]
+- !private ["SQ", "productIdentifiers"]
+- !private ["SQ", "products"]
+- ["SQ", "productsRequest"]
+- !private ["SQ", "productsRequestCompletionHandler"]
+- ["SQ", "purchased"]
+- !private ["SQ", "purchasedProductIdentifiers"]
+- ["SQ", "purchasing"]
+- !private ["SQ", "rawValue"]
+- ["SQ", "request"]
+- ["SQ", "requestDidFinish"]
+- !private ["SQ", "restore"]
+- !private ["SQ", "restoreCompletedTransactions"]
+- ["SQ", "restored"]
+- !private ["SQ", "set"]
+- !private ["SQ", "standard"]
+- !private ["SQ", "start"]
+- !private ["SQ", "synchronize"]
+- !private ["SQ", "transactionState"]
+- !private ["s5ErrorP", "code"]
+- !private ["s5ErrorP", "localizedDescription"]
+- !private ["s5ErrorP", "paymentCancelled"]
+- !private ["s25ExpressibleByArrayLiteralP", "contains"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "insert"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "NSNotification"]
+- !private ["SH", "Name"]
+- !private ["SH", "Notification"]
+- !private ["SH", "NotificationCenter"]
+- !private ["SH", "SKError"]
+- !private ["SH", "SKPayment"]
+- !private ["SH", "SKPaymentQueue"]
+- !private ["SH", "SKProductsRequest"]
+- ["SH", "Set"]
+- !private ["SH", "String"]
+- !private ["SH", "UserDefaults"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "add"]
+- !private ["SH", "bool"]
+- !private ["SH", "canMakePayments"]
+- !private ["SH", "cancel"]
+- !private ["SH", "clearRequestAndHandler"]
+- !private ["SH", "code"]
+- !private ["SH", "complete"]
+- !private ["SH", "contains"]
+- !private ["SH", "default"]
+- ["SH", "deferred"]
+- !private ["SH", "delegate"]
+- !private ["SH", "deliverPurchaseNotificationFor"]
+- !private ["SH", "error"]
+- !private ["SH", "fail"]
+- ["SH", "failed"]
+- !private ["SH", "finishTransaction"]
+- ["SH", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "insert"]
+- !private ["SH", "original"]
+- !private ["SH", "payment"]
+- !private ["SH", "paymentCancelled"]
+- ["SH", "paymentQueue"]
+- ["SH", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["SH", "post"]
+- !private ["SH", "print"]
+- !private ["SH", "productIdentifier"]
+- !private ["SH", "productIdentifiers"]
+- !private ["SH", "products"]
+- ["SH", "productsRequest"]
+- !private ["SH", "productsRequestCompletionHandler"]
+- ["SH", "purchased"]
+- !private ["SH", "purchasedProductIdentifiers"]
+- ["SH", "purchasing"]
+- !private ["SH", "rawValue"]
+- ["SH", "request"]
+- ["SH", "requestDidFinish"]
+- !private ["SH", "restore"]
+- !private ["SH", "restoreCompletedTransactions"]
+- ["SH", "restored"]
+- !private ["SH", "set"]
+- !private ["SH", "standard"]
+- !private ["SH", "start"]
+- !private ["SH", "synchronize"]
+- !private ["SH", "transactionState"]
+- ["7Squares9IAPHelperC", "Bool"]
+- ["7Squares9IAPHelperC", "Error"]
+- !private ["7Squares9IAPHelperC", "NSError"]
+- !private ["7Squares9IAPHelperC", "NSNotification"]
+- !private ["7Squares9IAPHelperC", "Notification"]
+- !private ["7Squares9IAPHelperC", "NotificationCenter"]
+- ["7Squares9IAPHelperC", "ProductIdentifier"]
+- ["7Squares9IAPHelperC", "ProductsRequestCompletionHandler"]
+- !private ["7Squares9IAPHelperC", "SKError"]
+- !private ["7Squares9IAPHelperC", "SKPayment"]
+- ["7Squares9IAPHelperC", "SKPaymentQueue"]
+- ["7Squares9IAPHelperC", "SKPaymentTransaction"]
+- ["7Squares9IAPHelperC", "SKProduct"]
+- ["7Squares9IAPHelperC", "SKProductsRequest"]
+- ["7Squares9IAPHelperC", "SKProductsResponse"]
+- ["7Squares9IAPHelperC", "SKRequest"]
+- ["7Squares9IAPHelperC", "Set"]
+- ["7Squares9IAPHelperC", "String"]
+- !private ["7Squares9IAPHelperC", "UserDefaults"]
+- ["7Squares9IAPHelperC", "buyProduct"]
+- ["7Squares9IAPHelperC", "canMakePayments"]
+- !private ["7Squares9IAPHelperC", "clearRequestAndHandler"]
+- !private ["7Squares9IAPHelperC", "complete"]
+- ["7Squares9IAPHelperC", "deinit"]
+- !private ["7Squares9IAPHelperC", "deliverPurchaseNotificationFor"]
+- !private ["7Squares9IAPHelperC", "fail"]
+- ["7Squares9IAPHelperC", "init"]
+- ["7Squares9IAPHelperC", "isProductPurchased"]
+- ["7Squares9IAPHelperC", "paymentQueue"]
+- ["7Squares9IAPHelperC", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["7Squares9IAPHelperC", "print"]
+- !private ["7Squares9IAPHelperC", "productIdentifiers"]
+- ["7Squares9IAPHelperC", "productsRequest"]
+- !private ["7Squares9IAPHelperC", "productsRequestCompletionHandler"]
+- !private ["7Squares9IAPHelperC", "purchasedProductIdentifiers"]
+- ["7Squares9IAPHelperC", "request"]
+- ["7Squares9IAPHelperC", "requestDidFinish"]
+- ["7Squares9IAPHelperC", "requestProducts"]
+- !private ["7Squares9IAPHelperC", "restore"]
+- ["7Squares9IAPHelperC", "restorePurchases"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["So8NSCodingP", "Name"]
+- !private ["So8NSCodingP", "code"]
+- !private ["So9NSCopyingP", "Name"]
+- !private ["So9NSCopyingP", "code"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "productIdentifier"]
+- !private ["So7NSErrorC", "code"]
+- !private ["So16NSMutableCopyingP", "init"]
+- !private ["So16NSMutableCopyingP", "productIdentifier"]
+- !private ["So14NSNotificationC", "Name"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "Error"]
+- !private ["So8NSObjectC", "NSError"]
+- !private ["So8NSObjectC", "NSNotification"]
+- !private ["So8NSObjectC", "Name"]
+- !private ["So8NSObjectC", "Notification"]
+- !private ["So8NSObjectC", "NotificationCenter"]
+- ["So8NSObjectC", "ProductIdentifier"]
+- ["So8NSObjectC", "ProductsRequestCompletionHandler"]
+- !private ["So8NSObjectC", "SKError"]
+- !private ["So8NSObjectC", "SKPayment"]
+- ["So8NSObjectC", "SKPaymentQueue"]
+- ["So8NSObjectC", "SKPaymentTransaction"]
+- ["So8NSObjectC", "SKProduct"]
+- ["So8NSObjectC", "SKProductsRequest"]
+- ["So8NSObjectC", "SKProductsResponse"]
+- ["So8NSObjectC", "SKRequest"]
+- ["So8NSObjectC", "Set"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "UserDefaults"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "add"]
+- !private ["So8NSObjectC", "bool"]
+- ["So8NSObjectC", "buyProduct"]
+- ["So8NSObjectC", "canMakePayments"]
+- !private ["So8NSObjectC", "cancel"]
+- ["So8NSObjectC", "clearRequestAndHandler"]
+- !private ["So8NSObjectC", "code"]
+- ["So8NSObjectC", "complete"]
+- !private ["So8NSObjectC", "default"]
+- !private ["So8NSObjectC", "delegate"]
+- ["So8NSObjectC", "deliverPurchaseNotificationFor"]
+- !private ["So8NSObjectC", "error"]
+- ["So8NSObjectC", "fail"]
+- !private ["So8NSObjectC", "finishTransaction"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "isProductPurchased"]
+- !private ["So8NSObjectC", "original"]
+- !private ["So8NSObjectC", "payment"]
+- ["So8NSObjectC", "paymentQueue"]
+- ["So8NSObjectC", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["So8NSObjectC", "post"]
+- !private ["So8NSObjectC", "print"]
+- !private ["So8NSObjectC", "productIdentifier"]
+- ["So8NSObjectC", "productIdentifiers"]
+- !private ["So8NSObjectC", "products"]
+- ["So8NSObjectC", "productsRequest"]
+- ["So8NSObjectC", "productsRequestCompletionHandler"]
+- ["So8NSObjectC", "purchasedProductIdentifiers"]
+- ["So8NSObjectC", "request"]
+- ["So8NSObjectC", "requestDidFinish"]
+- ["So8NSObjectC", "requestProducts"]
+- ["So8NSObjectC", "restore"]
+- !private ["So8NSObjectC", "restoreCompletedTransactions"]
+- ["So8NSObjectC", "restorePurchases"]
+- !private ["So8NSObjectC", "set"]
+- !private ["So8NSObjectC", "standard"]
+- !private ["So8NSObjectC", "start"]
+- !private ["So8NSObjectC", "synchronize"]
+- !private ["So8NSObjectC", "transactionState"]
+- !private ["So8NSObjectP", "NSNotification"]
+- !private ["So8NSObjectP", "Name"]
+- !private ["So8NSObjectP", "Notification"]
+- !private ["So8NSObjectP", "NotificationCenter"]
+- !private ["So8NSObjectP", "SKError"]
+- !private ["So8NSObjectP", "SKPayment"]
+- !private ["So8NSObjectP", "SKPaymentQueue"]
+- !private ["So8NSObjectP", "SKProductsRequest"]
+- ["So8NSObjectP", "Set"]
+- !private ["So8NSObjectP", "String"]
+- !private ["So8NSObjectP", "UserDefaults"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "add"]
+- !private ["So8NSObjectP", "bool"]
+- !private ["So8NSObjectP", "canMakePayments"]
+- !private ["So8NSObjectP", "cancel"]
+- !private ["So8NSObjectP", "clearRequestAndHandler"]
+- !private ["So8NSObjectP", "code"]
+- !private ["So8NSObjectP", "complete"]
+- !private ["So8NSObjectP", "default"]
+- !private ["So8NSObjectP", "delegate"]
+- !private ["So8NSObjectP", "deliverPurchaseNotificationFor"]
+- !private ["So8NSObjectP", "error"]
+- !private ["So8NSObjectP", "fail"]
+- !private ["So8NSObjectP", "finishTransaction"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "original"]
+- !private ["So8NSObjectP", "payment"]
+- ["So8NSObjectP", "paymentQueue"]
+- ["So8NSObjectP", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["So8NSObjectP", "post"]
+- !private ["So8NSObjectP", "print"]
+- !private ["So8NSObjectP", "productIdentifier"]
+- !private ["So8NSObjectP", "productIdentifiers"]
+- !private ["So8NSObjectP", "products"]
+- ["So8NSObjectP", "productsRequest"]
+- !private ["So8NSObjectP", "productsRequestCompletionHandler"]
+- !private ["So8NSObjectP", "purchasedProductIdentifiers"]
+- ["So8NSObjectP", "request"]
+- ["So8NSObjectP", "requestDidFinish"]
+- !private ["So8NSObjectP", "restore"]
+- !private ["So8NSObjectP", "restoreCompletedTransactions"]
+- !private ["So8NSObjectP", "set"]
+- !private ["So8NSObjectP", "standard"]
+- !private ["So8NSObjectP", "start"]
+- !private ["So8NSObjectP", "synchronize"]
+- !private ["So8NSObjectP", "transactionState"]
+- !private ["So14NSSecureCodingP", "code"]
+- !private ["So18NSNotificationNamea", "init"]
+- !private ["10Foundation12NotificationV", "Name"]
+- !private ["So20NSNotificationCenterC", "default"]
+- !private ["So20NSNotificationCenterC", "post"]
+- !private ["Sm", "init"]
+- !private ["Sm", "init"]
+- ["SY", "deferred"]
+- ["SY", "failed"]
+- !private ["SY", "init"]
+- ["SY", "purchased"]
+- ["SY", "purchasing"]
+- !private ["SY", "rawValue"]
+- ["SY", "restored"]
+- !private ["10Foundation20ReferenceConvertibleP", "Name"]
+- !private ["SC11SKErrorCodeLeV", "paymentCancelled"]
+- !private ["So9SKPaymentC", "init"]
+- !private ["So9SKPaymentC", "productIdentifier"]
+- !private ["So14SKPaymentQueueC", "add"]
+- !private ["So14SKPaymentQueueC", "canMakePayments"]
+- !private ["So14SKPaymentQueueC", "default"]
+- !private ["So14SKPaymentQueueC", "finishTransaction"]
+- !private ["So14SKPaymentQueueC", "restoreCompletedTransactions"]
+- !private ["So20SKPaymentTransactionC", "error"]
+- !private ["So20SKPaymentTransactionC", "original"]
+- !private ["So20SKPaymentTransactionC", "payment"]
+- !private ["So20SKPaymentTransactionC", "transactionState"]
+- !private ["So28SKPaymentTransactionObserverP", "NSNotification"]
+- !private ["So28SKPaymentTransactionObserverP", "Notification"]
+- !private ["So28SKPaymentTransactionObserverP", "NotificationCenter"]
+- !private ["So28SKPaymentTransactionObserverP", "SKError"]
+- !private ["So28SKPaymentTransactionObserverP", "SKPayment"]
+- !private ["So28SKPaymentTransactionObserverP", "SKPaymentQueue"]
+- !private ["So28SKPaymentTransactionObserverP", "SKProductsRequest"]
+- ["So28SKPaymentTransactionObserverP", "Set"]
+- !private ["So28SKPaymentTransactionObserverP", "String"]
+- !private ["So28SKPaymentTransactionObserverP", "UserDefaults"]
+- ["So28SKPaymentTransactionObserverP", ""]
+- !private ["So28SKPaymentTransactionObserverP", "clearRequestAndHandler"]
+- !private ["So28SKPaymentTransactionObserverP", "complete"]
+- !private ["So28SKPaymentTransactionObserverP", "deliverPurchaseNotificationFor"]
+- !private ["So28SKPaymentTransactionObserverP", "fail"]
+- ["So28SKPaymentTransactionObserverP", "paymentQueue"]
+- ["So28SKPaymentTransactionObserverP", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["So28SKPaymentTransactionObserverP", "print"]
+- !private ["So28SKPaymentTransactionObserverP", "productIdentifiers"]
+- ["So28SKPaymentTransactionObserverP", "productsRequest"]
+- !private ["So28SKPaymentTransactionObserverP", "productsRequestCompletionHandler"]
+- !private ["So28SKPaymentTransactionObserverP", "purchasedProductIdentifiers"]
+- ["So28SKPaymentTransactionObserverP", "request"]
+- ["So28SKPaymentTransactionObserverP", "requestDidFinish"]
+- !private ["So28SKPaymentTransactionObserverP", "restore"]
+- ["So25SKPaymentTransactionStateV", "deferred"]
+- ["So25SKPaymentTransactionStateV", "failed"]
+- ["So25SKPaymentTransactionStateV", "purchased"]
+- ["So25SKPaymentTransactionStateV", "purchasing"]
+- ["So25SKPaymentTransactionStateV", "restored"]
+- !private ["So17SKProductsRequestC", "cancel"]
+- !private ["So17SKProductsRequestC", "delegate"]
+- !private ["So17SKProductsRequestC", "init"]
+- !private ["So17SKProductsRequestC", "start"]
+- !private ["So25SKProductsRequestDelegateP", "NSNotification"]
+- !private ["So25SKProductsRequestDelegateP", "Notification"]
+- !private ["So25SKProductsRequestDelegateP", "NotificationCenter"]
+- !private ["So25SKProductsRequestDelegateP", "SKError"]
+- !private ["So25SKProductsRequestDelegateP", "SKPayment"]
+- !private ["So25SKProductsRequestDelegateP", "SKPaymentQueue"]
+- !private ["So25SKProductsRequestDelegateP", "SKProductsRequest"]
+- ["So25SKProductsRequestDelegateP", "Set"]
+- !private ["So25SKProductsRequestDelegateP", "String"]
+- !private ["So25SKProductsRequestDelegateP", "UserDefaults"]
+- ["So25SKProductsRequestDelegateP", ""]
+- !private ["So25SKProductsRequestDelegateP", "clearRequestAndHandler"]
+- !private ["So25SKProductsRequestDelegateP", "complete"]
+- !private ["So25SKProductsRequestDelegateP", "deliverPurchaseNotificationFor"]
+- !private ["So25SKProductsRequestDelegateP", "fail"]
+- ["So25SKProductsRequestDelegateP", "paymentQueue"]
+- ["So25SKProductsRequestDelegateP", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["So25SKProductsRequestDelegateP", "print"]
+- !private ["So25SKProductsRequestDelegateP", "productIdentifiers"]
+- ["So25SKProductsRequestDelegateP", "productsRequest"]
+- !private ["So25SKProductsRequestDelegateP", "productsRequestCompletionHandler"]
+- !private ["So25SKProductsRequestDelegateP", "purchasedProductIdentifiers"]
+- ["So25SKProductsRequestDelegateP", "request"]
+- ["So25SKProductsRequestDelegateP", "requestDidFinish"]
+- !private ["So25SKProductsRequestDelegateP", "restore"]
+- !private ["So18SKProductsResponseC", "products"]
+- !private ["So9SKRequestC", "cancel"]
+- !private ["So9SKRequestC", "delegate"]
+- !private ["So9SKRequestC", "init"]
+- !private ["So9SKRequestC", "start"]
+- !private ["So17SKRequestDelegateP", "NSNotification"]
+- !private ["So17SKRequestDelegateP", "Notification"]
+- !private ["So17SKRequestDelegateP", "NotificationCenter"]
+- !private ["So17SKRequestDelegateP", "SKError"]
+- !private ["So17SKRequestDelegateP", "SKPayment"]
+- !private ["So17SKRequestDelegateP", "SKPaymentQueue"]
+- !private ["So17SKRequestDelegateP", "SKProductsRequest"]
+- ["So17SKRequestDelegateP", "Set"]
+- !private ["So17SKRequestDelegateP", "String"]
+- !private ["So17SKRequestDelegateP", "UserDefaults"]
+- ["So17SKRequestDelegateP", ""]
+- !private ["So17SKRequestDelegateP", "clearRequestAndHandler"]
+- !private ["So17SKRequestDelegateP", "complete"]
+- !private ["So17SKRequestDelegateP", "deliverPurchaseNotificationFor"]
+- !private ["So17SKRequestDelegateP", "fail"]
+- ["So17SKRequestDelegateP", "paymentQueue"]
+- ["So17SKRequestDelegateP", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["So17SKRequestDelegateP", "print"]
+- !private ["So17SKRequestDelegateP", "productIdentifiers"]
+- ["So17SKRequestDelegateP", "productsRequest"]
+- !private ["So17SKRequestDelegateP", "productsRequestCompletionHandler"]
+- !private ["So17SKRequestDelegateP", "purchasedProductIdentifiers"]
+- ["So17SKRequestDelegateP", "request"]
+- ["So17SKRequestDelegateP", "requestDidFinish"]
+- !private ["So17SKRequestDelegateP", "restore"]
+- !private ["ST", "contains"]
+- ["ST", "init"]
+- !private ["ST", "init"]
+- !private ["ST", "insert"]
+- !private ["Sh", "contains"]
+- ["Sh", "init"]
+- !private ["Sh", "insert"]
+- !private ["s10SetAlgebraP", "contains"]
+- ["s10SetAlgebraP", "init"]
+- !private ["s10SetAlgebraP", "insert"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["SS", "init"]
+- !private ["SS", "init"]
+- !private ["Sy", "init"]
+- !private ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["So14NSUserDefaultsC", "bool"]
+- !private ["So14NSUserDefaultsC", "set"]
+- !private ["So14NSUserDefaultsC", "standard"]
+- !private ["So14NSUserDefaultsC", "synchronize"]
+- !private ["10Foundation21_BridgedStoredNSErrorP", "paymentCancelled"]
+- !private ["10Foundation18_ErrorCodeProtocolP", "rawValue"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "Name"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "contains"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "insert"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSNotification"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Name"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Notification"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NotificationCenter"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKError"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKPayment"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKPaymentQueue"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKProductsRequest"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Set"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UserDefaults"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "add"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "bool"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "canMakePayments"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "cancel"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "clearRequestAndHandler"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "code"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "complete"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "delegate"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "deliverPurchaseNotificationFor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "error"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fail"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "finishTransaction"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "original"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "payment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "paymentQueue"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "paymentQueueRestoreCompletedTransactionsFinished"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "post"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "productIdentifier"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "productIdentifiers"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "products"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "productsRequest"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "productsRequestCompletionHandler"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "purchasedProductIdentifiers"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "request"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "requestDidFinish"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "restore"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "restoreCompletedTransactions"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "set"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "standard"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "start"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "synchronize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "transactionState"]
+- !private ["s21_ObjectiveCBridgeableP", "Name"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "contains"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "insert"]
+- !private ["10Foundation26_ObjectiveCBridgeableErrorP", "paymentCancelled"]
+- !private ["s20_SwiftNewtypeWrapperP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- !private "So11SKErrorCodeV"
+- "Sl"
+- !private "SL"
+- "s28CustomDebugStringConvertibleP"
+- !private "10Foundation13CustomNSErrorP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- "SE"
+- "SQ"
+- !private "s5ErrorP"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- "7Squares9IAPHelperC"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So7NSErrorC"
+- !private "So16NSMutableCopyingP"
+- !private "So14NSNotificationC"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So18NSNotificationNamea"
+- !private "10Foundation12NotificationV"
+- !private "So20NSNotificationCenterC"
+- !private "Sm"
+- "SY"
+- !private "10Foundation20ReferenceConvertibleP"
+- !private "SC11SKErrorCodeLeV"
+- !private "So9SKPaymentC"
+- !private "So14SKPaymentQueueC"
+- !private "So20SKPaymentTransactionC"
+- "So28SKPaymentTransactionObserverP"
+- "So25SKPaymentTransactionStateV"
+- !private "So17SKProductsRequestC"
+- "So25SKProductsRequestDelegateP"
+- !private "So18SKProductsResponseC"
+- !private "So9SKRequestC"
+- "So17SKRequestDelegateP"
+- "ST"
+- "Sh"
+- "s10SetAlgebraP"
+- !private "s12StaticStringV"
+- !private "SS"
+- !private "Sy"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "So14NSUserDefaultsC"
+- !private "10Foundation21_BridgedStoredNSErrorP"
+- !private "10Foundation18_ErrorCodeProtocolP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- !private "10Foundation26_ObjectiveCBridgeableErrorP"
+- !private "s20_SwiftNewtypeWrapperP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ModelIO.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Photos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SceneKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MetalKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GameplayKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore-umbrella.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeCustomTemplateAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedUnifiedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAppInstallAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAppInstallAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeContentAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeContentAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdReward.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedUnifiedNativeAdNotificationSource.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAdNotificationSource.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImage.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Firebase/CoreOnly/Sources/Firebase.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInAppPurchase.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInAppPurchaseDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdSizeDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdUnconfirmedClickDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoaderDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAudioVideoManagerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoControllerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventBannerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAppEventDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeExpressAdViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADBannerViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedBannerViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdSize.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Headers/FIRInAppMessaging.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Headers/FirebaseInAppMessaging.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAd+ConfirmationClick.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMAdNetworkAdapterProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMRewardBasedVideoAdNetworkAdapterProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMAdNetworkConnectorProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMRewardBasedVideoAdNetworkConnectorProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImage+Mediation.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoader.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAudioVideoManager.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoController.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADDebugOptionsViewController.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventBanner.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRequestError.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCorrelator.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAppInstallAdAssetIDs.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeContentAdAssetIDs.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdNetworkExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMobileAds.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GoogleMobileAds.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoaderAdTypes.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMEnums.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdViewAdOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImageAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCorrelatorAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMultipleAdsAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPBannerViewOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdAssetIdentifiers.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventParameters.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediationAdRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADSearchRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADDynamicHeightSearchRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMediaView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeExpressAdView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADSearchBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdChoicesView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/ModelIO.framework/Headers/ModelIO.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Photos.framework/Headers/Photos.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GLKit.framework/Headers/GLKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GameKit.framework/Headers/GameKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/SceneKit.framework/Headers/SceneKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/StoreKit.framework/Headers/StoreKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/SpriteKit.framework/Headers/SpriteKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MetalKit.framework/Headers/MetalKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GameplayKit.framework/Headers/GameplayKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "729b94d0cdf3b72a806647396b751243"

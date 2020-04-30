@@ -1,0 +1,1252 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ComboNode"
+provides-nominal:
+- "7Squares9ComboNodeC"
+provides-member:
+- ["7Squares9ComboNodeC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "*"
+- !private "*="
+- !private "-"
+- !private "..."
+- !private "/"
+- !private "<"
+- !private "=="
+- !private ">"
+- !private "??"
+- !private "Array"
+- "AssignmentPrecedence"
+- "CGFloat"
+- !private "CGPoint"
+- "CGRect"
+- !private "ColorCategory"
+- "ComboNode"
+- "Float"
+- "FloatLiteralType"
+- "Int"
+- "IntegerLiteralType"
+- "NSCoder"
+- !private "SKAction"
+- !private "SKActionTimingMode"
+- !private "SKLabelHorizontalAlignmentMode"
+- "SKLabelNode"
+- !private "SKLabelVerticalAlignmentMode"
+- "SKNode"
+- !private "StringLiteralType"
+- "UIColor"
+- !private "UInt32"
+- !private "UnicodeScalarType"
+- !private "arc4random_uniform"
+- !private "fatalError"
+- !private "min"
+depends-member:
+- !private ["Sa", "append"]
+- !private ["s13ArrayProtocolP", "append"]
+- !private ["SK", "append"]
+- !private ["SK", "init"]
+- !private ["SK", "init"]
+- !private ["SB", "init"]
+- !private ["Sz", "digitCount"]
+- !private ["Sz", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["12CoreGraphics7CGFloatV", "init"]
+- !private ["So7CGPointV", "init"]
+- !private ["So6CGRectV", "height"]
+- !private ["So6CGRectV", "midX"]
+- !private ["So6CGRectV", "midY"]
+- !private ["So6CGRectV", "width"]
+- !private ["s7CVarArgP", "CGFloat"]
+- !private ["s7CVarArgP", "CGPoint"]
+- !private ["s7CVarArgP", "ColorCategory"]
+- !private ["s7CVarArgP", "Int"]
+- !private ["s7CVarArgP", "SKAction"]
+- !private ["s7CVarArgP", "SKActionTimingMode"]
+- !private ["s7CVarArgP", "SKLabelHorizontalAlignmentMode"]
+- !private ["s7CVarArgP", "SKLabelVerticalAlignmentMode"]
+- !private ["s7CVarArgP", "UInt32"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "adjustLabelFontSizeToFitRect"]
+- !private ["s7CVarArgP", "alpha"]
+- !private ["s7CVarArgP", "append"]
+- !private ["s7CVarArgP", "arc4random_uniform"]
+- !private ["s7CVarArgP", "boundingRect"]
+- !private ["s7CVarArgP", "combo"]
+- !private ["s7CVarArgP", "digitCount"]
+- !private ["s7CVarArgP", "fadeIn"]
+- !private ["s7CVarArgP", "fadeOut"]
+- !private ["s7CVarArgP", "fatalError"]
+- !private ["s7CVarArgP", "fontColor"]
+- !private ["s7CVarArgP", "fontName"]
+- !private ["s7CVarArgP", "fontSize"]
+- !private ["s7CVarArgP", "frame"]
+- !private ["s7CVarArgP", "getCombo"]
+- !private ["s7CVarArgP", "group"]
+- !private ["s7CVarArgP", "horizontalAlignmentMode"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "min"]
+- !private ["s7CVarArgP", "moveBy"]
+- !private ["s7CVarArgP", "numberDigits"]
+- !private ["s7CVarArgP", "position"]
+- !private ["s7CVarArgP", "repeatForever"]
+- !private ["s7CVarArgP", "reversed"]
+- !private ["s7CVarArgP", "run"]
+- !private ["s7CVarArgP", "scale"]
+- !private ["s7CVarArgP", "scaleX"]
+- !private ["s7CVarArgP", "sequence"]
+- !private ["s7CVarArgP", "shakeNode"]
+- !private ["s7CVarArgP", "text"]
+- !private ["s7CVarArgP", "timingMode"]
+- !private ["s7CVarArgP", "verticalAlignmentMode"]
+- !private ["s7CVarArgP", "wait"]
+- !private ["s7CVarArgP", "zPosition"]
+- !private ["Sl", "append"]
+- !private ["Sl", "init"]
+- !private ["Sl", "init"]
+- !private ["7Squares13ColorCategoryO", "getBestScoreFontColor"]
+- ["7Squares9ComboNodeC", "CGFloat"]
+- !private ["7Squares9ComboNodeC", "CGPoint"]
+- ["7Squares9ComboNodeC", "CGRect"]
+- !private ["7Squares9ComboNodeC", "ColorCategory"]
+- ["7Squares9ComboNodeC", "Float"]
+- ["7Squares9ComboNodeC", "Int"]
+- ["7Squares9ComboNodeC", "NSCoder"]
+- !private ["7Squares9ComboNodeC", "SKAction"]
+- !private ["7Squares9ComboNodeC", "SKActionTimingMode"]
+- !private ["7Squares9ComboNodeC", "SKLabelHorizontalAlignmentMode"]
+- !private ["7Squares9ComboNodeC", "SKLabelVerticalAlignmentMode"]
+- ["7Squares9ComboNodeC", "SKNode"]
+- ["7Squares9ComboNodeC", "UIColor"]
+- !private ["7Squares9ComboNodeC", "UInt32"]
+- ["7Squares9ComboNodeC", "adjustLabelFontSizeToFitRect"]
+- !private ["7Squares9ComboNodeC", "alpha"]
+- !private ["7Squares9ComboNodeC", "arc4random_uniform"]
+- !private ["7Squares9ComboNodeC", "boundingRect"]
+- !private ["7Squares9ComboNodeC", "combo"]
+- !private ["7Squares9ComboNodeC", "deinit"]
+- !private ["7Squares9ComboNodeC", "fatalError"]
+- !private ["7Squares9ComboNodeC", "fontColor"]
+- !private ["7Squares9ComboNodeC", "fontName"]
+- !private ["7Squares9ComboNodeC", "fontSize"]
+- !private ["7Squares9ComboNodeC", "frame"]
+- ["7Squares9ComboNodeC", "getCombo"]
+- !private ["7Squares9ComboNodeC", "horizontalAlignmentMode"]
+- ["7Squares9ComboNodeC", "init"]
+- !private ["7Squares9ComboNodeC", "min"]
+- !private ["7Squares9ComboNodeC", "numberDigits"]
+- !private ["7Squares9ComboNodeC", "position"]
+- ["7Squares9ComboNodeC", "recallSetCombo"]
+- !private ["7Squares9ComboNodeC", "run"]
+- ["7Squares9ComboNodeC", "setCombo"]
+- ["7Squares9ComboNodeC", "setFontColor"]
+- ["7Squares9ComboNodeC", "shakeNode"]
+- !private ["7Squares9ComboNodeC", "text"]
+- !private ["7Squares9ComboNodeC", "verticalAlignmentMode"]
+- !private ["7Squares9ComboNodeC", "zPosition"]
+- !private ["SL", "digitCount"]
+- !private ["SL", "init"]
+- !private ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "CGFloat"]
+- !private ["s28CustomDebugStringConvertibleP", "CGPoint"]
+- !private ["s28CustomDebugStringConvertibleP", "ColorCategory"]
+- !private ["s28CustomDebugStringConvertibleP", "Int"]
+- !private ["s28CustomDebugStringConvertibleP", "SKAction"]
+- !private ["s28CustomDebugStringConvertibleP", "SKActionTimingMode"]
+- !private ["s28CustomDebugStringConvertibleP", "SKLabelHorizontalAlignmentMode"]
+- !private ["s28CustomDebugStringConvertibleP", "SKLabelVerticalAlignmentMode"]
+- !private ["s28CustomDebugStringConvertibleP", "UInt32"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "adjustLabelFontSizeToFitRect"]
+- !private ["s28CustomDebugStringConvertibleP", "alpha"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
+- !private ["s28CustomDebugStringConvertibleP", "arc4random_uniform"]
+- !private ["s28CustomDebugStringConvertibleP", "boundingRect"]
+- !private ["s28CustomDebugStringConvertibleP", "combo"]
+- !private ["s28CustomDebugStringConvertibleP", "fadeIn"]
+- !private ["s28CustomDebugStringConvertibleP", "fadeOut"]
+- !private ["s28CustomDebugStringConvertibleP", "fatalError"]
+- !private ["s28CustomDebugStringConvertibleP", "fontColor"]
+- !private ["s28CustomDebugStringConvertibleP", "fontName"]
+- !private ["s28CustomDebugStringConvertibleP", "fontSize"]
+- !private ["s28CustomDebugStringConvertibleP", "frame"]
+- !private ["s28CustomDebugStringConvertibleP", "getCombo"]
+- !private ["s28CustomDebugStringConvertibleP", "group"]
+- !private ["s28CustomDebugStringConvertibleP", "height"]
+- !private ["s28CustomDebugStringConvertibleP", "horizontalAlignmentMode"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "midX"]
+- !private ["s28CustomDebugStringConvertibleP", "midY"]
+- !private ["s28CustomDebugStringConvertibleP", "min"]
+- !private ["s28CustomDebugStringConvertibleP", "moveBy"]
+- !private ["s28CustomDebugStringConvertibleP", "numberDigits"]
+- !private ["s28CustomDebugStringConvertibleP", "position"]
+- !private ["s28CustomDebugStringConvertibleP", "repeatForever"]
+- !private ["s28CustomDebugStringConvertibleP", "reversed"]
+- !private ["s28CustomDebugStringConvertibleP", "run"]
+- !private ["s28CustomDebugStringConvertibleP", "scale"]
+- !private ["s28CustomDebugStringConvertibleP", "scaleX"]
+- !private ["s28CustomDebugStringConvertibleP", "sequence"]
+- !private ["s28CustomDebugStringConvertibleP", "shakeNode"]
+- !private ["s28CustomDebugStringConvertibleP", "text"]
+- !private ["s28CustomDebugStringConvertibleP", "timingMode"]
+- !private ["s28CustomDebugStringConvertibleP", "verticalAlignmentMode"]
+- !private ["s28CustomDebugStringConvertibleP", "wait"]
+- !private ["s28CustomDebugStringConvertibleP", "width"]
+- !private ["s28CustomDebugStringConvertibleP", "zPosition"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "digitCount"]
+- !private ["s29CustomPlaygroundQuickLookableP", "height"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "midX"]
+- !private ["s29CustomPlaygroundQuickLookableP", "midY"]
+- !private ["s29CustomPlaygroundQuickLookableP", "width"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "append"]
+- !private ["s17CustomReflectableP", "digitCount"]
+- !private ["s17CustomReflectableP", "height"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "midX"]
+- !private ["s17CustomReflectableP", "midY"]
+- !private ["s17CustomReflectableP", "width"]
+- !private ["s23CustomStringConvertibleP", "CGFloat"]
+- !private ["s23CustomStringConvertibleP", "CGPoint"]
+- !private ["s23CustomStringConvertibleP", "ColorCategory"]
+- !private ["s23CustomStringConvertibleP", "Int"]
+- !private ["s23CustomStringConvertibleP", "SKAction"]
+- !private ["s23CustomStringConvertibleP", "SKActionTimingMode"]
+- !private ["s23CustomStringConvertibleP", "SKLabelHorizontalAlignmentMode"]
+- !private ["s23CustomStringConvertibleP", "SKLabelVerticalAlignmentMode"]
+- !private ["s23CustomStringConvertibleP", "UInt32"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "adjustLabelFontSizeToFitRect"]
+- !private ["s23CustomStringConvertibleP", "alpha"]
+- !private ["s23CustomStringConvertibleP", "append"]
+- !private ["s23CustomStringConvertibleP", "arc4random_uniform"]
+- !private ["s23CustomStringConvertibleP", "boundingRect"]
+- !private ["s23CustomStringConvertibleP", "combo"]
+- !private ["s23CustomStringConvertibleP", "digitCount"]
+- !private ["s23CustomStringConvertibleP", "fadeIn"]
+- !private ["s23CustomStringConvertibleP", "fadeOut"]
+- !private ["s23CustomStringConvertibleP", "fatalError"]
+- !private ["s23CustomStringConvertibleP", "fontColor"]
+- !private ["s23CustomStringConvertibleP", "fontName"]
+- !private ["s23CustomStringConvertibleP", "fontSize"]
+- !private ["s23CustomStringConvertibleP", "frame"]
+- !private ["s23CustomStringConvertibleP", "getCombo"]
+- !private ["s23CustomStringConvertibleP", "group"]
+- !private ["s23CustomStringConvertibleP", "horizontalAlignmentMode"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "min"]
+- !private ["s23CustomStringConvertibleP", "moveBy"]
+- !private ["s23CustomStringConvertibleP", "numberDigits"]
+- !private ["s23CustomStringConvertibleP", "position"]
+- !private ["s23CustomStringConvertibleP", "repeatForever"]
+- !private ["s23CustomStringConvertibleP", "reversed"]
+- !private ["s23CustomStringConvertibleP", "run"]
+- !private ["s23CustomStringConvertibleP", "scale"]
+- !private ["s23CustomStringConvertibleP", "scaleX"]
+- !private ["s23CustomStringConvertibleP", "sequence"]
+- !private ["s23CustomStringConvertibleP", "shakeNode"]
+- !private ["s23CustomStringConvertibleP", "text"]
+- !private ["s23CustomStringConvertibleP", "timingMode"]
+- !private ["s23CustomStringConvertibleP", "verticalAlignmentMode"]
+- !private ["s23CustomStringConvertibleP", "wait"]
+- !private ["s23CustomStringConvertibleP", "zPosition"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "append"]
+- !private ["Se", "digitCount"]
+- !private ["Se", "height"]
+- !private ["Se", "init"]
+- !private ["Se", "init"]
+- !private ["Se", "midX"]
+- !private ["Se", "midY"]
+- !private ["Se", "width"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "append"]
+- !private ["SE", "digitCount"]
+- !private ["SE", "height"]
+- !private ["SE", "init"]
+- !private ["SE", "init"]
+- !private ["SE", "midX"]
+- !private ["SE", "midY"]
+- !private ["SE", "width"]
+- !private ["SQ", "CGFloat"]
+- !private ["SQ", "CGPoint"]
+- !private ["SQ", "ColorCategory"]
+- !private ["SQ", "Int"]
+- !private ["SQ", "SKAction"]
+- !private ["SQ", "SKActionTimingMode"]
+- !private ["SQ", "SKLabelHorizontalAlignmentMode"]
+- !private ["SQ", "SKLabelVerticalAlignmentMode"]
+- !private ["SQ", "UInt32"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "adjustLabelFontSizeToFitRect"]
+- !private ["SQ", "alpha"]
+- !private ["SQ", "append"]
+- !private ["SQ", "arc4random_uniform"]
+- !private ["SQ", "boundingRect"]
+- !private ["SQ", "center"]
+- !private ["SQ", "combo"]
+- !private ["SQ", "digitCount"]
+- !private ["SQ", "easeOut"]
+- !private ["SQ", "fadeIn"]
+- !private ["SQ", "fadeOut"]
+- !private ["SQ", "fatalError"]
+- !private ["SQ", "fontColor"]
+- !private ["SQ", "fontName"]
+- !private ["SQ", "fontSize"]
+- !private ["SQ", "frame"]
+- !private ["SQ", "getCombo"]
+- !private ["SQ", "group"]
+- !private ["SQ", "height"]
+- !private ["SQ", "horizontalAlignmentMode"]
+- !private ["SQ", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "midX"]
+- !private ["SQ", "midY"]
+- !private ["SQ", "min"]
+- !private ["SQ", "moveBy"]
+- !private ["SQ", "numberDigits"]
+- !private ["SQ", "position"]
+- !private ["SQ", "repeatForever"]
+- !private ["SQ", "reversed"]
+- !private ["SQ", "run"]
+- !private ["SQ", "scale"]
+- !private ["SQ", "scaleX"]
+- !private ["SQ", "sequence"]
+- !private ["SQ", "shakeNode"]
+- !private ["SQ", "text"]
+- !private ["SQ", "timingMode"]
+- !private ["SQ", "verticalAlignmentMode"]
+- !private ["SQ", "wait"]
+- !private ["SQ", "width"]
+- !private ["SQ", "zPosition"]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s25ExpressibleByFloatLiteralP", "init"]
+- !private ["s27ExpressibleByIntegerLiteralP", "digitCount"]
+- !private ["s27ExpressibleByIntegerLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s17FixedWidthIntegerP", "digitCount"]
+- !private ["s17FixedWidthIntegerP", "init"]
+- !private ["SF", "init"]
+- !private ["SH", "CGFloat"]
+- !private ["SH", "CGPoint"]
+- !private ["SH", "ColorCategory"]
+- !private ["SH", "Int"]
+- !private ["SH", "SKAction"]
+- !private ["SH", "SKActionTimingMode"]
+- !private ["SH", "SKLabelHorizontalAlignmentMode"]
+- !private ["SH", "SKLabelVerticalAlignmentMode"]
+- !private ["SH", "UInt32"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "adjustLabelFontSizeToFitRect"]
+- !private ["SH", "alpha"]
+- !private ["SH", "append"]
+- !private ["SH", "arc4random_uniform"]
+- !private ["SH", "boundingRect"]
+- !private ["SH", "center"]
+- !private ["SH", "combo"]
+- !private ["SH", "digitCount"]
+- !private ["SH", "easeOut"]
+- !private ["SH", "fadeIn"]
+- !private ["SH", "fadeOut"]
+- !private ["SH", "fatalError"]
+- !private ["SH", "fontColor"]
+- !private ["SH", "fontName"]
+- !private ["SH", "fontSize"]
+- !private ["SH", "frame"]
+- !private ["SH", "getCombo"]
+- !private ["SH", "group"]
+- !private ["SH", "horizontalAlignmentMode"]
+- !private ["SH", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "min"]
+- !private ["SH", "moveBy"]
+- !private ["SH", "numberDigits"]
+- !private ["SH", "position"]
+- !private ["SH", "repeatForever"]
+- !private ["SH", "reversed"]
+- !private ["SH", "run"]
+- !private ["SH", "scale"]
+- !private ["SH", "scaleX"]
+- !private ["SH", "sequence"]
+- !private ["SH", "shakeNode"]
+- !private ["SH", "text"]
+- !private ["SH", "timingMode"]
+- !private ["SH", "verticalAlignmentMode"]
+- !private ["SH", "wait"]
+- !private ["SH", "zPosition"]
+- !private ["Si", "digitCount"]
+- !private ["Si", "init"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "digitCount"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "digitCount"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["SM", "append"]
+- !private ["So8NSCodingP", "CGFloat"]
+- !private ["So8NSCodingP", "CGPoint"]
+- !private ["So8NSCodingP", "ColorCategory"]
+- !private ["So8NSCodingP", "Int"]
+- !private ["So8NSCodingP", "SKAction"]
+- !private ["So8NSCodingP", "SKActionTimingMode"]
+- !private ["So8NSCodingP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So8NSCodingP", "SKLabelVerticalAlignmentMode"]
+- !private ["So8NSCodingP", "UInt32"]
+- ["So8NSCodingP", ""]
+- !private ["So8NSCodingP", "adjustLabelFontSizeToFitRect"]
+- !private ["So8NSCodingP", "alpha"]
+- !private ["So8NSCodingP", "arc4random_uniform"]
+- !private ["So8NSCodingP", "boundingRect"]
+- !private ["So8NSCodingP", "combo"]
+- !private ["So8NSCodingP", "fadeIn"]
+- !private ["So8NSCodingP", "fadeOut"]
+- !private ["So8NSCodingP", "fatalError"]
+- !private ["So8NSCodingP", "fontColor"]
+- !private ["So8NSCodingP", "fontName"]
+- !private ["So8NSCodingP", "fontSize"]
+- !private ["So8NSCodingP", "frame"]
+- !private ["So8NSCodingP", "getCombo"]
+- !private ["So8NSCodingP", "group"]
+- !private ["So8NSCodingP", "horizontalAlignmentMode"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "min"]
+- !private ["So8NSCodingP", "moveBy"]
+- !private ["So8NSCodingP", "numberDigits"]
+- !private ["So8NSCodingP", "position"]
+- !private ["So8NSCodingP", "repeatForever"]
+- !private ["So8NSCodingP", "reversed"]
+- !private ["So8NSCodingP", "run"]
+- !private ["So8NSCodingP", "scale"]
+- !private ["So8NSCodingP", "scaleX"]
+- !private ["So8NSCodingP", "sequence"]
+- !private ["So8NSCodingP", "shakeNode"]
+- !private ["So8NSCodingP", "text"]
+- !private ["So8NSCodingP", "timingMode"]
+- !private ["So8NSCodingP", "verticalAlignmentMode"]
+- !private ["So8NSCodingP", "wait"]
+- !private ["So8NSCodingP", "zPosition"]
+- !private ["So9NSCopyingP", "CGFloat"]
+- !private ["So9NSCopyingP", "CGPoint"]
+- !private ["So9NSCopyingP", "ColorCategory"]
+- !private ["So9NSCopyingP", "Int"]
+- !private ["So9NSCopyingP", "SKAction"]
+- !private ["So9NSCopyingP", "SKActionTimingMode"]
+- !private ["So9NSCopyingP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So9NSCopyingP", "SKLabelVerticalAlignmentMode"]
+- !private ["So9NSCopyingP", "UInt32"]
+- ["So9NSCopyingP", ""]
+- !private ["So9NSCopyingP", "adjustLabelFontSizeToFitRect"]
+- !private ["So9NSCopyingP", "alpha"]
+- !private ["So9NSCopyingP", "arc4random_uniform"]
+- !private ["So9NSCopyingP", "boundingRect"]
+- !private ["So9NSCopyingP", "combo"]
+- !private ["So9NSCopyingP", "fadeIn"]
+- !private ["So9NSCopyingP", "fadeOut"]
+- !private ["So9NSCopyingP", "fatalError"]
+- !private ["So9NSCopyingP", "fontColor"]
+- !private ["So9NSCopyingP", "fontName"]
+- !private ["So9NSCopyingP", "fontSize"]
+- !private ["So9NSCopyingP", "frame"]
+- !private ["So9NSCopyingP", "getCombo"]
+- !private ["So9NSCopyingP", "group"]
+- !private ["So9NSCopyingP", "horizontalAlignmentMode"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "min"]
+- !private ["So9NSCopyingP", "moveBy"]
+- !private ["So9NSCopyingP", "numberDigits"]
+- !private ["So9NSCopyingP", "position"]
+- !private ["So9NSCopyingP", "repeatForever"]
+- !private ["So9NSCopyingP", "reversed"]
+- !private ["So9NSCopyingP", "run"]
+- !private ["So9NSCopyingP", "scale"]
+- !private ["So9NSCopyingP", "scaleX"]
+- !private ["So9NSCopyingP", "sequence"]
+- !private ["So9NSCopyingP", "shakeNode"]
+- !private ["So9NSCopyingP", "text"]
+- !private ["So9NSCopyingP", "timingMode"]
+- !private ["So9NSCopyingP", "verticalAlignmentMode"]
+- !private ["So9NSCopyingP", "wait"]
+- !private ["So9NSCopyingP", "zPosition"]
+- ["So8NSObjectC", "CGFloat"]
+- !private ["So8NSObjectC", "CGPoint"]
+- ["So8NSObjectC", "CGRect"]
+- !private ["So8NSObjectC", "ColorCategory"]
+- ["So8NSObjectC", "Float"]
+- ["So8NSObjectC", "Int"]
+- ["So8NSObjectC", "NSCoder"]
+- !private ["So8NSObjectC", "SKAction"]
+- !private ["So8NSObjectC", "SKActionTimingMode"]
+- !private ["So8NSObjectC", "SKLabelHorizontalAlignmentMode"]
+- !private ["So8NSObjectC", "SKLabelVerticalAlignmentMode"]
+- ["So8NSObjectC", "SKNode"]
+- ["So8NSObjectC", "UIColor"]
+- !private ["So8NSObjectC", "UInt32"]
+- ["So8NSObjectC", "adjustLabelFontSizeToFitRect"]
+- !private ["So8NSObjectC", "alpha"]
+- !private ["So8NSObjectC", "arc4random_uniform"]
+- ["So8NSObjectC", "boundingRect"]
+- ["So8NSObjectC", "combo"]
+- !private ["So8NSObjectC", "fadeIn"]
+- !private ["So8NSObjectC", "fadeOut"]
+- !private ["So8NSObjectC", "fatalError"]
+- !private ["So8NSObjectC", "fontColor"]
+- !private ["So8NSObjectC", "fontName"]
+- !private ["So8NSObjectC", "fontSize"]
+- !private ["So8NSObjectC", "frame"]
+- ["So8NSObjectC", "getCombo"]
+- !private ["So8NSObjectC", "group"]
+- !private ["So8NSObjectC", "horizontalAlignmentMode"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "min"]
+- !private ["So8NSObjectC", "moveBy"]
+- ["So8NSObjectC", "numberDigits"]
+- !private ["So8NSObjectC", "position"]
+- ["So8NSObjectC", "recallSetCombo"]
+- !private ["So8NSObjectC", "repeatForever"]
+- !private ["So8NSObjectC", "reversed"]
+- !private ["So8NSObjectC", "run"]
+- !private ["So8NSObjectC", "scale"]
+- !private ["So8NSObjectC", "scaleX"]
+- !private ["So8NSObjectC", "sequence"]
+- ["So8NSObjectC", "setCombo"]
+- ["So8NSObjectC", "setFontColor"]
+- ["So8NSObjectC", "shakeNode"]
+- !private ["So8NSObjectC", "text"]
+- !private ["So8NSObjectC", "timingMode"]
+- !private ["So8NSObjectC", "verticalAlignmentMode"]
+- !private ["So8NSObjectC", "wait"]
+- !private ["So8NSObjectC", "zPosition"]
+- !private ["So8NSObjectP", "CGFloat"]
+- !private ["So8NSObjectP", "CGPoint"]
+- !private ["So8NSObjectP", "ColorCategory"]
+- !private ["So8NSObjectP", "Int"]
+- !private ["So8NSObjectP", "SKAction"]
+- !private ["So8NSObjectP", "SKActionTimingMode"]
+- !private ["So8NSObjectP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So8NSObjectP", "SKLabelVerticalAlignmentMode"]
+- !private ["So8NSObjectP", "UInt32"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "adjustLabelFontSizeToFitRect"]
+- !private ["So8NSObjectP", "alpha"]
+- !private ["So8NSObjectP", "arc4random_uniform"]
+- !private ["So8NSObjectP", "boundingRect"]
+- !private ["So8NSObjectP", "combo"]
+- !private ["So8NSObjectP", "fadeIn"]
+- !private ["So8NSObjectP", "fadeOut"]
+- !private ["So8NSObjectP", "fatalError"]
+- !private ["So8NSObjectP", "fontColor"]
+- !private ["So8NSObjectP", "fontName"]
+- !private ["So8NSObjectP", "fontSize"]
+- !private ["So8NSObjectP", "frame"]
+- !private ["So8NSObjectP", "getCombo"]
+- !private ["So8NSObjectP", "group"]
+- !private ["So8NSObjectP", "horizontalAlignmentMode"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "min"]
+- !private ["So8NSObjectP", "moveBy"]
+- !private ["So8NSObjectP", "numberDigits"]
+- !private ["So8NSObjectP", "position"]
+- !private ["So8NSObjectP", "repeatForever"]
+- !private ["So8NSObjectP", "reversed"]
+- !private ["So8NSObjectP", "run"]
+- !private ["So8NSObjectP", "scale"]
+- !private ["So8NSObjectP", "scaleX"]
+- !private ["So8NSObjectP", "sequence"]
+- !private ["So8NSObjectP", "shakeNode"]
+- !private ["So8NSObjectP", "text"]
+- !private ["So8NSObjectP", "timingMode"]
+- !private ["So8NSObjectP", "verticalAlignmentMode"]
+- !private ["So8NSObjectP", "wait"]
+- !private ["So8NSObjectP", "zPosition"]
+- !private ["So14NSSecureCodingP", "CGFloat"]
+- !private ["So14NSSecureCodingP", "CGPoint"]
+- !private ["So14NSSecureCodingP", "ColorCategory"]
+- !private ["So14NSSecureCodingP", "Int"]
+- !private ["So14NSSecureCodingP", "SKAction"]
+- !private ["So14NSSecureCodingP", "SKActionTimingMode"]
+- !private ["So14NSSecureCodingP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So14NSSecureCodingP", "SKLabelVerticalAlignmentMode"]
+- !private ["So14NSSecureCodingP", "UInt32"]
+- ["So14NSSecureCodingP", ""]
+- !private ["So14NSSecureCodingP", "adjustLabelFontSizeToFitRect"]
+- !private ["So14NSSecureCodingP", "alpha"]
+- !private ["So14NSSecureCodingP", "arc4random_uniform"]
+- !private ["So14NSSecureCodingP", "boundingRect"]
+- !private ["So14NSSecureCodingP", "combo"]
+- !private ["So14NSSecureCodingP", "fadeIn"]
+- !private ["So14NSSecureCodingP", "fadeOut"]
+- !private ["So14NSSecureCodingP", "fatalError"]
+- !private ["So14NSSecureCodingP", "fontColor"]
+- !private ["So14NSSecureCodingP", "fontName"]
+- !private ["So14NSSecureCodingP", "fontSize"]
+- !private ["So14NSSecureCodingP", "frame"]
+- !private ["So14NSSecureCodingP", "getCombo"]
+- !private ["So14NSSecureCodingP", "group"]
+- !private ["So14NSSecureCodingP", "horizontalAlignmentMode"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "min"]
+- !private ["So14NSSecureCodingP", "moveBy"]
+- !private ["So14NSSecureCodingP", "numberDigits"]
+- !private ["So14NSSecureCodingP", "position"]
+- !private ["So14NSSecureCodingP", "repeatForever"]
+- !private ["So14NSSecureCodingP", "reversed"]
+- !private ["So14NSSecureCodingP", "run"]
+- !private ["So14NSSecureCodingP", "scale"]
+- !private ["So14NSSecureCodingP", "scaleX"]
+- !private ["So14NSSecureCodingP", "sequence"]
+- !private ["So14NSSecureCodingP", "shakeNode"]
+- !private ["So14NSSecureCodingP", "text"]
+- !private ["So14NSSecureCodingP", "timingMode"]
+- !private ["So14NSSecureCodingP", "verticalAlignmentMode"]
+- !private ["So14NSSecureCodingP", "wait"]
+- !private ["So14NSSecureCodingP", "zPosition"]
+- !private ["Sj", "digitCount"]
+- !private ["Sj", "init"]
+- !private ["Sk", "append"]
+- !private ["Sm", "append"]
+- !private ["Sm", "init"]
+- !private ["Sm", "init"]
+- !private ["SY", "center"]
+- !private ["SY", "easeOut"]
+- !private ["So8SKActionC", "fadeIn"]
+- !private ["So8SKActionC", "fadeOut"]
+- !private ["So8SKActionC", "group"]
+- !private ["So8SKActionC", "moveBy"]
+- !private ["So8SKActionC", "repeatForever"]
+- !private ["So8SKActionC", "reversed"]
+- !private ["So8SKActionC", "run"]
+- !private ["So8SKActionC", "scale"]
+- !private ["So8SKActionC", "scaleX"]
+- !private ["So8SKActionC", "sequence"]
+- !private ["So8SKActionC", "timingMode"]
+- !private ["So8SKActionC", "wait"]
+- !private ["So18SKActionTimingModeV", "easeOut"]
+- !private ["So30SKLabelHorizontalAlignmentModeV", "center"]
+- ["So11SKLabelNodeC", "CGFloat"]
+- !private ["So11SKLabelNodeC", "CGPoint"]
+- ["So11SKLabelNodeC", "CGRect"]
+- !private ["So11SKLabelNodeC", "ColorCategory"]
+- ["So11SKLabelNodeC", "Float"]
+- ["So11SKLabelNodeC", "Int"]
+- ["So11SKLabelNodeC", "NSCoder"]
+- !private ["So11SKLabelNodeC", "SKAction"]
+- !private ["So11SKLabelNodeC", "SKActionTimingMode"]
+- !private ["So11SKLabelNodeC", "SKLabelHorizontalAlignmentMode"]
+- !private ["So11SKLabelNodeC", "SKLabelVerticalAlignmentMode"]
+- ["So11SKLabelNodeC", "SKNode"]
+- ["So11SKLabelNodeC", "UIColor"]
+- !private ["So11SKLabelNodeC", "UInt32"]
+- ["So11SKLabelNodeC", ""]
+- ["So11SKLabelNodeC", "adjustLabelFontSizeToFitRect"]
+- !private ["So11SKLabelNodeC", "alpha"]
+- !private ["So11SKLabelNodeC", "arc4random_uniform"]
+- ["So11SKLabelNodeC", "boundingRect"]
+- ["So11SKLabelNodeC", "combo"]
+- !private ["So11SKLabelNodeC", "fatalError"]
+- !private ["So11SKLabelNodeC", "fontColor"]
+- !private ["So11SKLabelNodeC", "fontName"]
+- !private ["So11SKLabelNodeC", "fontSize"]
+- !private ["So11SKLabelNodeC", "frame"]
+- ["So11SKLabelNodeC", "getCombo"]
+- !private ["So11SKLabelNodeC", "horizontalAlignmentMode"]
+- ["So11SKLabelNodeC", "init"]
+- !private ["So11SKLabelNodeC", "min"]
+- ["So11SKLabelNodeC", "numberDigits"]
+- !private ["So11SKLabelNodeC", "position"]
+- ["So11SKLabelNodeC", "recallSetCombo"]
+- !private ["So11SKLabelNodeC", "run"]
+- ["So11SKLabelNodeC", "setCombo"]
+- ["So11SKLabelNodeC", "setFontColor"]
+- ["So11SKLabelNodeC", "shakeNode"]
+- !private ["So11SKLabelNodeC", "text"]
+- !private ["So11SKLabelNodeC", "verticalAlignmentMode"]
+- !private ["So11SKLabelNodeC", "zPosition"]
+- !private ["So28SKLabelVerticalAlignmentModeV", "center"]
+- ["So6SKNodeC", "CGFloat"]
+- !private ["So6SKNodeC", "CGPoint"]
+- ["So6SKNodeC", "CGRect"]
+- !private ["So6SKNodeC", "ColorCategory"]
+- ["So6SKNodeC", "Float"]
+- ["So6SKNodeC", "Int"]
+- ["So6SKNodeC", "NSCoder"]
+- !private ["So6SKNodeC", "SKAction"]
+- !private ["So6SKNodeC", "SKActionTimingMode"]
+- !private ["So6SKNodeC", "SKLabelHorizontalAlignmentMode"]
+- !private ["So6SKNodeC", "SKLabelVerticalAlignmentMode"]
+- ["So6SKNodeC", "SKNode"]
+- ["So6SKNodeC", "UIColor"]
+- !private ["So6SKNodeC", "UInt32"]
+- ["So6SKNodeC", "adjustLabelFontSizeToFitRect"]
+- !private ["So6SKNodeC", "alpha"]
+- !private ["So6SKNodeC", "arc4random_uniform"]
+- ["So6SKNodeC", "boundingRect"]
+- ["So6SKNodeC", "combo"]
+- !private ["So6SKNodeC", "fatalError"]
+- !private ["So6SKNodeC", "fontColor"]
+- !private ["So6SKNodeC", "fontName"]
+- !private ["So6SKNodeC", "fontSize"]
+- !private ["So6SKNodeC", "frame"]
+- ["So6SKNodeC", "getCombo"]
+- !private ["So6SKNodeC", "horizontalAlignmentMode"]
+- ["So6SKNodeC", "init"]
+- !private ["So6SKNodeC", "min"]
+- ["So6SKNodeC", "numberDigits"]
+- !private ["So6SKNodeC", "position"]
+- ["So6SKNodeC", "recallSetCombo"]
+- !private ["So6SKNodeC", "run"]
+- ["So6SKNodeC", "setCombo"]
+- ["So6SKNodeC", "setFontColor"]
+- ["So6SKNodeC", "shakeNode"]
+- !private ["So6SKNodeC", "text"]
+- !private ["So6SKNodeC", "verticalAlignmentMode"]
+- !private ["So6SKNodeC", "zPosition"]
+- !private ["ST", "append"]
+- !private ["ST", "init"]
+- !private ["ST", "init"]
+- !private ["SZ", "digitCount"]
+- !private ["SZ", "init"]
+- !private ["s13SignedNumericP", "digitCount"]
+- !private ["s13SignedNumericP", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["Sx", "digitCount"]
+- !private ["Sx", "init"]
+- !private ["SS", "init"]
+- !private ["SS", "init"]
+- !private ["Sy", "init"]
+- !private ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["So18UIFocusEnvironmentP", "CGFloat"]
+- !private ["So18UIFocusEnvironmentP", "CGPoint"]
+- !private ["So18UIFocusEnvironmentP", "ColorCategory"]
+- !private ["So18UIFocusEnvironmentP", "Int"]
+- !private ["So18UIFocusEnvironmentP", "SKAction"]
+- !private ["So18UIFocusEnvironmentP", "SKActionTimingMode"]
+- !private ["So18UIFocusEnvironmentP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So18UIFocusEnvironmentP", "SKLabelVerticalAlignmentMode"]
+- !private ["So18UIFocusEnvironmentP", "UInt32"]
+- ["So18UIFocusEnvironmentP", ""]
+- !private ["So18UIFocusEnvironmentP", "adjustLabelFontSizeToFitRect"]
+- !private ["So18UIFocusEnvironmentP", "alpha"]
+- !private ["So18UIFocusEnvironmentP", "arc4random_uniform"]
+- !private ["So18UIFocusEnvironmentP", "boundingRect"]
+- !private ["So18UIFocusEnvironmentP", "combo"]
+- !private ["So18UIFocusEnvironmentP", "fatalError"]
+- !private ["So18UIFocusEnvironmentP", "fontColor"]
+- !private ["So18UIFocusEnvironmentP", "fontName"]
+- !private ["So18UIFocusEnvironmentP", "fontSize"]
+- !private ["So18UIFocusEnvironmentP", "frame"]
+- !private ["So18UIFocusEnvironmentP", "getCombo"]
+- !private ["So18UIFocusEnvironmentP", "horizontalAlignmentMode"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "min"]
+- !private ["So18UIFocusEnvironmentP", "numberDigits"]
+- !private ["So18UIFocusEnvironmentP", "position"]
+- !private ["So18UIFocusEnvironmentP", "run"]
+- !private ["So18UIFocusEnvironmentP", "shakeNode"]
+- !private ["So18UIFocusEnvironmentP", "text"]
+- !private ["So18UIFocusEnvironmentP", "verticalAlignmentMode"]
+- !private ["So18UIFocusEnvironmentP", "zPosition"]
+- !private ["So11UIFocusItemP", "CGFloat"]
+- !private ["So11UIFocusItemP", "CGPoint"]
+- !private ["So11UIFocusItemP", "ColorCategory"]
+- !private ["So11UIFocusItemP", "Int"]
+- !private ["So11UIFocusItemP", "SKAction"]
+- !private ["So11UIFocusItemP", "SKActionTimingMode"]
+- !private ["So11UIFocusItemP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So11UIFocusItemP", "SKLabelVerticalAlignmentMode"]
+- !private ["So11UIFocusItemP", "UInt32"]
+- ["So11UIFocusItemP", ""]
+- !private ["So11UIFocusItemP", "adjustLabelFontSizeToFitRect"]
+- !private ["So11UIFocusItemP", "alpha"]
+- !private ["So11UIFocusItemP", "arc4random_uniform"]
+- !private ["So11UIFocusItemP", "boundingRect"]
+- !private ["So11UIFocusItemP", "combo"]
+- !private ["So11UIFocusItemP", "fatalError"]
+- !private ["So11UIFocusItemP", "fontColor"]
+- !private ["So11UIFocusItemP", "fontName"]
+- !private ["So11UIFocusItemP", "fontSize"]
+- !private ["So11UIFocusItemP", "frame"]
+- !private ["So11UIFocusItemP", "getCombo"]
+- !private ["So11UIFocusItemP", "horizontalAlignmentMode"]
+- !private ["So11UIFocusItemP", "init"]
+- !private ["So11UIFocusItemP", "min"]
+- !private ["So11UIFocusItemP", "numberDigits"]
+- !private ["So11UIFocusItemP", "position"]
+- !private ["So11UIFocusItemP", "run"]
+- !private ["So11UIFocusItemP", "shakeNode"]
+- !private ["So11UIFocusItemP", "text"]
+- !private ["So11UIFocusItemP", "verticalAlignmentMode"]
+- !private ["So11UIFocusItemP", "zPosition"]
+- !private ["So30UIPasteConfigurationSupportingP", "CGFloat"]
+- !private ["So30UIPasteConfigurationSupportingP", "CGPoint"]
+- !private ["So30UIPasteConfigurationSupportingP", "ColorCategory"]
+- !private ["So30UIPasteConfigurationSupportingP", "Int"]
+- !private ["So30UIPasteConfigurationSupportingP", "SKAction"]
+- !private ["So30UIPasteConfigurationSupportingP", "SKActionTimingMode"]
+- !private ["So30UIPasteConfigurationSupportingP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So30UIPasteConfigurationSupportingP", "SKLabelVerticalAlignmentMode"]
+- !private ["So30UIPasteConfigurationSupportingP", "UInt32"]
+- ["So30UIPasteConfigurationSupportingP", ""]
+- !private ["So30UIPasteConfigurationSupportingP", "adjustLabelFontSizeToFitRect"]
+- !private ["So30UIPasteConfigurationSupportingP", "alpha"]
+- !private ["So30UIPasteConfigurationSupportingP", "arc4random_uniform"]
+- !private ["So30UIPasteConfigurationSupportingP", "boundingRect"]
+- !private ["So30UIPasteConfigurationSupportingP", "combo"]
+- !private ["So30UIPasteConfigurationSupportingP", "fatalError"]
+- !private ["So30UIPasteConfigurationSupportingP", "fontColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "fontName"]
+- !private ["So30UIPasteConfigurationSupportingP", "fontSize"]
+- !private ["So30UIPasteConfigurationSupportingP", "frame"]
+- !private ["So30UIPasteConfigurationSupportingP", "getCombo"]
+- !private ["So30UIPasteConfigurationSupportingP", "horizontalAlignmentMode"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "min"]
+- !private ["So30UIPasteConfigurationSupportingP", "numberDigits"]
+- !private ["So30UIPasteConfigurationSupportingP", "position"]
+- !private ["So30UIPasteConfigurationSupportingP", "run"]
+- !private ["So30UIPasteConfigurationSupportingP", "shakeNode"]
+- !private ["So30UIPasteConfigurationSupportingP", "text"]
+- !private ["So30UIPasteConfigurationSupportingP", "verticalAlignmentMode"]
+- !private ["So30UIPasteConfigurationSupportingP", "zPosition"]
+- ["So11UIResponderC", "CGFloat"]
+- !private ["So11UIResponderC", "CGPoint"]
+- ["So11UIResponderC", "CGRect"]
+- !private ["So11UIResponderC", "ColorCategory"]
+- ["So11UIResponderC", "Float"]
+- ["So11UIResponderC", "Int"]
+- ["So11UIResponderC", "NSCoder"]
+- !private ["So11UIResponderC", "SKAction"]
+- !private ["So11UIResponderC", "SKActionTimingMode"]
+- !private ["So11UIResponderC", "SKLabelHorizontalAlignmentMode"]
+- !private ["So11UIResponderC", "SKLabelVerticalAlignmentMode"]
+- ["So11UIResponderC", "SKNode"]
+- ["So11UIResponderC", "UIColor"]
+- !private ["So11UIResponderC", "UInt32"]
+- ["So11UIResponderC", "adjustLabelFontSizeToFitRect"]
+- !private ["So11UIResponderC", "alpha"]
+- !private ["So11UIResponderC", "arc4random_uniform"]
+- ["So11UIResponderC", "boundingRect"]
+- ["So11UIResponderC", "combo"]
+- !private ["So11UIResponderC", "fatalError"]
+- !private ["So11UIResponderC", "fontColor"]
+- !private ["So11UIResponderC", "fontName"]
+- !private ["So11UIResponderC", "fontSize"]
+- !private ["So11UIResponderC", "frame"]
+- ["So11UIResponderC", "getCombo"]
+- !private ["So11UIResponderC", "horizontalAlignmentMode"]
+- ["So11UIResponderC", "init"]
+- !private ["So11UIResponderC", "min"]
+- ["So11UIResponderC", "numberDigits"]
+- !private ["So11UIResponderC", "position"]
+- ["So11UIResponderC", "recallSetCombo"]
+- !private ["So11UIResponderC", "run"]
+- ["So11UIResponderC", "setCombo"]
+- ["So11UIResponderC", "setFontColor"]
+- ["So11UIResponderC", "shakeNode"]
+- !private ["So11UIResponderC", "text"]
+- !private ["So11UIResponderC", "verticalAlignmentMode"]
+- !private ["So11UIResponderC", "zPosition"]
+- !private ["So30UIResponderStandardEditActionsP", "CGFloat"]
+- !private ["So30UIResponderStandardEditActionsP", "CGPoint"]
+- !private ["So30UIResponderStandardEditActionsP", "ColorCategory"]
+- !private ["So30UIResponderStandardEditActionsP", "Int"]
+- !private ["So30UIResponderStandardEditActionsP", "SKAction"]
+- !private ["So30UIResponderStandardEditActionsP", "SKActionTimingMode"]
+- !private ["So30UIResponderStandardEditActionsP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So30UIResponderStandardEditActionsP", "SKLabelVerticalAlignmentMode"]
+- !private ["So30UIResponderStandardEditActionsP", "UInt32"]
+- ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So30UIResponderStandardEditActionsP", "adjustLabelFontSizeToFitRect"]
+- !private ["So30UIResponderStandardEditActionsP", "alpha"]
+- !private ["So30UIResponderStandardEditActionsP", "arc4random_uniform"]
+- !private ["So30UIResponderStandardEditActionsP", "boundingRect"]
+- !private ["So30UIResponderStandardEditActionsP", "combo"]
+- !private ["So30UIResponderStandardEditActionsP", "fatalError"]
+- !private ["So30UIResponderStandardEditActionsP", "fontColor"]
+- !private ["So30UIResponderStandardEditActionsP", "fontName"]
+- !private ["So30UIResponderStandardEditActionsP", "fontSize"]
+- !private ["So30UIResponderStandardEditActionsP", "frame"]
+- !private ["So30UIResponderStandardEditActionsP", "getCombo"]
+- !private ["So30UIResponderStandardEditActionsP", "horizontalAlignmentMode"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "min"]
+- !private ["So30UIResponderStandardEditActionsP", "numberDigits"]
+- !private ["So30UIResponderStandardEditActionsP", "position"]
+- !private ["So30UIResponderStandardEditActionsP", "run"]
+- !private ["So30UIResponderStandardEditActionsP", "shakeNode"]
+- !private ["So30UIResponderStandardEditActionsP", "text"]
+- !private ["So30UIResponderStandardEditActionsP", "verticalAlignmentMode"]
+- !private ["So30UIResponderStandardEditActionsP", "zPosition"]
+- !private ["So23UIUserActivityRestoringP", "CGFloat"]
+- !private ["So23UIUserActivityRestoringP", "CGPoint"]
+- !private ["So23UIUserActivityRestoringP", "ColorCategory"]
+- !private ["So23UIUserActivityRestoringP", "Int"]
+- !private ["So23UIUserActivityRestoringP", "SKAction"]
+- !private ["So23UIUserActivityRestoringP", "SKActionTimingMode"]
+- !private ["So23UIUserActivityRestoringP", "SKLabelHorizontalAlignmentMode"]
+- !private ["So23UIUserActivityRestoringP", "SKLabelVerticalAlignmentMode"]
+- !private ["So23UIUserActivityRestoringP", "UInt32"]
+- ["So23UIUserActivityRestoringP", ""]
+- !private ["So23UIUserActivityRestoringP", "adjustLabelFontSizeToFitRect"]
+- !private ["So23UIUserActivityRestoringP", "alpha"]
+- !private ["So23UIUserActivityRestoringP", "arc4random_uniform"]
+- !private ["So23UIUserActivityRestoringP", "boundingRect"]
+- !private ["So23UIUserActivityRestoringP", "combo"]
+- !private ["So23UIUserActivityRestoringP", "fatalError"]
+- !private ["So23UIUserActivityRestoringP", "fontColor"]
+- !private ["So23UIUserActivityRestoringP", "fontName"]
+- !private ["So23UIUserActivityRestoringP", "fontSize"]
+- !private ["So23UIUserActivityRestoringP", "frame"]
+- !private ["So23UIUserActivityRestoringP", "getCombo"]
+- !private ["So23UIUserActivityRestoringP", "horizontalAlignmentMode"]
+- !private ["So23UIUserActivityRestoringP", "init"]
+- !private ["So23UIUserActivityRestoringP", "min"]
+- !private ["So23UIUserActivityRestoringP", "numberDigits"]
+- !private ["So23UIUserActivityRestoringP", "position"]
+- !private ["So23UIUserActivityRestoringP", "run"]
+- !private ["So23UIUserActivityRestoringP", "shakeNode"]
+- !private ["So23UIUserActivityRestoringP", "text"]
+- !private ["So23UIUserActivityRestoringP", "verticalAlignmentMode"]
+- !private ["So23UIUserActivityRestoringP", "zPosition"]
+- !private ["s6UInt32V", "init"]
+- !private ["SU", "init"]
+- !private ["s18_BitwiseOperationsP", "digitCount"]
+- !private ["s18_BitwiseOperationsP", "init"]
+- !private ["s15_CVarArgAlignedP", "init"]
+- !private ["s22_CVarArgPassedAsDoubleP", "init"]
+- !private ["s24_DestructorSafeContainerP", "append"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "digitCount"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "append"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "digitCount"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGFloat"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGPoint"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ColorCategory"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKAction"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKActionTimingMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKLabelHorizontalAlignmentMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SKLabelVerticalAlignmentMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UInt32"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "adjustLabelFontSizeToFitRect"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "alpha"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "arc4random_uniform"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "boundingRect"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "combo"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fadeIn"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fadeOut"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fatalError"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fontColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fontName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fontSize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "frame"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "getCombo"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "group"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "horizontalAlignmentMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "min"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "moveBy"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "numberDigits"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "position"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "repeatForever"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "reversed"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "run"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "scale"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "scaleX"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "sequence"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "shakeNode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "text"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "timingMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "verticalAlignmentMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "wait"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "zPosition"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "append"]
+- !private ["s21_ObjectiveCBridgeableP", "digitCount"]
+- !private ["s21_ObjectiveCBridgeableP", "height"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "midX"]
+- !private ["s21_ObjectiveCBridgeableP", "midY"]
+- !private ["s21_ObjectiveCBridgeableP", "width"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "Sa"
+- !private "s13ArrayProtocolP"
+- !private "SK"
+- !private "SB"
+- !private "Sz"
+- !private "Sb"
+- !private "12CoreGraphics7CGFloatV"
+- !private "So7CGPointV"
+- !private "So6CGRectV"
+- "s7CVarArgP"
+- !private "Sl"
+- !private "7Squares13ColorCategoryO"
+- "7Squares9ComboNodeC"
+- !private "SL"
+- "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "Se"
+- !private "SE"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s25ExpressibleByFloatLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s17FixedWidthIntegerP"
+- !private "SF"
+- "SH"
+- !private "Si"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "SM"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "So14NSSecureCodingP"
+- !private "Sj"
+- !private "Sk"
+- !private "Sm"
+- !private "SY"
+- !private "So8SKActionC"
+- !private "So18SKActionTimingModeV"
+- !private "So30SKLabelHorizontalAlignmentModeV"
+- "So11SKLabelNodeC"
+- !private "So28SKLabelVerticalAlignmentModeV"
+- "So6SKNodeC"
+- !private "ST"
+- !private "SZ"
+- !private "s13SignedNumericP"
+- !private "s12StaticStringV"
+- !private "Sx"
+- !private "SS"
+- !private "Sy"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- "So18UIFocusEnvironmentP"
+- "So11UIFocusItemP"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- "So23UIUserActivityRestoringP"
+- !private "s6UInt32V"
+- !private "SU"
+- !private "s18_BitwiseOperationsP"
+- !private "s15_CVarArgAlignedP"
+- !private "s22_CVarArgPassedAsDoubleP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ModelIO.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Photos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SceneKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/MetalKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/GameplayKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore-umbrella.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeCustomTemplateAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedUnifiedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventNativeAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAppInstallAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAppInstallAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeContentAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeContentAd.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdReward.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedUnifiedNativeAdNotificationSource.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAdNotificationSource.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImage.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Firebase/CoreOnly/Sources/Firebase.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInAppPurchase.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediatedNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventNativeAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAdDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInAppPurchaseDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdSizeDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdUnconfirmedClickDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventInterstitialDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoaderDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAudioVideoManagerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoControllerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventBannerDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAppEventDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeExpressAdViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADBannerViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPCustomRenderedBannerViewDelegate.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdSize.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Headers/FIRInAppMessaging.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Headers/FirebaseInAppMessaging.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAd+ConfirmationClick.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventInterstitial.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMAdNetworkAdapterProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMRewardBasedVideoAdNetworkAdapterProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMAdNetworkConnectorProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMRewardBasedVideoAdNetworkConnectorProtocol.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImage+Mediation.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoader.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAudioVideoManager.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoController.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADDebugOptionsViewController.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventBanner.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRequestError.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCorrelator.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAppInstallAdAssetIDs.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeContentAdAssetIDs.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdNetworkExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventExtras.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMobileAds.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GoogleMobileAds.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdLoaderAdTypes.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMEnums.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdViewAdOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADVideoOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeAdImageAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCorrelatorAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMultipleAdsAdLoaderOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPBannerViewOptions.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADUnifiedNativeAdAssetIdentifiers.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventParameters.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/Mediation/GADMediationAdRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADSearchRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADDynamicHeightSearchRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADCustomEventRequest.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADMediaView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADNativeExpressAdView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/DFPBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADSearchBannerView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Headers/GADAdChoicesView.h"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/build/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseInAppMessaging/Frameworks/FirebaseInAppMessaging.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/alanlou/Documents/iOS Design/SquaresDash/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks/GoogleMobileAds.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/ModelIO.framework/Headers/ModelIO.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Photos.framework/Headers/Photos.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GLKit.framework/Headers/GLKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GameKit.framework/Headers/GameKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/SceneKit.framework/Headers/SceneKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/StoreKit.framework/Headers/StoreKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/SpriteKit.framework/Headers/SpriteKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MetalKit.framework/Headers/MetalKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/GameplayKit.framework/Headers/GameplayKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "44059f43aaf5894dded7b070fd3f614c"

@@ -42,9 +42,10 @@ class SkipButtonNode: SKSpriteNode {
         self.alpha = 0.8
         
         // set up skip message node
-        skipMessageNode = MessageNode(message: "Skip")
+        let messageText = NSLocalizedString("Skip", comment: "")
+        skipMessageNode = MessageNode(message: messageText)
         let messageNodeFrame = CGRect(x: width*0.05,
-                                      y: -width*0.85,
+                                      y: -width*0.80,
                                       width: width*1.0,
                                       height: width*0.5)
         skipMessageNode.adjustLabelFontSizeToFitRect(rect: messageNodeFrame)

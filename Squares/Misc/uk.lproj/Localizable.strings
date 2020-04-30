@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  Squares
+
+  Created by Alan Lou on 7/25/18.
+  Copyright © 2018 Rawwr Studios. All rights reserved.
+*/
+
+/* GameViewController */
+"How to Play"  = "Як Грати";
+"Do you want to follow the tutorial?" = "Бажаєте ознайомитися з Інструкціями?";
+"Yes" = "Так";
+"Cancel" = "Скасувати";
+"Skip" = "Пропустити";
+
+/* Tutorial Scene */
+"Welcome to Square Dash!" = "Ласкаво просимо до Square Dash!";
+"Tap to Start Tutorial" = "Натисніть, щоб почати Навчання";
+"Place squares on the board." = "Розмістіть Квадрати на панелі.";
+"Good Job! Keep it going." = "Гарна робота! Продовжуйте.";
+"Place squares in each 3x3 section." = "Розмістіть квадрати в кожну секцію 3x3.";
+"And match color across sections to score." = "Поєднуйте кольори для набрання більше балів.";
+"Nice! Now try vertically." = "Добре! Тепер спробуйте вертикально.";
+"Remember to match colors." = "Не забувайте поєднати кольори.";
+"Awesome! Next, Diagonal." = "Дуже добре! Далі, Діагональ.";
+"Fantastic!" = "Чудово!";
+"Finally, fill a 3x3 section." = "Насамкінець, заповніть секцію 3x3.";
+"Of course, match colors." = "Звичайно ж, поєднайте кольори.";
+"Great job! You are ready now!" = "Відмінна робота! Тепер Ви готові!";
+"Tap to Finish Tutorial" = "Натисніть, щоб закінчити Навчання";
+
+/* Rate App */
+"Enjoy Square Dash?" = "Подобається Square Dash?";
+"Please rate the game to support us. Thank you!" = "Будь ласка, оцініть гру, щоб підтримати нас. Дякуємо!";
+"Yes, I like it!" = "Так, вона мені сподобалась!";
+"No, thanks." = "Ні, дякую";
+
+/* IAP */
+"Purchase Failed" = "Помилка при Купівлі";
+"Ooops, something went wrong. Please try again later. Thank you!" = "Ой, щось пішло не так. Будь ласка, спробуйте ще раз пізніше. Дякуємо!";

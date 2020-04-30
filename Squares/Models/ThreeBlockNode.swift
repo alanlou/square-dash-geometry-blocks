@@ -13,9 +13,9 @@ protocol ThreeBlockNodeDelegate: NSObjectProtocol {
     func ThreeBlockWasSet(sender: ThreeBlockNode)
 }
 
-enum ThreeBlockTypes {
+enum ThreeBlockTypes: Int {
     // x x x
-    case Type1
+    case Type1 = 0
     // x
     // x
     // x
@@ -68,6 +68,7 @@ class ThreeBlockNode: SKSpriteNode {
     let cellSpacing: CGFloat = 3.0
     let tileWidth: CGFloat
     let blockColorIndex: UInt32
+    let bottomIndex: UInt32
     let initialPosition: CGPoint
     let blockOffset: CGFloat
     let touchYOffset: CGFloat
@@ -85,7 +86,7 @@ class ThreeBlockNode: SKSpriteNode {
     weak var blockDelegate: ThreeBlockNodeDelegate!
     
     //MARK:- Initialization
-    init(width: CGFloat, colorIndex: UInt32, position: CGPoint) {
+    init(width: CGFloat, colorIndex: UInt32, position: CGPoint, bottomIndex: UInt32) {
         
         // set up instance variable
         blockType = ThreeBlockTypes.randomBlockType()
@@ -100,6 +101,7 @@ class ThreeBlockNode: SKSpriteNode {
         block2 = BlockCellNode(colorIndex: colorIndex)
         block3 = BlockCellNode(colorIndex: colorIndex)
         blockColorIndex = colorIndex
+        self.bottomIndex = bottomIndex
         
         super.init(texture: nil, color: .clear, size: CGSize(width:width*4, height:width*4))
         self.name = "threeblock"
@@ -149,8 +151,84 @@ class ThreeBlockNode: SKSpriteNode {
         self.addChild(block3)
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.tileWidth, forKey: "width")
+        coder.encode(self.blockColorIndex, forKey: "colorIndex")
+        coder.encode(self.initialPosition, forKey: "position")
+        coder.encode(self.blockType.rawValue, forKey:"blockType")
+        coder.encode(self.bottomIndex, forKey: "bottomIndex")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        let width = aDecoder.decodeObject(forKey: "width") as! CGFloat
+        let colorIndex = aDecoder.decodeObject(forKey: "colorIndex") as! UInt32
+        let position = aDecoder.decodeCGPoint(forKey: "position")
+        let savedBlockType = ThreeBlockTypes(rawValue: aDecoder.decodeInteger(forKey:"blockType"))
+        let bottomIndex = aDecoder.decodeObject(forKey: "bottomIndex") as! UInt32
+        
+        // set up instance variable
+        blockType = savedBlockType!
+        
+        tileWidth = width
+        initialPosition = position
+        
+        blockOffset = width
+        touchYOffset = tileWidth/2 + 25
+        
+        block1 = BlockCellNode(colorIndex: colorIndex)
+        block2 = BlockCellNode(colorIndex: colorIndex)
+        block3 = BlockCellNode(colorIndex: colorIndex)
+        blockColorIndex = colorIndex
+        self.bottomIndex = bottomIndex
+        
+        super.init(texture: nil, color: .clear, size: CGSize(width:width*4, height:width*4))
+        
+        self.name = "threeblock"
+        self.zPosition = 100
+        self.anchorPoint = CGPoint(x:0.5, y:0.5+blockOffset/self.size.height)
+        
+        // set up options
+        isUserInteractionEnabled = true
+        
+        // add block cell nodes
+        block1.size = CGSize(width: tileWidth, height: tileWidth)
+        block2.size = CGSize(width: tileWidth, height: tileWidth)
+        block3.size = CGSize(width: tileWidth, height: tileWidth)
+        
+        switch blockType {
+        case .Type1:
+            block1.position = CGPoint(x:-tileWidth-cellSpacing, y:0.0)
+            block2.position = CGPoint(x:0.0, y:0.0)
+            block3.position = CGPoint(x:tileWidth+cellSpacing, y:0.0)
+        case .Type2:
+            block1.position = CGPoint(x:0.0, y:tileWidth+cellSpacing)
+            block2.position = CGPoint(x:0.0, y:0.0)
+            block3.position = CGPoint(x:0.0, y:-tileWidth-cellSpacing)
+        case .Type3:
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+            block3.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+        case .Type4:
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block3.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+        case .Type5:
+            block1.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+            block3.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+        case .Type6:
+            block1.position = CGPoint(x:-tileWidth/2-cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block2.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:tileWidth/2+cellSpacing/2)
+            block3.position = CGPoint(x:tileWidth/2+cellSpacing/2, y:-tileWidth/2-cellSpacing/2)
+        }
+        block1InitialPos = block1.position
+        block2InitialPos = block2.position
+        block3InitialPos = block3.position
+        
+        self.addChild(block1)
+        self.addChild(block2)
+        self.addChild(block3)
     }
     
     //MARK:- Helper Functions

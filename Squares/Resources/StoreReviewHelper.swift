@@ -31,7 +31,7 @@ struct StoreReviewHelper {
         }
         
         switch appOpenCount {
-        case 2,20:
+        case 7,20:
             StoreReviewHelper().requestReview()
             Analytics.logEvent("request_review", parameters: [:])
         case _ where appOpenCount%40 == 0 :
@@ -53,7 +53,7 @@ struct StoreReviewHelper {
         }
         
         switch appOpenCount {
-        case 2,20:
+        case 7,20:
             return true
         case _ where appOpenCount%40 == 0 :
             return true
