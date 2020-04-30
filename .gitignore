@@ -1,0 +1,18 @@
+## iOS build files
+xcuserdata
+*.xcworkspace
+*.xcscheme
+build
+
+# localization
+*.lproj
+
+# images
+*.png
+
+## Frameworks
+pods
+Podfile
+Podfile.lock
+
+
